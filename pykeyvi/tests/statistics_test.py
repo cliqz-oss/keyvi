@@ -20,6 +20,7 @@ def test_manifest():
         m = d.GetManifest()
         assert m['author'] == "Zapp Brannigan"
 
+
 def test_statistics():
     c = pykeyvi.KeyOnlyDictionaryCompiler()
     c.Add("Leela")

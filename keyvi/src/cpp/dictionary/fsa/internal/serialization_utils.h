@@ -51,10 +51,25 @@ class SerializationUtils {
 
   static boost::property_tree::ptree ReadJsonRecord(std::istream& stream) {
     uint32_t header_size;
-    stream.read(reinterpret_cast<char*>(&header_size), sizeof(int));
+    stream.read(reinterpret_cast<char*>(&header_size), sizeof(header_size));
     header_size = htonl(header_size);
     char * buffer = new char[header_size];
     stream.read(buffer, header_size);
+    std::string buffer_as_string(buffer, header_size);
+    delete[] buffer;
+    std::istringstream string_stream(buffer_as_string);
+
+    boost::property_tree::ptree properties;
+    boost::property_tree::read_json(string_stream, properties);
+    return properties;
+  }
+
+  static boost::property_tree::ptree ReadJsonRecord(int file) {
+    uint32_t header_size;
+    read(file, reinterpret_cast<char*>(&header_size), sizeof(header_size));
+    header_size = htonl(header_size);
+    char * buffer = new char[header_size];
+    read(file, buffer, header_size);
     std::string buffer_as_string(buffer, header_size);
     delete[] buffer;
     std::istringstream string_stream(buffer_as_string);

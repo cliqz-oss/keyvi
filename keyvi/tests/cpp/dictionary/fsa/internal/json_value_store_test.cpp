@@ -25,7 +25,6 @@
 
 #include <boost/test/unit_test.hpp>
 #include <boost/filesystem.hpp>
-#include <boost/interprocess/file_mapping.hpp>
 #include "dictionary/fsa/internal/json_value_store.h"
 #include "dictionary/fsa/internal/constants.h"
 
@@ -107,11 +106,9 @@ BOOST_AUTO_TEST_CASE( persistence )
   json_value_store.Write(out_stream);
   out_stream.close();
 
-  std::ifstream in_stream(filename, std::ios::binary);
-  auto file_mapping = new boost::interprocess::file_mapping(
-            filename.c_str(), boost::interprocess::read_only);
+  int file = open(filename.c_str(), O_RDONLY);
 
-  JsonValueStoreReader reader(in_stream, file_mapping, false);
+  JsonValueStoreReader reader(file, false);
 
   BOOST_CHECK_EQUAL(value, reader.GetValueAsString(v));
   BOOST_CHECK_EQUAL("{\"mytestvalue2\":23}", reader.GetValueAsString(w));

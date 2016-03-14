@@ -25,11 +25,14 @@
 #ifndef AUTOMATA_H_
 #define AUTOMATA_H_
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <vector>
 #include <sys/mman.h>
 #include <boost/lexical_cast.hpp>
 #include <boost/filesystem.hpp>
-#include <boost/interprocess/file_mapping.hpp>
-#include <boost/interprocess/mapped_region.hpp>
 #include "dictionary/fsa/internal/constants.h"
 #include "dictionary/fsa/internal/value_store_factory.h"
 #include "dictionary/fsa/internal/serialization_utils.h"
@@ -53,24 +56,22 @@ final {
 
    public:
     Automata(const char * filename, bool load_lazy=false) {
-      std::ifstream in_stream(filename, std::ios::binary);
+      file_ = open(filename, O_RDONLY);
 
-      if (!in_stream.good()) {
+      if (file_ == -1) {
         throw std::invalid_argument("file not found");
       }
 
       char magic[8];
-      in_stream.read(magic, sizeof(magic));
+      read(file_, magic, sizeof(magic));
 
       // check magic
       if (std::strncmp(magic, "KEYVIFSA", 8)){
         throw std::invalid_argument("not a keyvi file");
       }
 
-      automata_properties_ = internal::SerializationUtils::ReadJsonRecord(
-          in_stream);
-      sparse_array_properties_ = internal::SerializationUtils::ReadJsonRecord(
-          in_stream);
+      automata_properties_ = internal::SerializationUtils::ReadJsonRecord(file_);
+      sparse_array_properties_ = internal::SerializationUtils::ReadJsonRecord(file_);
 
       compact_size_ = boost::lexical_cast<uint32_t> (sparse_array_properties_.get<std::string>("version")) == 2;
       size_t bucket_size = compact_size_ ? sizeof(uint16_t) : sizeof(uint32_t);
@@ -79,65 +80,39 @@ final {
       start_state_ = boost::lexical_cast<uint64_t> (automata_properties_.get<std::string>("start_state"));
       number_of_keys_ = boost::lexical_cast<uint64_t> (automata_properties_.get<std::string>("number_of_keys"));
 
-      size_t offset = in_stream.tellg();
+      size_t offset = lseek(file_, 0, SEEK_CUR);
 
-      file_mapping_ = new boost::interprocess::file_mapping(
-          filename, boost::interprocess::read_only);
       size_t array_size = boost::lexical_cast<size_t>(sparse_array_properties_.get<std::string>("size"));
 
-      in_stream.seekg(offset + array_size + bucket_size * array_size - 1);
+      lseek(file_, offset + array_size + bucket_size * array_size - 1, SEEK_SET);
 
-      // check for file truncation
-      if (in_stream.peek() == EOF) {
+      char ch = 0;
+      // forward 1 position
+      if (read(file_, &ch, sizeof(ch)) != sizeof(ch)) {
         throw std::invalid_argument("file is corrupt(truncated)");
       }
 
-      boost::interprocess::map_options_t map_options = boost::interprocess::default_map_options;
-
-#ifdef MAP_HUGETLB
-      map_options |= MAP_HUGETLB;
-#endif
-
-      if (!load_lazy) {
-#ifdef MAP_POPULATE
-        map_options |= MAP_POPULATE;
-#endif
-      }
-
       TRACE("labels start offset: %d", offset);
-      labels_region_ = new boost::interprocess::mapped_region(
-          *file_mapping_, boost::interprocess::read_only, offset, array_size, 0, map_options);
+      labels_start_offset_ = offset;
 
       TRACE("transitions start offset: %d", offset + array_size);
-      transitions_region_ = new boost::interprocess::mapped_region(
-          *file_mapping_, boost::interprocess::read_only, offset + array_size,
-          bucket_size * array_size, 0, map_options);
+      transitions_start_offset_ = offset + array_size;
 
       TRACE("full file size %zu", offset + array_size + bucket_size * array_size);
 
-      labels_ = (unsigned char*) labels_region_->get_address();
-      transitions_ = (uint32_t*) transitions_region_->get_address();
-      transitions_compact_ = (uint16_t*) transitions_region_->get_address();
-
-      // forward 1 position
-      in_stream.get();
-      TRACE("value store position %zu", in_stream.tellg());
+      TRACE("value store position %zu", lseek(file, 0, SEEK_CUR));
 
       // initialize value store
       internal::value_store_t value_store_type =
           static_cast<internal::value_store_t>(
               boost::lexical_cast<int> (automata_properties_.get<std::string>(
               "value_store_type")));
-      value_store_reader_ = internal::ValueStoreFactory::MakeReader(value_store_type, in_stream, file_mapping_);
-
-      in_stream.close();
+      value_store_reader_ = internal::ValueStoreFactory::MakeReader(value_store_type, file_);
     }
 
     ~Automata() {
+      close(file_);
       delete value_store_reader_;
-      delete file_mapping_;
-      delete labels_region_;
-      delete transitions_region_;
     }
 
     Automata() = delete;
@@ -158,7 +133,7 @@ final {
     }
 
     uint64_t TryWalkTransition(uint64_t starting_state, unsigned char c) const {
-      if (labels_[starting_state + c] == c) {
+      if (GetLabel(starting_state + c) == c) {
         return ResolvePointer(starting_state, c);
       }
       return 0;
@@ -179,10 +154,13 @@ final {
       // reset the state
       traversal_state.Clear();
 
+      std::vector<char> labels_buf(256);
+      pread(file_, &*labels_buf.begin(), labels_buf.size(), labels_start_offset_ + starting_state);
+
 #if defined(KEYVI_SSE42)
       // Optimized version using SSE4.2, see http://www.strchr.com/strcmp_and_strlen_using_sse_4.2
 
-      __m128i* labels_as_m128 = (__m128i *) (labels_ + starting_state);
+      __m128i* labels_as_m128 = (__m128i *) &*labels_buf.begin();
       __m128i* mask_as_m128 = (__m128i *) (OUTGOING_TRANSITIONS_MASK);
       unsigned char symbol = 0;
 
@@ -222,7 +200,7 @@ final {
         symbol +=16;
       }
 #else
-      uint64_t* labels_as_ll = (unsigned long int *) (labels_ + starting_state);
+      uint64_t* labels_as_ll = (unsigned long int *) &*labels_buf.begin();
       uint64_t* mask_as_ll = (unsigned long int *) (OUTGOING_TRANSITIONS_MASK);
       unsigned char symbol = 0;
 
@@ -274,12 +252,16 @@ final {
     inline void GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState<TransitionT>& traversal_state, traversal::TraversalPayload<TransitionT>& payload) const {
       // reset the state
       traversal_state.Clear();
+
+      std::vector<char> labels_buf(256);
+      pread(file_, &*labels_buf.begin(), labels_buf.size(), labels_start_offset_ + starting_state);
+
       uint32_t parent_weight = GetWeightValue(starting_state);
 
     #if defined(KEYVI_SSE42)
       // Optimized version using SSE4.2, see http://www.strchr.com/strcmp_and_strlen_using_sse_4.2
 
-      __m128i* labels_as_m128 = (__m128i *) (labels_ + starting_state);
+      __m128i* labels_as_m128 = (__m128i *) &*labels_buf.begin();
       __m128i* mask_as_m128 = (__m128i *) (OUTGOING_TRANSITIONS_MASK);
       unsigned char symbol = 0;
 
@@ -325,7 +307,7 @@ final {
         symbol +=16;
       }
     #else
-      uint64_t* labels_as_ll = (unsigned long int *) (labels_ + starting_state);
+      uint64_t* labels_as_ll = (unsigned long int *) &*labels_buf.begin();
       uint64_t* mask_as_ll = (unsigned long int *) (OUTGOING_TRANSITIONS_MASK);
       unsigned char symbol = 0;
 
@@ -398,7 +380,7 @@ final {
 
     bool IsFinalState(uint64_t state_to_check) const {
 
-      if (labels_[state_to_check + FINAL_OFFSET_TRANSITION] == FINAL_OFFSET_CODE) {
+      if (GetLabel(state_to_check + FINAL_OFFSET_TRANSITION) == FINAL_OFFSET_CODE) {
         return true;
       }
       return false;
@@ -406,27 +388,27 @@ final {
 
     uint64_t GetStateValue(uint64_t state) const {
       if (!compact_size_) {
-        return be32toh(transitions_[state + FINAL_OFFSET_TRANSITION]);
+        return be32toh(GetTransition(state + FINAL_OFFSET_TRANSITION));
       }
 
       // compact mode:
-      return util::decodeVarshort(transitions_compact_ + state + FINAL_OFFSET_TRANSITION);
+      return util::decodeVarshort(file_, transitions_start_offset_ + sizeof(uint16_t) * (state + FINAL_OFFSET_TRANSITION));
     }
 
     uint32_t GetWeightValue(uint64_t state) const {
       if (!compact_size_) {
-        if (labels_[state + INNER_WEIGHT_TRANSITION] != 0) {
+        if (GetLabel(state + INNER_WEIGHT_TRANSITION) != 0) {
           return 0;
         }
 
-        return be32toh(transitions_[state + INNER_WEIGHT_TRANSITION]);
+        return be32toh(GetTransition(state + INNER_WEIGHT_TRANSITION));
       }
 
-      if (labels_[state + INNER_WEIGHT_TRANSITION_COMPACT] != 0) {
+      if (GetLabel(state + INNER_WEIGHT_TRANSITION_COMPACT) != 0) {
         return 0;
       }
 
-      return (transitions_compact_[state + INNER_WEIGHT_TRANSITION_COMPACT]);
+      return GetTransitionCompact(state + INNER_WEIGHT_TRANSITION_COMPACT);
     }
 
     internal::IValueStoreReader::attributes_t GetValueAsAttributeVector(uint64_t state_value) const {
@@ -469,12 +451,9 @@ final {
     boost::property_tree::ptree automata_properties_;
     boost::property_tree::ptree sparse_array_properties_;
     internal::IValueStoreReader* value_store_reader_;
-    boost::interprocess::file_mapping* file_mapping_;
-    boost::interprocess::mapped_region* labels_region_;
-    boost::interprocess::mapped_region* transitions_region_;
-    unsigned char* labels_;
-    uint32_t* transitions_;
-    uint16_t* transitions_compact_;
+    int file_;
+    uint64_t labels_start_offset_;
+    uint64_t transitions_start_offset_;
     bool compact_size_;
     uint64_t start_state_;
     uint64_t number_of_keys_;
@@ -488,10 +467,10 @@ final {
 
     inline uint64_t ResolvePointer(uint64_t starting_state, unsigned char c) const {
       if (!compact_size_) {
-        return be32toh(transitions_[starting_state + c]);
+        return be32toh(GetTransition(starting_state + c));
       }
 
-      uint16_t pt = le16toh(transitions_compact_[starting_state + c]);
+      uint16_t pt = le16toh(GetTransitionCompact(starting_state + c));
       uint64_t resolved_ptr;
 
       if ((pt & 0xC000) == 0xC000) {
@@ -514,7 +493,7 @@ final {
 
         TRACE("Compact Transition found overflow bucket %d", overflow_bucket);
 
-        resolved_ptr = util::decodeVarshort(transitions_compact_ + overflow_bucket);
+        resolved_ptr = util::decodeVarshort(file_, transitions_start_offset_ + sizeof(uint16_t) * overflow_bucket);
         resolved_ptr = (resolved_ptr << 3) + (pt & 0x7);
 
         if (pt & 0x8){
@@ -531,6 +510,28 @@ final {
       TRACE("Compact Transition after resolve %d", resolved_ptr);
       return resolved_ptr;
     }
+
+    unsigned char GetLabel(uint64_t off) const
+    {
+      char ch = 0;
+      pread(file_, &ch, sizeof(ch), labels_start_offset_ + off);
+      return (unsigned char)ch;
+    }
+
+    uint32_t GetTransition(uint64_t off) const
+    {
+      uint32_t res = 0;
+      pread(file_, (char*)&res, sizeof(res), transitions_start_offset_ + off * sizeof(uint32_t));
+      return res;
+    }
+
+    uint16_t GetTransitionCompact(uint64_t off) const
+    {
+      uint16_t res = 0;
+      pread(file_, (char*)&res, sizeof(res), transitions_start_offset_ + off * sizeof(uint16_t));
+      return res;
+    }
+
   };
 
   // shared pointer

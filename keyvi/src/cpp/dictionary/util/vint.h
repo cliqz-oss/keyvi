@@ -29,6 +29,9 @@
 #ifndef VINT_H_
 #define VINT_H_
 
+#include <sys/types.h>
+#include <unistd.h>
+
 namespace keyvi {
 namespace dictionary {
 namespace util {
@@ -163,6 +166,22 @@ int_t decodeVarshort(const uint16_t* input) {
   return ret;
 }
 
+template<typename int_t = uint64_t>
+int_t decodeVarshort(int file, uint64_t offset) {
+  lseek(file, offset, SEEK_SET);
+  int_t ret = 0;
+  for (uint8_t i = 0;; i++) {
+    uint16_t input = 0;
+    read(file, (char*)&input, sizeof(input));
+    ret |= (int_t)(input & 32767) << (15 * i);
+
+    //If the next-byte flag is set
+    if (!(input & 32768)) {
+      break;
+    }
+  }
+  return ret;
+}
 
 inline size_t skipVarint(const char* input) {
   size_t i = 0;
@@ -192,6 +211,27 @@ inline std::string decodeVarintString(const char* input){
   return std::string(input + i + 1, length);
 }
 
+inline std::string decodeVarintString(int file, uint64_t offset){
+  uint64_t length = 0;
+  uint8_t i = 0;
+
+  lseek(file, offset, SEEK_SET);
+
+  for (;; i++) {
+    unsigned char ch = 0;
+    read(file, (char*)&ch, sizeof(ch));
+    length |= (ch & 127) << (7 * i);
+
+    //If the next-byte flag is set
+    if (!(ch & 128)) {
+      break;
+    }
+  }
+
+  std::string res(length, 0);
+  read(file, &res[0], length);
+  return res;
+}
 
 } /* namespace util */
 } /* namespace dictionary */

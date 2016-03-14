@@ -65,48 +65,30 @@ namespace internal {
        public:
         using IValueStoreReader::IValueStoreReader;
 
-        JsonValueStoreDeprecatedReader(std::istream& stream,
-                                       boost::interprocess::file_mapping* file_mapping,
+        JsonValueStoreDeprecatedReader(int file,
                                        bool load_lazy = false)
-            : IValueStoreReader(stream, file_mapping) {
+            : IValueStoreReader(file), file_(file) {
 
           TRACE("JsonValueStoreDeprecatedReader construct");
 
           properties_ =
-              internal::SerializationUtils::ReadJsonRecord(stream);
+              internal::SerializationUtils::ReadJsonRecord(file_);
 
-          size_t offset = stream.tellg();
-          size_t strings_size = boost::lexical_cast<size_t>(properties_.get<std::string>("size"));
+          size_t offset = lseek(file_, 0, SEEK_CUR);
+          size_t strings_size = boost::lexical_cast<size_t> (properties_.get<std::string>("size"));
 
           // check for file truncation
           if (strings_size > 0) {
-            stream.seekg(strings_size - 1, stream.cur);
-            if (stream.peek() == EOF) {
+            char ch = 0;
+            if (pread(file_, &ch, sizeof(ch), offset + strings_size - 1) != sizeof(ch)) {
               throw std::invalid_argument("file is corrupt(truncated)");
             }
           }
 
-          boost::interprocess::map_options_t map_options = boost::interprocess::default_map_options;
-
-#ifdef MAP_HUGETLB
-          map_options |= MAP_HUGETLB;
-#endif
-
-          if (!load_lazy) {
-#ifdef MAP_POPULATE
-            map_options |= MAP_POPULATE;
-#endif
-          }
-
-          strings_region_ = new boost::interprocess::mapped_region(
-              *file_mapping, boost::interprocess::read_only, offset,
-              strings_size, 0, map_options);
-
-          strings_ = (const char*) strings_region_->get_address();
+          offset_ = offset;
         }
 
         ~JsonValueStoreDeprecatedReader() {
-          delete strings_region_;
         }
 
         virtual value_store_t GetValueStoreType() const override {
@@ -116,7 +98,7 @@ namespace internal {
         virtual attributes_t GetValueAsAttributeVector(uint64_t fsa_value) const override {
           attributes_t attributes(new attributes_raw_t());
 
-          std::string raw_value = util::decodeVarintString(strings_ + fsa_value);
+          std::string raw_value = util::decodeVarintString(file_, offset_ + fsa_value);
 
           //auto length = util::decodeVarint((uint8_t*) strings_ + fsa_value);
           //std::string raw_value(strings_ + fsa_value, length);
@@ -126,12 +108,12 @@ namespace internal {
         }
 
         virtual std::string GetRawValueAsString(uint64_t fsa_value) const override {
-          return util::decodeVarintString(strings_ + fsa_value);
+          return util::decodeVarintString(file_, offset_ + fsa_value);
         }
 
         virtual std::string GetValueAsString(uint64_t fsa_value) const override {
           TRACE("JsonValueStoreDeprecatedReader GetValueAsString");
-          std::string packed_string = util::decodeVarintString(strings_ + fsa_value);
+          std::string packed_string = util::decodeVarintString(file_, offset_ + fsa_value);
 
           if (packed_string[0] == ' ') {
             TRACE("unpack zlib compressed string");
@@ -159,8 +141,8 @@ namespace internal {
         }
 
        private:
-        boost::interprocess::mapped_region* strings_region_;
-        const char* strings_;
+        int file_;
+        size_t offset_;
         boost::property_tree::ptree properties_;
 
         /** Decompress an STL string using zlib and return the original data. */

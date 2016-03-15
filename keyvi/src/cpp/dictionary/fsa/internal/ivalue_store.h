@@ -27,8 +27,6 @@
 
 #include <map>
 #include <boost/filesystem.hpp>
-#include <boost/interprocess/file_mapping.hpp>
-#include <boost/interprocess/mapped_region.hpp>
 #include <boost/container/flat_map.hpp>
 #include <boost/variant.hpp>
 
@@ -105,10 +103,8 @@ class IValueStoreReader {
    * Default constructor. Override if the value store implementation requires extra data.
    *
    * @param stream The stream to read from
-   * @param file_mapping The file_mapping instance of the loader to use memory mapping
    */
-  IValueStoreReader(std::istream& stream,
-                    boost::interprocess::file_mapping* file_mapping) {
+  IValueStoreReader(int file) {
   }
 
   virtual ~IValueStoreReader() {
@@ -157,10 +153,6 @@ class IValueStoreReader {
 
   template<typename , typename>
   friend class ::keyvi::dictionary::DictionaryMerger;
-
-  virtual const char* GetValueStorePayload() const {
-    return 0;
-  }
 };
 
 } /* namespace internal */

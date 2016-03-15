@@ -110,9 +110,10 @@ final {
       // Todo: if inner weights are used update them
       //handle.weight = value_store_->GetWeightValue(value);
 
-      handle.value_idx = value_store->GetValue(entry_it.entry_iterator.GetFsa()->GetValueStore()->GetValueStorePayload(),
-                                               entry_it.entry_iterator.GetValueId(),
-                                               handle.no_minimization);
+      // Todo: rewrite this
+      // handle.value_idx = value_store->GetValue(entry_it.entry_iterator.GetFsa()->GetValueStore()->GetValueStorePayload(),
+      //                                          entry_it.entry_iterator.GetValueId(),
+      //                                          handle.no_minimization);
 
       TRACE("Add key: %s", key.c_str());
       generator.Add(key, handle);

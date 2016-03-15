@@ -246,45 +246,27 @@ class StringValueStore final : public IValueStoreWriter {
        public:
         using IValueStoreReader::IValueStoreReader;
 
-        StringValueStoreReader(std::istream& stream,
-                               boost::interprocess::file_mapping* file_mapping, bool load_lazy = false)
-            : IValueStoreReader(stream, file_mapping) {
+        StringValueStoreReader(int file, bool load_lazy = false)
+            : IValueStoreReader(file), file_(file) {
 
           boost::property_tree::ptree properties =
-              internal::SerializationUtils::ReadJsonRecord(stream);
+              internal::SerializationUtils::ReadJsonRecord(file_);
 
-          size_t offset = stream.tellg();
+          size_t offset = lseek(file_, 0, SEEK_CUR);
           size_t strings_size = boost::lexical_cast<size_t>(properties.get<std::string>("size"));
 
           // check for file truncation
           if (strings_size > 0) {
-            stream.seekg(strings_size - 1, stream.cur);
-            if (stream.peek() == EOF) {
+            char ch = 0;
+            if (pread(file_, &ch, sizeof(ch), offset + strings_size - 1) != sizeof(ch)) {
               throw std::invalid_argument("file is corrupt(truncated)");
             }
           }
 
-          boost::interprocess::map_options_t map_options = boost::interprocess::default_map_options;
-
-#ifdef MAP_HUGETLB
-          map_options |= MAP_HUGETLB;
-#endif
-
-          if (!load_lazy) {
-#ifdef MAP_POPULATE
-            map_options |= MAP_POPULATE;
-#endif
-          }
-
-          strings_region_ = new boost::interprocess::mapped_region(
-              *file_mapping, boost::interprocess::read_only, offset,
-              strings_size, 0, map_options);
-
-          strings_ = (const char*) strings_region_->get_address();
+          offset_ = offset;
         }
 
         ~StringValueStoreReader() {
-          delete strings_region_;
         }
 
         virtual value_store_t GetValueStoreType() const override {
@@ -295,23 +277,32 @@ class StringValueStore final : public IValueStoreWriter {
         virtual attributes_t GetValueAsAttributeVector(uint64_t fsa_value) const override {
           attributes_t attributes(new attributes_raw_t());
 
-          std::string raw_value(strings_ + fsa_value);
+          std::string raw_value = GetValueAsString(fsa_value);
 
           (*attributes)["value"] = raw_value;
           return attributes;
         }
 
         virtual std::string GetValueAsString(uint64_t fsa_value) const override {
-          return std::string(strings_ + fsa_value);
+          std::string raw_value;
+
+          lseek(file_, offset_ + fsa_value, SEEK_SET);
+          std::vector<char> buf(1024);
+          size_t size_string = 0;
+          do {
+            size_t size_read = read(file_, &*buf.begin(), buf.size() - 1);
+            buf[size_read] = 0;
+            size_string = strlen(&*buf.begin());
+            raw_value.append(&*buf.begin());
+          }
+          while (size_string == buf.size() - 1);
+
+          return raw_value;
         }
 
        private:
-        boost::interprocess::mapped_region* strings_region_;
-        const char* strings_;
-
-        virtual const char* GetValueStorePayload() const override {
-          return strings_;
-        }
+        int file_;
+        size_t offset_;
       };
 
 } /* namespace internal */

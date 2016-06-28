@@ -169,7 +169,7 @@ class IndexWriter(RPCServer):
 
     def _init_lazy_compiler(self):
         if not self.compiler:
-            self.compiler = pykeyvi.JsonDictionaryCompiler(1024*1024*10)
+            self.compiler = pykeyvi.JsonDictionaryCompiler(1024*1024*10, {"stable_insert": "true"})
             self.write_counter = 0
 
     def find_merges(self):
@@ -222,9 +222,17 @@ class IndexWriter(RPCServer):
         self.log.info("finalize_merge called")
         try:
             self.log.info("finalize merge, put it into the index")
+            new_segments = []
+            merged = False
             with self.merger_lock:
-                new_segments = [new_segment]
-                new_segments = [new_segment] + [item for item in self.segments if item not in job]
+                for s in self.segments:
+                    if s in job:
+                        if not merged:
+                            # found the place where merged segment should go in
+                            new_segments.append(new_segment)
+                            merged = True
+                    else:
+                        new_segments.append(s)
 
                 self.log.info("Segments: {}".format(new_segments))
                 self.segments = new_segments
@@ -268,9 +276,6 @@ class IndexWriter(RPCServer):
             self.write_counter += 1
         if self.write_counter >= self.segment_write_trigger:
             self._finalizer.commit()
-
-
-        self.set(key, value)
 
     def set_many_bulk(self, client_token, key_value_pairs, optimistic=False):
         for key, value in key_value_pairs:

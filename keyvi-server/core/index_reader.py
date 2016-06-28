@@ -41,7 +41,9 @@ class IndexReader(RPCServer):
             self._load_index_file()
             new_list_of_dicts = []
             self.log.info("loading files")
-            for f in self.toc.get('files', []):
+            files = self.toc.get('files', [])
+            files.reverse()
+            for f in files:
                 filename = f.encode("utf-8")
                 self.log.info("Loading: @@@{}@@@".format(filename))
                 new_list_of_dicts.append(pykeyvi.Dictionary(filename))

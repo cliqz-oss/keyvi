@@ -43,6 +43,11 @@ def start_reader():
 
     StandaloneApplication(options).run()
 
+def create_writer(conf):
+    return multiprocessing.Process(target=core.index_writer.start_writer,
+                                    args=(conf.writer_ip, conf.writer_port, index_dir,
+                                    conf.merge_processes * 2, conf.segment_write_trigger, conf.segment_write_interval))
+
 if __name__ == '__main__':
     index_dir = conf.index_dir
     merge_processes = conf.merge_processes
@@ -63,8 +68,7 @@ if __name__ == '__main__':
         worker.start()
         merge_workers[idx] = worker
 
-    writer = multiprocessing.Process(target=core.index_writer.start_writer,
-                                    args=(conf.writer_ip, conf.writer_port, index_dir))
+    writer = create_writer(conf)
     writer.start()
 
     try:
@@ -87,8 +91,7 @@ if __name__ == '__main__':
             if not writer.is_alive():
                 writer.join()
                 logger.warning("Writer died ({}), restarting Writer".format(reader.exitcode))
-                writer = multiprocessing.Process(target=core.index_writer.start_writer,
-                                        args=(conf.writer_ip, conf.writer_port, index_dir))
+                writer = create_writer(conf)
                 writer.start()
 
     except KeyboardInterrupt:

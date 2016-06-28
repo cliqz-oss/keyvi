@@ -4,10 +4,25 @@ import json
 import logging
 import os
 import pykeyvi
+import gevent
 from mprpc import RPCServer
 
 class IndexReader(RPCServer):
-    def __init__(self, index_dir="kv-index"):
+    class IndexRefresh(gevent.Greenlet):
+        def __init__(self, reader, interval=1):
+            self._reader = reader
+            self._delay = interval
+            super(IndexReader.IndexRefresh, self).__init__()
+        def _run(self):
+            sleep_time = self._delay
+            while True:
+                gevent.sleep(sleep_time)
+                try:
+                    self._reader.check_toc()
+                except:
+                    self._reader.log.exception('Failed to refresh index')
+
+    def __init__(self, index_dir="kv-index", refresh_interval=1):
         self.index_dir = index_dir
         self.index_file = os.path.join(index_dir, "index.toc")
         self.log = logging.getLogger("kv-reader")
@@ -16,6 +31,10 @@ class IndexReader(RPCServer):
         self.loaded_dicts = []
         self.compiler = None
         self.last_stat_rs_mtime = 0
+
+        self._refresh = IndexReader.IndexRefresh(self, refresh_interval)
+        self._refresh.start()
+
         super(IndexReader, self).__init__(pack_params={'use_bin_type': True}, tcp_no_delay=True)
 
 
@@ -28,7 +47,7 @@ class IndexReader(RPCServer):
         except Exception, e:
             self.log.exception("failed to load toc")
 
-    def _check_toc(self):
+    def check_toc(self):
         try:
             stat_rs = os.stat(self.index_file)
         except:
@@ -55,8 +74,6 @@ class IndexReader(RPCServer):
             return None
         if type(key) == unicode:
             key = key.encode("utf-8")
-
-        self._check_toc()
 
         for d in self.loaded_dicts:
             m = d.get(key)

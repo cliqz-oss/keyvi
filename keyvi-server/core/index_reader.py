@@ -26,7 +26,7 @@ class IndexReader(RPCServer):
         self.index_dir = index_dir
         self.index_file = os.path.join(index_dir, "index.toc")
         self.log = logging.getLogger("kv-reader")
-        self.log.info('Server started')
+        self.log.info('Server started, Index: {}, Refresh: {}'.format(self.index_dir, refresh_interval))
         self.toc = {}
         self.loaded_dicts = []
         self.compiler = None

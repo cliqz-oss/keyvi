@@ -30,6 +30,7 @@ class StandaloneApplication(gunicorn.app.base.BaseApplication):
 
     def load(self):
         self.mprpc = core.index_reader.IndexReader
+        self.mprpc_args = {"index_dir": conf.index_dir, "refresh_interval": conf.reader_refresh}
 
 
 def start_reader():

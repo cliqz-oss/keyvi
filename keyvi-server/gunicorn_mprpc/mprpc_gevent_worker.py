@@ -9,7 +9,7 @@ import msgpack
 
 class MPRPCGeventWorker(GeventWorker):
     def run(self):
-        self.rpcserver_instance = self.app.mprpc()
+        self.rpcserver_instance = self.app.mprpc(**self.app.mprpc_args)
         super(MPRPCGeventWorker, self).run()
 
     def handle(self, listener, client, addr):

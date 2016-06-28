@@ -20,10 +20,12 @@ LOG = logging.getLogger('keyvi-writer')
 # Queue we put the compilation tasks into
 MERGER_QUEUE = multiprocessing.JoinableQueue()
 
-def start_writer(ip, port, idx):
+def start_writer(ip, port, idx,  merge_queue=4, segment_write_trigger=10000, segment_write_interval=10):
     # disable CTRL-C for the worker, handle it only in the parent process
     signal.signal(signal.SIGINT, signal.SIG_IGN)
-    index_writer = IndexWriter(idx)
+    index_writer = IndexWriter(idx,  merge_queue=merge_queue,
+                               segment_write_trigger=segment_write_trigger,
+                               segment_write_interval=segment_write_interval)
 
     server = StreamServer((ip, port), index_writer)
     server.serve_forever()

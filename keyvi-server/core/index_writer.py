@@ -135,6 +135,7 @@ class IndexWriter(RPCServer):
     def __init__(self, index_dir="kv-index", merge_queue=4, segment_write_trigger=10000, segment_write_interval=10):
         self.index_dir = index_dir
         self.log = LOG
+        self.index_dir = index_dir
         self.index_file = os.path.join(index_dir, "index.toc")
         self.log.info('Writer started')
         self.segments_in_merger = {}
@@ -158,6 +159,9 @@ class IndexWriter(RPCServer):
     def _load_index_file(self):
 
         if not os.path.exists(self.index_file):
+            if not os.path.exists(self.index_dir):
+                os.mkdir(self.index_dir)
+            self._write_toc()
             return
         toc = '\n'.join(open(self.index_file).readlines())
         try:

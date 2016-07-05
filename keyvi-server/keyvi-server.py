@@ -8,12 +8,12 @@ import gunicorn.util
 
 from gunicorn.six import iteritems
 import gevent
-from gevent.server import StreamServer
 
 from cfg import keyvi_server_conf as conf
 import core.index_reader
 import core.index_writer
 import core.kvs_logging
+
 
 class StandaloneApplication(gunicorn.app.base.BaseApplication):
 
@@ -38,8 +38,7 @@ def start_reader():
     options = {
         'bind': '%s:%s' % (conf.reader_ip, conf.reader_port),
         'workers': conf.reader_workers,
-        'worker_class': 'gunicorn_mprpc.mprpc_gevent_worker.MPRPCGeventWorker'
-
+        'worker_class': 'gunicorn_mprpc.mprpc_gevent_worker.MPRPCGeventWorker',
     }
 
     StandaloneApplication(options).run()

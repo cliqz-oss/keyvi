@@ -15,7 +15,7 @@ from mprpc import RPCServer
 from mprpc import RPCClient
 from gevent.server import StreamServer
 
-LOG = logging.getLogger('keyvi-writer')
+LOG = logging.getLogger('kv-writer')
 
 # Queue we put the compilation tasks into
 MERGER_QUEUE = multiprocessing.JoinableQueue()

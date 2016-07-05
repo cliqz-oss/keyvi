@@ -37,7 +37,7 @@
     },
 
     "loggers": {
-        "keyvi-server": {
+        "kv-server": {
             "level": "ERROR",
             "handlers": ["info_file_handler", "error_file_handler"],
             "propagate": "no"

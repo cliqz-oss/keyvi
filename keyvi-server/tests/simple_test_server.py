@@ -6,6 +6,7 @@ import tempfile
 import multiprocessing
 import os
 import shutil
+import time
 from mprpc import RPCClient
 
 import sys
@@ -29,16 +30,43 @@ class TestServer():
                                     kwargs={"segment_write_interval": 0.1})
         self.reader.start()
         self.writer.start()
+        self.terminated = False
 
-    def __del__(self):
+
+    def terminate(self):
         self.reader.terminate()
         self.writer.terminate()
+        self.terminated = True
+
+    def __del__(self):
+        if not self.terminated:
+            self.terminate()
 
     def get_reader(self):
-        return RPCClient('127.0.0.1', self.readerp)
+        attempt = 1
+
+        while attempt < 5:
+            try:
+                c = RPCClient('127.0.0.1', self.readerp)
+                return c
+            except:
+                pass
+            attempt += 1
+            time.sleep(0.5)
+        raise Exception("Could not instantiate reader")
 
     def get_writer(self):
-        return RPCClient('127.0.0.1', self.writerp)
+        attempt = 1
+
+        while attempt < 5:
+            try:
+                c = RPCClient('127.0.0.1', self.writerp)
+                return c
+            except:
+                pass
+            attempt += 1
+            time.sleep(0.5)
+        raise Exception("Could not instantiate writer")
 
     def sync(self):
         self.get_writer().call('commit', False)
@@ -48,9 +76,10 @@ class TestServer():
 @contextlib.contextmanager
 def tmp_server():
     tmp_dir = tempfile.mkdtemp()
-    print(tmp_dir)
-    t = TestServer(tmp_dir)
-    yield t
-    del t
-
-    #shutil.rmtree(tmp_dir, ignore_errors=True)
+    try:
+        t = TestServer(tmp_dir)
+        yield t
+    finally:
+        t.terminate()
+        del t
+        shutil.rmtree(tmp_dir, ignore_errors=True)

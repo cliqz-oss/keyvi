@@ -5,7 +5,26 @@ import logging
 import os
 import pykeyvi
 import gevent
+import signal
+from gevent.server import StreamServer
 from mprpc import RPCServer
+
+
+
+def start_reader(ip, port, idx, interval):
+    """
+    Starts a simple reader, rather for testing purposes.
+    :param ip: ip to listen to
+    :param port:  port
+    :param idx: indexing directory
+    """
+    # disable CTRL-C for the worker, handle it only in the parent process
+    signal.signal(signal.SIGINT, signal.SIG_IGN)
+    index_reader = IndexReader(idx, interval)
+
+    server = StreamServer((ip, port), index_reader)
+    server.serve_forever()
+
 
 class IndexReader(RPCServer):
     class IndexRefresh(gevent.Greenlet):
@@ -72,11 +91,21 @@ class IndexReader(RPCServer):
     def get(self, key):
         if key is None:
             return None
-        if type(key) == unicode:
-            key = key.encode("utf-8")
 
         for d in self.loaded_dicts:
             m = d.get(key)
             if m is not None:
                 return m.dumps()
         return None
+
+    def exists(self, key):
+        if key is None:
+            return False
+
+        for d in self.loaded_dicts:
+            if key in d:
+                return True
+        return False
+
+    def reload(self):
+        self.check_toc()

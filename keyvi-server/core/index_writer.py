@@ -143,6 +143,7 @@ class IndexWriter(RPCServer):
         self.segments = []
         self.segments_marked_for_merge = []
         self._load_index_file()
+        self._load_segments()
         self.write_counter = 0
 
         # blocking queue leads to a deadlock, therefore checking ourselves
@@ -210,13 +211,22 @@ class IndexWriter(RPCServer):
             self.log.exception("failed to write toc")
             raise
 
+    def _load_segments(self):
+        ld = []
+        for f in self.segments:
+            filename = f.encode("utf-8")
+            self.log.info("Loading: @@@{}@@@".format(filename))
+            ld.append(pykeyvi.Dictionary(filename))
+            self.log.info("load dictionary {}".format(filename))
+        self.loaded_dicts = ld
+
     def register_new_segment(self, new_segment):
         # add new segment
         with self.merger_lock:
             self.log.info("add {}".format(new_segment))
 
             self.segments.append(new_segment)
-
+            self.loaded_dicts.append(pykeyvi.Dictionary(new_segment))
         # re-write toc to make new segment available
         self._write_toc()
         return
@@ -229,19 +239,24 @@ class IndexWriter(RPCServer):
         try:
             self.log.info("finalize merge, put it into the index")
             new_segments = []
+            new_loaded_dicts = []
             merged = False
             with self.merger_lock:
-                for s in self.segments:
+                for s,d in zip(self.segments, self.loaded_dicts):
                     if s in job:
                         if not merged:
                             # found the place where merged segment should go in
                             new_segments.append(new_segment)
+                            new_loaded_dicts.append(pykeyvi.Dictionary(new_segment))
                             merged = True
                     else:
                         new_segments.append(s)
+                        new_loaded_dicts.append(d)
+
 
                 self.log.info("Segments: {}".format(new_segments))
                 self.segments = new_segments
+                self.loaded_dicts = new_loaded_dicts
 
                 # remove from marker list
                 for item in job:
@@ -273,7 +288,21 @@ class IndexWriter(RPCServer):
 
         return
 
-    def set_many(self, key_value_pairs):
+    def setnx(self, key, value):
+        """
+        set key to value only if key does not exist
+
+        :param key:
+        :param value:
+        :return:
+        """
+        for d in reversed(self.loaded_dicts):
+            if key in d:
+                return
+        self.set(key, value)
+        return
+
+    def mset(self, key_value_pairs):
         for key, value in key_value_pairs:
             if key is None:
                 continue
@@ -283,7 +312,7 @@ class IndexWriter(RPCServer):
         if self.write_counter >= self.segment_write_trigger:
             self._finalizer.commit()
 
-    def set_many_bulk(self, client_token, key_value_pairs, optimistic=False):
+    def mset_bulk(self, client_token, key_value_pairs, optimistic=False):
         for key, value in key_value_pairs:
             if type(key) == unicode:
                 key = key.encode("utf-8")
@@ -296,4 +325,4 @@ class IndexWriter(RPCServer):
             self.compiler.Add(key, value)
 
     def commit(self, async=True):
-        self._finalizer.commit()
+        self._finalizer.commit(async=async)

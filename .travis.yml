@@ -30,6 +30,8 @@ before_install:
   - pip install --user --download-cache $HOME/.pip-cache --use-wheel --install-option="--no-cython-compile" cython
   - pip install --user --download-cache $HOME/.pip-cache --use-wheel pytest
   - pip install --user --download-cache $HOME/.pip-cache --use-wheel msgpack-python
+  - pip install --user --download-cache $HOME/.pip-cache --use-wheel mprpc
+  - pip install --user --download-cache $HOME/.pip-cache --use-wheel gunicorn
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel coveralls-merge; fi
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel cpp-coveralls; fi
 

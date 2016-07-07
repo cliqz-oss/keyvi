@@ -76,6 +76,10 @@ script:
   - ln -s ../../keyvi/src/cpp/ .
   - cd ..
   - cd ..
+# test keyvi-server
+  - cd keyvi-server
+  - py.test tests
+
 
 sudo: false
 after_success:

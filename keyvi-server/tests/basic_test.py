@@ -13,6 +13,7 @@ def test_set():
         x = reader.call('get', 'a')
         assert x is not None
         assert {"b": 3} == pykeyvi.Match.loads(x).GetValue()
+        assert reader.call('exists', 'a')
 
 def test_setnx():
     with tmp_server() as t:
@@ -25,5 +26,9 @@ def test_setnx():
         reader = t.get_reader()
         t.sync()
         x = reader.call('get', 'a')
+        assert x is not None
+        assert {"b": 3} == pykeyvi.Match.loads(x).GetValue()
+        writer.call('commit', False)
+        writer.call('setnx', 'a', '{"d":2}')
         assert x is not None
         assert {"b": 3} == pykeyvi.Match.loads(x).GetValue()

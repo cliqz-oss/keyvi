@@ -19,7 +19,9 @@ def test_setnx():
     with tmp_server() as t:
         writer = t.get_writer()
         writer.call('set', 'a', '{"b":3}')
-        writer.call('commit', False)
+        t.sync()
+        reader = t.get_reader()
+        assert reader.call('exists', 'a')
         writer.call('setnx', 'a', '{"c":6}')
         writer.call('setnx', 'a', '{"d":2}')
 

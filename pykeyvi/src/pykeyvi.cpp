@@ -700,7 +700,7 @@ struct __pyx_obj_7pykeyvi_KeyOnlyDictionaryGenerator {
 
 
 /* "pykeyvi.pyx":682
- *         self.inst.get().WriteToFile(input_in_0)
+ *         self.inst.get().WriteToFile((<libcpp_string>in_0))
  * 
  * cdef class KeyOnlyDictionaryCompiler:             # <<<<<<<<<<<<<<
  * 
@@ -4120,12 +4120,11 @@ static PyObject *__pyx_pw_7pykeyvi_24StringDictionaryCompiler_11Add(PyObject *__
 }
 
 static PyObject *__pyx_pf_7pykeyvi_24StringDictionaryCompiler_10Add(struct __pyx_obj_7pykeyvi_StringDictionaryCompiler *__pyx_v_self, PyObject *__pyx_v_in_0, PyObject *__pyx_v_in_1) {
-  const char *__pyx_v_input_in_0;
-  const char *__pyx_v_input_in_1;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
+  std::string __pyx_t_3;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4136,7 +4135,7 @@ static PyObject *__pyx_pf_7pykeyvi_24StringDictionaryCompiler_10Add(struct __pyx
  *     def Add(self, bytes in_0 , bytes in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
  *         assert isinstance(in_1, bytes), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -4152,8 +4151,8 @@ static PyObject *__pyx_pf_7pykeyvi_24StringDictionaryCompiler_10Add(struct __pyx
  *     def Add(self, bytes in_0 , bytes in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
  *         assert isinstance(in_1, bytes), 'arg in_1 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef const_char * input_in_1 = <const_char *> in_1
+ * 
+ * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -4165,35 +4164,17 @@ static PyObject *__pyx_pf_7pykeyvi_24StringDictionaryCompiler_10Add(struct __pyx
   }
   #endif
 
-  /* "pykeyvi.pyx":103
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         assert isinstance(in_1, bytes), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_1 = <const_char *> in_1
- *         self.inst.get().Add(input_in_0, input_in_1)
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
-  /* "pykeyvi.pyx":104
- *         assert isinstance(in_1, bytes), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef const_char * input_in_1 = <const_char *> in_1             # <<<<<<<<<<<<<<
- *         self.inst.get().Add(input_in_0, input_in_1)
- * 
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_1); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_1 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":105
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef const_char * input_in_1 = <const_char *> in_1
- *         self.inst.get().Add(input_in_0, input_in_1)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ *         self.inst.get().Add((<libcpp_string>in_0), (<libcpp_string>in_1))             # <<<<<<<<<<<<<<
  * 
  *     def __setitem__(self, bytes in_0 , bytes in_1 ):
  */
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 105; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_1); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 105; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   try {
-    __pyx_v_self->inst.get()->Add(__pyx_v_input_in_0, __pyx_v_input_in_1);
+    __pyx_v_self->inst.get()->Add(((std::string)__pyx_t_2), ((std::string)__pyx_t_3));
   } catch(...) {
     __Pyx_CppExn2PyErr();
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 105; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -4220,7 +4201,7 @@ static PyObject *__pyx_pf_7pykeyvi_24StringDictionaryCompiler_10Add(struct __pyx
 }
 
 /* "pykeyvi.pyx":107
- *         self.inst.get().Add(input_in_0, input_in_1)
+ *         self.inst.get().Add((<libcpp_string>in_0), (<libcpp_string>in_1))
  * 
  *     def __setitem__(self, bytes in_0 , bytes in_1 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
@@ -4250,12 +4231,11 @@ static int __pyx_pw_7pykeyvi_24StringDictionaryCompiler_13__setitem__(PyObject *
 }
 
 static int __pyx_pf_7pykeyvi_24StringDictionaryCompiler_12__setitem__(struct __pyx_obj_7pykeyvi_StringDictionaryCompiler *__pyx_v_self, PyObject *__pyx_v_in_0, PyObject *__pyx_v_in_1) {
-  const char *__pyx_v_input_in_0;
-  const char *__pyx_v_input_in_1;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
+  std::string __pyx_t_3;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4266,7 +4246,7 @@ static int __pyx_pf_7pykeyvi_24StringDictionaryCompiler_12__setitem__(struct __p
  *     def __setitem__(self, bytes in_0 , bytes in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
  *         assert isinstance(in_1, bytes), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -4282,8 +4262,8 @@ static int __pyx_pf_7pykeyvi_24StringDictionaryCompiler_12__setitem__(struct __p
  *     def __setitem__(self, bytes in_0 , bytes in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
  *         assert isinstance(in_1, bytes), 'arg in_1 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef const_char * input_in_1 = <const_char *> in_1
+ * 
+ * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -4295,42 +4275,24 @@ static int __pyx_pf_7pykeyvi_24StringDictionaryCompiler_12__setitem__(struct __p
   }
   #endif
 
-  /* "pykeyvi.pyx":110
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         assert isinstance(in_1, bytes), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_1 = <const_char *> in_1
- *         self.inst.get().__setitem__(input_in_0, input_in_1)
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 110; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
-  /* "pykeyvi.pyx":111
- *         assert isinstance(in_1, bytes), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef const_char * input_in_1 = <const_char *> in_1             # <<<<<<<<<<<<<<
- *         self.inst.get().__setitem__(input_in_0, input_in_1)
- * 
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_1); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 111; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_1 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":112
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef const_char * input_in_1 = <const_char *> in_1
- *         self.inst.get().__setitem__(input_in_0, input_in_1)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ *         self.inst.get().__setitem__((<libcpp_string>in_0), (<libcpp_string>in_1))             # <<<<<<<<<<<<<<
  * 
  *     def WriteToFile(self, bytes in_0 ):
  */
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_1); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   try {
-    __pyx_v_self->inst.get()->__setitem__(__pyx_v_input_in_0, __pyx_v_input_in_1);
+    __pyx_v_self->inst.get()->__setitem__(((std::string)__pyx_t_2), ((std::string)__pyx_t_3));
   } catch(...) {
     __Pyx_CppExn2PyErr();
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
 
   /* "pykeyvi.pyx":107
- *         self.inst.get().Add(input_in_0, input_in_1)
+ *         self.inst.get().Add((<libcpp_string>in_0), (<libcpp_string>in_1))
  * 
  *     def __setitem__(self, bytes in_0 , bytes in_1 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
@@ -4349,11 +4311,11 @@ static int __pyx_pf_7pykeyvi_24StringDictionaryCompiler_12__setitem__(struct __p
 }
 
 /* "pykeyvi.pyx":114
- *         self.inst.get().__setitem__(input_in_0, input_in_1)
+ *         self.inst.get().__setitem__((<libcpp_string>in_0), (<libcpp_string>in_1))
  * 
  *     def WriteToFile(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
 /* Python wrapper */
@@ -4378,11 +4340,10 @@ static PyObject *__pyx_pw_7pykeyvi_24StringDictionaryCompiler_15WriteToFile(PyOb
 }
 
 static PyObject *__pyx_pf_7pykeyvi_24StringDictionaryCompiler_14WriteToFile(struct __pyx_obj_7pykeyvi_StringDictionaryCompiler *__pyx_v_self, PyObject *__pyx_v_in_0) {
-  const char *__pyx_v_input_in_0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4392,8 +4353,8 @@ static PyObject *__pyx_pf_7pykeyvi_24StringDictionaryCompiler_14WriteToFile(stru
  * 
  *     def WriteToFile(self, bytes in_0 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         self.inst.get().WriteToFile(input_in_0)
+ * 
+ *         self.inst.get().WriteToFile((<libcpp_string>in_0))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -4405,31 +4366,22 @@ static PyObject *__pyx_pf_7pykeyvi_24StringDictionaryCompiler_14WriteToFile(stru
   }
   #endif
 
-  /* "pykeyvi.pyx":116
- *     def WriteToFile(self, bytes in_0 ):
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         self.inst.get().WriteToFile(input_in_0)
- * 
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 116; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":117
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         self.inst.get().WriteToFile(input_in_0)             # <<<<<<<<<<<<<<
+ * 
+ *         self.inst.get().WriteToFile((<libcpp_string>in_0))             # <<<<<<<<<<<<<<
  * 
  *     def __enter__(self):
  */
-  __pyx_v_self->inst.get()->WriteToFile(__pyx_v_input_in_0);
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v_self->inst.get()->WriteToFile(((std::string)__pyx_t_2));
 
   /* "pykeyvi.pyx":114
- *         self.inst.get().__setitem__(input_in_0, input_in_1)
+ *         self.inst.get().__setitem__((<libcpp_string>in_0), (<libcpp_string>in_1))
  * 
  *     def WriteToFile(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
   /* function exit code */
@@ -4445,7 +4397,7 @@ static PyObject *__pyx_pf_7pykeyvi_24StringDictionaryCompiler_14WriteToFile(stru
 }
 
 /* "pykeyvi.pyx":119
- *         self.inst.get().WriteToFile(input_in_0)
+ *         self.inst.get().WriteToFile((<libcpp_string>in_0))
  * 
  *     def __enter__(self):             # <<<<<<<<<<<<<<
  *         return self
@@ -4483,7 +4435,7 @@ static PyObject *__pyx_pf_7pykeyvi_24StringDictionaryCompiler_16__enter__(struct
   goto __pyx_L0;
 
   /* "pykeyvi.pyx":119
- *         self.inst.get().WriteToFile(input_in_0)
+ *         self.inst.get().WriteToFile((<libcpp_string>in_0))
  * 
  *     def __enter__(self):             # <<<<<<<<<<<<<<
  *         return self
@@ -4841,7 +4793,7 @@ static PyObject *__pyx_pf_7pykeyvi_24StringDictionaryCompiler_22SetManifest(stru
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
-  const char *__pyx_t_5;
+  std::string __pyx_t_5;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4894,7 +4846,7 @@ static PyObject *__pyx_pf_7pykeyvi_24StringDictionaryCompiler_22SetManifest(stru
  * 
  * cdef class JsonDictionaryCompiler:
  */
-  __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_m); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_string_from_py_std__in_string(__pyx_v_m); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_self->inst.get()->SetManifestFromString(__pyx_t_5);
 
   /* "pykeyvi.pyx":138
@@ -4997,12 +4949,11 @@ static int __pyx_pw_7pykeyvi_22JsonDictionaryCompiler_3__setitem__(PyObject *__p
 }
 
 static int __pyx_pf_7pykeyvi_22JsonDictionaryCompiler_2__setitem__(struct __pyx_obj_7pykeyvi_JsonDictionaryCompiler *__pyx_v_self, PyObject *__pyx_v_in_0, PyObject *__pyx_v_in_1) {
-  const char *__pyx_v_input_in_0;
-  const char *__pyx_v_input_in_1;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
+  std::string __pyx_t_3;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -5013,7 +4964,7 @@ static int __pyx_pf_7pykeyvi_22JsonDictionaryCompiler_2__setitem__(struct __pyx_
  *     def __setitem__(self, bytes in_0 , bytes in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
  *         assert isinstance(in_1, bytes), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -5029,8 +4980,8 @@ static int __pyx_pf_7pykeyvi_22JsonDictionaryCompiler_2__setitem__(struct __pyx_
  *     def __setitem__(self, bytes in_0 , bytes in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
  *         assert isinstance(in_1, bytes), 'arg in_1 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef const_char * input_in_1 = <const_char *> in_1
+ * 
+ * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -5042,35 +4993,17 @@ static int __pyx_pf_7pykeyvi_22JsonDictionaryCompiler_2__setitem__(struct __pyx_
   }
   #endif
 
-  /* "pykeyvi.pyx":153
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         assert isinstance(in_1, bytes), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_1 = <const_char *> in_1
- *         self.inst.get().__setitem__(input_in_0, input_in_1)
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
-  /* "pykeyvi.pyx":154
- *         assert isinstance(in_1, bytes), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef const_char * input_in_1 = <const_char *> in_1             # <<<<<<<<<<<<<<
- *         self.inst.get().__setitem__(input_in_0, input_in_1)
- * 
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_1); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_1 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":155
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef const_char * input_in_1 = <const_char *> in_1
- *         self.inst.get().__setitem__(input_in_0, input_in_1)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ *         self.inst.get().__setitem__((<libcpp_string>in_0), (<libcpp_string>in_1))             # <<<<<<<<<<<<<<
  * 
  *     def _init_0(self):
  */
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_1); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   try {
-    __pyx_v_self->inst.get()->__setitem__(__pyx_v_input_in_0, __pyx_v_input_in_1);
+    __pyx_v_self->inst.get()->__setitem__(((std::string)__pyx_t_2), ((std::string)__pyx_t_3));
   } catch(...) {
     __Pyx_CppExn2PyErr();
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -5096,7 +5029,7 @@ static int __pyx_pf_7pykeyvi_22JsonDictionaryCompiler_2__setitem__(struct __pyx_
 }
 
 /* "pykeyvi.pyx":157
- *         self.inst.get().__setitem__(input_in_0, input_in_1)
+ *         self.inst.get().__setitem__((<libcpp_string>in_0), (<libcpp_string>in_1))
  * 
  *     def _init_0(self):             # <<<<<<<<<<<<<<
  *         self.inst = shared_ptr[_JsonDictionaryCompiler](new _JsonDictionaryCompiler())
@@ -5141,7 +5074,7 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_4_init_0(struct __py
   __pyx_v_self->inst = boost::shared_ptr<keyvi::dictionary::JsonDictionaryCompiler> (__pyx_t_1);
 
   /* "pykeyvi.pyx":157
- *         self.inst.get().__setitem__(input_in_0, input_in_1)
+ *         self.inst.get().__setitem__((<libcpp_string>in_0), (<libcpp_string>in_1))
  * 
  *     def _init_0(self):             # <<<<<<<<<<<<<<
  *         self.inst = shared_ptr[_JsonDictionaryCompiler](new _JsonDictionaryCompiler())
@@ -6590,7 +6523,7 @@ static int __pyx_pf_7pykeyvi_22JsonDictionaryCompiler_10__init__(struct __pyx_ob
  * 
  *     def WriteToFile(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
 /* Python wrapper */
@@ -6615,11 +6548,10 @@ static PyObject *__pyx_pw_7pykeyvi_22JsonDictionaryCompiler_13WriteToFile(PyObje
 }
 
 static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_12WriteToFile(struct __pyx_obj_7pykeyvi_JsonDictionaryCompiler *__pyx_v_self, PyObject *__pyx_v_in_0) {
-  const char *__pyx_v_input_in_0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -6629,8 +6561,8 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_12WriteToFile(struct
  * 
  *     def WriteToFile(self, bytes in_0 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         self.inst.get().WriteToFile(input_in_0)
+ * 
+ *         self.inst.get().WriteToFile((<libcpp_string>in_0))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -6642,31 +6574,22 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_12WriteToFile(struct
   }
   #endif
 
-  /* "pykeyvi.pyx":187
- *     def WriteToFile(self, bytes in_0 ):
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         self.inst.get().WriteToFile(input_in_0)
- * 
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":188
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         self.inst.get().WriteToFile(input_in_0)             # <<<<<<<<<<<<<<
+ * 
+ *         self.inst.get().WriteToFile((<libcpp_string>in_0))             # <<<<<<<<<<<<<<
  * 
  *     def __enter__(self):
  */
-  __pyx_v_self->inst.get()->WriteToFile(__pyx_v_input_in_0);
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 188; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v_self->inst.get()->WriteToFile(((std::string)__pyx_t_2));
 
   /* "pykeyvi.pyx":185
  *                raise Exception('can not handle type of %s' % (args,))
  * 
  *     def WriteToFile(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
   /* function exit code */
@@ -6682,7 +6605,7 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_12WriteToFile(struct
 }
 
 /* "pykeyvi.pyx":190
- *         self.inst.get().WriteToFile(input_in_0)
+ *         self.inst.get().WriteToFile((<libcpp_string>in_0))
  * 
  *     def __enter__(self):             # <<<<<<<<<<<<<<
  *         return self
@@ -6720,7 +6643,7 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_14__enter__(struct _
   goto __pyx_L0;
 
   /* "pykeyvi.pyx":190
- *         self.inst.get().WriteToFile(input_in_0)
+ *         self.inst.get().WriteToFile((<libcpp_string>in_0))
  * 
  *     def __enter__(self):             # <<<<<<<<<<<<<<
  *         return self
@@ -6945,8 +6868,8 @@ static PyObject *__pyx_pw_7pykeyvi_22JsonDictionaryCompiler_19Add(PyObject *__py
 }
 
 static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_18Add(struct __pyx_obj_7pykeyvi_JsonDictionaryCompiler *__pyx_v_self, PyObject *__pyx_v_key, PyObject *__pyx_v_value) {
-  const char *__pyx_v_input_in_0;
-  const char *__pyx_v_input_in_1;
+  std::string __pyx_v_input_in_0;
+  std::string __pyx_v_input_in_1;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -6954,7 +6877,7 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_18Add(struct __pyx_o
   int __pyx_t_3;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
-  const char *__pyx_t_6;
+  std::string __pyx_t_6;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -7021,7 +6944,7 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_18Add(struct __pyx_o
  * 
  *         if isinstance(key, unicode):             # <<<<<<<<<<<<<<
  *             key = key.encode('UTF-8')
- *         cdef const_char * input_in_0 = <const_char *> key
+ *         cdef libcpp_string input_in_0 = <libcpp_string> key
  */
   __pyx_t_1 = PyUnicode_Check(__pyx_v_key); 
   __pyx_t_2 = (__pyx_t_1 != 0);
@@ -7031,7 +6954,7 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_18Add(struct __pyx_o
  * 
  *         if isinstance(key, unicode):
  *             key = key.encode('UTF-8')             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> key
+ *         cdef libcpp_string input_in_0 = <libcpp_string> key
  * 
  */
     __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 203; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -7047,26 +6970,26 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_18Add(struct __pyx_o
  * 
  *         if isinstance(key, unicode):             # <<<<<<<<<<<<<<
  *             key = key.encode('UTF-8')
- *         cdef const_char * input_in_0 = <const_char *> key
+ *         cdef libcpp_string input_in_0 = <libcpp_string> key
  */
   }
 
   /* "pykeyvi.pyx":204
  *         if isinstance(key, unicode):
  *             key = key.encode('UTF-8')
- *         cdef const_char * input_in_0 = <const_char *> key             # <<<<<<<<<<<<<<
+ *         cdef libcpp_string input_in_0 = <libcpp_string> key             # <<<<<<<<<<<<<<
  * 
  *         if isinstance(value, unicode):
  */
-  __pyx_t_6 = __Pyx_PyObject_AsString(__pyx_v_key); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 204; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_6);
+  __pyx_t_6 = __pyx_convert_string_from_py_std__in_string(__pyx_v_key); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 204; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v_input_in_0 = ((std::string)__pyx_t_6);
 
   /* "pykeyvi.pyx":206
- *         cdef const_char * input_in_0 = <const_char *> key
+ *         cdef libcpp_string input_in_0 = <libcpp_string> key
  * 
  *         if isinstance(value, unicode):             # <<<<<<<<<<<<<<
  *             value = value.encode('UTF-8')
- *         cdef const_char * input_in_1 = <const_char *> value
+ *         cdef libcpp_string input_in_1 = <libcpp_string> value
  */
   __pyx_t_2 = PyUnicode_Check(__pyx_v_value); 
   __pyx_t_1 = (__pyx_t_2 != 0);
@@ -7076,7 +6999,7 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_18Add(struct __pyx_o
  * 
  *         if isinstance(value, unicode):
  *             value = value.encode('UTF-8')             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_1 = <const_char *> value
+ *         cdef libcpp_string input_in_1 = <libcpp_string> value
  * 
  */
     __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_value, __pyx_n_s_encode); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 207; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -7088,26 +7011,26 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_18Add(struct __pyx_o
     __pyx_t_4 = 0;
 
     /* "pykeyvi.pyx":206
- *         cdef const_char * input_in_0 = <const_char *> key
+ *         cdef libcpp_string input_in_0 = <libcpp_string> key
  * 
  *         if isinstance(value, unicode):             # <<<<<<<<<<<<<<
  *             value = value.encode('UTF-8')
- *         cdef const_char * input_in_1 = <const_char *> value
+ *         cdef libcpp_string input_in_1 = <libcpp_string> value
  */
   }
 
   /* "pykeyvi.pyx":208
  *         if isinstance(value, unicode):
  *             value = value.encode('UTF-8')
- *         cdef const_char * input_in_1 = <const_char *> value             # <<<<<<<<<<<<<<
+ *         cdef libcpp_string input_in_1 = <libcpp_string> value             # <<<<<<<<<<<<<<
  * 
  *         self.inst.get().Add(input_in_0, input_in_1)
  */
-  __pyx_t_6 = __Pyx_PyObject_AsString(__pyx_v_value); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 208; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_1 = ((const char *)__pyx_t_6);
+  __pyx_t_6 = __pyx_convert_string_from_py_std__in_string(__pyx_v_value); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 208; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v_input_in_1 = ((std::string)__pyx_t_6);
 
   /* "pykeyvi.pyx":210
- *         cdef const_char * input_in_1 = <const_char *> value
+ *         cdef libcpp_string input_in_1 = <libcpp_string> value
  * 
  *         self.inst.get().Add(input_in_0, input_in_1)             # <<<<<<<<<<<<<<
  * 
@@ -7347,7 +7270,7 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_22SetManifest(struct
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
-  const char *__pyx_t_5;
+  std::string __pyx_t_5;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -7400,7 +7323,7 @@ static PyObject *__pyx_pf_7pykeyvi_22JsonDictionaryCompiler_22SetManifest(struct
  * 
  * cdef class Dictionary:
  */
-  __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_m); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 226; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_string_from_py_std__in_string(__pyx_v_m); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 226; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   try {
     __pyx_v_self->inst.get()->SetManifestFromString(__pyx_t_5);
   } catch(...) {
@@ -7482,7 +7405,7 @@ static void __pyx_pf_7pykeyvi_10Dictionary___dealloc__(struct __pyx_obj_7pykeyvi
  * 
  *     def LookupText(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
 /* Python wrapper */
@@ -7507,13 +7430,12 @@ static PyObject *__pyx_pw_7pykeyvi_10Dictionary_3LookupText(PyObject *__pyx_v_se
 }
 
 static PyObject *__pyx_pf_7pykeyvi_10Dictionary_2LookupText(struct __pyx_obj_7pykeyvi_Dictionary *__pyx_v_self, PyObject *__pyx_v_in_0) {
-  const char *__pyx_v_input_in_0;
   keyvi::dictionary::MatchIterator::MatchIteratorPair __pyx_v__r;
   struct __pyx_obj_7pykeyvi_MatchIterator *__pyx_v_py_result = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -7524,8 +7446,8 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_2LookupText(struct __pyx_obj_7py
  * 
  *     def LookupText(self, bytes in_0 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().LookupText(input_in_0)
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().LookupText((<libcpp_string>in_0))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -7537,28 +7459,19 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_2LookupText(struct __pyx_obj_7py
   }
   #endif
 
-  /* "pykeyvi.pyx":238
- *     def LookupText(self, bytes in_0 ):
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         cdef _MatchIteratorPair _r = self.inst.get().LookupText(input_in_0)
- *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":239
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().LookupText(input_in_0)             # <<<<<<<<<<<<<<
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().LookupText((<libcpp_string>in_0))             # <<<<<<<<<<<<<<
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()
  */
-  __pyx_v__r = __pyx_v_self->inst.get()->LookupText(__pyx_v_input_in_0);
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v__r = __pyx_v_self->inst.get()->LookupText(((std::string)__pyx_t_2));
 
   /* "pykeyvi.pyx":240
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().LookupText(input_in_0)
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().LookupText((<libcpp_string>in_0))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)             # <<<<<<<<<<<<<<
  *         py_result.it = _r.begin()
  *         py_result.end = _r.end()
@@ -7570,7 +7483,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_2LookupText(struct __pyx_obj_7py
   __pyx_t_3 = 0;
 
   /* "pykeyvi.pyx":241
- *         cdef _MatchIteratorPair _r = self.inst.get().LookupText(input_in_0)
+ *         cdef _MatchIteratorPair _r = self.inst.get().LookupText((<libcpp_string>in_0))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()             # <<<<<<<<<<<<<<
  *         py_result.end = _r.end()
@@ -7604,7 +7517,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_2LookupText(struct __pyx_obj_7py
  * 
  *     def LookupText(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
   /* function exit code */
@@ -7624,7 +7537,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_2LookupText(struct __pyx_obj_7py
  * 
  *     def Lookup(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
 /* Python wrapper */
@@ -7649,13 +7562,12 @@ static PyObject *__pyx_pw_7pykeyvi_10Dictionary_5Lookup(PyObject *__pyx_v_self, 
 }
 
 static PyObject *__pyx_pf_7pykeyvi_10Dictionary_4Lookup(struct __pyx_obj_7pykeyvi_Dictionary *__pyx_v_self, PyObject *__pyx_v_in_0) {
-  const char *__pyx_v_input_in_0;
   keyvi::dictionary::MatchIterator::MatchIteratorPair __pyx_v__r;
   struct __pyx_obj_7pykeyvi_MatchIterator *__pyx_v_py_result = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -7666,8 +7578,8 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_4Lookup(struct __pyx_obj_7pykeyv
  * 
  *     def Lookup(self, bytes in_0 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().Lookup(input_in_0)
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().Lookup((<libcpp_string>in_0))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -7679,28 +7591,19 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_4Lookup(struct __pyx_obj_7pykeyv
   }
   #endif
 
-  /* "pykeyvi.pyx":247
- *     def Lookup(self, bytes in_0 ):
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         cdef _MatchIteratorPair _r = self.inst.get().Lookup(input_in_0)
- *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 247; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":248
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().Lookup(input_in_0)             # <<<<<<<<<<<<<<
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().Lookup((<libcpp_string>in_0))             # <<<<<<<<<<<<<<
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()
  */
-  __pyx_v__r = __pyx_v_self->inst.get()->Lookup(__pyx_v_input_in_0);
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 248; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v__r = __pyx_v_self->inst.get()->Lookup(((std::string)__pyx_t_2));
 
   /* "pykeyvi.pyx":249
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().Lookup(input_in_0)
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().Lookup((<libcpp_string>in_0))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)             # <<<<<<<<<<<<<<
  *         py_result.it = _r.begin()
  *         py_result.end = _r.end()
@@ -7712,7 +7615,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_4Lookup(struct __pyx_obj_7pykeyv
   __pyx_t_3 = 0;
 
   /* "pykeyvi.pyx":250
- *         cdef _MatchIteratorPair _r = self.inst.get().Lookup(input_in_0)
+ *         cdef _MatchIteratorPair _r = self.inst.get().Lookup((<libcpp_string>in_0))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()             # <<<<<<<<<<<<<<
  *         py_result.end = _r.end()
@@ -7746,7 +7649,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_4Lookup(struct __pyx_obj_7pykeyv
  * 
  *     def Lookup(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
   /* function exit code */
@@ -8491,7 +8394,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_10GetNear(struct __pyx_obj_7pyke
  * 
  *     def _init_0(self, bytes filename ):             # <<<<<<<<<<<<<<
  *         assert isinstance(filename, bytes), 'arg filename wrong type'
- *         cdef const_char * input_filename = <const_char *> filename
+ * 
  */
 
 /* Python wrapper */
@@ -8516,11 +8419,10 @@ static PyObject *__pyx_pw_7pykeyvi_10Dictionary_13_init_0(PyObject *__pyx_v_self
 }
 
 static PyObject *__pyx_pf_7pykeyvi_10Dictionary_12_init_0(struct __pyx_obj_7pykeyvi_Dictionary *__pyx_v_self, PyObject *__pyx_v_filename) {
-  const char *__pyx_v_input_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   keyvi::dictionary::Dictionary *__pyx_t_3;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -8531,8 +8433,8 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_12_init_0(struct __pyx_obj_7pyke
  * 
  *     def _init_0(self, bytes filename ):
  *         assert isinstance(filename, bytes), 'arg filename wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_filename = <const_char *> filename
- *         self.inst = shared_ptr[_Dictionary](new _Dictionary(input_filename))
+ * 
+ *         self.inst = shared_ptr[_Dictionary](new _Dictionary((<libcpp_string>filename)))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -8544,25 +8446,16 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_12_init_0(struct __pyx_obj_7pyke
   }
   #endif
 
-  /* "pykeyvi.pyx":288
- *     def _init_0(self, bytes filename ):
- *         assert isinstance(filename, bytes), 'arg filename wrong type'
- *         cdef const_char * input_filename = <const_char *> filename             # <<<<<<<<<<<<<<
- *         self.inst = shared_ptr[_Dictionary](new _Dictionary(input_filename))
- * 
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_filename); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 288; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_filename = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":289
  *         assert isinstance(filename, bytes), 'arg filename wrong type'
- *         cdef const_char * input_filename = <const_char *> filename
- *         self.inst = shared_ptr[_Dictionary](new _Dictionary(input_filename))             # <<<<<<<<<<<<<<
+ * 
+ *         self.inst = shared_ptr[_Dictionary](new _Dictionary((<libcpp_string>filename)))             # <<<<<<<<<<<<<<
  * 
  *     def _init_1(self, bytes filename , int in_1 ):
  */
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_filename); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 289; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   try {
-    __pyx_t_3 = new keyvi::dictionary::Dictionary(__pyx_v_input_filename);
+    __pyx_t_3 = new keyvi::dictionary::Dictionary(((std::string)__pyx_t_2));
   } catch(...) {
     __Pyx_CppExn2PyErr();
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 289; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -8574,7 +8467,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_12_init_0(struct __pyx_obj_7pyke
  * 
  *     def _init_0(self, bytes filename ):             # <<<<<<<<<<<<<<
  *         assert isinstance(filename, bytes), 'arg filename wrong type'
- *         cdef const_char * input_filename = <const_char *> filename
+ * 
  */
 
   /* function exit code */
@@ -8590,7 +8483,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_12_init_0(struct __pyx_obj_7pyke
 }
 
 /* "pykeyvi.pyx":291
- *         self.inst = shared_ptr[_Dictionary](new _Dictionary(input_filename))
+ *         self.inst = shared_ptr[_Dictionary](new _Dictionary((<libcpp_string>filename)))
  * 
  *     def _init_1(self, bytes filename , int in_1 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(filename, bytes), 'arg filename wrong type'
@@ -8664,11 +8557,10 @@ static PyObject *__pyx_pw_7pykeyvi_10Dictionary_15_init_1(PyObject *__pyx_v_self
 }
 
 static PyObject *__pyx_pf_7pykeyvi_10Dictionary_14_init_1(struct __pyx_obj_7pykeyvi_Dictionary *__pyx_v_self, PyObject *__pyx_v_filename, int __pyx_v_in_1) {
-  const char *__pyx_v_input_filename;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   keyvi::dictionary::Dictionary *__pyx_t_3;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -8680,7 +8572,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_14_init_1(struct __pyx_obj_7pyke
  *     def _init_1(self, bytes filename , int in_1 ):
  *         assert isinstance(filename, bytes), 'arg filename wrong type'             # <<<<<<<<<<<<<<
  *         assert in_1 in [0, 1, 2, 3, 4, 5, 6, 7], 'arg in_1 wrong type'
- *         cdef const_char * input_filename = <const_char *> filename
+ * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -8696,7 +8588,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_14_init_1(struct __pyx_obj_7pyke
  *     def _init_1(self, bytes filename , int in_1 ):
  *         assert isinstance(filename, bytes), 'arg filename wrong type'
  *         assert in_1 in [0, 1, 2, 3, 4, 5, 6, 7], 'arg in_1 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_filename = <const_char *> filename
+ * 
  * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
@@ -8723,25 +8615,16 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_14_init_1(struct __pyx_obj_7pyke
   }
   #endif
 
-  /* "pykeyvi.pyx":294
- *         assert isinstance(filename, bytes), 'arg filename wrong type'
- *         assert in_1 in [0, 1, 2, 3, 4, 5, 6, 7], 'arg in_1 wrong type'
- *         cdef const_char * input_filename = <const_char *> filename             # <<<<<<<<<<<<<<
- * 
- *         self.inst = shared_ptr[_Dictionary](new _Dictionary(input_filename, (<_loading_strategy_types>in_1)))
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_filename); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 294; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_filename = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":296
- *         cdef const_char * input_filename = <const_char *> filename
  * 
- *         self.inst = shared_ptr[_Dictionary](new _Dictionary(input_filename, (<_loading_strategy_types>in_1)))             # <<<<<<<<<<<<<<
+ * 
+ *         self.inst = shared_ptr[_Dictionary](new _Dictionary((<libcpp_string>filename), (<_loading_strategy_types>in_1)))             # <<<<<<<<<<<<<<
  * 
  *     def __init__(self, *args):
  */
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_filename); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 296; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   try {
-    __pyx_t_3 = new keyvi::dictionary::Dictionary(__pyx_v_input_filename, ((keyvi::dictionary::loading_strategy_types)__pyx_v_in_1));
+    __pyx_t_3 = new keyvi::dictionary::Dictionary(((std::string)__pyx_t_2), ((keyvi::dictionary::loading_strategy_types)__pyx_v_in_1));
   } catch(...) {
     __Pyx_CppExn2PyErr();
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 296; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -8749,7 +8632,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_14_init_1(struct __pyx_obj_7pyke
   __pyx_v_self->inst = boost::shared_ptr<keyvi::dictionary::Dictionary> (__pyx_t_3);
 
   /* "pykeyvi.pyx":291
- *         self.inst = shared_ptr[_Dictionary](new _Dictionary(input_filename))
+ *         self.inst = shared_ptr[_Dictionary](new _Dictionary((<libcpp_string>filename)))
  * 
  *     def _init_1(self, bytes filename , int in_1 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(filename, bytes), 'arg filename wrong type'
@@ -8769,7 +8652,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_14_init_1(struct __pyx_obj_7pyke
 }
 
 /* "pykeyvi.pyx":298
- *         self.inst = shared_ptr[_Dictionary](new _Dictionary(input_filename, (<_loading_strategy_types>in_1)))
+ *         self.inst = shared_ptr[_Dictionary](new _Dictionary((<libcpp_string>filename), (<_loading_strategy_types>in_1)))
  * 
  *     def __init__(self, *args):             # <<<<<<<<<<<<<<
  *         if (len(args)==1) and (isinstance(args[0], bytes)):
@@ -9011,7 +8894,7 @@ static int __pyx_pf_7pykeyvi_10Dictionary_16__init__(struct __pyx_obj_7pykeyvi_D
   __pyx_L3:;
 
   /* "pykeyvi.pyx":298
- *         self.inst = shared_ptr[_Dictionary](new _Dictionary(input_filename, (<_loading_strategy_types>in_1)))
+ *         self.inst = shared_ptr[_Dictionary](new _Dictionary((<libcpp_string>filename), (<_loading_strategy_types>in_1)))
  * 
  *     def __init__(self, *args):             # <<<<<<<<<<<<<<
  *         if (len(args)==1) and (isinstance(args[0], bytes)):
@@ -9036,7 +8919,7 @@ static int __pyx_pf_7pykeyvi_10Dictionary_16__init__(struct __pyx_obj_7pykeyvi_D
  * 
  *     def Get(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
 /* Python wrapper */
@@ -9061,13 +8944,12 @@ static PyObject *__pyx_pw_7pykeyvi_10Dictionary_19Get(PyObject *__pyx_v_self, Py
 }
 
 static PyObject *__pyx_pf_7pykeyvi_10Dictionary_18Get(struct __pyx_obj_7pykeyvi_Dictionary *__pyx_v_self, PyObject *__pyx_v_in_0) {
-  const char *__pyx_v_input_in_0;
   keyvi::dictionary::MatchIterator::MatchIteratorPair __pyx_v__r;
   struct __pyx_obj_7pykeyvi_MatchIterator *__pyx_v_py_result = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -9078,8 +8960,8 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_18Get(struct __pyx_obj_7pykeyvi_
  * 
  *     def Get(self, bytes in_0 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().Get(input_in_0)
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().Get((<libcpp_string>in_0))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -9091,28 +8973,19 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_18Get(struct __pyx_obj_7pykeyvi_
   }
   #endif
 
-  /* "pykeyvi.pyx":308
- *     def Get(self, bytes in_0 ):
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         cdef _MatchIteratorPair _r = self.inst.get().Get(input_in_0)
- *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 308; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":309
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().Get(input_in_0)             # <<<<<<<<<<<<<<
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().Get((<libcpp_string>in_0))             # <<<<<<<<<<<<<<
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()
  */
-  __pyx_v__r = __pyx_v_self->inst.get()->Get(__pyx_v_input_in_0);
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 309; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v__r = __pyx_v_self->inst.get()->Get(((std::string)__pyx_t_2));
 
   /* "pykeyvi.pyx":310
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().Get(input_in_0)
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().Get((<libcpp_string>in_0))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)             # <<<<<<<<<<<<<<
  *         py_result.it = _r.begin()
  *         py_result.end = _r.end()
@@ -9124,7 +8997,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_18Get(struct __pyx_obj_7pykeyvi_
   __pyx_t_3 = 0;
 
   /* "pykeyvi.pyx":311
- *         cdef _MatchIteratorPair _r = self.inst.get().Get(input_in_0)
+ *         cdef _MatchIteratorPair _r = self.inst.get().Get((<libcpp_string>in_0))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()             # <<<<<<<<<<<<<<
  *         py_result.end = _r.end()
@@ -9158,7 +9031,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_18Get(struct __pyx_obj_7pykeyvi_
  * 
  *     def Get(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
   /* function exit code */
@@ -9254,7 +9127,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_20get(struct __pyx_obj_7pykeyvi_
   int __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
-  const char *__pyx_t_5;
+  std::string __pyx_t_5;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -9301,7 +9174,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_20get(struct __pyx_obj_7pykeyvi_
  *             key = key.encode('utf-8')
  *         assert isinstance(key, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
  * 
- *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<const_char *>key)]))
+ *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<libcpp_string>key)]))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -9316,15 +9189,15 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_20get(struct __pyx_obj_7pykeyvi_
   /* "pykeyvi.pyx":320
  *         assert isinstance(key, bytes), 'arg in_0 wrong type'
  * 
- *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<const_char *>key)]))             # <<<<<<<<<<<<<<
+ *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<libcpp_string>key)]))             # <<<<<<<<<<<<<<
  * 
  *         if _r.get().IsEmpty():
  */
-  __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_key); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 320; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v__r = boost::shared_ptr<keyvi::dictionary::Match> (new keyvi::dictionary::Match(((*__pyx_v_self->inst.get())[((const char *)__pyx_t_5)])));
+  __pyx_t_5 = __pyx_convert_string_from_py_std__in_string(__pyx_v_key); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 320; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v__r = boost::shared_ptr<keyvi::dictionary::Match> (new keyvi::dictionary::Match(((*__pyx_v_self->inst.get())[((std::string)__pyx_t_5)])));
 
   /* "pykeyvi.pyx":322
- *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<const_char *>key)]))
+ *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<libcpp_string>key)]))
  * 
  *         if _r.get().IsEmpty():             # <<<<<<<<<<<<<<
  *             return default
@@ -9346,7 +9219,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_20get(struct __pyx_obj_7pykeyvi_
     goto __pyx_L0;
 
     /* "pykeyvi.pyx":322
- *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<const_char *>key)]))
+ *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<libcpp_string>key)]))
  * 
  *         if _r.get().IsEmpty():             # <<<<<<<<<<<<<<
  *             return default
@@ -9438,7 +9311,7 @@ static int __pyx_pf_7pykeyvi_10Dictionary_22__contains__(struct __pyx_obj_7pykey
   int __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
-  const char *__pyx_t_5;
+  std::string __pyx_t_5;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -9504,7 +9377,7 @@ static int __pyx_pf_7pykeyvi_10Dictionary_22__contains__(struct __pyx_obj_7pykey
  * 
  *     def __len__(self):
  */
-  __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_key); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 334; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_string_from_py_std__in_string(__pyx_v_key); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 334; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_v_self->inst.get()->Contains(__pyx_t_5);
   goto __pyx_L0;
 
@@ -9608,7 +9481,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_26__getitem__(struct __pyx_obj_7
   int __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
-  const char *__pyx_t_5;
+  std::string __pyx_t_5;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -9655,7 +9528,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_26__getitem__(struct __pyx_obj_7
  * 
  *         assert isinstance(key, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
  * 
- *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<const_char *>key)]))
+ *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<libcpp_string>key)]))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -9670,15 +9543,15 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_26__getitem__(struct __pyx_obj_7
   /* "pykeyvi.pyx":345
  *         assert isinstance(key, bytes), 'arg in_0 wrong type'
  * 
- *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<const_char *>key)]))             # <<<<<<<<<<<<<<
+ *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<libcpp_string>key)]))             # <<<<<<<<<<<<<<
  * 
  *         if _r.get().IsEmpty():
  */
-  __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_key); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 345; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v__r = boost::shared_ptr<keyvi::dictionary::Match> (new keyvi::dictionary::Match(((*__pyx_v_self->inst.get())[((const char *)__pyx_t_5)])));
+  __pyx_t_5 = __pyx_convert_string_from_py_std__in_string(__pyx_v_key); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 345; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v__r = boost::shared_ptr<keyvi::dictionary::Match> (new keyvi::dictionary::Match(((*__pyx_v_self->inst.get())[((std::string)__pyx_t_5)])));
 
   /* "pykeyvi.pyx":347
- *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<const_char *>key)]))
+ *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<libcpp_string>key)]))
  * 
  *         if _r.get().IsEmpty():             # <<<<<<<<<<<<<<
  *             raise KeyError(key)
@@ -9707,7 +9580,7 @@ static PyObject *__pyx_pf_7pykeyvi_10Dictionary_26__getitem__(struct __pyx_obj_7
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 348; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
     /* "pykeyvi.pyx":347
- *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<const_char *>key)]))
+ *         cdef shared_ptr[_Match] _r = shared_ptr[_Match](new _Match(deref(self.inst.get())[(<libcpp_string>key)]))
  * 
  *         if _r.get().IsEmpty():             # <<<<<<<<<<<<<<
  *             raise KeyError(key)
@@ -13161,13 +13034,12 @@ static int __pyx_pw_7pykeyvi_28CompletionDictionaryCompiler_3__setitem__(PyObjec
 }
 
 static int __pyx_pf_7pykeyvi_28CompletionDictionaryCompiler_2__setitem__(struct __pyx_obj_7pykeyvi_CompletionDictionaryCompiler *__pyx_v_self, PyObject *__pyx_v_in_0, PyObject *__pyx_v_in_1) {
-  const char *__pyx_v_input_in_0;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   int __pyx_t_2;
   int __pyx_t_3;
-  const char *__pyx_t_4;
+  std::string __pyx_t_4;
   int __pyx_t_5;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -13179,7 +13051,7 @@ static int __pyx_pf_7pykeyvi_28CompletionDictionaryCompiler_2__setitem__(struct 
  *     def __setitem__(self, bytes in_0 ,  in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
  *         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -13195,7 +13067,7 @@ static int __pyx_pf_7pykeyvi_28CompletionDictionaryCompiler_2__setitem__(struct 
  *     def __setitem__(self, bytes in_0 ,  in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
  *         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
@@ -13218,26 +13090,17 @@ static int __pyx_pf_7pykeyvi_28CompletionDictionaryCompiler_2__setitem__(struct 
   }
   #endif
 
-  /* "pykeyvi.pyx":518
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- * 
- *         self.inst.get().__setitem__(input_in_0, (<int>in_1))
- */
-  __pyx_t_4 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 518; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_4);
-
   /* "pykeyvi.pyx":520
- *         cdef const_char * input_in_0 = <const_char *> in_0
  * 
- *         self.inst.get().__setitem__(input_in_0, (<int>in_1))             # <<<<<<<<<<<<<<
+ * 
+ *         self.inst.get().__setitem__((<libcpp_string>in_0), (<int>in_1))             # <<<<<<<<<<<<<<
  * 
  *     def Add(self, bytes in_0 ,  in_1 ):
  */
+  __pyx_t_4 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 520; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_in_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 520; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   try {
-    __pyx_v_self->inst.get()->__setitem__(__pyx_v_input_in_0, ((int)__pyx_t_5));
+    __pyx_v_self->inst.get()->__setitem__(((std::string)__pyx_t_4), ((int)__pyx_t_5));
   } catch(...) {
     __Pyx_CppExn2PyErr();
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 520; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -13263,7 +13126,7 @@ static int __pyx_pf_7pykeyvi_28CompletionDictionaryCompiler_2__setitem__(struct 
 }
 
 /* "pykeyvi.pyx":522
- *         self.inst.get().__setitem__(input_in_0, (<int>in_1))
+ *         self.inst.get().__setitem__((<libcpp_string>in_0), (<int>in_1))
  * 
  *     def Add(self, bytes in_0 ,  in_1 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
@@ -13337,13 +13200,12 @@ static PyObject *__pyx_pw_7pykeyvi_28CompletionDictionaryCompiler_5Add(PyObject 
 }
 
 static PyObject *__pyx_pf_7pykeyvi_28CompletionDictionaryCompiler_4Add(struct __pyx_obj_7pykeyvi_CompletionDictionaryCompiler *__pyx_v_self, PyObject *__pyx_v_in_0, PyObject *__pyx_v_in_1) {
-  const char *__pyx_v_input_in_0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   int __pyx_t_2;
   int __pyx_t_3;
-  const char *__pyx_t_4;
+  std::string __pyx_t_4;
   int __pyx_t_5;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -13355,7 +13217,7 @@ static PyObject *__pyx_pf_7pykeyvi_28CompletionDictionaryCompiler_4Add(struct __
  *     def Add(self, bytes in_0 ,  in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
  *         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -13371,7 +13233,7 @@ static PyObject *__pyx_pf_7pykeyvi_28CompletionDictionaryCompiler_4Add(struct __
  *     def Add(self, bytes in_0 ,  in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
  *         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
@@ -13394,33 +13256,24 @@ static PyObject *__pyx_pf_7pykeyvi_28CompletionDictionaryCompiler_4Add(struct __
   }
   #endif
 
-  /* "pykeyvi.pyx":525
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- * 
- *         self.inst.get().Add(input_in_0, (<int>in_1))
- */
-  __pyx_t_4 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 525; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_4);
-
   /* "pykeyvi.pyx":527
- *         cdef const_char * input_in_0 = <const_char *> in_0
  * 
- *         self.inst.get().Add(input_in_0, (<int>in_1))             # <<<<<<<<<<<<<<
+ * 
+ *         self.inst.get().Add((<libcpp_string>in_0), (<int>in_1))             # <<<<<<<<<<<<<<
  * 
  *     def _init_0(self):
  */
+  __pyx_t_4 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 527; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_in_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 527; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   try {
-    __pyx_v_self->inst.get()->Add(__pyx_v_input_in_0, ((int)__pyx_t_5));
+    __pyx_v_self->inst.get()->Add(((std::string)__pyx_t_4), ((int)__pyx_t_5));
   } catch(...) {
     __Pyx_CppExn2PyErr();
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 527; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
 
   /* "pykeyvi.pyx":522
- *         self.inst.get().__setitem__(input_in_0, (<int>in_1))
+ *         self.inst.get().__setitem__((<libcpp_string>in_0), (<int>in_1))
  * 
  *     def Add(self, bytes in_0 ,  in_1 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
@@ -13440,7 +13293,7 @@ static PyObject *__pyx_pf_7pykeyvi_28CompletionDictionaryCompiler_4Add(struct __
 }
 
 /* "pykeyvi.pyx":529
- *         self.inst.get().Add(input_in_0, (<int>in_1))
+ *         self.inst.get().Add((<libcpp_string>in_0), (<int>in_1))
  * 
  *     def _init_0(self):             # <<<<<<<<<<<<<<
  *         self.inst = shared_ptr[_CompletionDictionaryCompiler](new _CompletionDictionaryCompiler())
@@ -13485,7 +13338,7 @@ static PyObject *__pyx_pf_7pykeyvi_28CompletionDictionaryCompiler_6_init_0(struc
   __pyx_v_self->inst = boost::shared_ptr<keyvi::dictionary::CompletionDictionaryCompiler> (__pyx_t_1);
 
   /* "pykeyvi.pyx":529
- *         self.inst.get().Add(input_in_0, (<int>in_1))
+ *         self.inst.get().Add((<libcpp_string>in_0), (<int>in_1))
  * 
  *     def _init_0(self):             # <<<<<<<<<<<<<<
  *         self.inst = shared_ptr[_CompletionDictionaryCompiler](new _CompletionDictionaryCompiler())
@@ -16857,7 +16710,7 @@ static int __pyx_pf_7pykeyvi_26KeyOnlyDictionaryGenerator_2__init__(struct __pyx
  * 
  *     def Add(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
 /* Python wrapper */
@@ -16882,11 +16735,10 @@ static PyObject *__pyx_pw_7pykeyvi_26KeyOnlyDictionaryGenerator_5Add(PyObject *_
 }
 
 static PyObject *__pyx_pf_7pykeyvi_26KeyOnlyDictionaryGenerator_4Add(struct __pyx_obj_7pykeyvi_KeyOnlyDictionaryGenerator *__pyx_v_self, PyObject *__pyx_v_in_0) {
-  const char *__pyx_v_input_in_0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -16896,8 +16748,8 @@ static PyObject *__pyx_pf_7pykeyvi_26KeyOnlyDictionaryGenerator_4Add(struct __py
  * 
  *     def Add(self, bytes in_0 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         self.inst.get().Add(input_in_0)
+ * 
+ *         self.inst.get().Add((<libcpp_string>in_0))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -16909,25 +16761,16 @@ static PyObject *__pyx_pf_7pykeyvi_26KeyOnlyDictionaryGenerator_4Add(struct __py
   }
   #endif
 
-  /* "pykeyvi.pyx":671
- *     def Add(self, bytes in_0 ):
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         self.inst.get().Add(input_in_0)
- * 
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 671; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":672
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         self.inst.get().Add(input_in_0)             # <<<<<<<<<<<<<<
+ * 
+ *         self.inst.get().Add((<libcpp_string>in_0))             # <<<<<<<<<<<<<<
  * 
  *     def CloseFeeding(self):
  */
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 672; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   try {
-    __pyx_v_self->inst.get()->Add(__pyx_v_input_in_0);
+    __pyx_v_self->inst.get()->Add(((std::string)__pyx_t_2));
   } catch(...) {
     __Pyx_CppExn2PyErr();
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 672; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -16938,7 +16781,7 @@ static PyObject *__pyx_pf_7pykeyvi_26KeyOnlyDictionaryGenerator_4Add(struct __py
  * 
  *     def Add(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
   /* function exit code */
@@ -16954,7 +16797,7 @@ static PyObject *__pyx_pf_7pykeyvi_26KeyOnlyDictionaryGenerator_4Add(struct __py
 }
 
 /* "pykeyvi.pyx":674
- *         self.inst.get().Add(input_in_0)
+ *         self.inst.get().Add((<libcpp_string>in_0))
  * 
  *     def CloseFeeding(self):             # <<<<<<<<<<<<<<
  *         self.inst.get().CloseFeeding()
@@ -16989,7 +16832,7 @@ static PyObject *__pyx_pf_7pykeyvi_26KeyOnlyDictionaryGenerator_6CloseFeeding(st
   __pyx_v_self->inst.get()->CloseFeeding();
 
   /* "pykeyvi.pyx":674
- *         self.inst.get().Add(input_in_0)
+ *         self.inst.get().Add((<libcpp_string>in_0))
  * 
  *     def CloseFeeding(self):             # <<<<<<<<<<<<<<
  *         self.inst.get().CloseFeeding()
@@ -17008,7 +16851,7 @@ static PyObject *__pyx_pf_7pykeyvi_26KeyOnlyDictionaryGenerator_6CloseFeeding(st
  * 
  *     def WriteToFile(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
 /* Python wrapper */
@@ -17033,11 +16876,10 @@ static PyObject *__pyx_pw_7pykeyvi_26KeyOnlyDictionaryGenerator_9WriteToFile(PyO
 }
 
 static PyObject *__pyx_pf_7pykeyvi_26KeyOnlyDictionaryGenerator_8WriteToFile(struct __pyx_obj_7pykeyvi_KeyOnlyDictionaryGenerator *__pyx_v_self, PyObject *__pyx_v_in_0) {
-  const char *__pyx_v_input_in_0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -17047,8 +16889,8 @@ static PyObject *__pyx_pf_7pykeyvi_26KeyOnlyDictionaryGenerator_8WriteToFile(str
  * 
  *     def WriteToFile(self, bytes in_0 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         self.inst.get().WriteToFile(input_in_0)
+ * 
+ *         self.inst.get().WriteToFile((<libcpp_string>in_0))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -17060,31 +16902,22 @@ static PyObject *__pyx_pf_7pykeyvi_26KeyOnlyDictionaryGenerator_8WriteToFile(str
   }
   #endif
 
-  /* "pykeyvi.pyx":679
- *     def WriteToFile(self, bytes in_0 ):
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         self.inst.get().WriteToFile(input_in_0)
- * 
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 679; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":680
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         self.inst.get().WriteToFile(input_in_0)             # <<<<<<<<<<<<<<
+ * 
+ *         self.inst.get().WriteToFile((<libcpp_string>in_0))             # <<<<<<<<<<<<<<
  * 
  * cdef class KeyOnlyDictionaryCompiler:
  */
-  __pyx_v_self->inst.get()->WriteToFile(__pyx_v_input_in_0);
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 680; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v_self->inst.get()->WriteToFile(((std::string)__pyx_t_2));
 
   /* "pykeyvi.pyx":677
  *         self.inst.get().CloseFeeding()
  * 
  *     def WriteToFile(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
   /* function exit code */
@@ -18638,7 +18471,7 @@ static int __pyx_pf_7pykeyvi_25KeyOnlyDictionaryCompiler_8__init__(struct __pyx_
  * 
  *     def Add(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
 /* Python wrapper */
@@ -18663,11 +18496,10 @@ static PyObject *__pyx_pw_7pykeyvi_25KeyOnlyDictionaryCompiler_11Add(PyObject *_
 }
 
 static PyObject *__pyx_pf_7pykeyvi_25KeyOnlyDictionaryCompiler_10Add(struct __pyx_obj_7pykeyvi_KeyOnlyDictionaryCompiler *__pyx_v_self, PyObject *__pyx_v_in_0) {
-  const char *__pyx_v_input_in_0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -18677,8 +18509,8 @@ static PyObject *__pyx_pf_7pykeyvi_25KeyOnlyDictionaryCompiler_10Add(struct __py
  * 
  *     def Add(self, bytes in_0 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         self.inst.get().Add(input_in_0)
+ * 
+ *         self.inst.get().Add((<libcpp_string>in_0))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -18690,25 +18522,16 @@ static PyObject *__pyx_pf_7pykeyvi_25KeyOnlyDictionaryCompiler_10Add(struct __py
   }
   #endif
 
-  /* "pykeyvi.pyx":720
- *     def Add(self, bytes in_0 ):
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         self.inst.get().Add(input_in_0)
- * 
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 720; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":721
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         self.inst.get().Add(input_in_0)             # <<<<<<<<<<<<<<
+ * 
+ *         self.inst.get().Add((<libcpp_string>in_0))             # <<<<<<<<<<<<<<
  * 
  *     def WriteToFile(self, bytes in_0 ):
  */
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 721; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   try {
-    __pyx_v_self->inst.get()->Add(__pyx_v_input_in_0);
+    __pyx_v_self->inst.get()->Add(((std::string)__pyx_t_2));
   } catch(...) {
     __Pyx_CppExn2PyErr();
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 721; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -18719,7 +18542,7 @@ static PyObject *__pyx_pf_7pykeyvi_25KeyOnlyDictionaryCompiler_10Add(struct __py
  * 
  *     def Add(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
   /* function exit code */
@@ -18735,7 +18558,7 @@ static PyObject *__pyx_pf_7pykeyvi_25KeyOnlyDictionaryCompiler_10Add(struct __py
 }
 
 /* "pykeyvi.pyx":723
- *         self.inst.get().Add(input_in_0)
+ *         self.inst.get().Add((<libcpp_string>in_0))
  * 
  *     def WriteToFile(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
@@ -18811,7 +18634,7 @@ static PyObject *__pyx_pf_7pykeyvi_25KeyOnlyDictionaryCompiler_12WriteToFile(str
   __pyx_v_self->inst.get()->WriteToFile(__pyx_v_input_in_0);
 
   /* "pykeyvi.pyx":723
- *         self.inst.get().Add(input_in_0)
+ *         self.inst.get().Add((<libcpp_string>in_0))
  * 
  *     def WriteToFile(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
@@ -27803,7 +27626,7 @@ static int __Pyx_InitCachedConstants(void) {
  * 
  *         if isinstance(key, unicode):
  *             key = key.encode('UTF-8')             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> key
+ *         cdef libcpp_string input_in_0 = <libcpp_string> key
  * 
  */
   __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_UTF_8); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 203; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -27814,7 +27637,7 @@ static int __Pyx_InitCachedConstants(void) {
  * 
  *         if isinstance(value, unicode):
  *             value = value.encode('UTF-8')             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_1 = <const_char *> value
+ *         cdef libcpp_string input_in_1 = <libcpp_string> value
  * 
  */
   __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_UTF_8); if (unlikely(!__pyx_tuple__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 207; __pyx_clineno = __LINE__; goto __pyx_L1_error;}

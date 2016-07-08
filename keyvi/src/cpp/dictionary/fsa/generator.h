@@ -215,7 +215,6 @@ final {
       if(state_ != generator_state::FEEDING) {
         throw generator_exception("not in feeding state");
       }
-
       const size_t commonPrefixLength = get_common_prefix_length(last_key_, input_key);
 
       // keys are equal, just return

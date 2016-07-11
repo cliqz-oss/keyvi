@@ -200,9 +200,41 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
       highest_persisted_state_ = offset;
     }
 
-    // make sure no other state is placed at offset - 255, which could cause interference
-    if ((unpacked_state[0].label == 1) && offset >= NUMBER_OF_STATE_CODINGS) {
-      state_start_positions_.Set(offset - NUMBER_OF_STATE_CODINGS);
+    if (unpacked_state[0].label != 0) {
+      // make sure no other state is placed at offset - 256, which could cause interference
+      if ((unpacked_state[0].label == 1) && offset >= FINAL_OFFSET_TRANSITION) {
+        state_start_positions_.Set(offset - FINAL_OFFSET_TRANSITION);
+      }
+
+      TRACE ("no zero byte, need special handling");
+
+      // check if something is already written there
+      if (!taken_positions_in_sparsearray_.IsSet(offset)) {
+
+        // no 0-byte, we have to 'scramble' the 0-byte to avoid a zombie state
+        int invalid_label = 0xff;
+        if (offset > NUMBER_OF_STATE_CODINGS) {
+          size_t safe_state_id = offset;
+          while (state_start_positions_.IsSet(safe_state_id)) {
+            ++safe_state_id;
+            --invalid_label;
+          }
+
+          // block the position as a possible start state
+          state_start_positions_.Set(safe_state_id);
+        }
+
+        // write the bogus label (it can get overriden later, which is ok)
+        WriteTransition(offset, invalid_label, 0);
+      }
+    } else {
+      // first bit is a 0 byte, so check [1]
+      // make sure no other state is placed at offset - 256, which could cause interference
+      if (unpacked_state.size() > 1 && (unpacked_state[1].label == 1) && offset >= FINAL_OFFSET_TRANSITION) {
+        state_start_positions_.Set(offset - FINAL_OFFSET_TRANSITION);
+      }
+
+      TRACE ("zero byte to be written");
     }
 
     persistence_->BeginNewState(offset);
@@ -318,6 +350,7 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
   inline void WriteTransition(size_t offset, unsigned char transitionId,
                               uint64_t transitionPointer)
   {
+    TRACE("Write offset: %ld, label: %d", offset, transitionId);
     size_t difference = SIZE_MAX;
 
     if (offset + 512 > transitionPointer) {

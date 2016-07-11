@@ -454,9 +454,9 @@ cdef class PrefixCompletion:
     def GetFuzzyCompletions(self, bytes in_0 ,  max_edit_distance ):
         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
         assert isinstance(max_edit_distance, (int, long)), 'arg max_edit_distance wrong type'
-        cdef const_char * input_in_0 = <const_char *> in_0
     
-        cdef _MatchIteratorPair _r = self.inst.get().GetFuzzyCompletions(input_in_0, (<int>max_edit_distance))
+    
+        cdef _MatchIteratorPair _r = self.inst.get().GetFuzzyCompletions((<libcpp_string>in_0), (<int>max_edit_distance))
         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
         py_result.it = _r.begin()
         py_result.end = _r.end()
@@ -469,8 +469,8 @@ cdef class PrefixCompletion:
     
     def GetCompletions(self, bytes in_0 ):
         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
-        cdef const_char * input_in_0 = <const_char *> in_0
-        cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
+    
+        cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))
         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
         py_result.it = _r.begin()
         py_result.end = _r.end()
@@ -486,8 +486,8 @@ cdef class ForwardBackwardCompletion:
     
     def _GetCompletions_0(self, bytes in_0 ):
         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
-        cdef const_char * input_in_0 = <const_char *> in_0
-        cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
+    
+        cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))
         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
         py_result.it = _r.begin()
         py_result.end = _r.end()
@@ -496,9 +496,9 @@ cdef class ForwardBackwardCompletion:
     def _GetCompletions_1(self, bytes in_0 ,  in_1 ):
         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'
-        cdef const_char * input_in_0 = <const_char *> in_0
     
-        cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0, (<int>in_1))
+    
+        cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0), (<int>in_1))
         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
         py_result.it = _r.begin()
         py_result.end = _r.end()
@@ -627,8 +627,8 @@ cdef class MultiWordCompletion:
     
     def _GetCompletions_0(self, bytes in_0 ):
         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
-        cdef const_char * input_in_0 = <const_char *> in_0
-        cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
+    
+        cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))
         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
         py_result.it = _r.begin()
         py_result.end = _r.end()
@@ -637,9 +637,9 @@ cdef class MultiWordCompletion:
     def _GetCompletions_1(self, bytes in_0 ,  in_1 ):
         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'
-        cdef const_char * input_in_0 = <const_char *> in_0
     
-        cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0, (<int>in_1))
+    
+        cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0), (<int>in_1))
         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
         py_result.it = _r.begin()
         py_result.end = _r.end()

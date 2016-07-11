@@ -190,6 +190,7 @@ final {
                  ValueStoreT::no_value) {
 
       size_t commonPrefixLength = get_common_prefix_length(last_key_, input_key);
+      TRACE ("%d key (%ld), common prefix %ld", number_of_keys_added_, input_key.size(), commonPrefixLength);
 
       // keys are equal, just return
       if (commonPrefixLength == input_key.size() && last_key_.size() == input_key.size()) {
@@ -200,7 +201,7 @@ final {
       ConsumeStack(commonPrefixLength);
 
       // put everything that is not common between the two strings (the suffix) into the stack
-      FeedStack(commonPrefixLength, input_key.size(), input_key.c_str());
+      FeedStack(commonPrefixLength, input_key.size(), input_key);
 
       // get value and mark final state
       bool no_minimization = false;
@@ -229,6 +230,7 @@ final {
     void Add(const std::string& input_key, const ValueHandle& handle) {
 
       size_t commonPrefixLength = get_common_prefix_length(last_key_, input_key);
+      TRACE ("%d key, common prefix %ld", number_of_keys_added_, commonPrefixLength);
 
       // keys are equal, just return
       if (commonPrefixLength == input_key.size() && last_key_.size() == input_key.size()) {
@@ -239,7 +241,7 @@ final {
       ConsumeStack(commonPrefixLength);
 
       // put everything that is not common between the two strings (the suffix) into the stack
-      FeedStack(commonPrefixLength, input_key.size(), input_key.c_str());
+      FeedStack(commonPrefixLength, input_key.size(), input_key);
 
       stack_->InsertFinalState(input_key.size(), handle.value_idx, handle.no_minimization);
 

@@ -11746,7 +11746,6 @@ static PyObject *__pyx_pw_7pykeyvi_16PrefixCompletion_3GetFuzzyCompletions(PyObj
 }
 
 static PyObject *__pyx_pf_7pykeyvi_16PrefixCompletion_2GetFuzzyCompletions(struct __pyx_obj_7pykeyvi_PrefixCompletion *__pyx_v_self, PyObject *__pyx_v_in_0, PyObject *__pyx_v_max_edit_distance) {
-  const char *__pyx_v_input_in_0;
   keyvi::dictionary::MatchIterator::MatchIteratorPair __pyx_v__r;
   struct __pyx_obj_7pykeyvi_MatchIterator *__pyx_v_py_result = 0;
   PyObject *__pyx_r = NULL;
@@ -11754,7 +11753,7 @@ static PyObject *__pyx_pf_7pykeyvi_16PrefixCompletion_2GetFuzzyCompletions(struc
   int __pyx_t_1;
   int __pyx_t_2;
   int __pyx_t_3;
-  const char *__pyx_t_4;
+  std::string __pyx_t_4;
   int __pyx_t_5;
   PyObject *__pyx_t_6 = NULL;
   int __pyx_lineno = 0;
@@ -11767,7 +11766,7 @@ static PyObject *__pyx_pf_7pykeyvi_16PrefixCompletion_2GetFuzzyCompletions(struc
  *     def GetFuzzyCompletions(self, bytes in_0 ,  max_edit_distance ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
  *         assert isinstance(max_edit_distance, (int, long)), 'arg max_edit_distance wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -11783,7 +11782,7 @@ static PyObject *__pyx_pf_7pykeyvi_16PrefixCompletion_2GetFuzzyCompletions(struc
  *     def GetFuzzyCompletions(self, bytes in_0 ,  max_edit_distance ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
  *         assert isinstance(max_edit_distance, (int, long)), 'arg max_edit_distance wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
@@ -11806,29 +11805,20 @@ static PyObject *__pyx_pf_7pykeyvi_16PrefixCompletion_2GetFuzzyCompletions(struc
   }
   #endif
 
-  /* "pykeyvi.pyx":432
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         assert isinstance(max_edit_distance, (int, long)), 'arg max_edit_distance wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- * 
- *         cdef _MatchIteratorPair _r = self.inst.get().GetFuzzyCompletions(input_in_0, (<int>max_edit_distance))
- */
-  __pyx_t_4 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_4);
-
   /* "pykeyvi.pyx":434
- *         cdef const_char * input_in_0 = <const_char *> in_0
  * 
- *         cdef _MatchIteratorPair _r = self.inst.get().GetFuzzyCompletions(input_in_0, (<int>max_edit_distance))             # <<<<<<<<<<<<<<
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetFuzzyCompletions((<libcpp_string>in_0), (<int>max_edit_distance))             # <<<<<<<<<<<<<<
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()
  */
+  __pyx_t_4 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 434; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_max_edit_distance); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 434; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v__r = __pyx_v_self->inst.get()->GetFuzzyCompletions(__pyx_v_input_in_0, ((int)__pyx_t_5));
+  __pyx_v__r = __pyx_v_self->inst.get()->GetFuzzyCompletions(((std::string)__pyx_t_4), ((int)__pyx_t_5));
 
   /* "pykeyvi.pyx":435
  * 
- *         cdef _MatchIteratorPair _r = self.inst.get().GetFuzzyCompletions(input_in_0, (<int>max_edit_distance))
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetFuzzyCompletions((<libcpp_string>in_0), (<int>max_edit_distance))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)             # <<<<<<<<<<<<<<
  *         py_result.it = _r.begin()
  *         py_result.end = _r.end()
@@ -11840,7 +11830,7 @@ static PyObject *__pyx_pf_7pykeyvi_16PrefixCompletion_2GetFuzzyCompletions(struc
   __pyx_t_6 = 0;
 
   /* "pykeyvi.pyx":436
- *         cdef _MatchIteratorPair _r = self.inst.get().GetFuzzyCompletions(input_in_0, (<int>max_edit_distance))
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetFuzzyCompletions((<libcpp_string>in_0), (<int>max_edit_distance))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()             # <<<<<<<<<<<<<<
  *         py_result.end = _r.end()
@@ -12032,7 +12022,7 @@ static int __pyx_pf_7pykeyvi_16PrefixCompletion_4__init__(struct __pyx_obj_7pyke
  * 
  *     def GetCompletions(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
 /* Python wrapper */
@@ -12057,13 +12047,12 @@ static PyObject *__pyx_pw_7pykeyvi_16PrefixCompletion_7GetCompletions(PyObject *
 }
 
 static PyObject *__pyx_pf_7pykeyvi_16PrefixCompletion_6GetCompletions(struct __pyx_obj_7pykeyvi_PrefixCompletion *__pyx_v_self, PyObject *__pyx_v_in_0) {
-  const char *__pyx_v_input_in_0;
   keyvi::dictionary::MatchIterator::MatchIteratorPair __pyx_v__r;
   struct __pyx_obj_7pykeyvi_MatchIterator *__pyx_v_py_result = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -12074,8 +12063,8 @@ static PyObject *__pyx_pf_7pykeyvi_16PrefixCompletion_6GetCompletions(struct __p
  * 
  *     def GetCompletions(self, bytes in_0 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -12087,28 +12076,19 @@ static PyObject *__pyx_pf_7pykeyvi_16PrefixCompletion_6GetCompletions(struct __p
   }
   #endif
 
-  /* "pykeyvi.pyx":447
- *     def GetCompletions(self, bytes in_0 ):
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
- *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 447; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":448
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)             # <<<<<<<<<<<<<<
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))             # <<<<<<<<<<<<<<
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()
  */
-  __pyx_v__r = __pyx_v_self->inst.get()->GetCompletions(__pyx_v_input_in_0);
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 448; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v__r = __pyx_v_self->inst.get()->GetCompletions(((std::string)__pyx_t_2));
 
   /* "pykeyvi.pyx":449
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)             # <<<<<<<<<<<<<<
  *         py_result.it = _r.begin()
  *         py_result.end = _r.end()
@@ -12120,7 +12100,7 @@ static PyObject *__pyx_pf_7pykeyvi_16PrefixCompletion_6GetCompletions(struct __p
   __pyx_t_3 = 0;
 
   /* "pykeyvi.pyx":450
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()             # <<<<<<<<<<<<<<
  *         py_result.end = _r.end()
@@ -12154,7 +12134,7 @@ static PyObject *__pyx_pf_7pykeyvi_16PrefixCompletion_6GetCompletions(struct __p
  * 
  *     def GetCompletions(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
   /* function exit code */
@@ -12218,7 +12198,7 @@ static void __pyx_pf_7pykeyvi_25ForwardBackwardCompletion___dealloc__(struct __p
  * 
  *     def _GetCompletions_0(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
 /* Python wrapper */
@@ -12243,13 +12223,12 @@ static PyObject *__pyx_pw_7pykeyvi_25ForwardBackwardCompletion_3_GetCompletions_
 }
 
 static PyObject *__pyx_pf_7pykeyvi_25ForwardBackwardCompletion_2_GetCompletions_0(struct __pyx_obj_7pykeyvi_ForwardBackwardCompletion *__pyx_v_self, PyObject *__pyx_v_in_0) {
-  const char *__pyx_v_input_in_0;
   keyvi::dictionary::MatchIterator::MatchIteratorPair __pyx_v__r;
   struct __pyx_obj_7pykeyvi_MatchIterator *__pyx_v_py_result = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -12260,8 +12239,8 @@ static PyObject *__pyx_pf_7pykeyvi_25ForwardBackwardCompletion_2_GetCompletions_
  * 
  *     def _GetCompletions_0(self, bytes in_0 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -12273,28 +12252,19 @@ static PyObject *__pyx_pf_7pykeyvi_25ForwardBackwardCompletion_2_GetCompletions_
   }
   #endif
 
-  /* "pykeyvi.pyx":464
- *     def _GetCompletions_0(self, bytes in_0 ):
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
- *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 464; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":465
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)             # <<<<<<<<<<<<<<
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))             # <<<<<<<<<<<<<<
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()
  */
-  __pyx_v__r = __pyx_v_self->inst.get()->GetCompletions(__pyx_v_input_in_0);
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 465; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v__r = __pyx_v_self->inst.get()->GetCompletions(((std::string)__pyx_t_2));
 
   /* "pykeyvi.pyx":466
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)             # <<<<<<<<<<<<<<
  *         py_result.it = _r.begin()
  *         py_result.end = _r.end()
@@ -12306,7 +12276,7 @@ static PyObject *__pyx_pf_7pykeyvi_25ForwardBackwardCompletion_2_GetCompletions_
   __pyx_t_3 = 0;
 
   /* "pykeyvi.pyx":467
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()             # <<<<<<<<<<<<<<
  *         py_result.end = _r.end()
@@ -12340,7 +12310,7 @@ static PyObject *__pyx_pf_7pykeyvi_25ForwardBackwardCompletion_2_GetCompletions_
  * 
  *     def _GetCompletions_0(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
   /* function exit code */
@@ -12430,7 +12400,6 @@ static PyObject *__pyx_pw_7pykeyvi_25ForwardBackwardCompletion_5_GetCompletions_
 }
 
 static PyObject *__pyx_pf_7pykeyvi_25ForwardBackwardCompletion_4_GetCompletions_1(struct __pyx_obj_7pykeyvi_ForwardBackwardCompletion *__pyx_v_self, PyObject *__pyx_v_in_0, PyObject *__pyx_v_in_1) {
-  const char *__pyx_v_input_in_0;
   keyvi::dictionary::MatchIterator::MatchIteratorPair __pyx_v__r;
   struct __pyx_obj_7pykeyvi_MatchIterator *__pyx_v_py_result = 0;
   PyObject *__pyx_r = NULL;
@@ -12438,7 +12407,7 @@ static PyObject *__pyx_pf_7pykeyvi_25ForwardBackwardCompletion_4_GetCompletions_
   int __pyx_t_1;
   int __pyx_t_2;
   int __pyx_t_3;
-  const char *__pyx_t_4;
+  std::string __pyx_t_4;
   int __pyx_t_5;
   PyObject *__pyx_t_6 = NULL;
   int __pyx_lineno = 0;
@@ -12451,7 +12420,7 @@ static PyObject *__pyx_pf_7pykeyvi_25ForwardBackwardCompletion_4_GetCompletions_
  *     def _GetCompletions_1(self, bytes in_0 ,  in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
  *         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -12467,7 +12436,7 @@ static PyObject *__pyx_pf_7pykeyvi_25ForwardBackwardCompletion_4_GetCompletions_
  *     def _GetCompletions_1(self, bytes in_0 ,  in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
  *         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
@@ -12490,29 +12459,20 @@ static PyObject *__pyx_pf_7pykeyvi_25ForwardBackwardCompletion_4_GetCompletions_
   }
   #endif
 
-  /* "pykeyvi.pyx":474
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- * 
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0, (<int>in_1))
- */
-  __pyx_t_4 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 474; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_4);
-
   /* "pykeyvi.pyx":476
- *         cdef const_char * input_in_0 = <const_char *> in_0
  * 
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0, (<int>in_1))             # <<<<<<<<<<<<<<
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0), (<int>in_1))             # <<<<<<<<<<<<<<
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()
  */
+  __pyx_t_4 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_in_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v__r = __pyx_v_self->inst.get()->GetCompletions(__pyx_v_input_in_0, ((int)__pyx_t_5));
+  __pyx_v__r = __pyx_v_self->inst.get()->GetCompletions(((std::string)__pyx_t_4), ((int)__pyx_t_5));
 
   /* "pykeyvi.pyx":477
  * 
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0, (<int>in_1))
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0), (<int>in_1))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)             # <<<<<<<<<<<<<<
  *         py_result.it = _r.begin()
  *         py_result.end = _r.end()
@@ -12524,7 +12484,7 @@ static PyObject *__pyx_pf_7pykeyvi_25ForwardBackwardCompletion_4_GetCompletions_
   __pyx_t_6 = 0;
 
   /* "pykeyvi.pyx":478
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0, (<int>in_1))
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0), (<int>in_1))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()             # <<<<<<<<<<<<<<
  *         py_result.end = _r.end()
@@ -15634,7 +15594,7 @@ static int __pyx_pf_7pykeyvi_19MultiWordCompletion_2__init__(struct __pyx_obj_7p
  * 
  *     def _GetCompletions_0(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
 /* Python wrapper */
@@ -15659,13 +15619,12 @@ static PyObject *__pyx_pw_7pykeyvi_19MultiWordCompletion_5_GetCompletions_0(PyOb
 }
 
 static PyObject *__pyx_pf_7pykeyvi_19MultiWordCompletion_4_GetCompletions_0(struct __pyx_obj_7pykeyvi_MultiWordCompletion *__pyx_v_self, PyObject *__pyx_v_in_0) {
-  const char *__pyx_v_input_in_0;
   keyvi::dictionary::MatchIterator::MatchIteratorPair __pyx_v__r;
   struct __pyx_obj_7pykeyvi_MatchIterator *__pyx_v_py_result = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  const char *__pyx_t_2;
+  std::string __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -15676,8 +15635,8 @@ static PyObject *__pyx_pf_7pykeyvi_19MultiWordCompletion_4_GetCompletions_0(stru
  * 
  *     def _GetCompletions_0(self, bytes in_0 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -15689,28 +15648,19 @@ static PyObject *__pyx_pf_7pykeyvi_19MultiWordCompletion_4_GetCompletions_0(stru
   }
   #endif
 
-  /* "pykeyvi.pyx":605
- *     def _GetCompletions_0(self, bytes in_0 ):
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
- *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
- */
-  __pyx_t_2 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 605; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_2);
-
   /* "pykeyvi.pyx":606
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)             # <<<<<<<<<<<<<<
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))             # <<<<<<<<<<<<<<
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()
  */
-  __pyx_v__r = __pyx_v_self->inst.get()->GetCompletions(__pyx_v_input_in_0);
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 606; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v__r = __pyx_v_self->inst.get()->GetCompletions(((std::string)__pyx_t_2));
 
   /* "pykeyvi.pyx":607
- *         cdef const_char * input_in_0 = <const_char *> in_0
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)             # <<<<<<<<<<<<<<
  *         py_result.it = _r.begin()
  *         py_result.end = _r.end()
@@ -15722,7 +15672,7 @@ static PyObject *__pyx_pf_7pykeyvi_19MultiWordCompletion_4_GetCompletions_0(stru
   __pyx_t_3 = 0;
 
   /* "pykeyvi.pyx":608
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0)
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()             # <<<<<<<<<<<<<<
  *         py_result.end = _r.end()
@@ -15756,7 +15706,7 @@ static PyObject *__pyx_pf_7pykeyvi_19MultiWordCompletion_4_GetCompletions_0(stru
  * 
  *     def _GetCompletions_0(self, bytes in_0 ):             # <<<<<<<<<<<<<<
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
 
   /* function exit code */
@@ -15846,7 +15796,6 @@ static PyObject *__pyx_pw_7pykeyvi_19MultiWordCompletion_7_GetCompletions_1(PyOb
 }
 
 static PyObject *__pyx_pf_7pykeyvi_19MultiWordCompletion_6_GetCompletions_1(struct __pyx_obj_7pykeyvi_MultiWordCompletion *__pyx_v_self, PyObject *__pyx_v_in_0, PyObject *__pyx_v_in_1) {
-  const char *__pyx_v_input_in_0;
   keyvi::dictionary::MatchIterator::MatchIteratorPair __pyx_v__r;
   struct __pyx_obj_7pykeyvi_MatchIterator *__pyx_v_py_result = 0;
   PyObject *__pyx_r = NULL;
@@ -15854,7 +15803,7 @@ static PyObject *__pyx_pf_7pykeyvi_19MultiWordCompletion_6_GetCompletions_1(stru
   int __pyx_t_1;
   int __pyx_t_2;
   int __pyx_t_3;
-  const char *__pyx_t_4;
+  std::string __pyx_t_4;
   int __pyx_t_5;
   PyObject *__pyx_t_6 = NULL;
   int __pyx_lineno = 0;
@@ -15867,7 +15816,7 @@ static PyObject *__pyx_pf_7pykeyvi_19MultiWordCompletion_6_GetCompletions_1(stru
  *     def _GetCompletions_1(self, bytes in_0 ,  in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'             # <<<<<<<<<<<<<<
  *         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
@@ -15883,7 +15832,7 @@ static PyObject *__pyx_pf_7pykeyvi_19MultiWordCompletion_6_GetCompletions_1(stru
  *     def _GetCompletions_1(self, bytes in_0 ,  in_1 ):
  *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
  *         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'             # <<<<<<<<<<<<<<
- *         cdef const_char * input_in_0 = <const_char *> in_0
+ * 
  * 
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
@@ -15906,29 +15855,20 @@ static PyObject *__pyx_pf_7pykeyvi_19MultiWordCompletion_6_GetCompletions_1(stru
   }
   #endif
 
-  /* "pykeyvi.pyx":615
- *         assert isinstance(in_0, bytes), 'arg in_0 wrong type'
- *         assert isinstance(in_1, (int, long)), 'arg in_1 wrong type'
- *         cdef const_char * input_in_0 = <const_char *> in_0             # <<<<<<<<<<<<<<
- * 
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0, (<int>in_1))
- */
-  __pyx_t_4 = __Pyx_PyObject_AsString(__pyx_v_in_0); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 615; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_input_in_0 = ((const char *)__pyx_t_4);
-
   /* "pykeyvi.pyx":617
- *         cdef const_char * input_in_0 = <const_char *> in_0
  * 
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0, (<int>in_1))             # <<<<<<<<<<<<<<
+ * 
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0), (<int>in_1))             # <<<<<<<<<<<<<<
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()
  */
+  __pyx_t_4 = __pyx_convert_string_from_py_std__in_string(__pyx_v_in_0); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_in_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v__r = __pyx_v_self->inst.get()->GetCompletions(__pyx_v_input_in_0, ((int)__pyx_t_5));
+  __pyx_v__r = __pyx_v_self->inst.get()->GetCompletions(((std::string)__pyx_t_4), ((int)__pyx_t_5));
 
   /* "pykeyvi.pyx":618
  * 
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0, (<int>in_1))
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0), (<int>in_1))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)             # <<<<<<<<<<<<<<
  *         py_result.it = _r.begin()
  *         py_result.end = _r.end()
@@ -15940,7 +15880,7 @@ static PyObject *__pyx_pf_7pykeyvi_19MultiWordCompletion_6_GetCompletions_1(stru
   __pyx_t_6 = 0;
 
   /* "pykeyvi.pyx":619
- *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions(input_in_0, (<int>in_1))
+ *         cdef _MatchIteratorPair _r = self.inst.get().GetCompletions((<libcpp_string>in_0), (<int>in_1))
  *         cdef MatchIterator py_result = MatchIterator.__new__(MatchIterator)
  *         py_result.it = _r.begin()             # <<<<<<<<<<<<<<
  *         py_result.end = _r.end()

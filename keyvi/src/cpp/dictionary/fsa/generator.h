@@ -218,7 +218,7 @@ final {
         stack_->UpdateWeights(0, input_key.size() + 1, weight);
       }
 
-      last_key_ = std::move(input_key);
+      last_key_ = input_key;
       state_ = generator_state::FEEDING;
     }
 
@@ -253,7 +253,7 @@ final {
         stack_->UpdateWeights(0, input_key.size() + 1, handle.weight);
       }
 
-      last_key_ = std::move(input_key);
+      last_key_ = input_key;
       state_ = generator_state::FEEDING;
     }
 

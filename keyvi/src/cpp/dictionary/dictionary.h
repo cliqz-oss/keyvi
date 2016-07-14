@@ -51,7 +51,7 @@ final {
    */
     Dictionary(const std::string& filename, bool load_lazy)
         : fsa_(std::make_shared<fsa::Automata>(filename, load_lazy)) {
-      TRACE("Dictionary from file %s", filename);
+      TRACE("Dictionary from file %s", filename.c_str());
     }
 
     /**
@@ -62,7 +62,7 @@ final {
      */
     explicit Dictionary(const std::string&  filename, loading_strategy_types loading_strategy = loading_strategy_types::lazy)
        : fsa_(std::make_shared<fsa::Automata>(filename, loading_strategy)) {
-      TRACE("Dictionary from file %s", filename);
+      TRACE("Dictionary from file %s", filename.c_str());
     }
 
     Dictionary(fsa::automata_t f)
@@ -92,7 +92,7 @@ final {
       uint64_t state = fsa_->GetStartState();
       const size_t key_length = key.size();
 
-      TRACE("Contains for %s", key);
+      TRACE("Contains for %s", key.c_str());
       for (size_t i = 0; i < key_length; ++i) {
         state = fsa_->TryWalkTransition(state, key[i]);
 
@@ -217,11 +217,9 @@ final {
             TRACE("GetAllKeys callback called");
 
             for (;;) {
-              unsigned char label = data->traverser.GetStateLabel();
-
-              if (label) {
+              if (!data->traverser.AtEnd()) {
                 data->traversal_stack.resize(data->traverser.GetDepth()-1);
-                data->traversal_stack.push_back(label);
+                data->traversal_stack.push_back(data->traverser.GetStateLabel());
                 TRACE("Current depth %d (%d)", data->traverser.GetDepth() -1, data->traversal_stack.size());
 
                 if (data->traverser.IsFinalState()) {
@@ -318,7 +316,7 @@ final {
       const size_t text_length = text.size();
       std::queue<MatchIterator> iterators;
 
-      TRACE("LookupText, 1st lookup for: %s", text);
+      TRACE("LookupText, 1st lookup for: %s", text.c_str());
 
       iterators.push(Lookup(text).begin());
       size_t position = 1;
@@ -330,7 +328,7 @@ final {
         }
 
         ++position;
-        TRACE("LookupText, starting lookup for: %s", text+position);
+        TRACE("LookupText, starting lookup for: %s", text.c_str()+position);
         iterators.push(Lookup(text, position).begin());
       }
 
@@ -407,13 +405,11 @@ final {
 
 
          for (;;) {
-           unsigned char label = data->traverser.GetStateLabel();
-
            // check minimum depth
-           if (label  && data->traverser.GetDepth() > data->matched_depth) {
+           if (!data->traverser.AtEnd() && data->traverser.GetDepth() > data->matched_depth) {
 
              data->traversal_stack.resize(data->traverser.GetDepth()-1);
-             data->traversal_stack.push_back(label);
+             data->traversal_stack.push_back(data->traverser.GetStateLabel());
              TRACE("Current depth %d (%d)", minimum_prefix_length + data->traverser.GetDepth() -1, data->traversal_stack.size());
              if (data->traverser.IsFinalState()) {
                // optimize? fill vector upfront?

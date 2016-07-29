@@ -49,7 +49,7 @@ public:
     }
 
     MatchIterator::MatchIteratorPair GetCompletions(
-        const char* query, int number_of_results = 10) {
+        const std::string& query, int number_of_results = 10) const {
 
       uint64_t state = fsa_->GetStartState();
       size_t number_of_tokens;
@@ -107,10 +107,8 @@ public:
               TRACE("prefix completion callback called");
 
               for (;;) {
-                unsigned char label = data->traverser.GetStateLabel();
-
-                if (label) {
-
+                if (data->traverser) {
+                  unsigned char label = data->traverser.GetStateLabel();
                   if (label == 0x1b){
                     data->multi_word_boundary = data->traverser.GetDepth();
                     TRACE("found MW boundary at %d", data->multi_word_boundary);

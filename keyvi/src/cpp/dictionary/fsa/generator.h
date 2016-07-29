@@ -51,12 +51,11 @@ namespace fsa {
  * @returns length of the longest common prefix of given strings
  */
 
-inline size_t get_common_prefix_length(const char* first, const char* second) {
+inline size_t get_common_prefix_length(const std::string& first, const std::string& second) {
 
   size_t common_prefix_length = 0;
 
-  while (first[common_prefix_length] == second[common_prefix_length]
-      && first[common_prefix_length] != 0) {
+  while (first[common_prefix_length] == second[common_prefix_length] && common_prefix_length < first.size()) {
     ++common_prefix_length;
   }
   return common_prefix_length;
@@ -190,9 +189,8 @@ final {
     void Add(const std::string& input_key, typename ValueStoreT::value_t value =
                  ValueStoreT::no_value) {
 
-      const char* key = input_key.c_str();
-
-      size_t commonPrefixLength = get_common_prefix_length(last_key_.c_str(), key);
+      const size_t commonPrefixLength = get_common_prefix_length(last_key_, input_key);
+      TRACE ("%d key (%ld), common prefix %ld", number_of_keys_added_, input_key.size(), commonPrefixLength);
 
       // keys are equal, just return
       if (commonPrefixLength == input_key.size() && last_key_.size() == input_key.size()) {
@@ -203,7 +201,7 @@ final {
       ConsumeStack(commonPrefixLength);
 
       // put everything that is not common between the two strings (the suffix) into the stack
-      FeedStack(commonPrefixLength, input_key.size(), key);
+      FeedStack(commonPrefixLength, input_key.size(), input_key);
 
       // get value and mark final state
       bool no_minimization = false;
@@ -220,7 +218,7 @@ final {
         stack_->UpdateWeights(0, input_key.size() + 1, weight);
       }
 
-      last_key_ = key;
+      last_key_ = input_key;
       state_ = generator_state::FEEDING;
     }
 
@@ -231,9 +229,8 @@ final {
      */
     void Add(const std::string& input_key, const ValueHandle& handle) {
 
-      const char* key = input_key.c_str();
-
-      size_t commonPrefixLength = get_common_prefix_length(last_key_.c_str(), key);
+      const size_t commonPrefixLength = get_common_prefix_length(last_key_, input_key);
+      TRACE ("%d key, common prefix %ld", number_of_keys_added_, commonPrefixLength);
 
       // keys are equal, just return
       if (commonPrefixLength == input_key.size() && last_key_.size() == input_key.size()) {
@@ -244,7 +241,7 @@ final {
       ConsumeStack(commonPrefixLength);
 
       // put everything that is not common between the two strings (the suffix) into the stack
-      FeedStack(commonPrefixLength, input_key.size(), key);
+      FeedStack(commonPrefixLength, input_key.size(), input_key);
 
       stack_->InsertFinalState(input_key.size(), handle.value_idx, handle.no_minimization);
 
@@ -256,7 +253,7 @@ final {
         stack_->UpdateWeights(0, input_key.size() + 1, handle.weight);
       }
 
-      last_key_ = std::move(input_key);
+      last_key_ = input_key;
       state_ = generator_state::FEEDING;
     }
 
@@ -358,7 +355,7 @@ final {
       internal::SerializationUtils::WriteJsonRecord(stream, pt);
     }
 
-    inline void FeedStack(const size_t start, const size_t end, const char* key) {
+    inline void FeedStack(const size_t start, const size_t end, const std::string& key) {
       for (size_t i = start; i < end; ++i) {
         uint32_t ukey =
             static_cast<uint32_t>(static_cast<unsigned char>(key[i]));

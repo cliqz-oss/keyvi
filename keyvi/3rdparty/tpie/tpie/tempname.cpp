@@ -95,7 +95,7 @@ std::string construct_name(std::string post_base, std::string timestamp, std::st
 void create_subdir() {
 	boost::filesystem::path base_dir = tempname::get_actual_path();
 	boost::filesystem::path p;
-	for (int i=0; i < 42; ++i) {
+	for (int i=0; i < 420; ++i) {
 		p = base_dir / construct_name("", get_timestamp(), "", i);
 		if ( !boost::filesystem::exists(p) && boost::filesystem::create_directory(p)) {
 #if BOOST_FILESYSTEM_VERSION == 3
@@ -116,7 +116,7 @@ void create_subdir() {
 std::string gen_temp(const std::string& post_base, const std::string& dir, const std::string& suffix) {
 	if (!dir.empty()) {
 		boost::filesystem::path p;
-		for (int i=0; i < 42; ++i) {
+		for (int i=0; i < 420; ++i) {
 			p = dir; p /= construct_name(post_base, get_timestamp(), suffix, i);
 			if ( !boost::filesystem::exists(p) ) {
 #if BOOST_FILESYSTEM_VERSION == 3

@@ -49,9 +49,9 @@ final {
    * @param filename the filename
    * @param load_lazy whether to load lazy.
    */
-    Dictionary(const char* filename, bool load_lazy)
+    Dictionary(const std::string& filename, bool load_lazy)
         : fsa_(std::make_shared<fsa::Automata>(filename, load_lazy)) {
-      TRACE("Dictionary from file %s", filename);
+      TRACE("Dictionary from file %s", filename.c_str());
     }
 
     /**
@@ -60,9 +60,9 @@ final {
      * @param filename filename to load keyvi file from.
      * @param loading_strategy optional: Loading strategy to use.
      */
-    explicit Dictionary(const char* filename, loading_strategy_types loading_strategy = loading_strategy_types::lazy)
+    explicit Dictionary(const std::string&  filename, loading_strategy_types loading_strategy = loading_strategy_types::lazy)
        : fsa_(std::make_shared<fsa::Automata>(filename, loading_strategy)) {
-      TRACE("Dictionary from file %s", filename);
+      TRACE("Dictionary from file %s", filename.c_str());
     }
 
     Dictionary(fsa::automata_t f)
@@ -70,7 +70,7 @@ final {
     }
 
     // temporary implementation
-    fsa::automata_t GetFsa() {
+    fsa::automata_t GetFsa() const {
       return fsa_;
     }
 
@@ -88,11 +88,11 @@ final {
      * @param key The key
      * @return True if key is in the dictionary, False otherwise.
      */
-    bool Contains(const char* key) const {
+    bool Contains(const std::string& key) const {
       uint64_t state = fsa_->GetStartState();
-      size_t key_length = strlen(key);
+      const size_t key_length = key.size();
 
-      TRACE("Contains for %s", key);
+      TRACE("Contains for %s", key.c_str());
       for (size_t i = 0; i < key_length; ++i) {
         state = fsa_->TryWalkTransition(state, key[i]);
 
@@ -111,9 +111,9 @@ final {
       return false;
     }
 
-    Match operator[](const char* key) const {
+    Match operator[](const std::string&  key) const {
       uint64_t state = fsa_->GetStartState();
-      size_t text_length = strlen(key);
+      const size_t text_length = key.size();
 
       for (size_t i = 0; i < text_length; ++i) {
         state = fsa_->TryWalkTransition(state, key[i]);
@@ -142,9 +142,9 @@ final {
      * @param key the key to lookup.
      * @return a match iterator
      */
-    MatchIterator::MatchIteratorPair Get(const char* key) const {
+    MatchIterator::MatchIteratorPair Get(const std::string& key) const {
       uint64_t state = fsa_->GetStartState();
-      size_t text_length = strlen(key);
+      const size_t text_length = key.size();
 
       for (size_t i = 0; i < text_length; ++i) {
         state = fsa_->TryWalkTransition(state, key[i]);
@@ -217,11 +217,9 @@ final {
             TRACE("GetAllKeys callback called");
 
             for (;;) {
-              unsigned char label = data->traverser.GetStateLabel();
-
-              if (label) {
+              if (!data->traverser.AtEnd()) {
                 data->traversal_stack.resize(data->traverser.GetDepth()-1);
-                data->traversal_stack.push_back(label);
+                data->traversal_stack.push_back(data->traverser.GetStateLabel());
                 TRACE("Current depth %d (%d)", data->traverser.GetDepth() -1, data->traversal_stack.size());
 
                 if (data->traverser.IsFinalState()) {
@@ -256,11 +254,11 @@ final {
      * @param text the input
      * @return a match iterator.
      */
-    MatchIterator::MatchIteratorPair Lookup(const char* text,
+    MatchIterator::MatchIteratorPair Lookup(const std::string& text,
                                             size_t offset = 0) {
 
       uint64_t state = fsa_->GetStartState();
-      size_t text_length = strlen(text);
+      const size_t text_length = text.size();
       uint64_t last_final_state = 0;
       size_t last_final_state_position = 0;
 
@@ -287,8 +285,7 @@ final {
         m = Match(
             offset,
             last_final_state_position,
-            /*text.substr(0, last_final_state_position),*/
-            std::string(text + offset, last_final_state_position - offset),
+            text.substr(offset, last_final_state_position - offset),
             0,
             fsa_,
             fsa_->GetStateValue(last_final_state));
@@ -313,12 +310,12 @@ final {
      * @param text the input
      * @return a match iterator.
      */
-    MatchIterator::MatchIteratorPair LookupText(const char* text) {
+    MatchIterator::MatchIteratorPair LookupText(const std::string& text) {
 
-      size_t text_length = strlen(text);
+      const size_t text_length = text.size();
       std::queue<MatchIterator> iterators;
 
-      TRACE("LookupText, 1st lookup for: %s", text);
+      TRACE("LookupText, 1st lookup for: %s", text.c_str());
 
       iterators.push(Lookup(text).begin());
       size_t position = 1;
@@ -330,7 +327,7 @@ final {
         }
 
         ++position;
-        TRACE("LookupText, starting lookup for: %s", text+position);
+        TRACE("LookupText, starting lookup for: %s", text.c_str()+position);
         iterators.push(Lookup(text, position).begin());
       }
 
@@ -407,13 +404,11 @@ final {
 
 
          for (;;) {
-           unsigned char label = data->traverser.GetStateLabel();
-
            // check minimum depth
-           if (label  && data->traverser.GetDepth() > data->matched_depth) {
+           if (!data->traverser.AtEnd() && data->traverser.GetDepth() > data->matched_depth) {
 
              data->traversal_stack.resize(data->traverser.GetDepth()-1);
-             data->traversal_stack.push_back(label);
+             data->traversal_stack.push_back(data->traverser.GetStateLabel());
              TRACE("Current depth %d (%d)", minimum_prefix_length + data->traverser.GetDepth() -1, data->traversal_stack.size());
              if (data->traverser.IsFinalState()) {
                // optimize? fill vector upfront?

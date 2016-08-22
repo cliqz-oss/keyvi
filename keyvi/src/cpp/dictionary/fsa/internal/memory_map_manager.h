@@ -34,6 +34,7 @@
 //#define ENABLE_TRACING
 #include "dictionary/util/trace.h"
 
+
 namespace keyvi {
 namespace dictionary {
 namespace fsa {

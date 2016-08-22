@@ -23,6 +23,7 @@
 #include <tpie/btree/base.h>
 #include <tpie/btree/internal_store.h>
 #include <tpie/btree/external_store.h>
+#include <tpie/btree/serialized_store.h>
 #include <tpie/btree/btree.h>
 #include <tpie/btree/btree_builder.h>
 

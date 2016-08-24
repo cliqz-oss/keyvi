@@ -78,13 +78,15 @@ addons:
     - libstdc++-4.8-dev
 
 script:
+  - ls
+  - ls bin
   - cd keyvi
   - scons -j 4 mode=$CONF
   - travis_wait $CONF/dictionaryfsa_unittests/dictionaryfsa_unittests
   - cd ../pykeyvi
   - python setup.py build --mode $CONF
   - python setup.py install --user
-  - py.test tests
+  - py.test-2.7 tests
 # workaround for coverage measurement: symlink cpp source:
   - cd src
   - ln -s ../../keyvi/src/cpp/ .

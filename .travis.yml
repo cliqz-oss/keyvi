@@ -40,10 +40,11 @@ before_install:
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel coveralls-merge; fi
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel cpp-coveralls; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then 
-      brew update ;
-      brew uninstall boost ;
-      brew install boost --c++11 ;
+      brew update;
       brew install snappy scons;
+      brew uninstall boost;
+      wget https://github.com/hendrik-cliqz/travis-homebrew-bottle/releases/download/boost-1.61-cxx11/boost-1.61.0_1.mavericks.bottle.1.tar.gz';
+      brew install *.bottle.tar.gz;
     fi
 
 install:
@@ -79,7 +80,7 @@ addons:
 script:
   - cd keyvi
   - scons -j 4 mode=$CONF
-  - BOOST_TEST_LOG_LEVEL=all $CONF/dictionaryfsa_unittests/dictionaryfsa_unittests
+  - travis_wait $CONF/dictionaryfsa_unittests/dictionaryfsa_unittests
   - cd ../pykeyvi
   - python setup.py build --mode $CONF
   - python setup.py install --user

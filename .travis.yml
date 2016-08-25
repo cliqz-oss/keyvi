@@ -35,7 +35,7 @@ env:
 
 before_install:
   - pip install --user --download-cache $HOME/.pip-cache --use-wheel --install-option="--no-cython-compile" cython
-  - pip install --user --download-cache $HOME/.pip-cache --use-wheel pytest
+  - pip install -v --user --download-cache $HOME/.pip-cache --use-wheel pytest
   - pip install --user --download-cache $HOME/.pip-cache --use-wheel msgpack-python
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel coveralls-merge; fi
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel cpp-coveralls; fi
@@ -86,7 +86,7 @@ script:
   - cd ../pykeyvi
   - python setup.py build --mode $CONF
   - python setup.py install --user
-  - py.test-2.7 tests
+  - py.test tests
 # workaround for coverage measurement: symlink cpp source:
   - cd src
   - ln -s ../../keyvi/src/cpp/ .

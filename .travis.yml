@@ -45,6 +45,7 @@ before_install:
       brew uninstall boost;
       wget 'https://github.com/hendrik-cliqz/travis-homebrew-bottle/releases/download/boost-1.61-cxx11/boost-1.61.0_1.mavericks.bottle.1.tar.gz';
       brew install boost-1.61.0_1.mavericks.bottle.1.tar.gz;
+      export PATH=$PATH:$HOME/library/python/2.7/bin/
     fi
 
 install:
@@ -78,8 +79,6 @@ addons:
     - libstdc++-4.8-dev
 
 script:
-  - ls
-  - ls bin
   - cd keyvi
   - scons -j 4 mode=$CONF
   - travis_wait $CONF/dictionaryfsa_unittests/dictionaryfsa_unittests

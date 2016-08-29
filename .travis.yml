@@ -6,9 +6,6 @@
 
 language: cpp
 
-python:
-  - 2.7
-
 cache:
   directories:
     - $HOME/.pip-cache
@@ -17,15 +14,15 @@ matrix:
   include:
     - os: linux
       compiler: gcc
-      env: CONF=debug   ARCH=x86_64
+      env: CONF=debug   ARCH=x86_64   KEYVI_BUILD_AND_TEST_PR="true"
     - os: linux
       compiler: gcc
-      env: CONF=release ARCH=x86_64
+      env: CONF=release ARCH=x86_64   KEYVI_BUILD_AND_TEST_PR="true"
     - os: linux
       compiler: gcc
-      env: CONF=coverage ARCH=x86_64
+      env: CONF=coverage ARCH=x86_64   KEYVI_BUILD_AND_TEST_PR="true"
     - os: osx
-      env: CONF=release
+      env: CONF=release   KEYVI_BUILD_AND_TEST_PR="false"
       compiler: clang
 
 env:
@@ -41,18 +38,13 @@ before_install:
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel cpp-coveralls; fi
   - export KEYVI_BUILD_AND_TEST="true"
   # OSX only for non PR builds
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then    
-    if [ "$TRAVIS_PULL_REQUEST" == "false" ] then 
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]]; then 
       brew update;
       brew install snappy scons;
       brew uninstall boost;
       wget 'https://github.com/hendrik-cliqz/travis-homebrew-bottle/releases/download/boost-1.61-cxx11/boost-1.61.0_1.mavericks.bottle.1.tar.gz';
       brew install boost-1.61.0_1.mavericks.bottle.1.tar.gz;
       export PATH=$PATH:$HOME/library/python/2.7/bin/;
-    else
-      # disable MAC for PRs
-      export KEYVI_BUILD_AND_TEST="false";
-    fi
     fi
 
 install:
@@ -94,15 +86,16 @@ script:
     python setup.py build --mode $CONF;
     python setup.py install --user;
     py.test tests;
+    fi 
+    
 # workaround for coverage measurement: symlink cpp source:
-    if [[ "$CONF" = "coverage" ]]; then 
+  - if [[ "$CONF" = "coverage" ]]; then 
       cd src;
       ln -s ../../keyvi/src/cpp/ .;
     fi
-    cd ..;
-    cd ..;
-    fi
-
+  - cd ..
+  - cd ..
+    
 sudo: false
 after_success:
   - if [ "$CC" = "gcc-4.8" ] && [ "$CONF" = "coverage" ]; then coveralls -r keyvi -b keyvi --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp' -e 3rdparty -E '.*/tests/*.cpp' --dump keyvi.cov_report > /dev/null && coveralls -r pykeyvi -b pykeyvi --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp \-s '"$PWD"'/keyvi' -E '.*3rdparty' -E '.*/pykeyvi.cpp' -E '.*autowrap.*' --dump pykeyvi.cov_report --follow-symlinks > /dev/null && export COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN} && coveralls-merge  keyvi.cov_report pykeyvi.cov_report ; fi

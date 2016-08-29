@@ -39,13 +39,20 @@ before_install:
   - pip install --user --download-cache $HOME/.pip-cache --use-wheel msgpack-python
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel coveralls-merge; fi
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel cpp-coveralls; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then 
+  - export KEYVI_BUILD_AND_TEST="true"
+  # OSX only for non PR builds
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then    
+    if [ "$TRAVIS_PULL_REQUEST" == "false" ] then 
       brew update;
       brew install snappy scons;
       brew uninstall boost;
       wget 'https://github.com/hendrik-cliqz/travis-homebrew-bottle/releases/download/boost-1.61-cxx11/boost-1.61.0_1.mavericks.bottle.1.tar.gz';
       brew install boost-1.61.0_1.mavericks.bottle.1.tar.gz;
       export PATH=$PATH:$HOME/library/python/2.7/bin/;
+    else
+      # disable MAC for PRs
+      export KEYVI_BUILD_AND_TEST="false";
+    fi
     fi
 
 install:
@@ -79,18 +86,22 @@ addons:
     - libstdc++-4.8-dev
 
 script:
-  - cd keyvi
-  - scons -j 4 mode=$CONF
-  - travis_wait $CONF/dictionaryfsa_unittests/dictionaryfsa_unittests
-  - cd ../pykeyvi
-  - python setup.py build --mode $CONF
-  - python setup.py install --user
-  - py.test tests
+  - if [ "$KEYVI_BUILD_AND_TEST"=="true" ]; then
+    cd keyvi;
+    scons -j 4 mode=$CONF;
+    travis_wait $CONF/dictionaryfsa_unittests/dictionaryfsa_unittests;
+    cd ../pykeyvi;
+    python setup.py build --mode $CONF;
+    python setup.py install --user;
+    py.test tests;
 # workaround for coverage measurement: symlink cpp source:
-  - cd src
-  - ln -s ../../keyvi/src/cpp/ .
-  - cd ..
-  - cd ..
+    if [[ "$CONF" = "coverage" ]]; then 
+      cd src;
+      ln -s ../../keyvi/src/cpp/ .;
+    fi
+    cd ..;
+    cd ..;
+    fi
 
 sudo: false
 after_success:

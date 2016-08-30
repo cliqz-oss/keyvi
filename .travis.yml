@@ -36,7 +36,6 @@ before_install:
   - pip install --user --download-cache $HOME/.pip-cache --use-wheel msgpack-python
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel coveralls-merge; fi
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel cpp-coveralls; fi
-  - export KEYVI_BUILD_AND_TEST="true"
   # OSX only for non PR builds
   - if [ "$TRAVIS_OS_NAME" == "osx" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then 
       brew update;
@@ -45,6 +44,7 @@ before_install:
       wget 'https://github.com/hendrik-cliqz/travis-homebrew-bottle/releases/download/boost-1.61-cxx11/boost-1.61.0_1.mavericks.bottle.1.tar.gz';
       brew install boost-1.61.0_1.mavericks.bottle.1.tar.gz;
       export PATH=$PATH:$HOME/library/python/2.7/bin/;
+      export KEYVI_BUILD_AND_TEST_PR="true"
     fi
 
 install:

@@ -22,7 +22,7 @@ matrix:
       compiler: gcc
       env: CONF=coverage ARCH=x86_64   KEYVI_BUILD_AND_TEST_PR="true"
     - os: osx
-      env: CONF=release   KEYVI_BUILD_AND_TEST_PR="false"
+      env: CONF=release   KEYVI_BUILD_AND_TEST_PR="true"
       compiler: clang
 
 env:

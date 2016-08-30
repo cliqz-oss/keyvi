@@ -78,15 +78,13 @@ addons:
     - libstdc++-4.8-dev
 
 script:
-  - if [ "$KEYVI_BUILD_AND_TEST_PR" == "true" ]; then
-    cd keyvi;
-    scons -j 4 mode=$CONF;
-    travis_wait $CONF/dictionaryfsa_unittests/dictionaryfsa_unittests;
-    cd ../pykeyvi;
-    python setup.py build --mode $CONF;
-    python setup.py install --user;
-    py.test tests;
-    fi 
+  - cd keyvi;
+  - if [ "$KEYVI_BUILD_AND_TEST_PR" == "true" ]; then scons -j 4 mode=$CONF; fi
+  - if [ "$KEYVI_BUILD_AND_TEST_PR" == "true" ]; then travis_wait $CONF/dictionaryfsa_unittests/dictionaryfsa_unittests; fi
+  - cd ../pykeyvi;
+  - if [ "$KEYVI_BUILD_AND_TEST_PR" == "true" ]; then python setup.py build --mode $CONF; fi
+  - if [ "$KEYVI_BUILD_AND_TEST_PR" == "true" ]; then python setup.py install --user; fi
+  - if [ "$KEYVI_BUILD_AND_TEST_PR" == "true" ]; then py.test tests; fi
     
 # workaround for coverage measurement: symlink cpp source:
   - if [[ "$CONF" = "coverage" ]]; then 

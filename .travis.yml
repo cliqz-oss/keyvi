@@ -78,7 +78,7 @@ addons:
     - libstdc++-4.8-dev
 
 script:
-  - if [ "$KEYVI_BUILD_AND_TEST"=="true" ]; then
+  - if [ "$KEYVI_BUILD_AND_TEST_PR"=="true" ]; then
     cd keyvi;
     scons -j 4 mode=$CONF;
     travis_wait $CONF/dictionaryfsa_unittests/dictionaryfsa_unittests;

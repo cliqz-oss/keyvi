@@ -37,7 +37,7 @@ before_install:
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel coveralls-merge; fi
   - if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install --user --download-cache $HOME/.pip-cache --use-wheel cpp-coveralls; fi
   # OSX only for non PR builds
-  - if [ "$TRAVIS_OS_NAME" == "osx" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then 
+  - if [ "$TRAVIS_OS_NAME" == "osx" ] && ( [ "$KEYVI_BUILD_AND_TEST_PR" == "true" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ] ); then 
       brew update;
       brew install snappy scons;
       brew uninstall boost;

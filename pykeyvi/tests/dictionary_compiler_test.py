@@ -3,8 +3,8 @@
 
 import os
 import pykeyvi
-import shutil
 import tempfile
+import shutil
 
 def test_compiler_no_compile_edge_case():
     c = pykeyvi.KeyOnlyDictionaryCompiler()

@@ -4,6 +4,7 @@
 import os
 import pykeyvi
 import tempfile
+import test_tools
 import shutil
 
 def test_compiler_no_compile_edge_case():
@@ -11,6 +12,23 @@ def test_compiler_no_compile_edge_case():
     c.Add("abc")
     c.Add("abd")
     del c
+
+
+def test_compiler_no_compile_edge_case_empty():
+    c = pykeyvi.KeyOnlyDictionaryCompiler()
+    del c
+
+
+def test_compiler_empty():
+    c = pykeyvi.KeyOnlyDictionaryCompiler()
+    with test_tools.tmp_dictionary(c, 'empty.kv') as d:
+        assert len(d) == 0
+
+def test_compiler_empty_json():
+    c = pykeyvi.JsonDictionaryCompiler()
+    with test_tools.tmp_dictionary(c, 'empty_json.kv') as d:
+        assert len(d) == 0
+
 
 def test_tmp_dir():
     cwd = os.getcwd()

@@ -14,8 +14,8 @@ def test_compiler_no_compile_edge_case():
 
 def test_tmp_dir():
     cwd = os.getcwd()
+    os.chdir(tempfile.gettempdir())
     try:
-        os.chdir(tempfile.gettempdir())
         os.mkdir("tmp_dir_test")
         os.chdir(os.path.join(tempfile.gettempdir(), "tmp_dir_test"))
         c = pykeyvi.JsonDictionaryCompiler()
@@ -37,8 +37,8 @@ def test_tmp_dir_defined():
         c.Compile()
         assert len(os.listdir(test_dir)) != 0
 
+    test_dir = os.path.join(tempfile.gettempdir(), "tmp_dir_test_defined")
     try:
-        test_dir = os.path.join(tempfile.gettempdir(), "tmp_dir_test_defined")
         os.mkdir(test_dir)
         run_compile(test_dir)
     finally:

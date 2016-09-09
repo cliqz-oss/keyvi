@@ -85,7 +85,10 @@ script:
   - if [ "$KEYVI_BUILD_AND_TEST_PR" == "true" ]; then python setup.py build --mode $CONF; fi
   - if [ "$KEYVI_BUILD_AND_TEST_PR" == "true" ]; then python setup.py install --user; fi
   - if [ "$KEYVI_BUILD_AND_TEST_PR" == "true" ]; then py.test tests; fi
-    
+  - free
+  - df
+  - env
+  
 # workaround for coverage measurement: symlink cpp source:
   - if [[ "$CONF" = "coverage" ]]; then 
       cd src;

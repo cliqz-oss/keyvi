@@ -32,6 +32,7 @@
 #include "compression/compression_strategy.h"
 #include "compression/zlib_compression_strategy.h"
 #include "compression/snappy_compression_strategy.h"
+#include "compression/zstd_compression_strategy.h"
 
 //#define ENABLE_TRACING
 #include "dictionary/util/trace.h"
@@ -51,6 +52,8 @@ inline CompressionStrategy* compression_strategy(const std::string& name = "")
     return new ZlibCompressionStrategy();  // TODO: compression level?
   } else if (lower_name == "snappy") {
     return new SnappyCompressionStrategy();
+  } else if (lower_name == "zstd") {
+    return new ZstdCompressionStrategy();
   } else if (lower_name == "" || lower_name == "none" || lower_name == "raw") {
     return new RawCompressionStrategy();
   } else {
@@ -72,6 +75,9 @@ inline decompress_func_t decompressor_by_code(const std::string& s) {
       return ZlibCompressionStrategy::DoDecompress;
     case SNAPPY_COMPRESSION:
       TRACE("unpack snappy compressed string");
+      return SnappyCompressionStrategy::DoDecompress;
+    case ZSTD_COMPRESSION:
+      TRACE("unpack zstd compressed string");
       return SnappyCompressionStrategy::DoDecompress;
     default:
       throw std::invalid_argument("Invalid compression code " +

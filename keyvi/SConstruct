@@ -4,6 +4,7 @@ import multiprocessing
 from multiprocessing import cpu_count
 
 buildmode = ARGUMENTS.get('mode', 'debug')   #holds current mode
+src_root = Dir('.').srcnode().abspath
 
 cpus = multiprocessing.cpu_count() - 1
 if not cpus:
@@ -51,6 +52,7 @@ linklibraries =  [ "tpie",
    "boost_regex",
    "boost_thread",
    "z",
+   "zstd",
    "snappy",
    "pthread"
    ]
@@ -72,7 +74,8 @@ env.Append(CPPPATH=[launch_dir + '/3rdparty/rapidjson/include',
                     launch_dir + '/3rdparty/utf8',
                     launch_dir + '/3rdparty/misc',
                     launch_dir + '/3rdparty/tpie/build/install/include',
-                    launch_dir + '/3rdparty/xchange/src'
+                    launch_dir + '/3rdparty/xchange/src',
+                    launch_dir + '/3rdparty/zstd/install/include',
                     ])
 
 # Mac buid
@@ -113,6 +116,13 @@ tpie = env.Command(["3rdparty/tpie/build/install/lib/libtpie.a","3rdparty/tpie/b
 
 env.Append(LIBPATH=[launch_dir + '/3rdparty/tpie/build/install/lib'])
 env.Clean(tpie, '3rdparty/tpie/build')
+
+# build zstd
+zstd_build_cmd = "cd 3rdparty/zstd && make && make install PREFIX={}/3rdparty/zstd/install".format(src_root)
+zstd = env.Command(["3rdparty/zstd/install/lib/libzstd.a","3rdparty/zstd/install/include/zstd.h"], "", zstd_build_cmd)
+
+env.Append(LIBPATH=[launch_dir + '/3rdparty/zstd/install/lib'])
+env.Clean(zstd, '3rdparty/zstd/install')
 
 #specify the sconscript for the compiler
 project = 'keyvicompiler'

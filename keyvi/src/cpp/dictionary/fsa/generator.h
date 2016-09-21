@@ -136,6 +136,7 @@ struct ValueHandle final {
   uint64_t value_idx;
   uint32_t weight;
   bool no_minimization;
+  bool deleted;
 };
 
 template<class PersistenceT, class ValueStoreT = internal::NullValueStore, class OffsetTypeT = uint32_t, class HashCodeTypeT = int32_t>

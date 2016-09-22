@@ -138,9 +138,20 @@ class DictionaryCompilerBase {
     }
   }
 
+  /**
+   * Write generated kv structure into stream.
+   *
+   * @param stream stream to write to.
+   */
   void Write(std::ostream& stream) {
     generator_->Write(stream);
   }
+
+  /**
+   * Write generated kv structure to a file.
+   *
+   * @param filename file to write.
+   */
 
   template<typename StringType>
   void WriteToFile(StringType filename) {
@@ -149,7 +160,13 @@ class DictionaryCompilerBase {
     out_stream.close();
   }
 
-  fsa::internal::IValueStoreWriter::vs_param_t& GetParameters() const {
+  /**
+   * Get Parameters/Configuration.
+   *
+   * @return A map of key/values containing the configuration of the compiler instance.
+   */
+
+  fsa::internal::IValueStoreWriter::vs_param_t& GetParameters(){
     return params_;
   }
 
@@ -191,11 +208,6 @@ class DictionaryCompilerBase {
   void CloseGenerator() const {
     generator_->CloseFeeding();
   }
-
-  fsa::internal::IValueStoreWriter::vs_param_t& GetParameters(){
-    return params_;
-  }
-
 
  private:
   size_t memory_limit_;

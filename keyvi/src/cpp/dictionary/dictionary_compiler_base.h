@@ -22,15 +22,13 @@
  *      Author: hendrik
  */
 
-#ifndef DICTIONARY_COMPILER_COMMON_H_
-#define DICTIONARY_COMPILER_COMMON_H_
+#ifndef DICTIONARY_COMPILER_BASE_H_
+#define DICTIONARY_COMPILER_BASE_H_
 
 #include <algorithm>
 #include <functional>
 #include <boost/property_tree/ptree.hpp>
-#include "tpie/serialization_sorter.h"
 
-#include "dictionary/util/tpie_initializer.h"
 #include "dictionary/fsa/internal/null_value_store.h"
 #include "dictionary/fsa/internal/serialization_utils.h"
 #include "dictionary/fsa/generator_adapter.h"
@@ -244,4 +242,4 @@ inline void DictionaryCompilerBase<PersistenceT, ValueStoreT>::CreateGenerator(s
 } /* namespace dictionary */
 } /* namespace keyvi */
 
-#endif /* DICTIONARY_COMPILER_COMMIN_H_ */
+#endif /* DICTIONARY_COMPILER_BASE_H_ */

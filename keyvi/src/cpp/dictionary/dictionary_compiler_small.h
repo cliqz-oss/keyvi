@@ -27,13 +27,11 @@
 
 #include <algorithm>
 #include <functional>
-#include <boost/property_tree/ptree.hpp>
 
 #include "dictionary/dictionary_compiler_base.h"
 #include "dictionary/fsa/internal/null_value_store.h"
 #include "dictionary/fsa/internal/serialization_utils.h"
 #include "dictionary/fsa/generator_adapter.h"
-#include "dictionary/fsa/internal/constants.h"
 
 //#define ENABLE_TRACING
 #include "dictionary/util/trace.h"

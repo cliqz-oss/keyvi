@@ -134,6 +134,7 @@ typedef const internal::IValueStoreWriter::vs_param_t generator_param_t;
 
 struct ValueHandle final {
   uint64_t value_idx;
+  size_t count;
   uint32_t weight;
   bool no_minimization;
   bool deleted;

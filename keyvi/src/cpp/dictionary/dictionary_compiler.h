@@ -97,6 +97,14 @@ class DictionaryCompiler final: public DictionaryCompilerBase <PersistenceT, Val
       sorter_.push(key_value_t(std::move(input_key), this->RegisterValue(value)));
     }
 
+    virtual void Delete(const std::string& input_key) override {
+      if (!this->IsStableInsert()) {
+        throw compiler_exception("delete only available when using stable_inserts option");
+      }
+
+      sorter_.push(key_value_t(std::move(input_key), this->DeletionMarker()));
+    }
+
 #ifdef Py_PYTHON_H
     template<typename StringType>
     void __setitem__ (StringType input_key, typename ValueStoreT::value_t value =
@@ -154,19 +162,22 @@ class DictionaryCompiler final: public DictionaryCompilerBase <PersistenceT, Val
             if (last_key_value.key == key_value.key) {
               TRACE("Detected duplicated keys, dedup them, last one wins.");
 
-              // we know that last added values have a lower id (minimization is turned off)
-              if (last_key_value.value.value_idx < key_value.value.value_idx) {
+              // check the counter to determine which key_value has been added last
+              if (last_key_value.value.count < key_value.value.count) {
                 last_key_value = key_value;
               }
               continue;
             }
 
-            TRACE("adding to generator: %s", last_key_value.key.c_str());
-
-            this->AddToGenerator(std::move(last_key_value.key), last_key_value.value);
-            ++added_key_values;
-            if (progress_callback && (added_key_values % callback_trigger == 0)){
-              progress_callback(added_key_values, number_of_items, user_data);
+            if (!last_key_value.value.deleted) {
+              TRACE("adding to generator: %s", last_key_value.key.c_str());
+              this->AddToGenerator(std::move(last_key_value.key), last_key_value.value);
+              ++added_key_values;
+              if (progress_callback && (added_key_values % callback_trigger == 0)){
+                progress_callback(added_key_values, number_of_items, user_data);
+              }
+            } else {
+              TRACE("skipping deleted key: %s", last_key_value.key.c_str());
             }
 
             last_key_value = key_value;
@@ -174,8 +185,9 @@ class DictionaryCompiler final: public DictionaryCompilerBase <PersistenceT, Val
 
           // add the last one
           TRACE("adding to generator: %s", last_key_value.key.c_str());
-
-          this->AddToGenerator(std::move(last_key_value.key), last_key_value.value);
+          if (!last_key_value.value.deleted) {
+            this->AddToGenerator(std::move(last_key_value.key), last_key_value.value);
+          }
           ++added_key_values;
 
         }

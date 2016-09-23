@@ -61,6 +61,14 @@ typedef key_value_pair key_value_t;
 typedef const fsa::internal::IValueStoreWriter::vs_param_t compiler_param_t;
 typedef std::function<void (size_t , size_t, void*)> callback_t;
 
+/**
+ * Exception class for generator, thrown when generator is used in the wrong order.
+ */
+
+struct compiler_exception: public std::runtime_error {
+  compiler_exception(const std::string & s): std::runtime_error(s) {};
+};
+
 template<class PersistenceT, class ValueStoreT = fsa::internal::NullValueStore>
 class DictionaryCompilerBase {
  public:
@@ -78,8 +86,6 @@ class DictionaryCompilerBase {
     TRACE("tmp path set to %s", params_[TEMPORARY_PATH_KEY].c_str());
 
     if (params_.count(STABLE_INSERTS) > 0 && params_[STABLE_INSERTS] == "true") {
-      // minimization has to be turned off in this case.
-      params_[MINIMIZATION_KEY] = "off";
       stable_insert_ = true;
     }
 
@@ -101,6 +107,7 @@ class DictionaryCompilerBase {
   virtual void Add(const std::string& input_key, typename ValueStoreT::value_t value =
       ValueStoreT::no_value) = 0;
 
+  virtual void Delete(const std::string& input_key) = 0;
 
 #ifdef Py_PYTHON_H
   template<typename StringType>
@@ -178,15 +185,31 @@ class DictionaryCompilerBase {
    * @return a handle that later needs to be passed to Add()
    */
   fsa::ValueHandle RegisterValue(typename ValueStoreT::value_t value =
-      ValueStoreT::no_value) const {
+      ValueStoreT::no_value) {
 
-    fsa::ValueHandle handle;
-    handle.no_minimization = false;
+    bool no_minimization;
+    uint64_t value_idx = value_store_->GetValue(value, no_minimization);
 
-    handle.value_idx = value_store_->GetValue(value, handle.no_minimization);
+    fsa::ValueHandle handle = {
+        value_idx,                            // offset of value
+        count_++,                             // counter(order)
+        value_store_->GetWeightValue(value),  // weight
+        no_minimization,                      // minimization
+        false                                 // deleted flag
+    };
 
-    // if inner weights are used update them
-    handle.weight = value_store_->GetWeightValue(value);
+    return handle;
+  }
+
+  fsa::ValueHandle DeletionMarker() {
+
+    fsa::ValueHandle handle = {
+        0,                                    // offset of value
+        count_++,                             // counter(order)
+        0,                                    // weight
+        false,                                // minimization
+        true                                  // deleted flag
+    };
 
     return handle;
   }
@@ -213,6 +236,7 @@ class DictionaryCompilerBase {
   ValueStoreT* value_store_;
   fsa::GeneratorAdapterInterface<PersistenceT, ValueStoreT>* generator_ = nullptr;
   boost::property_tree::ptree manifest_ = boost::property_tree::ptree();
+  size_t count_ = 0;
   bool stable_insert_ = false;
 };
 

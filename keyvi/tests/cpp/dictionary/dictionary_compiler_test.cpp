@@ -266,6 +266,7 @@ BOOST_AUTO_TEST_CASE( stableInsert ) {
   // simulating  permutation
   std::vector<std::pair<std::string, std::string>> test_data = {
     { "aa", "\"{1:2}\"" },
+    { "ab", "\"{2:44}\""},
     { "bb", "\"{33:23}\"" },
     { "cc", "\"{3:24}\"" },
     { "aa", "\"{2:27}\"" },
@@ -283,6 +284,10 @@ BOOST_AUTO_TEST_CASE( stableInsert ) {
   for (auto p: test_data){
     compiler.Add(p.first, p.second);
   }
+
+  // test delete
+  compiler.Delete("ab");
+
   compiler.Compile();
 
   boost::filesystem::path temp_path =

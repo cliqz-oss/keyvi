@@ -78,7 +78,7 @@ inline decompress_func_t decompressor_by_code(const std::string& s) {
       return SnappyCompressionStrategy::DoDecompress;
     case ZSTD_COMPRESSION:
       TRACE("unpack zstd compressed string");
-      return SnappyCompressionStrategy::DoDecompress;
+      return ZstdCompressionStrategy::DoDecompress;
     default:
       throw std::invalid_argument("Invalid compression code " +
           boost::lexical_cast<std::string>(static_cast<int>(s[0])));

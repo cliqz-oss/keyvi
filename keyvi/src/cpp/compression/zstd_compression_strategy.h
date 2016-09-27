@@ -29,8 +29,8 @@
 #include <zstd.h>
 
 #ifndef ZSTD_DEFAULT_CLEVEL
-/*-=====  Pre-defined compression levels  =====-*/
 
+/*-=====  Pre-defined compression levels  =====-*/
 #define ZSTD_DEFAULT_CLEVEL 3
 #define ZSTD_MAX_CLEVEL     22
 #endif

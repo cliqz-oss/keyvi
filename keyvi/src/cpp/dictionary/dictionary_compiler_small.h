@@ -16,24 +16,22 @@
  */
 
 /*
- * dictionary_compiler.h
+ * dictionary_compiler_small.h
  *
- *  Created on: Jul 17, 2014
+ *  Created on: Sep 17, 2016
  *      Author: hendrik
  */
 
-#ifndef DICTIONARY_COMPILER_H_
-#define DICTIONARY_COMPILER_H_
+#ifndef DICTIONARY_COMPILER_SMALL_H_
+#define DICTIONARY_COMPILER_SMALL_H_
 
 #include <algorithm>
 #include <functional>
-#include "tpie/serialization_sorter.h"
 
 #include "dictionary/dictionary_compiler_base.h"
-#include "dictionary/util/tpie_initializer.h"
 #include "dictionary/fsa/internal/null_value_store.h"
 #include "dictionary/fsa/internal/serialization_utils.h"
-#include "dictionary/fsa/internal/constants.h"
+#include "dictionary/fsa/generator_adapter.h"
 
 //#define ENABLE_TRACING
 #include "dictionary/util/trace.h"
@@ -42,59 +40,35 @@ namespace keyvi {
 namespace dictionary {
 
 /**
- * Tpie serialization and deserialization for sorting.
- */
-template<typename Dst>
-void serialize(Dst & d, const keyvi::dictionary::key_value_pair & pt) {
-  using tpie::serialize;
-  serialize(d, pt.key);
-  serialize(d, pt.value);
-}
-template<typename Src>
-void unserialize(Src & s, keyvi::dictionary::key_value_pair & pt) {
-  using tpie::unserialize;
-  unserialize(s, pt.key);
-  unserialize(s, pt.value);
-}
-
-/**
- * Dictionary Compiler
+ * Simple implementation of Dictionary Compiler
  */
 template<class PersistenceT, class ValueStoreT = fsa::internal::NullValueStore>
-class DictionaryCompiler final: public DictionaryCompilerBase <PersistenceT, ValueStoreT>
-  {
+class DictionaryCompilerSmall final : public DictionaryCompilerBase <PersistenceT, ValueStoreT> {
    public:
     /**
-     * Instantiate a dictionary compiler.
+     * Instantiate a dictionary compiler (small, simple version), to be used with small data sets.
      *
      * Note the memory limit only limits the memory used for internal buffers,
      * memory usage for small short-lived objects and the library itself is part of the limit.
      *
      * @param memory_limit memory limit for internal memory usage
      */
-    DictionaryCompiler(size_t memory_limit = 1073741824,
+    DictionaryCompilerSmall(size_t memory_limit = 10485760,
                        const compiler_param_t& params = compiler_param_t())
         : DictionaryCompilerBase<PersistenceT, ValueStoreT>(memory_limit, params),
-          initializer_(util::TpieIntializer::getInstance()),
-          sorter_(),
-          size_of_keys_(0)
-    {
-      sorter_.set_available_memory(memory_limit);
-      sorter_.begin();
+          key_values_(),
+          size_of_keys_(0) {}
 
-      // set temp path for tpie
-      initializer_.SetTempDirectory(this->GetParameters()[TEMPORARY_PATH_KEY]);
-    }
+    virtual ~DictionaryCompilerSmall(){}
 
-    virtual ~DictionaryCompiler(){}
-
-    DictionaryCompiler& operator=(DictionaryCompiler const&) = delete;
-    DictionaryCompiler(const DictionaryCompiler& that) = delete;
+    DictionaryCompilerSmall& operator=(DictionaryCompilerSmall const&) = delete;
+    DictionaryCompilerSmall(const DictionaryCompilerSmall& that) = delete;
 
     virtual void Add(const std::string& input_key, typename ValueStoreT::value_t value =
                  ValueStoreT::no_value) override {
+
       size_of_keys_ += input_key.size();
-      sorter_.push(key_value_t(std::move(input_key), this->RegisterValue(value)));
+      key_values_.push_back(key_value_t(std::move(input_key), this->RegisterValue(value)));
     }
 
     virtual void Delete(const std::string& input_key) override {
@@ -102,7 +76,7 @@ class DictionaryCompiler final: public DictionaryCompilerBase <PersistenceT, Val
         throw compiler_exception("delete only available when using stable_inserts option");
       }
 
-      sorter_.push(key_value_t(std::move(input_key), this->DeletionMarker()));
+      key_values_.push_back(key_value_t(std::move(input_key), this->DeletionMarker()));
     }
 
 #ifdef Py_PYTHON_H
@@ -118,15 +92,12 @@ class DictionaryCompiler final: public DictionaryCompilerBase <PersistenceT, Val
      */
     virtual void Compile(callback_t progress_callback = nullptr, void* user_data = nullptr) override {
       this->CloseValueStore();
-      sorter_.end();
-      sorter_.merge_runs();
+      this->CreateGenerator(size_of_keys_);
       size_t added_key_values = 0;
       size_t callback_trigger = 0;
-      this->CreateGenerator(size_of_keys_);
-
-      // check that at least 1 item is there
-      if (sorter_.can_pull()) {
-        size_t number_of_items = sorter_.item_count();
+      if (key_values_.size() > 0)
+      {
+        size_t number_of_items = key_values_.size();
 
         callback_trigger = 1+(number_of_items-1)/100;
 
@@ -134,11 +105,11 @@ class DictionaryCompiler final: public DictionaryCompilerBase <PersistenceT, Val
           callback_trigger = 100000;
         }
 
+        std::sort(key_values_.begin(), key_values_.end());
+
         if (!this->IsStableInsert()) {
 
-          while (sorter_.can_pull()) {
-            key_value_t key_value = sorter_.pull();
-
+          for (auto key_value: key_values_) {
             TRACE("adding to generator: %s", key_value.key.c_str());
 
             this->AddToGenerator(std::move(key_value.key), key_value.value);
@@ -153,10 +124,12 @@ class DictionaryCompiler final: public DictionaryCompilerBase <PersistenceT, Val
           // special mode for stable (incremental) inserts, in this case we have to respect the order and take
           // the last value if keys are equal
 
-          key_value_t last_key_value = sorter_.pull();
+          auto key_values_it = key_values_.begin();
+          key_value_t last_key_value = *key_values_it++;
 
-          while (sorter_.can_pull()) {
-            key_value_t key_value = sorter_.pull();
+          while (key_values_it != key_values_.end())
+          {
+            key_value_t key_value = *key_values_it++;
 
             // dedup with last one wins
             if (last_key_value.key == key_value.key) {
@@ -188,21 +161,22 @@ class DictionaryCompiler final: public DictionaryCompilerBase <PersistenceT, Val
           if (!last_key_value.value.deleted) {
             this->AddToGenerator(std::move(last_key_value.key), last_key_value.value);
           }
-          ++added_key_values;
 
+          ++added_key_values;
         }
       }
 
+      key_values_.clear();
       this->CloseGenerator();
     }
 
    private:
-    util::TpieIntializer& initializer_;
-    tpie::serialization_sorter<key_value_t> sorter_;
-    size_t size_of_keys_;
+    std::vector<key_value_pair> key_values_;
+    size_t size_of_keys_ = 0;
 };
+
 
 } /* namespace dictionary */
 } /* namespace keyvi */
 
-#endif /* DICTIONARY_COMPILER_H_ */
+#endif /* DICTIONARY_COMPILER_SMALL_H_ */

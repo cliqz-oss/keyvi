@@ -48,6 +48,7 @@ BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestLazy ) {
 
   BOOST_CHECK(key_advise_flags == boost::interprocess::mapped_region::advice_types::advice_normal);
   BOOST_CHECK(value_advise_flags == boost::interprocess::mapped_region::advice_types::advice_normal);
+  BOOST_CHECK(!MemoryMapFlags::MadvicePrefetchValue(strategy));
 }
 
 BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestPopulate ) {
@@ -63,6 +64,7 @@ BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestPopulate ) {
 
   BOOST_CHECK(key_advise_flags == boost::interprocess::mapped_region::advice_types::advice_normal);
   BOOST_CHECK(value_advise_flags == boost::interprocess::mapped_region::advice_types::advice_normal);
+  BOOST_CHECK(!MemoryMapFlags::MadvicePrefetchValue(strategy));
 }
 
 BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestPopulate_key_part ) {
@@ -78,6 +80,7 @@ BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestPopulate_key_part ) {
 
   BOOST_CHECK(key_advise_flags == boost::interprocess::mapped_region::advice_types::advice_normal);
   BOOST_CHECK(value_advise_flags == boost::interprocess::mapped_region::advice_types::advice_normal);
+  BOOST_CHECK(!MemoryMapFlags::MadvicePrefetchValue(strategy));
 }
 
 BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestPopulate_lazy ) {
@@ -93,6 +96,7 @@ BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestPopulate_lazy ) {
 
   BOOST_CHECK(key_advise_flags == boost::interprocess::mapped_region::advice_types::advice_willneed);
   BOOST_CHECK(value_advise_flags == boost::interprocess::mapped_region::advice_types::advice_willneed);
+  BOOST_CHECK(!MemoryMapFlags::MadvicePrefetchValue(strategy));
 }
 
 BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestlazy_no_readahead ) {
@@ -108,6 +112,7 @@ BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestlazy_no_readahead ) {
 
   BOOST_CHECK(key_advise_flags == boost::interprocess::mapped_region::advice_types::advice_random);
   BOOST_CHECK(value_advise_flags == boost::interprocess::mapped_region::advice_types::advice_random);
+  BOOST_CHECK(MemoryMapFlags::MadvicePrefetchValue(strategy));
 }
 
 BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestlazy_no_readahead_value_part ) {
@@ -123,6 +128,7 @@ BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestlazy_no_readahead_value_part ) {
 
   BOOST_CHECK(key_advise_flags == boost::interprocess::mapped_region::advice_types::advice_normal);
   BOOST_CHECK(value_advise_flags == boost::interprocess::mapped_region::advice_types::advice_random);
+  BOOST_CHECK(MemoryMapFlags::MadvicePrefetchValue(strategy));
 }
 
 BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestpopulate_key_part_no_readahead_value_part ) {
@@ -138,6 +144,7 @@ BOOST_AUTO_TEST_CASE( MemoryMapFlagsTestpopulate_key_part_no_readahead_value_par
 
   BOOST_CHECK(key_advise_flags == boost::interprocess::mapped_region::advice_types::advice_normal);
   BOOST_CHECK(value_advise_flags == boost::interprocess::mapped_region::advice_types::advice_random);
+  BOOST_CHECK(MemoryMapFlags::MadvicePrefetchValue(strategy));
 }
 
 BOOST_AUTO_TEST_SUITE_END()

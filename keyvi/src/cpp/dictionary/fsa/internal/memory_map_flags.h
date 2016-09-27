@@ -185,6 +185,32 @@ public:
      return boost::interprocess::mapped_region::advice_types::advice_normal;
 #endif
   }
+
+   /**
+    * Depending on the loading strategy tells whether to call madvise to prefetch the value.
+    *
+    * @param strategy load strategy
+    * @return true if prefetch should be called
+    */
+   static bool MadvicePrefetchValue(const loading_strategy_types strategy) {
+   #ifdef _Win32
+
+        // there is no madvise on windows, so simply return false
+        return false;
+   #else // _Win32
+        switch (strategy){
+          case loading_strategy_types::lazy_no_readahead:
+          case loading_strategy_types::lazy_no_readahead_value_part:
+          case loading_strategy_types::populate_key_part_no_readahead_value_part:
+            return true;
+          default:
+            break;
+        }
+
+        return false;
+   #endif
+     }
+
 };
 
 } /* namespace internal */

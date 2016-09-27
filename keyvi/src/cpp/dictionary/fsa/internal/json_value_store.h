@@ -39,6 +39,7 @@
 
 #include "dictionary/fsa/internal/ivalue_store.h"
 #include "dictionary/fsa/internal/memory_map_flags.h"
+#include "dictionary/fsa/internal/memory_map_utils.h"
 #include "dictionary/fsa/internal/serialization_utils.h"
 #include "dictionary/fsa/internal/lru_generation_cache.h"
 #include "dictionary/fsa/internal/memory_map_manager.h"
@@ -340,6 +341,12 @@ class JsonValueStoreReader final: public IValueStoreReader {
     boost::property_tree::write_json (buf, properties_, false);
     return buf.str();
   }
+
+  virtual void PreFetchValue(uint64_t fsa_value) const override{
+    // we do not know how much to prefetch, so just make an educated guess
+    MemoryMapUtils::PrefetchMmap(strings_ + fsa_value, 1024l);
+  }
+
 
  private:
   boost::interprocess::mapped_region* strings_region_;

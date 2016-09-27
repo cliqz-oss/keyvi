@@ -153,6 +153,13 @@ class IValueStoreReader {
     return "";
   }
 
+  /**
+   * Hook to allow pre-fetching of a value, e.g. issuing a readahead in the underlying data structure.
+   * @param fsa_value
+   */
+
+  virtual void PreFetchValue(uint64_t fsa_value) const {}
+
   private:
 
   template<typename , typename>

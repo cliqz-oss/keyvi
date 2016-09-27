@@ -129,6 +129,8 @@ final {
       value_store_reader_ = internal::ValueStoreFactory::MakeReader(value_store_type, in_stream, file_mapping_, loading_strategy);
 
       in_stream.close();
+
+      prefetch_value_ = internal::MemoryMapFlags::MadvicePrefetchValue(loading_strategy);
     }
 
     ~Automata() {
@@ -403,12 +405,20 @@ final {
     }
 
     uint64_t GetStateValue(uint64_t state) const {
+      uint64_t state_value;
+
       if (!compact_size_) {
-        return be32toh(transitions_[state + FINAL_OFFSET_TRANSITION]);
+        state_value = be32toh(transitions_[state + FINAL_OFFSET_TRANSITION]);
+      } else {
+        // compact mode:
+        state_value = util::decodeVarshort(transitions_compact_ + state + FINAL_OFFSET_TRANSITION);
       }
 
-      // compact mode:
-      return util::decodeVarshort(transitions_compact_ + state + FINAL_OFFSET_TRANSITION);
+      if (prefetch_value_) {
+        value_store_reader_->PreFetchValue(state_value);
+      }
+
+      return state_value;
     }
 
     uint32_t GetWeightValue(uint64_t state) const {
@@ -476,6 +486,7 @@ final {
     bool compact_size_;
     uint64_t start_state_;
     uint64_t number_of_keys_;
+    bool prefetch_value_;
 
     template<typename , typename>
     friend class ::keyvi::dictionary::DictionaryMerger;

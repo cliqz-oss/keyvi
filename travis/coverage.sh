@@ -6,6 +6,9 @@ cd pykeyvi/src
 ln -s ../../keyvi/src/cpp/ .
 cd ../..
 
+echo "$PWD"
+export TEST="$PWD"
+
 coveralls   -r keyvi -b keyvi --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp' \
             -e 3rdparty -E '.*/tests/*.cpp' \
             --dump keyvi.cov_report > /dev/null

@@ -2,8 +2,8 @@
 set -ev
 
 # workaround for coverage measurement: symlink cpp source:
-cd pykeyvi
-ln -s ../keyvi/ .
+cd pykeyvi/src
+ln -s ../../keyvi/src/cpp/ .
 cd ../..
 
 echo "$PWD"

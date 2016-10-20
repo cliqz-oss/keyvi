@@ -141,54 +141,34 @@ struct Match {
 #endif
 
   const boost::variant<std::string, int, double, bool>& GetAttribute(const std::string& key) {
-    // lazy creation
-    if (!attributes_){
-      if (fsa_){
-        attributes_ = fsa_->GetValueAsAttributeVector(state_);
-      } else {
-        attributes_ = attributes_t(new fsa::internal::IValueStoreReader::attributes_raw_t);
-      }
-    }
+    GetPayload();
 
     return attributes_->at(key);
   }
 
   template<typename U>
   void SetAttribute(const std::string& key, U value) {
-    if (!attributes_){
-      if (fsa_){
-        attributes_ = fsa_->GetValueAsAttributeVector(state_);
-      } else {
-        attributes_ = attributes_t(new fsa::internal::IValueStoreReader::attributes_raw_t);
-      }
-    }
+    GetPayload();
 
     (*attributes_)[key] = value;
   }
 
-  std::string GetValueAsString() const {
-
-    if (!fsa_){
-      if (raw_value_.size() != 0) {
-        return util::DecodeJsonValue(raw_value_);
-      } else {
-        return "";
-      }
+  std::string GetValueAsString() {
+    const std::string raw_value = GetRawValueAsString();
+    if (raw_value.empty()) {
+        return raw_value;
     }
 
-    return fsa_->GetValueAsString(state_);
+    return util::DecodeJsonValue(raw_value_);
   }
 
-  std::string GetRawValueAsString() const {
+  std::string GetRawValueAsString() {
+    GetPayload();
 
-    if (!fsa_){
-        return raw_value_;
-    }
-
-    return fsa_->GetRawValueAsString(state_);
+    return raw_value_;
   }
 
-  std::string GetMsgPackedValueAsString() const {
+  std::string GetMsgPackedValueAsString() {
     const std::string raw_value = GetRawValueAsString();
     if (raw_value.empty()) {
         return raw_value;
@@ -203,6 +183,8 @@ struct Match {
    * @param value
    */
   void SetRawValue(const std::string& value) {
+    TRACE("SetRawValue");
+    GetPayload();
     raw_value_ = value;
   }
 
@@ -215,6 +197,25 @@ struct Match {
   fsa::automata_t fsa_ = 0;
   uint64_t state_ = 0;
   attributes_t attributes_ = 0;
+
+  inline void GetPayload(){
+    if (fsa_){
+      TRACE("Get Value from fsa");
+      raw_value_ = fsa_->GetRawValueAsString(state_);
+      attributes_ = fsa_->GetValueAsAttributeVector(state_);
+
+      // cut the connection to fsa, as it is not needed anymore
+      fsa_.reset();
+      return;
+    }
+
+    TRACE("value is already loaded");
+
+    if (!attributes_) {
+      attributes_ = attributes_t(new fsa::internal::IValueStoreReader::attributes_raw_t);
+    }
+  }
+
 };
 
 } /* namespace dictionary */

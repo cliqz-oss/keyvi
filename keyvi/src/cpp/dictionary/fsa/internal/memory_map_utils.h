@@ -32,6 +32,9 @@
 #include <sys/mman.h>
 #endif
 
+//#define ENABLE_TRACING
+#include "dictionary/util/trace.h"
+
 namespace keyvi {
 namespace dictionary {
 namespace fsa {
@@ -51,7 +54,11 @@ public:
      // just return
      return;
 #else // not _Win32
-     madvise((void*)addr, length, MADV_WILLNEED);
+     size_t page_size = sysconf(_SC_PAGESIZE);
+     void* addr_aligned = (void*) (((size_t) addr / page_size) * page_size);
+     if (madvise(addr_aligned, length, MADV_WILLNEED) != 0) {
+       TRACE("madvise failed");
+     }
      return;
 #endif // not _Win32
    }

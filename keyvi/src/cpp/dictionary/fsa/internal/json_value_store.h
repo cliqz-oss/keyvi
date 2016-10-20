@@ -316,12 +316,7 @@ class JsonValueStoreReader final: public IValueStoreReader {
   virtual attributes_t GetValueAsAttributeVector(uint64_t fsa_value) const override {
     attributes_t attributes(new attributes_raw_t());
 
-    std::string raw_value = util::decodeVarintString(strings_ + fsa_value);
-
-    //auto length = util::decodeVarint((uint8_t*) strings_ + fsa_value);
-    //std::string raw_value(strings_ + fsa_value, length);
-
-    (*attributes)["value"] = raw_value;
+    (*attributes)["value"] = GetValueAsString(fsa_value);
     return attributes;
   }
 

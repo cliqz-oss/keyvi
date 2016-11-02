@@ -77,6 +77,59 @@ BOOST_AUTO_TEST_CASE( writeFinalStateCompact ) {
 
 }
 
+BOOST_AUTO_TEST_CASE( writeTransitionAbsoluteMaxValue ) {
+  SparseArrayPersistence<uint16_t> p(16000, boost::filesystem::temp_directory_path());
+  int64_t limit = 1024 * 1024;
+  SparseArrayBuilder<SparseArrayPersistence<uint16_t>> b(limit, &p, false);
+
+  // simulate that sparse array builder got tons of states
+  b.highest_persisted_state_ = 1024 * 1024;
+
+  // write a state with a large offset but a low pointer
+  b.WriteTransition(1000000, 65, 20);
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000000), 65);
+  BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000000, p.ReadTransitionValue(1000000)), 20);
+}
+
+BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflow ) {
+  SparseArrayPersistence<uint16_t> p(16000, boost::filesystem::temp_directory_path());
+  int64_t limit = 1024 * 1024;
+  SparseArrayBuilder<SparseArrayPersistence<uint16_t>> b(limit, &p, false);
+
+  // simulate that sparse array builder got tons of states
+  b.highest_persisted_state_ = 1024 * 1024;
+
+  // write a state with a large offset and a low pointer > short
+  b.WriteTransition(1000001, 65, 34000);
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000001), 65);
+  BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000001, p.ReadTransitionValue(1000001)), 34000);
+}
+
+BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyte ) {
+  SparseArrayPersistence<uint16_t> p(16000, boost::filesystem::temp_directory_path());
+  int64_t limit = 1024 * 1024;
+  SparseArrayBuilder<SparseArrayPersistence<uint16_t>> b(limit, &p, false);
+
+  // simulate that sparse array builder got tons of states
+  b.highest_persisted_state_ = 1024 * 1024;
+
+  p.BeginNewState(999999 - 67);
+  b.WriteTransition(999999, 67, 21);
+  b.WriteTransition(1000002, 70, 22);
+
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000000), 0);
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000001), 0);
+
+  // write a state with a large offset and a low pointer > short
+  p.BeginNewState(1000512 - 65);
+  b.WriteTransition(1000512, 65, 333333);
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000512), 65);
+  BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000512, p.ReadTransitionValue(1000512)), 333333);
+
+  BOOST_CHECK(p.ReadTransitionLabel(1000000) != 0);
+  BOOST_CHECK(p.ReadTransitionLabel(1000001) != 0);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
 
 } /* namespace internal */

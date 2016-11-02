@@ -361,13 +361,15 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
 
       ushort diff_as_short = static_cast<ushort>(difference);
 
-      TRACE("Transition fits in uint16: %d->%d (%d)", offset, transitionPointer, diff_as_short);
+      TRACE("Transition fits in uint16 relative: %d->%d (%d)", offset, transitionPointer, diff_as_short);
 
       persistence_->WriteTransition(offset, transitionId, diff_as_short);
       return;
     }
 
     if (transitionPointer < COMPACT_SIZE_ABSOLUTE_MAX_VALUE) {
+      TRACE("Transition fits in uint16 absolute: %d->%d", offset, transitionPointer);
+
       ushort absolute_compact_coding = static_cast<ushort>(transitionPointer)
           | 0xC000;
       persistence_->WriteTransition(offset, transitionId,
@@ -450,13 +452,30 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
 
     TRACE("Write Overflow transition at %d, length %d", start_position, vshort_size);
 
-    persistence_->WriteRawValue(start_position, &vshort_pointer,
-                                vshort_size * sizeof(uint16_t));
     // write the values
     for (auto i = 0; i < vshort_size; ++i) {
       taken_positions_in_sparsearray_.Set(start_position + i);
+
+      // zerobyte handling
+      // no 0-byte, we have to 'scramble' the 0-byte to avoid a zombie state
+      int invalid_label = 0xff;
+      if (start_position + i > NUMBER_OF_STATE_CODINGS) {
+        size_t safe_state_id = start_position + i;
+        while (state_start_positions_.IsSet(safe_state_id)) {
+          ++safe_state_id;
+          --invalid_label;
+        }
+
+        // block the position as a possible start state
+        state_start_positions_.Set(safe_state_id);
+
+      // write the bogus label (it can get overridden later, which is ok)
+      persistence_->WriteTransition(start_position + i, invalid_label, 0);
+      }
     }
 
+    persistence_->WriteRawValue(start_position, &vshort_pointer,
+                                    vshort_size * sizeof(uint16_t));
     // encode the pointer to that bucket
     auto overflow_bucket = (512 + start_position) - offset;
     pt_to_overflow_bucket |= overflow_bucket << 4;

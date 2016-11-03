@@ -33,7 +33,7 @@
 #include "dictionary/fsa/internal/sparse_array_persistence.h"
 #include "dictionary/util/vint.h"
 
-//#define ENABLE_TRACING
+#define ENABLE_TRACING
 #include "dictionary/util/trace.h"
 
 namespace keyvi {
@@ -191,6 +191,16 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
               ++start_position;
               continue;
             }
+
+            // avoid finalizing a state by mistake
+            if ((start_position - next_free_slot) == FINAL_OFFSET_CODE && state_start_positions_.IsSet(
+                start_position - NUMBER_OF_STATE_CODINGS)) {
+
+              TRACE ("unable to scramble zero byte position (state finalization), continue search");
+              ++start_position;
+              continue;
+            }
+
           }
         }
 

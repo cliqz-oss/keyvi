@@ -33,7 +33,7 @@
 #include "dictionary/fsa/internal/sparse_array_persistence.h"
 #include "dictionary/util/vint.h"
 
-#define ENABLE_TRACING
+//#define ENABLE_TRACING
 #include "dictionary/util/trace.h"
 
 namespace keyvi {

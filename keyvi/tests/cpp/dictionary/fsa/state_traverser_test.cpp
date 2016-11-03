@@ -185,6 +185,7 @@ BOOST_AUTO_TEST_CASE( longkeys ) {
     BOOST_CHECK_EQUAL('a', s.GetStateLabel());
     BOOST_CHECK_EQUAL(i, s.GetDepth());
     s++;
+    BOOST_CHECK(!s.AtEnd());
   }
 
 
@@ -192,6 +193,11 @@ BOOST_AUTO_TEST_CASE( longkeys ) {
     BOOST_CHECK_EQUAL('b', s.GetStateLabel());
     BOOST_CHECK_EQUAL(i, s.GetDepth());
     s++;
+    if (i != 1000) {
+      BOOST_CHECK(!s.AtEnd());
+    } else {
+      BOOST_CHECK(s.AtEnd());
+    }
   }
 
   // traverser shall be exhausted

@@ -136,6 +136,8 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
 
   OffsetTypeT FindFreeBucket(
       const UnpackedState<SparseArrayPersistence<uint16_t>>& unpacked_state) const {
+
+    // states (state ids) start with 1 as 0 is reserved to mark a 'none-state'
     OffsetTypeT start_position =
         highest_persisted_state_ > SPARSE_ARRAY_SEARCH_OFFSET ?
             highest_persisted_state_ - SPARSE_ARRAY_SEARCH_OFFSET : 1;
@@ -176,6 +178,22 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
           continue;
         }
 
+        if (unpacked_state[0].label != 0 && !taken_positions_in_sparsearray_.IsSet(start_position)) {
+          TRACE("Need special handling for zero-byte state");
+
+          // state has no 0-byte, we have to 'scramble' the 0-byte to avoid a ghost state
+          if (start_position >= NUMBER_OF_STATE_CODINGS) {
+            size_t next_free_slot = state_start_positions_.NextFreeSlot(start_position - NUMBER_OF_STATE_CODINGS);
+
+            if (next_free_slot >=  start_position) {
+              // unable to scramble zero byte position
+              TRACE ("unable to scramble zero byte position, continue search");
+              ++start_position;
+              continue;
+            }
+          }
+        }
+
         TRACE ("found slot at %d", start_position);
         return start_position;
       }
@@ -211,20 +229,20 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
       // check if something is already written there
       if (!taken_positions_in_sparsearray_.IsSet(offset)) {
 
-        // no 0-byte, we have to 'scramble' the 0-byte to avoid a zombie state
+        // no 0-byte, we have to 'scramble' the 0-byte to avoid a ghost state
         int invalid_label = 0xff;
-        if (offset > NUMBER_OF_STATE_CODINGS) {
-          size_t safe_state_id = offset;
-          while (state_start_positions_.IsSet(safe_state_id)) {
-            ++safe_state_id;
-            --invalid_label;
-          }
+        if (offset >= NUMBER_OF_STATE_CODINGS) {
+          size_t next_free_slot = state_start_positions_.NextFreeSlot(offset - NUMBER_OF_STATE_CODINGS);
+
+          invalid_label = static_cast<int> (offset - next_free_slot);
+
+          TRACE ("Write bogus label %d, and block start state at %d (%d %d)", invalid_label, next_free_slot);
 
           // block the position as a possible start state
-          state_start_positions_.Set(safe_state_id);
+          state_start_positions_.Set(next_free_slot);
         }
 
-        // write the bogus label (it can get overriden later, which is ok)
+        // write the bogus label (it can get overridden later, which is ok)
         WriteTransition(offset, invalid_label, 0);
       }
     } else {
@@ -282,19 +300,14 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
     }
 #endif
     // 2nd pass: write the actual values into the buckets
-
-    // index 0 is reserved for control mechanisms in langs, chs start from 0
     for (i = 0; i < len; ++i) {
       typename UnpackedState<SparseArrayPersistence<uint16_t>>::Transition e = unpacked_state[i];
       if (e.label < FINAL_OFFSET_TRANSITION) {
         WriteTransition(offset + e.label, e.label, e.value);
       } else {
         if (e.label == FINAL_OFFSET_TRANSITION) {
-          //WriteTransition(offset + FINAL_OFFSET_TRANSITION, FINAL_OFFSET_CODE,
-          //                              e.value);
-
           WriteFinalTransition(offset, e.value);
-          //TRACE("Write final marker at %d, value %d", offset, e.value);
+          TRACE("Write final marker at %d, value %d", offset, e.value);
         }
       }
     }
@@ -459,15 +472,14 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
       // zerobyte handling
       // no 0-byte, we have to 'scramble' the 0-byte to avoid a zombie state
       int invalid_label = 0xff;
-      if (start_position + i > NUMBER_OF_STATE_CODINGS) {
-        size_t safe_state_id = start_position + i;
-        while (state_start_positions_.IsSet(safe_state_id)) {
-          ++safe_state_id;
-          --invalid_label;
-        }
+      if (start_position + i >= NUMBER_OF_STATE_CODINGS) {
+        size_t next_free_slot = state_start_positions_.NextFreeSlot(start_position + i - NUMBER_OF_STATE_CODINGS);
+        invalid_label = static_cast<int> (start_position + i - next_free_slot);
+
+        TRACE ("Write bogus label %d, and block start state at %d (%d %d)", invalid_label, next_free_slot);
 
         // block the position as a possible start state
-        state_start_positions_.Set(safe_state_id);
+        state_start_positions_.Set(next_free_slot);
 
       // write the bogus label (it can get overridden later, which is ok)
       persistence_->WriteTransition(start_position + i, invalid_label, 0);
@@ -476,6 +488,7 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
 
     persistence_->WriteRawValue(start_position, &vshort_pointer,
                                     vshort_size * sizeof(uint16_t));
+
     // encode the pointer to that bucket
     auto overflow_bucket = (512 + start_position) - offset;
     pt_to_overflow_bucket |= overflow_bucket << 4;
@@ -707,19 +720,14 @@ class SparseArrayBuilder<SparseArrayPersistence<uint32_t>, OffsetTypeT, HashCode
     }
 #endif
     // 2nd pass: write the actual values into the buckets
-
-    // index 0 is reserved for control mechanisms in langs, chs start from 0
     for (i = 0; i < len; ++i) {
       typename UnpackedState<SparseArrayPersistence<uint32_t>>::Transition e = unpacked_state[i];
       if (e.label < FINAL_OFFSET_TRANSITION) {
         WriteTransition(offset + e.label, e.label, e.value);
       } else {
         if (e.label == FINAL_OFFSET_TRANSITION) {
-          //WriteTransition(offset + FINAL_OFFSET_TRANSITION, FINAL_OFFSET_CODE,
-          //                              e.value);
-
           WriteFinalTransition(offset, e.value);
-          //TRACE("Write final marker at %d, value %d", offset, e.value);
+          TRACE("Write final marker at %d, value %d", offset, e.value);
         }
       }
     }

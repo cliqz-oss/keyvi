@@ -478,22 +478,6 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
     // write the values
     for (auto i = 0; i < vshort_size; ++i) {
       taken_positions_in_sparsearray_.Set(start_position + i);
-
-      // zerobyte handling
-      // no 0-byte, we have to 'scramble' the 0-byte to avoid a zombie state
-      int invalid_label = 0xff;
-      if (start_position + i >= NUMBER_OF_STATE_CODINGS) {
-        size_t next_free_slot = state_start_positions_.NextFreeSlot(start_position + i - NUMBER_OF_STATE_CODINGS);
-        invalid_label = static_cast<int> (start_position + i - next_free_slot);
-
-        TRACE ("Write bogus label %d, and block start state at %d (%d %d)", invalid_label, next_free_slot);
-
-        // block the position as a possible start state
-        state_start_positions_.Set(next_free_slot);
-
-      // write the bogus label (it can get overridden later, which is ok)
-      persistence_->WriteTransition(start_position + i, invalid_label, 0);
-      }
     }
 
     persistence_->WriteRawValue(start_position, &vshort_pointer,

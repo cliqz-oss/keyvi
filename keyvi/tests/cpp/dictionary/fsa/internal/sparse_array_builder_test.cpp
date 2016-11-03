@@ -162,9 +162,6 @@ BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyte ) {
   b.WriteTransition(1000512, 65, 333333);
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000512), 65);
   BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000512, p.ReadTransitionValue(1000512)), 333333);
-
-  BOOST_CHECK(p.ReadTransitionLabel(1000000) != 0);
-  BOOST_CHECK(p.ReadTransitionLabel(1000001) != 0);
 }
 
 BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyte2 ) {
@@ -195,8 +192,6 @@ BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyte2 ) {
 
   // the zero byte state should not be overwritten
   BOOST_CHECK(p.ReadTransitionLabel(1000000) == 0);
-  BOOST_CHECK(p.ReadTransitionLabel(1000001) != 0);
-  BOOST_CHECK(p.ReadTransitionLabel(1000002) != 0);
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000003), 70);
 }
 
@@ -236,11 +231,54 @@ BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyte3 ) {
   BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000512, p.ReadTransitionValue(1000512)), 333333);
 
   // the zero byte state should not be overwritten
-  BOOST_CHECK(p.ReadTransitionLabel(1000001) != 0);
-  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000001), 0xf9);
-  BOOST_CHECK(p.ReadTransitionLabel(1000002) != 0);
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000000), 0);
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000003), 70);
 }
+
+BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyteEdgecase ) {
+  SparseArrayPersistence<uint16_t> p(16000, boost::filesystem::temp_directory_path());
+  int64_t limit = 1024 * 1024;
+  SparseArrayBuilder<SparseArrayPersistence<uint16_t>> b(limit, &p, false);
+
+  // simulate that sparse array builder got tons of states
+  b.highest_persisted_state_ = 1024 * 1024;
+
+  p.BeginNewState(1000000);
+
+  for (int i = 0xff; i>1; i--) {
+    // mark some state beginnings that could lead to zombie states
+    b.state_start_positions_.Set(1000001 - i);
+  }
+
+  // write a valid zero byte state
+  b.WriteTransition(1000000, 0, 21);
+  b.taken_positions_in_sparsearray_.Set(1000000);
+  b.WriteTransition(1000003, 70, 22);
+  b.taken_positions_in_sparsearray_.Set(1000003);
+
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000000), 0);
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000001), 0);
+
+  // write a state with a large offset and a low pointer > short
+  p.BeginNewState(1000512 - 65);
+  b.WriteTransition(1000512, 65, 333333);
+  b.taken_positions_in_sparsearray_.Set(1000512);
+
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000512), 65);
+  BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000512, p.ReadTransitionValue(1000512)), 333333);
+
+  // the zero byte state should not be overwritten
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000000), 0);
+
+  BOOST_CHECK(b.state_start_positions_.IsSet(1000001 - 0xff));
+
+  // if 1000002 has label 1 we would have a wrong final state
+  BOOST_CHECK(p.ReadTransitionLabel(1000002) != 1);
+
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000003), 70);
+}
+
+
 
 BOOST_AUTO_TEST_SUITE_END()
 

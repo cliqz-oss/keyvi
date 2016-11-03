@@ -111,7 +111,7 @@ final {
     SparseArrayPersistence(const SparseArrayPersistence& that) = delete;
 
     void BeginNewState(size_t offset) {
-      if ((offset + COMPACT_SIZE_WINDOW + NUMBER_OF_STATE_CODINGS)
+      while ((offset + COMPACT_SIZE_WINDOW + NUMBER_OF_STATE_CODINGS)
           >= (buffer_size_ + in_memory_buffer_offset_)) {
         FlushBuffers();
       }

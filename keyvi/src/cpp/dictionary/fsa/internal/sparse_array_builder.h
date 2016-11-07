@@ -348,6 +348,9 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
       // it might be, that the slot is not taken yet
       taken_positions_in_sparsearray_.Set(
           offset + INNER_WEIGHT_TRANSITION_COMPACT);
+
+      // block this bucket for the start of a new state
+      state_start_positions_.Set(offset + INNER_WEIGHT_TRANSITION_COMPACT);
     }
   }
 
@@ -504,10 +507,12 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
 
     util::encodeVarshort(value, vshort_pointer, &vshort_size);
 
-    persistence_->WriteRawValue(offset + FINAL_OFFSET_TRANSITION, &vshort_pointer,
-                                vshort_size * sizeof(uint16_t));
+    // write the cells, avoid zero byte clash
+    for (auto i = 0; i < vshort_size; ++i) {
+      persistence_->WriteTransition(offset + FINAL_OFFSET_TRANSITION + i,
+                                        FINAL_OFFSET_CODE + i, vshort_pointer[i]);
+    }
   }
-
 };
 
 
@@ -747,6 +752,9 @@ class SparseArrayBuilder<SparseArrayPersistence<uint32_t>, OffsetTypeT, HashCode
                       0 /*no INNER_WEIGHT_CODE*/, weight);
       // it might be, that the slot is not taken yet
       taken_positions_in_sparsearray_.Set(offset + INNER_WEIGHT_TRANSITION);
+
+      // no other state should start at this offset
+      state_start_positions_.Set(offset + INNER_WEIGHT_TRANSITION);
     }
   }
 

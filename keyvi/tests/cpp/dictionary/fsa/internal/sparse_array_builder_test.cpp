@@ -278,6 +278,46 @@ BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyteEdgecase ) {
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000003), 70);
 }
 
+BOOST_AUTO_TEST_CASE( writeTransitionZerobyteWeightCase) {
+  SparseArrayPersistence<uint16_t> p(16000, boost::filesystem::temp_directory_path());
+  int64_t limit = 1024 * 1024;
+  SparseArrayBuilder<SparseArrayPersistence<uint16_t>> b(limit, &p, false);
+
+  // simulate that sparse array builder got tons of states
+  b.highest_persisted_state_ = 1024 * 1024;
+
+  p.BeginNewState(1000000);
+
+  // write a weight state
+  b.UpdateWeightIfNeeded(1000000, 42);
+  b.taken_positions_in_sparsearray_.Set(1000000 + INNER_WEIGHT_TRANSITION_COMPACT);
+
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000000 + INNER_WEIGHT_TRANSITION_COMPACT), 0);
+  BOOST_CHECK(b.state_start_positions_.IsSet(1000000 + INNER_WEIGHT_TRANSITION_COMPACT));
+}
+
+BOOST_AUTO_TEST_CASE( writeTransitionFinalStateTransition) {
+  SparseArrayPersistence<uint16_t> p(16000, boost::filesystem::temp_directory_path());
+  int64_t limit = 1024 * 1024;
+  SparseArrayBuilder<SparseArrayPersistence<uint16_t>> b(limit, &p, false);
+
+  // simulate that sparse array builder got tons of states
+  b.highest_persisted_state_ = 1024 * 1024;
+
+  p.BeginNewState(1000000);
+
+  // write a final state which requires an overflow to the next cell
+  b.WriteFinalTransition(1000000, 1000000);
+  b.taken_positions_in_sparsearray_.Set(1000000 + FINAL_OFFSET_TRANSITION);
+  b.taken_positions_in_sparsearray_.Set(1000000 + FINAL_OFFSET_TRANSITION + 1);
+
+  b.WriteTransition(1000003, 70, 22);
+  b.taken_positions_in_sparsearray_.Set(1000003);
+
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000000 + FINAL_OFFSET_TRANSITION), 1);
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000000 + FINAL_OFFSET_TRANSITION + 1), 2);
+}
+
 
 
 BOOST_AUTO_TEST_SUITE_END()

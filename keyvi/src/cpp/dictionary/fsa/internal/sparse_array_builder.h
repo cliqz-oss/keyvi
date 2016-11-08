@@ -476,7 +476,7 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
       }
 
       if (found_slots > 0 && start_position >= NUMBER_OF_STATE_CODINGS) {
-        zerobyte_scrambling_state = state_start_positions_.NextFreeSlot(start_position - NUMBER_OF_STATE_CODINGS);
+        zerobyte_scrambling_state = state_start_positions_.NextFreeSlot(start_position + vshort_size - NUMBER_OF_STATE_CODINGS);
 
         zerobyte_scrambling_label = static_cast<int> (start_position - zerobyte_scrambling_state);
 

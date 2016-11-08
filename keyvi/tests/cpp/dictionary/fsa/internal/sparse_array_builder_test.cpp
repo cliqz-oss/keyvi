@@ -162,6 +162,9 @@ BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyte ) {
   b.WriteTransition(1000512, 65, 333333);
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000512), 65);
   BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000512, p.ReadTransitionValue(1000512)), 333333);
+
+  BOOST_CHECK(p.ReadTransitionLabel(1000000) != 0);
+  BOOST_CHECK(p.ReadTransitionLabel(1000001) != 0);
 }
 
 BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyte2 ) {
@@ -185,13 +188,15 @@ BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyte2 ) {
 
   // write a state with a large offset and a low pointer > short
   p.BeginNewState(1000512 - 65);
-  b.WriteTransition(1000512, 65, 333333);
+  b.WriteTransition(1000512, 65, 333334);
   b.taken_positions_in_sparsearray_.Set(1000512);
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000512), 65);
-  BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000512, p.ReadTransitionValue(1000512)), 333333);
+  BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000512, p.ReadTransitionValue(1000512)), 333334);
 
   // the zero byte state should not be overwritten
   BOOST_CHECK(p.ReadTransitionLabel(1000000) == 0);
+  BOOST_CHECK(p.ReadTransitionLabel(1000001) != 0);
+  BOOST_CHECK(p.ReadTransitionLabel(1000002) != 0);
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000003), 70);
 }
 
@@ -224,14 +229,17 @@ BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyte3 ) {
 
   // write a state with a large offset and a low pointer > short
   p.BeginNewState(1000512 - 65);
-  b.WriteTransition(1000512, 65, 333333);
+  b.WriteTransition(1000512, 65, 333335);
   b.taken_positions_in_sparsearray_.Set(1000512);
 
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000512), 65);
-  BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000512, p.ReadTransitionValue(1000512)), 333333);
+  BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000512, p.ReadTransitionValue(1000512)), 333335);
 
   // the zero byte state should not be overwritten
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000000), 0);
+  BOOST_CHECK(p.ReadTransitionLabel(1000001) != 0);
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000001), 0xf9);
+  BOOST_CHECK(p.ReadTransitionLabel(1000002) != 0);
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000003), 70);
 }
 
@@ -261,11 +269,11 @@ BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyteEdgecase ) {
 
   // write a state with a large offset and a low pointer > short
   p.BeginNewState(1000512 - 65);
-  b.WriteTransition(1000512, 65, 333333);
+  b.WriteTransition(1000512, 65, 333336);
   b.taken_positions_in_sparsearray_.Set(1000512);
 
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000512), 65);
-  BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000512, p.ReadTransitionValue(1000512)), 333333);
+  BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1000512, p.ReadTransitionValue(1000512)), 333336);
 
   // the zero byte state should not be overwritten
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000000), 0);
@@ -276,6 +284,8 @@ BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyteEdgecase ) {
   BOOST_CHECK(p.ReadTransitionLabel(1000002) != 1);
 
   BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000003), 70);
+  BOOST_CHECK(p.ReadTransitionLabel(1000004) != 0);
+  BOOST_CHECK(p.ReadTransitionLabel(1000005) != 0);
 }
 
 BOOST_AUTO_TEST_CASE( writeTransitionZerobyteWeightCase) {

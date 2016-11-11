@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+
+import sys
+import json
+import pykeyvi
+
+from argparse import ArgumentParser
+
+def main():
+    argument_parser = ArgumentParser(description='keyvi inspector')
+
+    argument_parser.add_argument('-i', '--input-file', type=str, default=None,
+                                 help='input file', required=True)
+
+    argument_parser.add_argument('-o', '--output-file', type=str, default=None,
+                                 help='output file', required=False)
+
+    argument_parser.add_argument('-s', '--statistics', dest='statistics', default=False,
+                        help='show statistics', action='store_true', required=False)
+
+    args = argument_parser.parse_args()
+
+    dictionary = pykeyvi.Dictionary(args.input_file)
+
+    if args.statistics:
+        print json.dumps(dictionary.GetStatistics(), indent=4, sort_keys=True)
+
+    elif args.output_file:
+        with open(args.output_file, 'w') as dump_file:
+            for key, value in dictionary.GetAllItems():
+                dump_file.write('{}\t{}\n'.format(key, value))
+    else:
+        print 'Expecting option: -s|-o, but got nothing'
+        return 1
+
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

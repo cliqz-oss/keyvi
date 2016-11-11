@@ -195,12 +195,13 @@ with symlink_keyvi():
 
     setup(
         name=PACKAGE_NAME,
-        version='0.1.28',
+        version='0.1.29',
         description='Python bindings for keyvi',
         author='Hendrik Muhs',
         author_email='hendrik.muhs@gmail.com',
         license="ASL 2.0",
         cmdclass={'build_ext': build_ext, 'build': build },
+        scripts=['bin/keyviinspector', 'bin/keyvicompiler'],
         ext_modules=ext_modules,
         zip_safe=False,
         url='https://github.com/cliqz/keyvi',

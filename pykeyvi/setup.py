@@ -201,7 +201,7 @@ with symlink_keyvi():
         author_email='hendrik.muhs@gmail.com',
         license="ASL 2.0",
         cmdclass={'build_ext': build_ext, 'build': build },
-        scripts=['bin/keyviinspector', 'bin/keyvicompiler'],
+        scripts=['bin/keyvi-inspector', 'bin/keyvi-compiler'],
         ext_modules=ext_modules,
         zip_safe=False,
         url='https://github.com/cliqz/keyvi',

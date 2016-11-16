@@ -288,6 +288,39 @@ BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyteEdgecase ) {
   BOOST_CHECK(p.ReadTransitionLabel(1000005) != 0);
 }
 
+BOOST_AUTO_TEST_CASE( writeTransitionRelativeOverflowZerobyteEdgecaseStartPositions ) {
+  SparseArrayPersistence<uint16_t> p(16000, boost::filesystem::temp_directory_path());
+  int64_t limit = 1024 * 1024;
+  SparseArrayBuilder<SparseArrayPersistence<uint16_t>> b(limit, &p, false);
+
+  // simulate that sparse array builder got tons of states
+  b.highest_persisted_state_ = 1024 * 1024;
+
+  p.BeginNewState(1000000);
+
+  for (int i = 0; i < 1000; ++i) {
+    // mark some state beginnings that could lead to zombie states
+    b.state_start_positions_.Set(1000000 + i);
+
+    // fill the labels, just for the purpose of checking it later
+    b.WriteTransition(1000000 + i, 70, 21);
+  }
+
+  // write a state with a large offset and a low pointer > short
+  p.BeginNewState(1001000 - 65);
+  b.WriteTransition(1001000, 65, 333336);
+  b.taken_positions_in_sparsearray_.Set(1001000);
+
+  BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1001000), 65);
+  BOOST_CHECK_EQUAL(p.ResolveTransitionValue(1001000, p.ReadTransitionValue(1001000)), 333336);
+
+  for (int i = 0; i < 1000; ++i) {
+      // mark some state beginnings that could lead to zombie states
+      b.state_start_positions_.Set(1000000 + i);
+      BOOST_CHECK_EQUAL(p.ReadTransitionLabel(1000000 + i), 70);
+  }
+}
+
 BOOST_AUTO_TEST_CASE( writeTransitionZerobyteWeightCase) {
   SparseArrayPersistence<uint16_t> p(16000, boost::filesystem::temp_directory_path());
   int64_t limit = 1024 * 1024;

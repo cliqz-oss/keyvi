@@ -430,7 +430,7 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
     // find free spots in the sparse array where the pointer fits in
     size_t start_position = offset > 512 ? offset - 512 : 0;
     size_t zerobyte_scrambling_state = 0;
-    int zerobyte_scrambling_label = 0xff;
+    unsigned char zerobyte_scrambling_label = 0xff;
 
     for (;;) {
       start_position = taken_positions_in_sparsearray_.NextFreeSlot(
@@ -478,12 +478,18 @@ class SparseArrayBuilder<SparseArrayPersistence<uint16_t>, OffsetTypeT, HashCode
       if (found_slots > 0 && start_position >= NUMBER_OF_STATE_CODINGS) {
         zerobyte_scrambling_state = state_start_positions_.NextFreeSlot(start_position + vshort_size - NUMBER_OF_STATE_CODINGS);
 
-        zerobyte_scrambling_label = static_cast<int> (start_position - zerobyte_scrambling_state);
-
-        if (zerobyte_scrambling_label < vshort_size){
-          TRACE("Did not find a state to scramble zero-bytes, skipping %d", start_position);
+        if (zerobyte_scrambling_state >= start_position) {
+          TRACE("Did not find a state to scramble zero-bytes, no good start position, skipping %d", start_position);
           start_position += found_slots + 1;
           found_slots = 0;
+        } else {
+          zerobyte_scrambling_label = static_cast<unsigned char> (start_position - zerobyte_scrambling_state);
+
+          if (zerobyte_scrambling_label < vshort_size){
+            TRACE("Did not find a state to scramble zero-bytes, skipping %d", start_position);
+            start_position += found_slots + 1;
+            found_slots = 0;
+          }
         }
       }
 

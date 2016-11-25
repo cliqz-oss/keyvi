@@ -194,24 +194,12 @@ final {
         TRACE ("Bitmask %d", mask_int);
 
         if (mask_int != 0) {
-          if (offset == 0) {
-            // in this case we have to ignore the first bit, so start counting from 1
-            mask_int = mask_int >> 1;
-            for (auto i=1; i<16; ++i) {
-              if ((mask_int & 1) == 1) {
-                TRACE("push symbol+%d", symbol + i);
-                traversal_state.Add(ResolvePointer(starting_state, symbol + i), symbol + i, payload);
-              }
-              mask_int = mask_int >> 1;
-            }
-          } else {
             for (auto i=0; i<16; ++i) {
               if ((mask_int & 1) == 1) {
                 TRACE("push symbol+%d", symbol + i);
                 traversal_state.Add(ResolvePointer(starting_state, symbol + i), symbol + i, payload);
               }
               mask_int = mask_int >> 1;
-            }
           }
         }
 
@@ -229,7 +217,7 @@ final {
 
         uint64_t xor_labels_with_mask = *labels_as_ll^*mask_as_ll;
 
-        if (((xor_labels_with_mask & 0x00000000000000ffULL) == 0) && offset > 0){
+        if (((xor_labels_with_mask & 0x00000000000000ffULL) == 0)){
           traversal_state.Add(ResolvePointer(starting_state, symbol), symbol, payload);
         }
         if ((xor_labels_with_mask & 0x000000000000ff00ULL)== 0){
@@ -291,20 +279,6 @@ final {
         TRACE ("Bitmask %d", mask_int);
 
         if (mask_int != 0) {
-          if (offset == 0) {
-            // in this case we have to ignore the first bit, so start counting from 1
-            mask_int = mask_int >> 1;
-            for (auto i=1; i<16; ++i) {
-              if ((mask_int & 1) == 1) {
-                TRACE("push symbol+%d", symbol + i);
-                uint64_t child_state = ResolvePointer(starting_state, symbol + i);
-                uint32_t weight = GetWeightValue(child_state);
-                weight = weight != 0 ? weight : parent_weight;
-                traversal_state.Add(child_state, weight, symbol + i, payload);
-              }
-              mask_int = mask_int >> 1;
-            }
-          } else {
             for (auto i=0; i<16; ++i) {
               if ((mask_int & 1) == 1) {
                 TRACE("push symbol+%d", symbol + i);
@@ -315,7 +289,6 @@ final {
               }
               mask_int = mask_int >> 1;
             }
-          }
         }
 
         ++labels_as_m128;
@@ -332,7 +305,7 @@ final {
 
         uint64_t xor_labels_with_mask = *labels_as_ll^*mask_as_ll;
 
-        if (((xor_labels_with_mask & 0x00000000000000ffULL) == 0) && offset > 0){
+        if (((xor_labels_with_mask & 0x00000000000000ffULL) == 0)){
           uint64_t child_state = ResolvePointer(starting_state, symbol);
           uint32_t weight = GetWeightValue(child_state);
           weight = weight != 0 ? weight : parent_weight;

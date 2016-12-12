@@ -27,7 +27,7 @@ env:
     - BUILD_TYPE=sdist
     - BUILD_TYPE=doc
   global:
-    - GH_REPO_NAME='keyvi'
+    - GH_REPO_NAME='keyvi/keyvi'
     - DOXYFILE="$TRAVIS_BUILD_DIR/keyvi/keyvi.Doxyfile"
     - GITHUB_REPO='cliqz-oss/keyvi'
     - GH_REPO_REF='github.com/cliqz-oss/keyvi.git'

@@ -7,8 +7,5 @@ var searchData=
   ['compile',['Compile',['../classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac816b9ce7e9be6961673b62f2ed8a820',1,'keyvi::dictionary::DictionaryCompiler']]],
   ['compiler_5fexception',['compiler_exception',['../structkeyvi_1_1dictionary_1_1compiler__exception.html',1,'keyvi::dictionary']]],
   ['compressionstrategy',['CompressionStrategy',['../structkeyvi_1_1compression_1_1_compression_strategy.html',1,'keyvi::compression']]],
-  ['contains',['Contains',['../classkeyvi_1_1dictionary_1_1_dictionary.html#ae86467d752e4c708fd69714a8db953d2',1,'keyvi::dictionary::Dictionary']]],
-  ['construction_20basics',['Construction Basics',['../md_doc_algorithm__construction-_basics.html',1,'']]],
-  ['creating_20debian_20packages',['Creating Debian packages',['../md_doc_development__packaging_keyvi.html',1,'']]],
-  ['crashcourse',['Crashcourse',['../md_doc_usage__crashcourse.html',1,'']]]
+  ['contains',['Contains',['../classkeyvi_1_1dictionary_1_1_dictionary.html#ae86467d752e4c708fd69714a8db953d2',1,'keyvi::dictionary::Dictionary']]]
 ];

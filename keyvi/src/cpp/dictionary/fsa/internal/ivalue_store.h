@@ -83,18 +83,22 @@ class IValueStoreWriter {
    */
   IValueStoreWriter(const vs_param_t& parameters = vs_param_t()) : parameters_(parameters) {}
 
-    /// TODO: workaround till ValueStore merger classes are separated from ValueStore writer
-    IValueStoreWriter(const std::vector<std::string> &)
-            : IValueStoreWriter()
-    {}
-
-    uint64_t GetMergeValueId(size_t fileIndex, uint64_t oldIndex) {
-        return 0;
-    }
+  /// TODO: workaround till ValueStore merger classes are separated from ValueStore writer
+  IValueStoreWriter(const std::vector<std::string> &)
+          : IValueStoreWriter()
+  {}
 
   virtual ~IValueStoreWriter() {
   }
- 
+
+  uint64_t GetMergeValueId(size_t fileIndex, uint64_t oldIndex) {
+      return 0;
+  }
+
+  uint32_t GetMergeWeight(const char* payload, uint64_t fsa_value){
+    return 12;
+  }
+
  protected:
   vs_param_t parameters_;
 };

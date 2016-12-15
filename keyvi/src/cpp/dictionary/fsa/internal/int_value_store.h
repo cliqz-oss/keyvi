@@ -112,6 +112,10 @@ class IntValueStoreWithInnerWeights final : public IValueStoreWriter {
     return value;
   }
 
+  uint32_t GetMergeWeight(const char* payload, uint64_t fsa_value){
+    return fsa_value;
+  }
+
   static value_store_t GetValueStoreType() {
     return INT_VALUE_STORE;
   }

@@ -95,7 +95,15 @@ class IValueStoreWriter {
       return 0;
   }
 
-  uint32_t GetMergeWeight(const char* payload, uint64_t fsa_value){
+  /**
+   * Get the weight for merging dictionaries.
+   *
+   * Note: for now only the fsa_value is given, in future this might change, so that also the payload is required.
+   *
+   * @param fsa_value
+   * @return weight to be used as inner weight
+   */
+  uint32_t GetMergeWeight(uint64_t fsa_value){
     return 0;
   }
 

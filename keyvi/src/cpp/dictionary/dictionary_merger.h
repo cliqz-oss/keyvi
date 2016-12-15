@@ -175,8 +175,9 @@ public:
 
             fsa::ValueHandle handle;
             handle.no_minimization = false;
-            handle.weight = value_store->GetMergeWeight(segment_it.entryIterator().GetFsa()->GetValueStore()->GetValueStorePayload(),
-                                                        segment_it.entryIterator().GetValueId());
+
+            // get the weight value, for now simple: does not require access to the value store itself
+            handle.weight = value_store->GetMergeWeight(segment_it.entryIterator().GetValueId());
 
             if (append_merge_) {
                 handle.value_idx = value_store->GetMergeValueId(segment_it.segmentIndex(), segment_it.entryIterator().GetValueId());

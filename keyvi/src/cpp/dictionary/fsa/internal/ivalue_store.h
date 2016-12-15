@@ -96,7 +96,7 @@ class IValueStoreWriter {
   }
 
   uint32_t GetMergeWeight(const char* payload, uint64_t fsa_value){
-    return 12;
+    return 0;
   }
 
  protected:

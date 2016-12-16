@@ -230,8 +230,9 @@ var NAVTREEINDEX0 =
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#a08e32f4f07d06b8e1dd51c11b77a4ff8":[11,0,0,1,2,0,4,1],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#a56e2c0109f0165be2081b6c2e8a3bbad":[11,0,0,1,2,0,4,0],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#a91ab5183eb12b168be46164e26ae6370":[11,0,0,1,2,0,4,4],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#ab7cff5732b88f0d5d8286ef28cc4c694":[11,0,0,1,2,0,4,5],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#ac26a998de582168a00de7da7d6655be7":[11,0,0,1,2,0,4,3],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#af0602f0e33f442a4b03d72f2e2b6f352":[11,0,0,1,2,0,4,5],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#af0602f0e33f442a4b03d72f2e2b6f352":[11,0,0,1,2,0,4,6],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html":[11,0,0,1,2,0,1],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#a12019c7b84e442291696a70ecfe51281":[11,0,0,1,2,0,1,4],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#a4a83b8c7be572d3510393163904525a9":[11,0,0,1,2,0,1,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html#aa93d33c4fc87291d047d4cf8ba80f7e6":[11,0,0,1,2,0,3,2],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html":[11,0,0,1,2,0,2],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#a3ff732599e4e33b333b86b975389bd9a":[11,0,0,1,2,0,2,2],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#a4064824d667768e2fe9130cf2aa53f17":[11,0,0,1,2,0,2,0],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#aa030fa59145b9d5cbbbeee4e3c491a6a":[11,0,0,1,2,0,2,8]
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#a4064824d667768e2fe9130cf2aa53f17":[11,0,0,1,2,0,2,0]
 };

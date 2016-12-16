@@ -141,6 +141,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a91ab5183eb12b168be46164e26ae6370"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91ab5183eb12b168be46164e26ae6370"></a>
 uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetMergeValueId</b> (size_t fileIndex, uint64_t oldIndex)</td></tr>
 <tr class="separator:a91ab5183eb12b168be46164e26ae6370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7cff5732b88f0d5d8286ef28cc4c694"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#ab7cff5732b88f0d5d8286ef28cc4c694">GetMergeWeight</a> (uint64_t fsa_value)</td></tr>
+<tr class="separator:ab7cff5732b88f0d5d8286ef28cc4c694"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -194,6 +196,40 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ab7cff5732b88f0d5d8286ef28cc4c694"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t keyvi::dictionary::fsa::internal::IValueStoreWriter::GetMergeWeight </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>fsa_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the weight for merging dictionaries.</p>
+<p>Note: for now only the fsa_value is given, in future this might change, so that also the payload is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fsa_value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>weight to be used as inner weight </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>keyvi/src/cpp/dictionary/fsa/internal/<a class="el" href="ivalue__store_8h_source.html">ivalue_store.h</a></li>
 </ul>
@@ -203,7 +239,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacekeyvi.html">keyvi</a></li><li class="navelem"><b>dictionary</b></li><li class="navelem"><b>fsa</b></li><li class="navelem"><b>internal</b></li><li class="navelem"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html">IValueStoreWriter</a></li>
-    <li class="footer">Generated on Wed Dec 14 2016 15:54:47 by
+    <li class="footer">Generated on Fri Dec 16 2016 10:20:17 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

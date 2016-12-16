@@ -1,11 +1,13 @@
 var NAVTREEINDEX1 =
 {
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#ac27362f61803c10066769d9693381576":[11,0,0,1,2,0,2,5],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#ad1ce3f687fab85d6197fc8e9d50d900a":[11,0,0,1,2,0,2,4],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#a641460866b584477b0efdcd6c950f4b5":[11,0,0,1,2,0,2,4],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#aa030fa59145b9d5cbbbeee4e3c491a6a":[11,0,0,1,2,0,2,9],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#ac27362f61803c10066769d9693381576":[11,0,0,1,2,0,2,6],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#ad1ce3f687fab85d6197fc8e9d50d900a":[11,0,0,1,2,0,2,5],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#af15286c9e7e0028ac523843977e00544":[11,0,0,1,2,0,2,3],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#af6273e1d260f47e5437e493ea25e86ec":[11,0,0,1,2,0,2,7],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#af6273e1d260f47e5437e493ea25e86ec":[11,0,0,1,2,0,2,8],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#afc8752cea38c1f138692ea07dc4d8778":[11,0,0,1,2,0,2,1],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#afe31fe113ac0a60db1506bacd122e6d8":[11,0,0,1,2,0,2,6],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#afe31fe113ac0a60db1506bacd122e6d8":[11,0,0,1,2,0,2,7],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store.html":[11,0,0,1,2,0,6],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store.html#a3235709c87ec11b609ec4dfb38017479":[11,0,0,1,2,0,6,10],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store.html#a3d41873650a399ae4d5e38d9117f2ebe":[11,0,0,1,2,0,6,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "classkeyvi_1_1stringdistance_1_1_needleman_wunsch.html#af0db45e09f2be2d93e83d509dcbe7a21":[11,0,0,2,2,2],
 "classkeyvi_1_1stringdistance_1_1_needleman_wunsch.html#af35801490cabba04c866ff5fe039276a":[11,0,0,2,2,3],
 "classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html":[11,0,0,2,0,0],
-"classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html#a23c92b821f26364ef63b43ee8fd091d2":[11,0,0,2,0,0,3],
-"classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html#a3e969ff73850d9b8d8de7cdc6b7cd874":[11,0,0,2,0,0,2],
-"classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html#a77c5b9761226afe457a3b64793b7e02b":[11,0,0,2,0,0,1]
+"classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html#a23c92b821f26364ef63b43ee8fd091d2":[11,0,0,2,0,0,3]
 };

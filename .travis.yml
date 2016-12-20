@@ -4,7 +4,7 @@
 #
 
 
-language: cpp
+language: python
 
 compiler:
 # disable, does not build with current msgpack - clang
@@ -12,6 +12,8 @@ compiler:
 
 python:
   - 2.7
+  - 3.3
+  - 3.4
 
 sudo: required
 
@@ -39,10 +41,6 @@ matrix:
       osx_image: xcode7.3
       compiler: clang
       env: BUILD_TYPE=osx
-    - python: "3.3"
-      dist: trusty
-      compiler: gcc
-      env: BUILD_TYPE=linux   CONF=release    ARCH=x86_64
 
 before_install:
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then ./travis/setup_osx.sh ; fi

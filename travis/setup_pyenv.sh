@@ -3,7 +3,7 @@
 set -ev
 
 # get pyenv if it isn't there already
-if [ ! -d "~/.pyenv" ]; then
+if [ ! -d ~/.pyenv ]; then
   git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 fi
 

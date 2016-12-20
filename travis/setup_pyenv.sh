@@ -2,7 +2,11 @@
 
 set -ev
 
-git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+# get pyenv if it isn't there already
+if [ ! -d "~/.pyenv" ]; then
+  git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+fi
+
 PYENV_ROOT="$HOME/.pyenv"
 PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"

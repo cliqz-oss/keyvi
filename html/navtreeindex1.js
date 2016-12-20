@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#a4064824d667768e2fe9130cf2aa53f17":[11,0,0,1,2,0,2,0],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#a641460866b584477b0efdcd6c950f4b5":[11,0,0,1,2,0,2,4],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#aa030fa59145b9d5cbbbeee4e3c491a6a":[11,0,0,1,2,0,2,9],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#ac27362f61803c10066769d9693381576":[11,0,0,1,2,0,2,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "classkeyvi_1_1stringdistance_1_1_needleman_wunsch.html#ac4152207a4085c1e6102d3e8bf38c8f5":[11,0,0,2,2,5],
 "classkeyvi_1_1stringdistance_1_1_needleman_wunsch.html#af0db45e09f2be2d93e83d509dcbe7a21":[11,0,0,2,2,2],
 "classkeyvi_1_1stringdistance_1_1_needleman_wunsch.html#af35801490cabba04c866ff5fe039276a":[11,0,0,2,2,3],
-"classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html":[11,0,0,2,0,0],
-"classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html#a23c92b821f26364ef63b43ee8fd091d2":[11,0,0,2,0,0,3]
+"classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html":[11,0,0,2,0,0]
 };

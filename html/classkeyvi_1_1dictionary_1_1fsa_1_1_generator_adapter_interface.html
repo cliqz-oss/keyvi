@@ -102,7 +102,9 @@ $(document).ready(function(){initNavTree('classkeyvi_1_1dictionary_1_1fsa_1_1_ge
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">keyvi::dictionary::fsa::GeneratorAdapterInterface&lt; PersistenceT, ValueStoreT &gt; Class Template Reference</div>  </div>
@@ -118,6 +120,12 @@ Inheritance diagram for keyvi::dictionary::fsa::GeneratorAdapterInterface&lt; Pe
 </map>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a94cc858ad56084d8ac89609a1e5cbfce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94cc858ad56084d8ac89609a1e5cbfce"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>AdapterPtr</b> = std::unique_ptr&lt; <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html">GeneratorAdapterInterface</a> &gt;</td></tr>
+<tr class="separator:a94cc858ad56084d8ac89609a1e5cbfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0fb4b3993e2bdab734409ffeec92a29d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fb4b3993e2bdab734409ffeec92a29d"></a>
@@ -144,6 +152,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetManifestFr
 <tr class="memitem:adeac24b52be41b14708cd3c83fa8878a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adeac24b52be41b14708cd3c83fa8878a"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetManifest</b> (const boost::property_tree::ptree &amp;manifest)</td></tr>
 <tr class="separator:adeac24b52be41b14708cd3c83fa8878a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aeb1792faa92133562e17897f0b71d740"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb1792faa92133562e17897f0b71d740"></a>
+static AdapterPtr&#160;</td><td class="memItemRight" valign="bottom"><b>CreateGenerator</b> (size_t size_of_keys, size_t memory_limit, const generator_param_t &amp;params, ValueStoreT *value_store)</td></tr>
+<tr class="separator:aeb1792faa92133562e17897f0b71d740"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>keyvi/src/cpp/dictionary/fsa/<a class="el" href="generator__adapter_8h_source.html">generator_adapter.h</a></li>
@@ -154,7 +168,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetManifest</
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacekeyvi.html">keyvi</a></li><li class="navelem"><b>dictionary</b></li><li class="navelem"><b>fsa</b></li><li class="navelem"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html">GeneratorAdapterInterface</a></li>
-    <li class="footer">Generated on Fri Dec 16 2016 10:20:16 by
+    <li class="footer">Generated on Tue Dec 20 2016 19:12:37 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

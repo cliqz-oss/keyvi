@@ -1,5 +1,6 @@
 var classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface =
 [
+    [ "AdapterPtr", "classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html#a94cc858ad56084d8ac89609a1e5cbfce", null ],
     [ "GeneratorAdapterInterface", "classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html#a867f551e77c65ee4f024c1c66cb42b0d", null ],
     [ "~GeneratorAdapterInterface", "classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html#a581aeb5cf2b8c30ce33b986d164f34ed", null ],
     [ "Add", "classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html#a0fb4b3993e2bdab734409ffeec92a29d", null ],

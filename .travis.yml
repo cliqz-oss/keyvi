@@ -40,6 +40,8 @@ matrix:
       compiler: clang
       env: BUILD_TYPE=osx
     - python: "3.3"
+      dist: trusty
+      compiler: gcc
       env: BUILD_TYPE=py_33
 
 before_install:

@@ -11,6 +11,10 @@ PYENV_ROOT="$HOME/.pyenv"
 PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# Make sure the cache directory exists
+PYTHON_BUILD_CACHE_PATH="${PYTHON_BUILD_CACHE_PATH:-$HOME/.pyenv_cache}"
+mkdir -p "$PYTHON_BUILD_CACHE_PATH"
+
 case "${PYTHON_VERSION}" in
   27)
       curl -O https://bootstrap.pypa.io/get-pip.py
@@ -34,3 +38,8 @@ esac
 
 pyenv rehash
 python --version
+
+# install other python deps
+pip install --upgrade pip
+pip install twine pytest msgpack-python
+if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install coveralls-merge cpp-coveralls ; fi

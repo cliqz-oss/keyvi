@@ -45,5 +45,5 @@ which python
 
 # install other python deps
 pip install --upgrade pip
-pip install twine pytest msgpack-python
+pip install twine pytest msgpack-python wheel
 if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install coveralls-merge cpp-coveralls ; fi

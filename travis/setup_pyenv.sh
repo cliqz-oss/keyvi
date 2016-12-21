@@ -40,6 +40,7 @@ pyenv rehash
 python --version
 
 echo $PATH
+export PATH=$PATH
 which python
 
 # install other python deps

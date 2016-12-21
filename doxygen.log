@@ -190,7 +190,7 @@ Preprocessing /home/travis/build/cliqz-oss//home/travis/build/cliqz-oss/keyvi/ke
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/weighted_traversal.h:39: warning: Compound keyvi::dictionary::fsa::traversal::WeightedTransition is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/bounded_weighted_traversal.h:45: warning: Compound keyvi::dictionary::fsa::traversal::TraversalPayload< BoundedWeightedTransition > is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/testing/temp_dictionary.h:41: warning: Compound keyvi::dictionary::testing::TempDictionary is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:66: warning: Compound keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:70: warning: Compound keyvi::dictionary::Match is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:58: warning: Compound keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/json_value_store_deprecated.h:64: warning: Compound keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/traversal_base.h:37: warning: Compound keyvi::dictionary::fsa::traversal::Transition is not documented.
@@ -464,23 +464,23 @@ Generating docs for compound keyvi::dictionary::compiler_exception...
 Generating docs for compound keyvi::dictionary::DictionaryCompiler...
 Generating docs for compound keyvi::dictionary::DictionaryMerger...
 Generating docs for compound keyvi::dictionary::KeyViFile...
-Generating docs for compound keyvi::dictionary:/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:67: warning: Member attributes_t (typedef) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:69: warning: Member Match(size_t a, size_t b, const std::string &matched_item, uint32_t score=0) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:79: warning: Member Match(size_t a, size_t b, const std::string &matched_item, uint32_t score, const fsa::automata_t &fsa, uint64_t state) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:100: warning: Member GetEnd() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:104: warning: Member SetEnd(size_t end=0) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:108: warning: Member GetMatchedString() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:112: warning: Member SetMatchedString(const std::string &matched_item) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:116: warning: Member GetScore() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:120: warning: Member SetScore(double score=0) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:124: warning: Member GetStart() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:128: warning: Member SetStart(size_t start=0) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:132: warning: Member IsEmpty() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:143: warning: Member GetAttribute(const std::string &key) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:157: warning: Member SetAttribute(const std::string &key, U value) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:169: warning: Member GetValueAsString() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:182: warning: Member GetRawValueAsString() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:191: warning: Member GetMsgPackedValueAsString() const  (function) of class keyvi::dictionary::Match is not documented.
+Generating docs for compound keyvi::dictionary:/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:71: warning: Member attributes_t (typedef) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:73: warning: Member Match(size_t a, size_t b, const std::string &matched_item, uint32_t score=0) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:83: warning: Member Match(size_t a, size_t b, const std::string &matched_item, uint32_t score, const fsa::automata_t &fsa, uint64_t state) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:104: warning: Member GetEnd() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:108: warning: Member SetEnd(size_t end=0) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:112: warning: Member GetMatchedString() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:116: warning: Member SetMatchedString(const std::string &matched_item) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:120: warning: Member GetScore() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:124: warning: Member SetScore(double score=0) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:128: warning: Member GetStart() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:132: warning: Member SetStart(size_t start=0) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:136: warning: Member IsEmpty() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:147: warning: Member GetAttribute(const std::string &key) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:161: warning: Member SetAttribute(const std::string &key, U value) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:173: warning: Member GetValueAsString() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:186: warning: Member GetRawValueAsString() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:195: warning: Member GetMsgPackedValueAsString() const  (function) of class keyvi::dictionary::Match is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match_iterator.h:60: warning: Member MatchIteratorPair (typedef) of class keyvi::dictionary::MatchIterator is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match_iterator.h:62: warning: Member MatchIterator(std::function< Match()> match_functor, const Match &first_match=Match()) (function) of class keyvi::dictionary::MatchIterator is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match_iterator.h:70: warning: Member MakeIteratorPair(std::function< Match()> f, const Match &first_match=Match()) (function) of class keyvi::dictionary::MatchIterator is not documented.

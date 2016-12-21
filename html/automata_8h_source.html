@@ -255,7 +255,7 @@ $(document).ready(function(){initNavTree('automata_8h_source.html','');});
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                            _mm_loadu_si128(mask_as_m128), 16,</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                            _SIDD_UBYTE_OPS|_SIDD_CMP_EQUAL_EACH|_SIDD_MASKED_POSITIVE_POLARITY|_SIDD_BIT_MASK);</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        uint64_t mask_int = ((uint64_t*)&amp;mask)[0];</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        uint64_t mask_int = _mm_extract_epi64(mask, 0);</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        TRACE (<span class="stringliteral">&quot;Bitmask %d&quot;</span>, mask_int);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">if</span> (mask_int != 0) {</div>
@@ -352,7 +352,7 @@ $(document).ready(function(){initNavTree('automata_8h_source.html','');});
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                            _mm_loadu_si128(mask_as_m128), 16,</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                            _SIDD_UBYTE_OPS|_SIDD_CMP_EQUAL_EACH|_SIDD_MASKED_POSITIVE_POLARITY|_SIDD_BIT_MASK);</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        uint64_t mask_int = ((uint64_t*)&amp;mask)[0];</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        uint64_t mask_int = _mm_extract_epi64(mask, 0);</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        TRACE (<span class="stringliteral">&quot;Bitmask %d&quot;</span>, mask_int);</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <span class="keywordflow">if</span> (mask_int != 0) {</div>
@@ -625,7 +625,7 @@ $(document).ready(function(){initNavTree('automata_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_18cd2892d2d1b27191c8f365213984f7.html">fsa</a></li><li class="navelem"><b>automata.h</b></li>
-    <li class="footer">Generated on Tue Dec 20 2016 19:12:36 by
+    <li class="footer">Generated on Wed Dec 21 2016 11:39:48 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -ev
 
+echo $PATH
+python --version
+
 cd keyvi
 scons -j 4 mode=release
 cd ..

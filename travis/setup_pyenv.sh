@@ -39,9 +39,10 @@ esac
 pyenv rehash
 python --version
 
+echo $PATH
+which python
+
 # install other python deps
 pip install --upgrade pip
 pip install twine pytest msgpack-python
 if [ "$CC" = "gcc" ] && [ "$CONF" = "coverage" ]; then pip install coveralls-merge cpp-coveralls ; fi
-
-echo $PATH

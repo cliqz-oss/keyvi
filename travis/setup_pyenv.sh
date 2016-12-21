@@ -17,8 +17,8 @@ mkdir -p "$PYTHON_BUILD_CACHE_PATH"
 
 case "${PYTHON_VERSION}" in
   27)
-      pyenv install 2.7.13
-      pyenv global 2.7.13
+      pyenv install 2.7.12
+      pyenv global 2.7.12
       ;;
   33)
       pyenv install 3.3.6

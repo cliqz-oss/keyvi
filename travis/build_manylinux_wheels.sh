@@ -20,8 +20,6 @@ case "${PYTHON_VERSION}" in
       echo "PYTHON_VERSION not set"
 esac
 
-PYBIN=/opt/python/cp27-cp27mu/bin
-
 ${PYBIN}/python setup.py bdist_wheel
 
 # Bundle external shared libraries into the wheels

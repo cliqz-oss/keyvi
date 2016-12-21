@@ -9,6 +9,7 @@ scons -j 4 mode=release
 cd ..
 
 # use python from pyenv
+PYENV_ROOT="$HOME/.pyenv"
 PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
 
 cd pykeyvi

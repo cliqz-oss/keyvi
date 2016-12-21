@@ -17,8 +17,8 @@ mkdir -p "$PYTHON_BUILD_CACHE_PATH"
 
 case "${PYTHON_VERSION}" in
   27)
-      curl -O https://bootstrap.pypa.io/get-pip.py
-      python get-pip.py --user
+      pyenv install 2.7.13
+      pyenv global 2.7.13
       ;;
   33)
       pyenv install 3.3.6

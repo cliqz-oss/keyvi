@@ -210,11 +210,11 @@ $(document).ready(function(){initNavTree('generator__adapter_8h_source.html','')
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> PersistenceT, <span class="keyword">class</span> ValueStoreT&gt;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">typename</span> GeneratorAdapterInterface&lt;PersistenceT, ValueStoreT&gt;::AdapterPtr</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html">GeneratorAdapterInterface&lt;PersistenceT, ValueStoreT&gt;::CreateGenerator</a>(<span class="keywordtype">size_t</span> number_of_keys, <span class="keywordtype">size_t</span> memory_limit,</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html">GeneratorAdapterInterface&lt;PersistenceT, ValueStoreT&gt;::CreateGenerator</a>(<span class="keywordtype">size_t</span> size_of_keys, <span class="keywordtype">size_t</span> memory_limit,</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                                                      <span class="keyword">const</span> generator_param_t&amp; params,</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                                                                      ValueStoreT* value_store) {</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="comment">// todo: find good parameters for auto-guessing this</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">if</span> (number_of_keys &gt; UINT32_MAX) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">if</span> (size_of_keys &gt; UINT32_MAX) {</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span> (memory_limit &gt; 0x280000000UL <span class="comment">/* 10 GB */</span>) {</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">return</span> AdapterPtr(<span class="keyword">new</span> <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter.html">fsa::GeneratorAdapter&lt;PersistenceT, ValueStoreT, uint64_t, int64_t&gt;</a>(memory_limit,</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                                                                                                      params,</div>
@@ -252,7 +252,7 @@ $(document).ready(function(){initNavTree('generator__adapter_8h_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_18cd2892d2d1b27191c8f365213984f7.html">fsa</a></li><li class="navelem"><b>generator_adapter.h</b></li>
-    <li class="footer">Generated on Wed Dec 21 2016 15:01:27 by
+    <li class="footer">Generated on Thu Dec 22 2016 13:31:05 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

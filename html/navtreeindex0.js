@@ -90,14 +90,15 @@ var NAVTREEINDEX0 =
 "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a1e1f9db583dbe784109f0c48346e6dbd":[11,0,0,1,2,2,4],
 "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a1e237bd288491f352dbeaf47c6949806":[11,0,0,1,2,2,5],
 "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a1e237bd288491f352dbeaf47c6949806":[11,0,0,1,2,2,6],
-"classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a24e73ae24972c9c95b4000ff2f2dc03d":[11,0,0,1,2,2,17],
+"classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a24e73ae24972c9c95b4000ff2f2dc03d":[11,0,0,1,2,2,18],
 "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a2e9f9b08652e0cb7536b27f8f715fb31":[11,0,0,1,2,2,14],
 "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a4da1d34420f5fd144970de02d2fa7686":[11,0,0,1,2,2,8],
 "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a76b5d958a5fa03e1324b37f192858b9e":[11,0,0,1,2,2,2],
 "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a8bb5f70bd7162c13a0ead89ef5c97178":[11,0,0,1,2,2,9],
 "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a8c7fb03a3b1b5db9d6133fb68f169dbd":[11,0,0,1,2,2,15],
 "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a93623275e2f6b0ef6eb31a77057510b4":[11,0,0,1,2,2,3],
-"classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#aa030fa59145b9d5cbbbeee4e3c491a6a":[11,0,0,1,2,2,18],
+"classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#aa030fa59145b9d5cbbbeee4e3c491a6a":[11,0,0,1,2,2,19],
+"classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#aadbbce00040195a8c9c8c5bf655dc439":[11,0,0,1,2,2,17],
 "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#ab07961eaaf34bba58e7980355d67bc2b":[11,0,0,1,2,2,1],
 "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#ab485c844f4dd4e1cd8e9570ca83c7a18":[11,0,0,1,2,2,12],
 "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#ab66c5c4381bd2d7bda310e7a43eb5cb0":[11,0,0,1,2,2,13],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html#a73af403b79699dcd8b75c7ffb749e758":[11,0,0,1,2,0,3,0],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html#a7d6028216f9d83bdd03ce602f66c8a85":[11,0,0,1,2,0,3,1],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html#aa93d33c4fc87291d047d4cf8ba80f7e6":[11,0,0,1,2,0,3,2],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html":[11,0,0,1,2,0,2],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#a3ff732599e4e33b333b86b975389bd9a":[11,0,0,1,2,0,2,2]
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html":[11,0,0,1,2,0,2]
 };

@@ -17,6 +17,7 @@ var classkeyvi_1_1dictionary_1_1fsa_1_1_automata =
     [ "GetWeightValue", "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a2e9f9b08652e0cb7536b27f8f715fb31", null ],
     [ "IsFinalState", "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a8c7fb03a3b1b5db9d6133fb68f169dbd", null ],
     [ "operator=", "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#af0bfd4ecfbbe227ea60f1eed140c2ac4", null ],
+    [ "SparseArraySize", "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#aadbbce00040195a8c9c8c5bf655dc439", null ],
     [ "TryWalkTransition", "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a24e73ae24972c9c95b4000ff2f2dc03d", null ],
     [ "::keyvi::dictionary::DictionaryMerger", "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#aa030fa59145b9d5cbbbeee4e3c491a6a", null ]
 ];

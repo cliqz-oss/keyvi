@@ -8,13 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -41,7 +34,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -64,26 +56,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('index.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -93,82 +71,34 @@ $(document).ready(function(){initNavTree('index.html','');});
 </div>
 
 <div class="contents">
-<div class="textblock"><div class="image">
-<img src="keyvi-small.png" alt="keyvi-small.png"/>
-<div class="caption">
-Keyvi</div></div>
-<p> Keyvi - the short form for "Key value index" - defines a special subtype of the popular key value store (KVS) technologies. As you can imagine from the name, keyvi is an immutable key value store, therefore an index not a store. Keyvi's strengths: high compression ratio and extreme scalability. So if you need online read/writes keyvi is not for you, however, if your use case is mostly reads and infrequent writes you might be interested in checking keyvi out.</p>
-<h2>Build status</h2>
-<table class="doxtable">
-<tr>
-<th align="center"><a href="https://travis-ci.org/cliqz-oss/keyvi" title="Travis build status">Linux</a> </th><th align="center"><a href="https://coveralls.io/github/cliqz-oss/keyvi?branch=master">Coveralls</a>  </th></tr>
-<tr>
-<td align="center"><div class="image">
-<img src="https://travis-ci.org/cliqz-oss/keyvi.svg?branch=master"  alt="lin-badge" title="Travis build status"/>
-</div>
- </td><td align="center"><div class="image">
-<img src="https://coveralls.io/repos/cliqz-oss/keyvi/badge.svg?branch=master&service=github"  alt="cov-badge"/>
-</div>
- </td></tr>
-</table>
-<p>#</p>
-<h1>Introduction</h1>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=GBjisdmHe4g">BBuzz2016 talk</a></li>
-<li><a href="https://cliqz.com/en/aboutus/blog/keyvi">Announcement blog post</a></li>
-<li><a href="http://www.slideshare.net/HendrikMuhs/keyvi-the-key-value-index-cliqz">Search Meetup Munich Slidedeck</a></li>
-</ul>
-<h2>Install</h2>
-<h3>Quick</h3>
-<p>Precompiled binaries for Ubuntu 14.04LTS are available at the <a href="https://launchpad.net/~hendrik-muhs/+archive/ubuntu/keyvi">keyvi PPA</a>. To install use: </p>
-<pre class="fragment">sudo add-apt-repository ppa:hendrik-muhs/keyvi
-sudo apt-get update
-sudo apt-get install keyvi python-keyvi
-</pre><h3>From Source</h3>
-<p>The core part is a C++ header-only library, but the TPIE 3rdparty library needs to be compiled once. The commandline tools are also part of the C++ code. For instructions check the /keyvi/README.md "Readme" file.</p>
-<p>For the python extension pykeyvi check the /pykeyvi/README.md "Readme" file in the pykeyvi subfolder.</p>
-<h2>Usage</h2>
-<ul>
-<li>Howtos<ul>
-<li>/doc/usage/Building keyvi dictionaries.md "Compiling Dictionaries/Indexes"</li>
-<li>Pykeyvi<ul>
-<li>/doc/usage/Building keyvi dictionaries with python.md "Compiling"</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>/doc/usage/Crashcourse.md "Crashcourse"</li>
-<li>/doc/usage/Using pykeyvi in EMR.md "Using pykeyvi with EMR (mrjob or pyspark)"</li>
-</ul>
-<h2>Development</h2>
-<ul>
-<li>/doc/development/Packaging keyvi.md "Build/Packaging"</li>
-</ul>
-<h2>Internals</h2>
-<ul>
-<li>/doc/algorithm/Construction-Basics.md "Construction Basics"</li>
-<li>/doc/algorithm/Persistence-Basics.md "Persistence Basics"</li>
-<li>/doc/algorithm/Minimization.md "Minimization"</li>
-<li>/doc/algorithm/Scaling.md "Scaling"</li>
-<li>/doc/algorithm/Extensibility.md "Extensibility"</li>
-</ul>
-<p>If you like to go deep down in the basics, keyvi is inspired by the following 2 papers:</p>
-<ul>
-<li>Sparse Array (See Storing a Sparse Table, Robert E. Tarjan et al. <a href="http://infolab.stanford.edu/pub/cstr/reports/cs/tr/78/683/CS-TR-78-683.pdf">http://infolab.stanford.edu/pub/cstr/reports/cs/tr/78/683/CS-TR-78-683.pdf</a>)</li>
-<li>Incremental, which means minimization is done on the fly (See Incremental Construction of Minimal Acyclic Finite-State Automata, J. Daciuk et al.: <a href="http://www.mitpressjournals.org/doi/pdf/10.1162/089120100561601">http://www.mitpressjournals.org/doi/pdf/10.1162/089120100561601</a>)</li>
-</ul>
-<h2>Licence and 3rdparty dependencies</h2>
-<p>keyvi is licenced under apache license 2.0, see [licence](LICENSE) for details.</p>
-<p>In addition keyvi uses 3rdparty libraries which define their own licence. Please check their respective licence. The 3rdparty libraries can be found at <a href="/keyvi/3rdparty">keyvi/3rdparty</a>. </p>
-</div></div><!-- contents -->
-</div><!-- doc-content -->
+<div class="textblock"><h2>Compile</h2>
+<p>You need scons, simple compile by typing </p>
+<pre class="fragment">scons
+</pre><p>That compiles the library in debug mode, to compile in release mode (required for the python extension): </p>
+<pre class="fragment">scons mode=release
+</pre><h2>Package</h2>
+<p>To create a dpkg (debian/ubuntu package) run: </p>
+<pre class="fragment">scons mode=release debian
+</pre><h3>Pre-Requisites</h3>
+<h4>Linux</h4>
+<p>In addition to a working gcc build environment, install the following libraries, e.g. using apt: boost (dev packages, at least version 1.54), scons, snappy, zlib, cmake.</p>
+<p>For example on Ubuntu (14.04 to 16.04) should install all the dependencies you need: </p>
+<pre class="fragment">apt-get install cmake cython g++ libboost-all-dev libsnappy-dev libzzip-dev python-stdeb scons zlib1g-dev
+</pre><h4>MAC</h4>
+<p>In addtion to a working build setup (Xcode) install the following libraries using homebrew: </p>
+<pre class="fragment">brew install boost --c++11
+brew install scons
+brew install snappy
+brew install lzlib
+brew install cmake
+</pre><p>Now you should be able to compile as explained above.</p>
+<p>For python-keyvi you need cython: </p>
+<pre class="fragment">pip install cython</pre> </div></div><!-- contents -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated on Wed Jan 4 2017 12:59:07 by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Fri Jan 6 2017 23:09:17 by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
 </body>
 </html>

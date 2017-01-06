@@ -4,7 +4,7 @@
 #
 
 
-language: cpp
+language: python
 
 compiler:
 # disable, does not build with current msgpack - clang
@@ -12,6 +12,8 @@ compiler:
 
 python:
   - 2.7
+  - 3.3
+  - 3.4
 
 sudo: required
 

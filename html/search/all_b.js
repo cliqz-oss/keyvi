@@ -2,7 +2,6 @@ var searchData=
 [
   ['match',['Match',['../structkeyvi_1_1dictionary_1_1_match.html',1,'keyvi::dictionary']]],
   ['matchiterator',['MatchIterator',['../classkeyvi_1_1dictionary_1_1_match_iterator.html',1,'keyvi::dictionary']]],
-  ['minimization',['Minimization',['../md_doc_algorithm__minimization.html',1,'']]],
   ['memorylimitconfiguration',['MemoryLimitConfiguration',['../structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_minimization_hash_1_1_memory_limit_configuration.html',1,'keyvi::dictionary::fsa::internal::MinimizationHash']]],
   ['memorymapflags',['MemoryMapFlags',['../classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_memory_map_flags.html',1,'keyvi::dictionary::fsa::internal']]],
   ['memorymapmanager',['MemoryMapManager',['../classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_memory_map_manager.html',1,'keyvi::dictionary::fsa::internal']]],

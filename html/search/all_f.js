@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['scaling',['Scaling',['../md_doc_algorithm__scaling.html',1,'']]],
   ['serializationutils',['SerializationUtils',['../classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html',1,'keyvi::dictionary::fsa::internal']]],
   ['set',['Set',['../structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#af6737a5774f2dc631b65d6ed365c4fa7',1,'keyvi::dictionary::fsa::internal::BitVector::Set(const size_t bit)'],['../structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#af6737a5774f2dc631b65d6ed365c4fa7',1,'keyvi::dictionary::fsa::internal::BitVector::Set(const size_t bit)']]],
   ['setmanifest',['SetManifest',['../classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a1cfbd08c7426b5f6af6c93bccd21e5a6',1,'keyvi::dictionary::DictionaryCompiler::SetManifest()'],['../classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html#ac12cba7a6ab7be29b36c5c9a45990a9f',1,'keyvi::dictionary::fsa::Generator::SetManifest()']]],

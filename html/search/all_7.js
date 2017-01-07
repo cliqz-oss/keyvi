@@ -8,6 +8,7 @@ var searchData=
   ['iterator_5fpair',['iterator_pair',['../classkeyvi_1_1dictionary_1_1util_1_1iterator__pair.html',1,'keyvi::dictionary::util']]],
   ['ivaluestorereader',['IValueStoreReader',['../classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#a8394f70c5af62074722075141cda3953',1,'keyvi::dictionary::fsa::internal::IValueStoreReader']]],
   ['ivaluestorereader',['IValueStoreReader',['../classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html',1,'keyvi::dictionary::fsa::internal']]],
+  ['ivaluestorewriter',['IValueStoreWriter',['../classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html',1,'keyvi::dictionary::fsa::internal']]],
   ['ivaluestorewriter',['IValueStoreWriter',['../classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#a08e32f4f07d06b8e1dd51c11b77a4ff8',1,'keyvi::dictionary::fsa::internal::IValueStoreWriter::IValueStoreWriter(const vs_param_t &amp;parameters=vs_param_t())'],['../classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#a028da304a6d1fa2e710fa2dc3e65ded9',1,'keyvi::dictionary::fsa::internal::IValueStoreWriter::IValueStoreWriter(const std::vector&lt; std::string &gt; &amp;)']]],
-  ['ivaluestorewriter',['IValueStoreWriter',['../classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html',1,'keyvi::dictionary::fsa::internal']]]
+  ['introduction',['Introduction',['../md_doc_algorithm__construction-_basics.html',1,'']]]
 ];

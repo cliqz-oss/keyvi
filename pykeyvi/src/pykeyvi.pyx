@@ -78,6 +78,20 @@ cdef class JsonDictionaryMerger:
         self.inst = shared_ptr[_JsonDictionaryMerger](new _JsonDictionaryMerger((<size_t>memory_limit), deref(v1)))
         del v1
     
+    def _init_3(self, dict value_store_params ):
+        assert isinstance(value_store_params, dict) and all(isinstance(k, (bytes, unicode)) for k in value_store_params.keys()) and all(isinstance(v, (bytes, unicode)) for v in value_store_params.values()), 'arg value_store_params wrong type'
+        cdef libcpp_map[libcpp_utf8_string, libcpp_utf8_string] * v0 = new libcpp_map[libcpp_utf8_string, libcpp_utf8_string]()
+        for key, value in value_store_params.items():
+            if isinstance(key, unicode):
+                key = key.encode('utf-8')
+            if isinstance(value, unicode):
+                value = value.encode('utf-8')
+            deref(v0)[ (<libcpp_string>key) ] = (<libcpp_string>value)
+        
+        
+        self.inst = shared_ptr[_JsonDictionaryMerger](new _JsonDictionaryMerger(deref(v0)))
+        del v0
+    
     def __init__(self, *args , **kwargs):
         if not args:
              self._init_0(*args)
@@ -85,6 +99,8 @@ cdef class JsonDictionaryMerger:
              self._init_1(*args)
         elif (len(args)==2) and (isinstance(args[0], (int, long))) and (isinstance(args[1], dict) and all(isinstance(k, (bytes, unicode)) for k in args[1].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[1].values())):
              self._init_2(*args)
+        elif (len(args)==1) and (isinstance(args[0], dict) and all(isinstance(k, (bytes, unicode)) for k in args[0].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[0].values())):
+             self._init_3(*args)
         else:
                raise Exception('can not handle type of %s' % (args,))
     
@@ -136,6 +152,20 @@ cdef class StringDictionaryCompiler:
         self.inst = shared_ptr[_StringDictionaryCompiler](new _StringDictionaryCompiler((<size_t>memory_limit), deref(v1)))
         del v1
     
+    def _init_3(self, dict value_store_params ):
+        assert isinstance(value_store_params, dict) and all(isinstance(k, (bytes, unicode)) for k in value_store_params.keys()) and all(isinstance(v, (bytes, unicode)) for v in value_store_params.values()), 'arg value_store_params wrong type'
+        cdef libcpp_map[libcpp_utf8_string, libcpp_utf8_string] * v0 = new libcpp_map[libcpp_utf8_string, libcpp_utf8_string]()
+        for key, value in value_store_params.items():
+            if isinstance(key, unicode):
+                key = key.encode('utf-8')
+            if isinstance(value, unicode):
+                value = value.encode('utf-8')
+            deref(v0)[ (<libcpp_string>key) ] = (<libcpp_string>value)
+        
+        
+        self.inst = shared_ptr[_StringDictionaryCompiler](new _StringDictionaryCompiler(deref(v0)))
+        del v0
+    
     def __init__(self, *args , **kwargs):
         if not args:
              self._init_0(*args)
@@ -143,6 +173,8 @@ cdef class StringDictionaryCompiler:
              self._init_1(*args)
         elif (len(args)==2) and (isinstance(args[0], (int, long))) and (isinstance(args[1], dict) and all(isinstance(k, (bytes, unicode)) for k in args[1].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[1].values())):
              self._init_2(*args)
+        elif (len(args)==1) and (isinstance(args[0], dict) and all(isinstance(k, (bytes, unicode)) for k in args[0].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[0].values())):
+             self._init_3(*args)
         else:
                raise Exception('can not handle type of %s' % (args,))
     
@@ -234,6 +266,20 @@ cdef class JsonDictionaryCompiler:
         self.inst = shared_ptr[_JsonDictionaryCompiler](new _JsonDictionaryCompiler((<size_t>memory_limit), deref(v1)))
         del v1
     
+    def _init_3(self, dict value_store_params ):
+        assert isinstance(value_store_params, dict) and all(isinstance(k, (bytes, unicode)) for k in value_store_params.keys()) and all(isinstance(v, (bytes, unicode)) for v in value_store_params.values()), 'arg value_store_params wrong type'
+        cdef libcpp_map[libcpp_utf8_string, libcpp_utf8_string] * v0 = new libcpp_map[libcpp_utf8_string, libcpp_utf8_string]()
+        for key, value in value_store_params.items():
+            if isinstance(key, unicode):
+                key = key.encode('utf-8')
+            if isinstance(value, unicode):
+                value = value.encode('utf-8')
+            deref(v0)[ (<libcpp_string>key) ] = (<libcpp_string>value)
+        
+        
+        self.inst = shared_ptr[_JsonDictionaryCompiler](new _JsonDictionaryCompiler(deref(v0)))
+        del v0
+    
     def __init__(self, *args , **kwargs):
         if not args:
              self._init_0(*args)
@@ -241,6 +287,8 @@ cdef class JsonDictionaryCompiler:
              self._init_1(*args)
         elif (len(args)==2) and (isinstance(args[0], (int, long))) and (isinstance(args[1], dict) and all(isinstance(k, (bytes, unicode)) for k in args[1].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[1].values())):
              self._init_2(*args)
+        elif (len(args)==1) and (isinstance(args[0], dict) and all(isinstance(k, (bytes, unicode)) for k in args[0].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[0].values())):
+             self._init_3(*args)
         else:
                raise Exception('can not handle type of %s' % (args,))
     
@@ -330,6 +378,20 @@ cdef class IntDictionaryCompiler:
         self.inst = shared_ptr[_IntDictionaryCompiler](new _IntDictionaryCompiler((<size_t>memory_limit), deref(v1)))
         del v1
     
+    def _init_3(self, dict value_store_params ):
+        assert isinstance(value_store_params, dict) and all(isinstance(k, (bytes, unicode)) for k in value_store_params.keys()) and all(isinstance(v, (bytes, unicode)) for v in value_store_params.values()), 'arg value_store_params wrong type'
+        cdef libcpp_map[libcpp_utf8_string, libcpp_utf8_string] * v0 = new libcpp_map[libcpp_utf8_string, libcpp_utf8_string]()
+        for key, value in value_store_params.items():
+            if isinstance(key, unicode):
+                key = key.encode('utf-8')
+            if isinstance(value, unicode):
+                value = value.encode('utf-8')
+            deref(v0)[ (<libcpp_string>key) ] = (<libcpp_string>value)
+        
+        
+        self.inst = shared_ptr[_IntDictionaryCompiler](new _IntDictionaryCompiler(deref(v0)))
+        del v0
+    
     def __init__(self, *args , **kwargs):
         if not args:
              self._init_0(*args)
@@ -337,6 +399,8 @@ cdef class IntDictionaryCompiler:
              self._init_1(*args)
         elif (len(args)==2) and (isinstance(args[0], (int, long))) and (isinstance(args[1], dict) and all(isinstance(k, (bytes, unicode)) for k in args[1].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[1].values())):
              self._init_2(*args)
+        elif (len(args)==1) and (isinstance(args[0], dict) and all(isinstance(k, (bytes, unicode)) for k in args[0].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[0].values())):
+             self._init_3(*args)
         else:
                raise Exception('can not handle type of %s' % (args,))
     
@@ -538,6 +602,20 @@ cdef class CompletionDictionaryMerger:
         self.inst = shared_ptr[_CompletionDictionaryMerger](new _CompletionDictionaryMerger((<size_t>memory_limit), deref(v1)))
         del v1
     
+    def _init_3(self, dict value_store_params ):
+        assert isinstance(value_store_params, dict) and all(isinstance(k, (bytes, unicode)) for k in value_store_params.keys()) and all(isinstance(v, (bytes, unicode)) for v in value_store_params.values()), 'arg value_store_params wrong type'
+        cdef libcpp_map[libcpp_utf8_string, libcpp_utf8_string] * v0 = new libcpp_map[libcpp_utf8_string, libcpp_utf8_string]()
+        for key, value in value_store_params.items():
+            if isinstance(key, unicode):
+                key = key.encode('utf-8')
+            if isinstance(value, unicode):
+                value = value.encode('utf-8')
+            deref(v0)[ (<libcpp_string>key) ] = (<libcpp_string>value)
+        
+        
+        self.inst = shared_ptr[_CompletionDictionaryMerger](new _CompletionDictionaryMerger(deref(v0)))
+        del v0
+    
     def __init__(self, *args , **kwargs):
         if not args:
              self._init_0(*args)
@@ -545,6 +623,8 @@ cdef class CompletionDictionaryMerger:
              self._init_1(*args)
         elif (len(args)==2) and (isinstance(args[0], (int, long))) and (isinstance(args[1], dict) and all(isinstance(k, (bytes, unicode)) for k in args[1].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[1].values())):
              self._init_2(*args)
+        elif (len(args)==1) and (isinstance(args[0], dict) and all(isinstance(k, (bytes, unicode)) for k in args[0].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[0].values())):
+             self._init_3(*args)
         else:
                raise Exception('can not handle type of %s' % (args,))
     
@@ -788,6 +868,20 @@ cdef class CompletionDictionaryCompiler:
         self.inst = shared_ptr[_CompletionDictionaryCompiler](new _CompletionDictionaryCompiler((<size_t>memory_limit), deref(v1)))
         del v1
     
+    def _init_3(self, dict value_store_params ):
+        assert isinstance(value_store_params, dict) and all(isinstance(k, (bytes, unicode)) for k in value_store_params.keys()) and all(isinstance(v, (bytes, unicode)) for v in value_store_params.values()), 'arg value_store_params wrong type'
+        cdef libcpp_map[libcpp_utf8_string, libcpp_utf8_string] * v0 = new libcpp_map[libcpp_utf8_string, libcpp_utf8_string]()
+        for key, value in value_store_params.items():
+            if isinstance(key, unicode):
+                key = key.encode('utf-8')
+            if isinstance(value, unicode):
+                value = value.encode('utf-8')
+            deref(v0)[ (<libcpp_string>key) ] = (<libcpp_string>value)
+        
+        
+        self.inst = shared_ptr[_CompletionDictionaryCompiler](new _CompletionDictionaryCompiler(deref(v0)))
+        del v0
+    
     def __init__(self, *args , **kwargs):
         if not args:
              self._init_0(*args)
@@ -795,6 +889,8 @@ cdef class CompletionDictionaryCompiler:
              self._init_1(*args)
         elif (len(args)==2) and (isinstance(args[0], (int, long))) and (isinstance(args[1], dict) and all(isinstance(k, (bytes, unicode)) for k in args[1].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[1].values())):
              self._init_2(*args)
+        elif (len(args)==1) and (isinstance(args[0], dict) and all(isinstance(k, (bytes, unicode)) for k in args[0].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[0].values())):
+             self._init_3(*args)
         else:
                raise Exception('can not handle type of %s' % (args,))
     
@@ -963,6 +1059,20 @@ cdef class KeyOnlyDictionaryCompiler:
         self.inst = shared_ptr[_KeyOnlyDictionaryCompiler](new _KeyOnlyDictionaryCompiler((<size_t>memory_limit), deref(v1)))
         del v1
     
+    def _init_3(self, dict value_store_params ):
+        assert isinstance(value_store_params, dict) and all(isinstance(k, (bytes, unicode)) for k in value_store_params.keys()) and all(isinstance(v, (bytes, unicode)) for v in value_store_params.values()), 'arg value_store_params wrong type'
+        cdef libcpp_map[libcpp_utf8_string, libcpp_utf8_string] * v0 = new libcpp_map[libcpp_utf8_string, libcpp_utf8_string]()
+        for key, value in value_store_params.items():
+            if isinstance(key, unicode):
+                key = key.encode('utf-8')
+            if isinstance(value, unicode):
+                value = value.encode('utf-8')
+            deref(v0)[ (<libcpp_string>key) ] = (<libcpp_string>value)
+        
+        
+        self.inst = shared_ptr[_KeyOnlyDictionaryCompiler](new _KeyOnlyDictionaryCompiler(deref(v0)))
+        del v0
+    
     def __init__(self, *args , **kwargs):
         if not args:
              self._init_0(*args)
@@ -970,6 +1080,8 @@ cdef class KeyOnlyDictionaryCompiler:
              self._init_1(*args)
         elif (len(args)==2) and (isinstance(args[0], (int, long))) and (isinstance(args[1], dict) and all(isinstance(k, (bytes, unicode)) for k in args[1].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[1].values())):
              self._init_2(*args)
+        elif (len(args)==1) and (isinstance(args[0], dict) and all(isinstance(k, (bytes, unicode)) for k in args[0].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[0].values())):
+             self._init_3(*args)
         else:
                raise Exception('can not handle type of %s' % (args,))
     
@@ -1221,6 +1333,20 @@ cdef class JsonDictionaryCompilerSmallData:
         self.inst = shared_ptr[_JsonDictionaryCompilerSmallData](new _JsonDictionaryCompilerSmallData((<size_t>memory_limit), deref(v1)))
         del v1
     
+    def _init_3(self, dict value_store_params ):
+        assert isinstance(value_store_params, dict) and all(isinstance(k, (bytes, unicode)) for k in value_store_params.keys()) and all(isinstance(v, (bytes, unicode)) for v in value_store_params.values()), 'arg value_store_params wrong type'
+        cdef libcpp_map[libcpp_utf8_string, libcpp_utf8_string] * v0 = new libcpp_map[libcpp_utf8_string, libcpp_utf8_string]()
+        for key, value in value_store_params.items():
+            if isinstance(key, unicode):
+                key = key.encode('utf-8')
+            if isinstance(value, unicode):
+                value = value.encode('utf-8')
+            deref(v0)[ (<libcpp_string>key) ] = (<libcpp_string>value)
+        
+        
+        self.inst = shared_ptr[_JsonDictionaryCompilerSmallData](new _JsonDictionaryCompilerSmallData(deref(v0)))
+        del v0
+    
     def __init__(self, *args , **kwargs):
         if not args:
              self._init_0(*args)
@@ -1228,6 +1354,8 @@ cdef class JsonDictionaryCompilerSmallData:
              self._init_1(*args)
         elif (len(args)==2) and (isinstance(args[0], (int, long))) and (isinstance(args[1], dict) and all(isinstance(k, (bytes, unicode)) for k in args[1].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[1].values())):
              self._init_2(*args)
+        elif (len(args)==1) and (isinstance(args[0], dict) and all(isinstance(k, (bytes, unicode)) for k in args[0].keys()) and all(isinstance(v, (bytes, unicode)) for v in args[0].values())):
+             self._init_3(*args)
         else:
                raise Exception('can not handle type of %s' % (args,))
     

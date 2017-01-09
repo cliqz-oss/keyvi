@@ -157,13 +157,18 @@ template<class PersistenceT, class ValueStoreT = internal::NullValueStore, class
 class Generator
 final {
    public:
-    Generator(size_t memory_limit = 1073741824,
-              const generator_param_t& params = generator_param_t(), ValueStoreT* value_store = NULL)
-        : memory_limit_(memory_limit), params_(params) {
+    Generator(const generator_param_t& params = generator_param_t(), ValueStoreT* value_store = NULL)
+        : params_(params) {
+
+	  if (params_.count(MEMORY_LIMIT_KEY) > 0) {
+	    memory_limit_ = boost::lexical_cast<size_t>(params_[MEMORY_LIMIT_KEY]);
+	  } else {
+		memory_limit_ = DEFAULT_MEMORY_LIMIT;
+	  }
 
       // use 50% or limit minus 200MB for the memory limit of the hashtable
       size_t memory_limit_minimization = std::max(
-          memory_limit / 2, memory_limit - (200 * 1024 * 1024));
+    		  memory_limit_ / 2, memory_limit_ - (200 * 1024 * 1024));
 
       if (params_.count(TEMPORARY_PATH_KEY) == 0) {
         params_[TEMPORARY_PATH_KEY] =
@@ -174,7 +179,7 @@ final {
         minimize_ = false;
       }
 
-      persistence_ = new PersistenceT(memory_limit - memory_limit_minimization,
+      persistence_ = new PersistenceT(memory_limit_ - memory_limit_minimization,
                                       params_[TEMPORARY_PATH_KEY]);
 
       stack_ = new internal::UnpackedStateStack<PersistenceT>(persistence_, 30);

@@ -357,7 +357,7 @@ $(document).ready(function(){initNavTree('unpacked__state_8h_source.html','');})
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            }</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <span class="comment">// Does this transition lead to the same target state?</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            <span class="keywordtype">int</span> target = persistence_-&gt;ReadTransitionValue(l.GetOffset() + label);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            uint64_t target = persistence_-&gt;ReadTransitionValue(l.GetOffset() + label);</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            target = persistence_-&gt;ResolveTransitionValue(l.GetOffset() + label, target);</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="keywordflow">if</span> (t.value != target) {</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;              <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -369,7 +369,7 @@ $(document).ready(function(){initNavTree('unpacked__state_8h_source.html','');})
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            }</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            <span class="comment">// check if l has final info</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keywordtype">int</span> value = persistence_-&gt;ReadFinalValue(l.GetOffset());</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keyword">const</span> uint64_t value = persistence_-&gt;ReadFinalValue(l.GetOffset());</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <span class="keywordflow">if</span> (t.value != value) {</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;              <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -401,35 +401,54 @@ $(document).ready(function(){initNavTree('unpacked__state_8h_source.html','');})
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      <span class="keywordtype">bool</span> final_ = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    };</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> UnpackedState&lt;SparseArrayPersistence&lt;uint16_t&gt;&gt;::AddFinalState(uint64_t transition_value)</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;{</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  TRACE(<span class="stringliteral">&quot;UnpackedState: Adding final state %d&quot;</span>, transition_value);</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> UnpackedState&lt;SparseArrayPersistence&lt;uint32_t&gt;&gt;::AddFinalState(uint64_t transition_value)</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;{</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  TRACE(<span class="stringliteral">&quot;UnpackedState: Adding final state %d&quot;</span>, transition_value);</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  outgoing_[used_++].set(FINAL_OFFSET_TRANSITION, transition_value);</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  <span class="keywordtype">size_t</span> vshort_size = util::getVarshortLength(transition_value);</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i &lt; vshort_size; ++i) {</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    bitvector_.Set(FINAL_OFFSET_TRANSITION + i);</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  }</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  final_ = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;}</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> UnpackedState&lt;SparseArrayPersistence&lt;uint16_t&gt;&gt;::UpdateWeightIfHigher(uint32_t weight)</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;{</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <span class="keywordflow">if</span> (weight &gt; weight_){</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    weight_ = weight;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    bitvector_.Set(INNER_WEIGHT_TRANSITION_COMPACT);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  bitvector_.Set(FINAL_OFFSET_TRANSITION);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  final_=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;}</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> UnpackedState&lt;SparseArrayPersistence&lt;uint16_t&gt;&gt;::AddFinalState(uint64_t transition_value)</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;{</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  TRACE(<span class="stringliteral">&quot;UnpackedState: Adding final state %d&quot;</span>, transition_value);</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  outgoing_[used_++].set(FINAL_OFFSET_TRANSITION, transition_value);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <span class="keywordtype">size_t</span> vshort_size = util::getVarshortLength(transition_value);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i &lt; vshort_size; ++i) {</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    bitvector_.Set(FINAL_OFFSET_TRANSITION + i);</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  }</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;}</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;} <span class="comment">/* namespace internal */</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;} <span class="comment">/* namespace fsa */</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;} <span class="comment">/* namespace dictionary */</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;} <span class="comment">/* namespace keyvi */</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* UNPACKED_STATE_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  final_ = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;}</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> UnpackedState&lt;SparseArrayPersistence&lt;uint32_t&gt;&gt;::UpdateWeightIfHigher(uint32_t weight)</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;{</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  <span class="keywordflow">if</span> (weight &gt; weight_){</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    weight_ = weight;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    bitvector_.Set(INNER_WEIGHT_TRANSITION);</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;}</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> UnpackedState&lt;SparseArrayPersistence&lt;uint16_t&gt;&gt;::UpdateWeightIfHigher(uint32_t weight)</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;{</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <span class="keywordflow">if</span> (weight &gt; weight_){</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    weight_ = weight;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    bitvector_.Set(INNER_WEIGHT_TRANSITION_COMPACT);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  }</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;}</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;} <span class="comment">/* namespace internal */</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;} <span class="comment">/* namespace fsa */</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;} <span class="comment">/* namespace dictionary */</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;} <span class="comment">/* namespace keyvi */</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* UNPACKED_STATE_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html">keyvi::dictionary::fsa::internal::UnpackedState</a></div><div class="ttdef"><b>Definition:</b> unpacked_state.h:43</div></div>
 <div class="ttc" id="structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state_1_1_transition_html"><div class="ttname"><a href="structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state_1_1_transition.html">keyvi::dictionary::fsa::internal::UnpackedState::Transition</a></div><div class="ttdef"><b>Definition:</b> unpacked_state.h:46</div></div>
 <div class="ttc" id="structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector_html_ab11655f1cc25d0016d3fcee8fbbce2a9"><div class="ttname"><a href="structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#ab11655f1cc25d0016d3fcee8fbbce2a9">keyvi::dictionary::fsa::internal::BitVector::Get</a></div><div class="ttdeci">bool Get(const size_t bit) const </div><div class="ttdef"><b>Definition:</b> bit_vector.h:134</div></div>
@@ -440,7 +459,7 @@ $(document).ready(function(){initNavTree('unpacked__state_8h_source.html','');})
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_18cd2892d2d1b27191c8f365213984f7.html">fsa</a></li><li class="navelem"><a class="el" href="dir_4f593fa07bcc006705199afaee94c880.html">internal</a></li><li class="navelem"><b>unpacked_state.h</b></li>
-    <li class="footer">Generated on Sat Jan 7 2017 20:54:25 by
+    <li class="footer">Generated on Tue Jan 10 2017 10:26:00 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

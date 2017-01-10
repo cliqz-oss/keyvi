@@ -415,7 +415,7 @@ $(document).ready(function(){initNavTree('minimization__hash_8h_source.html','')
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;            entries_[bucket].SetCookie(overflow_count_);</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            overflow_entries_[overflow_count_++] = key;</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;          } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            <span class="keyword">auto</span> number_of_overflows = 0;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            <span class="keywordtype">size_t</span> number_of_overflows = 0;</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;            <span class="keywordflow">while</span> (overflow_entries_[overflowBucket].GetCookie() != 0 &amp;&amp; number_of_overflows &lt; overflow_limit_) {</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;              overflowBucket = overflow_entries_[overflowBucket].GetCookie();</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;              ++number_of_overflows;</div>
@@ -495,7 +495,7 @@ $(document).ready(function(){initNavTree('minimization__hash_8h_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_18cd2892d2d1b27191c8f365213984f7.html">fsa</a></li><li class="navelem"><a class="el" href="dir_4f593fa07bcc006705199afaee94c880.html">internal</a></li><li class="navelem"><b>minimization_hash.h</b></li>
-    <li class="footer">Generated on Sat Jan 7 2017 20:54:25 by
+    <li class="footer">Generated on Tue Jan 10 2017 10:26:00 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

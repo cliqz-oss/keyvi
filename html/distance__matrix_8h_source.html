@@ -170,11 +170,11 @@ $(document).ready(function(){initNavTree('distance__matrix_8h_source.html','');}
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">int</span> Get(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">int</span> Get(<span class="keywordtype">size_t</span> row, <span class="keywordtype">size_t</span> column)<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keywordflow">return</span> distance_matrix_[((row * number_of_columns_) + column)];</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> Set(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column, <span class="keywordtype">int</span> value) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> Set(<span class="keywordtype">size_t</span> row, <span class="keywordtype">size_t</span> column, <span class="keywordtype">int</span> value) {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      distance_matrix_[((row * number_of_columns_) + column)] = value;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
@@ -184,7 +184,7 @@ $(document).ready(function(){initNavTree('distance__matrix_8h_source.html','');}
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      TRACE(<span class="stringliteral">&quot;boundary check %d %d&quot;</span>, minimum_rows, number_of_rows_);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="keywordflow">if</span> (minimum_rows &gt; number_of_rows_) {</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="comment">// increase to given capacity or at least 120% of old number of rows</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">int</span> new_rows = std::max(minimum_rows, (number_of_rows_ * 6) / 5);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> new_rows = std::max(minimum_rows, (number_of_rows_ * 6) / 5);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        TRACE(<span class="stringliteral">&quot;increase capacity to %d&quot;</span>, new_rows);</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">int</span>* newDistanceMatrix = <span class="keyword">new</span> <span class="keywordtype">int</span>[new_rows * number_of_columns_];</div>
@@ -226,7 +226,7 @@ $(document).ready(function(){initNavTree('distance__matrix_8h_source.html','');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_e48b3375daa6005eadf33cfc9ba23b98.html">stringdistance</a></li><li class="navelem"><b>distance_matrix.h</b></li>
-    <li class="footer">Generated on Wed Jan 18 2017 13:33:36 by
+    <li class="footer">Generated on Wed Jan 18 2017 14:53:55 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

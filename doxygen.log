@@ -349,7 +349,7 @@ Generating code for file keyvi/src/cpp/dictionary/fsa/internal/packed_state.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/serialization_utils.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/sliding_window_bit_vector_position_tracker.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/sparse_array_builder.h...
-Generating code for file keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h../home/travis/build/cliqz-oss/keyvi/doc/usage/Crashcourse.md:97: warning: Found unknown command `\t'
+Generating code for file keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h../home/travis/build/cliqz-oss/keyvi/doc/usage/Crashcourse.md:130: warning: Found unknown command `\t'
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/compression/compression_strategy.h:53: warning: Member Compress(buffer_t &buffer, const char *raw, size_t raw_size)=0 (function) of class keyvi::compression::CompressionStrategy is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/compression/compression_strategy.h:55: warning: Member Compress(const std::string &raw) (function) of class keyvi::compression::CompressionStrategy is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/compression/compression_strategy.h:59: warning: Member Compress(const char *raw, size_t raw_size) (function) of class keyvi::compression::CompressionStrategy is not documented.
@@ -1022,18 +1022,18 @@ Generating docs for co/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionar
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/transform/fsa_transform.h:41: warning: Member FsaTransform(dictionary::fsa::automata_t fsa) (function) of class keyvi::transform::FsaTransform is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/transform/fsa_transform.h:44: warning: Member FsaTransform(dictionary::dictionary_t d) (function) of class keyvi::transform::FsaTransform is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/transform/fsa_transform.h:48: warning: Member Normalize(const std::string &input) const  (function) of class keyvi::transform::FsaTransform is not documented.
+/home/travis/build/cliqz-oss/keyvi/README.md:29: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:31: warning: unexpected token TK_EOF as the argument of ref
-/home/travis/build/cliqz-oss/keyvi/README.md:33: warning: unexpected token TK_EOF as the argument of ref
+/home/travis/build/cliqz-oss/keyvi/README.md:39: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:41: warning: unexpected token TK_EOF as the argument of ref
+/home/travis/build/cliqz-oss/keyvi/README.md:42: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:43: warning: unexpected token TK_EOF as the argument of ref
-/home/travis/build/cliqz-oss/keyvi/README.md:44: warning: unexpected token TK_EOF as the argument of ref
-/home/travis/build/cliqz-oss/keyvi/README.md:45: warning: unexpected token TK_EOF as the argument of ref
-/home/travis/build/cliqz-oss/keyvi/README.md:51: warning: unexpected token TK_EOF as the argument of ref
+/home/travis/build/cliqz-oss/keyvi/README.md:49: warning: unexpected token TK_EOF as the argument of ref
+/home/travis/build/cliqz-oss/keyvi/README.md:55: warning: unexpected token TK_EOF as the argument of ref
+/home/travis/build/cliqz-oss/keyvi/README.md:56: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:57: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:58: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:59: warning: unexpected token TK_EOF as the argument of ref
-/home/travis/build/cliqz-oss/keyvi/README.md:60: warning: unexpected token TK_EOF as the argument of ref
-/home/travis/build/cliqz-oss/keyvi/README.md:61: warning: unexpected token TK_EOF as the argument of ref
 mpound keyvi::dictionary::fsa::internal::UnpackedState...
 Generating docs for nested compound keyvi::dictionary::fsa::internal::UnpackedState::Transition...
 Generating docs for compound keyvi::dictionary::fsa::internal::UnpackedStateStack...

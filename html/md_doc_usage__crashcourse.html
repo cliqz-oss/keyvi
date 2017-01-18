@@ -98,10 +98,10 @@ $(document).ready(function(){initNavTree('md_doc_usage__crashcourse.html','');})
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h3>Install</h3>
-<p>After installation you should have: </p>
-<pre class="fragment">keyvicompiler
-keyviinspector
-</pre><p>Try in ipython: </p>
+<p>After installation you should have <code>keyvi</code> executable available:</p>
+<p>Try: </p>
+<pre class="fragment">keyvi -h
+</pre><p>Try in python: </p>
 <pre class="fragment">import pykeyvi
 </pre><h3>First compile and decompile</h3>
 <p>Open a text editor and put some keys in there, e.g. </p>
@@ -112,18 +112,18 @@ key
 value
 index
 </pre><p>Compile: </p>
-<pre class="fragment">keyvicompiler -i in -o compiled.keyvi -d key-only
+<pre class="fragment">keyvi compile &lt;input_file&gt; compiled.kv key-only
 </pre><p>Dump: </p>
-<pre class="fragment">keyviinspector -i compiled.keyvi -o compiled.out
-</pre><p>After dumping, open the file compiled.out in a text editor, it should contain your data.</p>
+<pre class="fragment">keyvi dump compiled.kv dump.out
+</pre><p>After dumping, open the file dump.out in a text editor, it should contain your data.</p>
 <p>Check questions:</p>
 <ul>
 <li>What is the difference to your input file?</li>
 </ul>
-<h4>Open the file in ipython</h4>
+<h4>Open the file in python</h4>
 <p>Do: </p>
 <pre class="fragment">import pykeyvi
-d = pykeyvi.Dictionary("compiled.keyvi")
+d = pykeyvi.Dictionary("compiled.kv")
 "keyvi" in d
 </pre><p>should return True </p>
 <pre class="fragment">match = d['keyvi']
@@ -138,6 +138,14 @@ d = pykeyvi.Dictionary("compiled.keyvi")
 <li>How fast does it load? Do you have an idea how loading works internally?</li>
 <li>What happens if you load multiple times (using different processes)?</li>
 </ul>
+<h3>Simple Statistics</h3>
+<p>Both, the <code>keyvi</code> executable and the Python API provide an easy way to obtain the number of keys and values in a keyvi file.</p>
+<p>For the just created <code>compiled.kv</code> file run: </p>
+<pre class="fragment">keyvi stats compiled.kv
+</pre><p>The output should be:</p>
+<p>``` { "General": { "manifest": "", "number_of_keys": "6", "number_of_states": "14", "start_state": "19", "value_store_type": "1", "version": "2" }, "Persistence": { "size": "280", "version": "2" } } ```</p>
+<p>Note: As we have compiled <code>key-only</code> dictionary there is no info regarding values.</p>
+<p>Similarly with python, on the <code>pykeyvi.Dictionary</code> object <code>d</code> the call <code>d.GetStatistics()</code> will return the same information.</p>
 <h3>Lookup and Extraction</h3>
 <p>Go to <a href="/pykeyvi/examples/lookup">lookup examples</a></p>
 <p>Compile cities.tsv and run the tester: </p>
@@ -194,21 +202,12 @@ python prefix_completion_tester.py
 <p>Compile with: </p>
 <pre class="fragment">keyvicompiler -i normalization.tsv -o normalization.keyvi -d string
 </pre><p>and try: </p>
-<pre class="fragment">cat sample.txt | python normalize.py
-</pre><h3>Simple Statistics</h3>
-<p>Both Keyvi Inspector and the Python API provide an easy way to obtain the number of keys and values in a keyvi-compiled file.</p>
-<p>Example: If there is a keyvi file <code>foobar.keyvi</code> with key-value pairs, one can get simple count statistics as follows:</p>
-<p>``` $ keyviinspector -i foobar.keyvi -s</p>
-<p>General {"version":"1","start_state":"42613522","number_of_keys":"1768342","value_store_type":"5","number_of_states":"37309831","manifest":""}</p>
-<p>Persistence {"version":"2","size":"42613783"}</p>
-<p>Value Store {"size":"5684145126","values":"2100578","unique_values":"2100571","__compression":"raw","__compression_threshold":"32"} ```</p>
-<p>Similarly, With py-keyvi <code>d.GetStatistics()</code> on the keyvi dictionary object <code>d</code> can output the same information. </p>
-</div></div><!-- contents -->
+<pre class="fragment">cat sample.txt | python normalize.py</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Jan 16 2017 13:59:22 by
+    <li class="footer">Generated on Wed Jan 18 2017 13:33:36 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

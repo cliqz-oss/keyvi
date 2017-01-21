@@ -2,7 +2,7 @@
 set -ev
 
 mkdir  $HOME/tmp
-TMPDIR = $HOME/tmp
+TMPDIR="$HOME/tmp"
 export TMPDIR
 
 cd keyvi

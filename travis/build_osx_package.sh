@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -ev
 
+mkdir  $HOME/tmp
+TMPDIR = $HOME/tmp
+export TMPDIR
+
 cd keyvi
 scons -j 4 mode=release
 cd ..

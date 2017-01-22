@@ -43,7 +43,7 @@
 #include "dictionary/sort/tpie_sorter.h"
 #endif
 
-// #define ENABLE_TRACING
+#define ENABLE_TRACING
 #include "dictionary/util/trace.h"
 
 namespace keyvi {

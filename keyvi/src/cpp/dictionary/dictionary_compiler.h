@@ -118,7 +118,7 @@ class DictionaryCompiler final {
 
     params_[TEMPORARY_PATH_KEY] =
         util::mapGet(params_, TEMPORARY_PATH_KEY,
-                     boost::filesystem::temp_directory_path().native());
+                     boost::filesystem::temp_directory_path().string());
 
     TRACE("tmp path set to %s", params_[TEMPORARY_PATH_KEY].c_str());
 

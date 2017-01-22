@@ -167,9 +167,7 @@ class Generator final {
     size_t memory_limit_minimization =
         std::max(memory_limit_ / 2, memory_limit_ - (200 * 1024 * 1024));
 
-    params_[TEMPORARY_PATH_KEY] =
-        util::mapGet(params_, TEMPORARY_PATH_KEY,
-                     boost::filesystem::temp_directory_path().native());
+    params_[TEMPORARY_PATH_KEY] = util::mapGetTemporaryPath(params);
 
     minimize_ = util::mapGetBool(params_, MINIMIZATION_KEY, true);
 

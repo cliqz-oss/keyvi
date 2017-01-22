@@ -105,9 +105,7 @@ class DictionaryMerger final {
    */
   explicit DictionaryMerger(const merger_param_t& params = merger_param_t())
       : dicts_to_merge_(), params_(params) {
-    params_[TEMPORARY_PATH_KEY] =
-        util::mapGet(params_, TEMPORARY_PATH_KEY,
-                     boost::filesystem::temp_directory_path().native());
+    params_[TEMPORARY_PATH_KEY] = util::mapGetTemporaryPath(params);
 
     append_merge_ =
         MERGE_APPEND == util::mapGet<std::string>(params_, MERGE_MODE, "");
@@ -120,9 +118,7 @@ class DictionaryMerger final {
   DictionaryMerger(size_t memory_limit,
                    const merger_param_t& params = merger_param_t())
       : dicts_to_merge_(), params_(params) {
-    params_[TEMPORARY_PATH_KEY] =
-        util::mapGet(params_, TEMPORARY_PATH_KEY,
-                     boost::filesystem::temp_directory_path().native());
+    params_[TEMPORARY_PATH_KEY] = util::mapGetTemporaryPath(params);
 
     append_merge_ =
         MERGE_APPEND == util::mapGet<std::string>(params_, MERGE_MODE, "");

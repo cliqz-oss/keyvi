@@ -211,7 +211,7 @@ $(document).ready(function(){initNavTree('json__value__store_8h_source.html','')
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        (&amp;compression::CompressionStrategy::Compress),</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        raw_compressor_.get(), std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">size_t</span> external_memory_chunk_size = 1073741824;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> external_memory_chunk_size = 104857600; <span class="comment">// 100 MB</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    values_extern_.reset(<span class="keyword">new</span> MemoryMapManager(external_memory_chunk_size, temporary_directory_,</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                                                <span class="stringliteral">&quot;json_values_filebuffer&quot;</span>));</div>
@@ -509,7 +509,7 @@ $(document).ready(function(){initNavTree('json__value__store_8h_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_18cd2892d2d1b27191c8f365213984f7.html">fsa</a></li><li class="navelem"><a class="el" href="dir_4f593fa07bcc006705199afaee94c880.html">internal</a></li><li class="navelem"><b>json_value_store.h</b></li>
-    <li class="footer">Generated on Tue Jan 24 2017 16:25:00 by
+    <li class="footer">Generated on Mon Jan 30 2017 16:55:38 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

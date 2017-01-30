@@ -183,7 +183,7 @@ $(document).ready(function(){initNavTree('sparse__array__persistence_8h_source.h
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      boost::filesystem::create_directory(temporary_directory_);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="comment">// size of external memory chunk: not more than 1 or 4 GB</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keywordtype">size_t</span> external_memory_chunk_size = std::min(flush_size_ * 10, (<span class="keywordtype">size_t</span>)1073741824);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keywordtype">size_t</span> external_memory_chunk_size = std::min(flush_size_ * 2, (<span class="keywordtype">size_t</span>)1073741824);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="comment">// the chunk size must be a multiplier of the flush_size</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      external_memory_chunk_size = external_memory_chunk_size - (external_memory_chunk_size % flush_size_);</div>
@@ -503,7 +503,7 @@ $(document).ready(function(){initNavTree('sparse__array__persistence_8h_source.h
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_18cd2892d2d1b27191c8f365213984f7.html">fsa</a></li><li class="navelem"><a class="el" href="dir_4f593fa07bcc006705199afaee94c880.html">internal</a></li><li class="navelem"><b>sparse_array_persistence.h</b></li>
-    <li class="footer">Generated on Tue Jan 24 2017 16:25:00 by
+    <li class="footer">Generated on Mon Jan 30 2017 16:55:38 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

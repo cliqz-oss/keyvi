@@ -6,6 +6,7 @@ var classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state =
     [ "~UnpackedState", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html#a15e53236796c6c1646821055b7a7e899", null ],
     [ "Add", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html#a9f93000e8b3086dd5567ed4f0c8a73b6", null ],
     [ "AddFinalState", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html#a7917eacfb7dc9f0f39bb5ae28c65689f", null ],
+    [ "AddFinalState", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html#a06a1984792192dad68c61e80ead2062e", null ],
     [ "AddFinalState", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html#a45a73fc92df0c81352f9ef52eac9aaee", null ],
     [ "Clear", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html#abbb8ba2bd24a7fe6f9d4d01f3811f435", null ],
     [ "get_BitVector", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html#a79202566800cf78c3d4ab9474be2b5e3", null ],
@@ -25,5 +26,6 @@ var classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state =
     [ "SetZerobyteState", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html#ac0f9e5064208e4e8f7fbdf063aad3fb6", null ],
     [ "size", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html#ada21fa9d48c59c612ec48b8661757d5e", null ],
     [ "UpdateWeightIfHigher", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html#adb04679b6b66a4afc16779411db0720c", null ],
+    [ "UpdateWeightIfHigher", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html#ae473fe6b1a96b4e2489f3c78480a69f9", null ],
     [ "UpdateWeightIfHigher", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state.html#a442a54c8afaa926abe6a34de5938250a", null ]
 ];

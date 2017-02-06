@@ -102,6 +102,8 @@ Preprocessing /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/in
 Parsing file /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/ivalue_store.h...
 Preprocessing /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/json_value_store.h...
 Parsing file /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/json_value_store.h...
+Preprocessing /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/json_value_store_deprecated.h...
+Parsing file /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/json_value_store_deprecated.h...
 Preprocessing /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/lru_generation_cache.h...
 Parsing file /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/lru_generation_cache.h...
 Preprocessing /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/memory_map_flags.h...
@@ -165,9 +167,7 @@ Parsing file /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/en
 Preprocessing /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/iterator_utils.h...
 Parsing file /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/iterator_utils.h...
 Preprocessing /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/json_value.h...
-Parsing file /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/json_value.h...
-Preprocessing /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/jump_consistent_hash.h...
-Parsing file /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/jump_/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/string_value_store.h:107: warning: Compound keyvi::dictionary::fsa::internal::StringValueStore::StringPointerForCompare is not documented.
+Parsing file /home/travis/build/cliqz-oss/k/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/string_value_store.h:107: warning: Compound keyvi::dictionary::fsa::internal::StringValueStore::StringPointerForCompare is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary.h:41: warning: Compound keyvi::dictionary::Dictionary is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/trace.h:46: warning: Compound keyvi::dictionary::util::trace is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/iterator_utils.h:33: warning: Compound keyvi::dictionary::util::iterator_pair is not documented.
@@ -192,9 +192,10 @@ Parsing file /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/ju
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/testing/temp_dictionary.h:41: warning: Compound keyvi::dictionary::testing::TempDictionary is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:70: warning: Compound keyvi::dictionary::Match is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:58: warning: Compound keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/json_value_store_deprecated.h:64: warning: Compound keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/traversal_base.h:37: warning: Compound keyvi::dictionary::fsa::traversal::Transition is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/near_traversal.h:46: warning: Compound keyvi::dictionary::fsa::traversal::TraversalPayload< NearTransition > is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_factory.h:39: warning: Compound keyvi::dictionary::fsa::internal::ValueStoreFactory is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_factory.h:40: warning: Compound keyvi::dictionary::fsa::internal::ValueStoreFactory is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/ivalue_store.h:72: warning: Compound keyvi::dictionary::fsa::internal::IValueStoreWriter is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/traversal_base.h:45: warning: Compound keyvi::dictionary::fsa::traversal::TraversalPayload is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator_adapter.h:62: warning: Compound keyvi::dictionary::fsa::GeneratorAdapter is not documented.
@@ -224,7 +225,9 @@ Parsing file /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/ju
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sliding_window_bit_vector_position_tracker.h:51: warning: Compound keyvi::dictionary::fsa::internal::SlidingWindowBitArrayPositionTracker is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/stringdistance/distance_matrix.h:37: warning: Compound keyvi::stringdistance::DistanceMatrix is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/msgpack_util.h:77: warning: documented symbol `packer< keyvi::dictionary::util::msgpack_buffer > & msgpack::packer::pack_double' was not declared or defined.
-consistent_hash.h...
+eyvi/keyvi/src/cpp/dictionary/util/json_value.h...
+Preprocessing /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/jump_consistent_hash.h...
+Parsing file /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/jump_consistent_hash.h...
 Preprocessing /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/msgpack_util.h...
 Parsing file /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/msgpack_util.h...
 Preprocessing /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/util/single_producer_consumer_ringbuffer.h...
@@ -336,6 +339,7 @@ Generating code for file keyvi/src/cpp/dictionary/fsa/internal/int_value_store.h
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/intrinsics.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/ivalue_store.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/json_value_store.h...
+Generating code for file keyvi/src/cpp/dictionary/fsa/internal/json_value_store_deprecated.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/lru_generation_cache.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/memory_map_flags.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/memory_map_manager.h...
@@ -345,11 +349,7 @@ Generating code for file keyvi/src/cpp/dictionary/fsa/internal/packed_state.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/serialization_utils.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/sliding_window_bit_vector_position_tracker.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/sparse_array_builder.h...
-Generating code for file keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h...
-Generating code for file keyvi/src/cpp/dictionary/fsa/internal/string_value_store.h...
-Generating code for file keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h...
-Generating code for file keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h...
-Generating code for file keyvi/src/cpp/dictionary/fsa/internal/value_store/home/travis/build/cliqz-oss/keyvi/doc/usage/Crashcourse.md:130: warning: Found unknown command `\t'
+Generating code for file keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h../home/travis/build/cliqz-oss/keyvi/doc/usage/Crashcourse.md:130: warning: Found unknown command `\t'
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/compression/compression_strategy.h:53: warning: Member Compress(buffer_t &buffer, const char *raw, size_t raw_size)=0 (function) of class keyvi::compression::CompressionStrategy is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/compression/compression_strategy.h:55: warning: Member Compress(const std::string &raw) (function) of class keyvi::compression::CompressionStrategy is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/compression/compression_strategy.h:59: warning: Member Compress(const char *raw, size_t raw_size) (function) of class keyvi::compression::CompressionStrategy is not documented.
@@ -386,42 +386,14 @@ Generating code for file keyvi/src/cpp/dictionary/fsa/internal/value_store/home/
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary.h:63: warning: Member GetStatistics() const  (function) of class keyvi::dictionary::Dictionary is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary.h:67: warning: Member GetSize() const  (function) of class keyvi::dictionary::Dictionary is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary.h:100: warning: Member operator[](const std::string &key) const  (function) of class keyvi::dictionary::Dictionary is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary.h:433: warning: Member GetManifestAsString() const  (function) of class keyvi::dictionary::Dictionary is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary.h:238: warning: The following parameters of keyvi::dictionary::Dictionary::Lookup(const std::string &text, size_t offset=0) are not documented:
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary.h:437: warning: Member GetManifestAsString() const  (function) of class keyvi::dictionary::Dictionary is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary.h:240: warning: The following parameters of keyvi::dictionary::Dictionary::Lookup(const std::string &text, size_t offset=0) are not documented:
   parameter 'offset'
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:111: warning: Member operator=(DictionaryCompiler const &)=delete (function) of class keyvi::dictionary::DictionaryCompiler is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:112: warning: Member DictionaryCompiler(const DictionaryCompiler &that)=delete (function) of class keyvi::dictionary::DictionaryCompiler is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:114: warning: Member Add(const std::string &input_key, typename ValueStoreT::value_t value=ValueStoreT::no_value) (function) of class keyvi::dictionary::DictionaryCompiler is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:129: warning: Member Delete(const std::string &input_key) (function) of class keyvi::dictionary::DictionaryCompiler is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:254: warning: Member Write(std::ostream &stream) (function) of class keyvi::dictionary::DictionaryCompiler is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:259: warning: Member WriteToFile(StringType filename) (function) of class keyvi::dictionary::DictionaryCompiler is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:77: warning: The following parameters of keyvi::dictionary::DictionaryCompiler::DictionaryCompiler(size_t memory_limit=1073741824, const compiler_param_t &params=compiler_param_t()) are not documented:
-  parameter 'params'
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_merger.h:103: warning: Member DictionaryMerger(size_t memory_limit=1073741824, const merger_param_t &params=merger_param_t()) (function) of class keyvi::dictionary::DictionaryMerger is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_merger.h:116: warning: Member Add(const std::string &filename) (function) of class keyvi::dictionary::DictionaryMerger is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_merger.h:143: warning: Member Merge(const std::string &filename) (function) of class keyvi::dictionary::DictionaryMerger is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/keyvi_file.h:41: warning: Member KeyViFile(const std::string &filename) (function) of class keyvi::dictionary::KeyViFile is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/keyvi_file.h:85: warning: Member automataProperties() const  (function) of class keyvi::dictionary::KeyViFile is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/keyvi_file.h:89: warning: Member persistenceStream() (function) of class keyvi::dictionary::KeyViFile is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/keyvi_file.h:93: warning: Member valueStoreStream() (function) of class keyvi::dictionary::KeyViFile is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:71: warning: Member attributes_t (typedef) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:73: warning: Member Match(size_t a, size_t b, const std::string &matched_item, uint32_t score=0) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:83: warning: Member Match(size_t a, size_t b, const std::string &matched_item, uint32_t score, const fsa::automata_t &fsa, uint64_t state) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:104: warning: Member GetEnd() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:108: warning: Member SetEnd(size_t end=0) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:112: warning: Member GetMatchedString() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:116: warning: Member SetMatchedString(const std::string &matched_item) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:120: warning: Member GetScore() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:124: warning: Member SetScore(double score=0) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:128: warning: Member GetStart() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:132: warning: Member SetStart(size_t start=0) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:136: warning: Member IsEmpty() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:147: warning: Member GetAttribute(const std::string &key) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:161: warning: Member SetAttribute(const std::string &key, U value) (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:173: warning: Member GetValueAsString() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:186: warning: Member GetRawValueAsString() const  (function) of class keyvi::dictionary::Match is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:195: warning: Member GetMsgPackedValueAsString() const  (function) of class keyvi::dictionary::Match is not documented.
-_factory.h...
+.
+Generating code for file keyvi/src/cpp/dictionary/fsa/internal/string_value_store.h...
+Generating code for file keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h...
+Generating code for file keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h...
+Generating code for file keyvi/src/cpp/dictionary/fsa/internal/value_store_factory.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/state_traverser.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/traversal/bounded_weighted_traversal.h...
@@ -476,12 +448,39 @@ Generating docs for compound keyvi::compression::PredictiveCompression...
 Generating docs for compound keyvi::compression::SnappyCompressionStrategy...
 Generating docs for compound keyvi::compression::ZlibCompressionStrategy...
 Generating docs for compound keyvi::dictionary::Dictionary...
-Generating docs for compound keyvi::dictionary::compiler_exception...
-Generating docs for compound keyvi::dictionary::DictionaryCompiler...
-Generating docs for compound keyvi::dictionary::DictionaryMerger...
-Generating docs for compound keyvi::dictionary::KeyViFile...
-Generating docs for compound keyvi::dictionary::Match...
-Generating docs for compound keyvi::dictiona/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match_iterator.h:60: warning: Member MatchIteratorPair (typedef) of class keyvi::dictionary::MatchIterator is not documented.
+Generating docs for compound keyvi:/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:111: warning: Member operator=(DictionaryCompiler const &)=delete (function) of class keyvi::dictionary::DictionaryCompiler is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:112: warning: Member DictionaryCompiler(const DictionaryCompiler &that)=delete (function) of class keyvi::dictionary::DictionaryCompiler is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:114: warning: Member Add(const std::string &input_key, typename ValueStoreT::value_t value=ValueStoreT::no_value) (function) of class keyvi::dictionary::DictionaryCompiler is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:129: warning: Member Delete(const std::string &input_key) (function) of class keyvi::dictionary::DictionaryCompiler is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:254: warning: Member Write(std::ostream &stream) (function) of class keyvi::dictionary::DictionaryCompiler is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:259: warning: Member WriteToFile(StringType filename) (function) of class keyvi::dictionary::DictionaryCompiler is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_compiler.h:77: warning: The following parameters of keyvi::dictionary::DictionaryCompiler::DictionaryCompiler(size_t memory_limit=1073741824, const compiler_param_t &params=compiler_param_t()) are not documented:
+  parameter 'params'
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_merger.h:103: warning: Member DictionaryMerger(size_t memory_limit=1073741824, const merger_param_t &params=merger_param_t()) (function) of class keyvi::dictionary::DictionaryMerger is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_merger.h:116: warning: Member Add(const std::string &filename) (function) of class keyvi::dictionary::DictionaryMerger is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_merger.h:143: warning: Member Merge(const std::string &filename) (function) of class keyvi::dictionary::DictionaryMerger is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/keyvi_file.h:41: warning: Member KeyViFile(const std::string &filename) (function) of class keyvi::dictionary::KeyViFile is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/keyvi_file.h:85: warning: Member automataProperties() const  (function) of class keyvi::dictionary::KeyViFile is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/keyvi_file.h:89: warning: Member persistenceStream() (function) of class keyvi::dictionary::KeyViFile is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/keyvi_file.h:93: warning: Member valueStoreStream() (function) of class keyvi::dictionary::KeyViFile is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:71: warning: Member attributes_t (typedef) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:73: warning: Member Match(size_t a, size_t b, const std::string &matched_item, uint32_t score=0) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:83: warning: Member Match(size_t a, size_t b, const std::string &matched_item, uint32_t score, const fsa::automata_t &fsa, uint64_t state) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:104: warning: Member GetEnd() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:108: warning: Member SetEnd(size_t end=0) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:112: warning: Member GetMatchedString() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:116: warning: Member SetMatchedString(const std::string &matched_item) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:120: warning: Member GetScore() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:124: warning: Member SetScore(double score=0) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:128: warning: Member GetStart() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:132: warning: Member SetStart(size_t start=0) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:136: warning: Member IsEmpty() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:147: warning: Member GetAttribute(const std::string &key) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:161: warning: Member SetAttribute(const std::string &key, U value) (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:173: warning: Member GetValueAsString() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:186: warning: Member GetRawValueAsString() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match.h:195: warning: Member GetMsgPackedValueAsString() const  (function) of class keyvi::dictionary::Match is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match_iterator.h:60: warning: Member MatchIteratorPair (typedef) of class keyvi::dictionary::MatchIterator is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match_iterator.h:62: warning: Member MatchIterator(std::function< Match()> match_functor, const Match &first_match=Match()) (function) of class keyvi::dictionary::MatchIterator is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match_iterator.h:70: warning: Member MakeIteratorPair(std::function< Match()> f, const Match &first_match=Match()) (function) of class keyvi::dictionary::MatchIterator is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/match_iterator.h:74: warning: Member EmptyIteratorPair() (function) of class keyvi::dictionary::MatchIterator is not documented.
@@ -496,27 +495,27 @@ Generating docs for compound keyvi::dictiona/home/travis/build/cliqz-oss/keyvi/k
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/completion/multiword_completion.h:51: warning: Member GetCompletions(const std::string &query, int number_of_results=10) const  (function) of class keyvi::dictionary::completion::MultiWordCompletion is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/completion/prefix_completion.h:48: warning: Member PrefixCompletion(dictionary_t d) (function) of class keyvi::dictionary::completion::PrefixCompletion is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/completion/prefix_completion.h:52: warning: Member GetCompletions(const std::string &query, int number_of_results=10) (function) of class keyvi::dictionary::completion::PrefixCompletion is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/completion/prefix_completion.h:137: warning: Member GetFuzzyCompletions(const std::string &query, int max_edit_distance) (function) of class keyvi::dictionary::completion::PrefixCompletion is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/completion/prefix_completion.h:139: warning: Member GetFuzzyCompletions(const std::string &query, int max_edit_distance) (function) of class keyvi::dictionary::completion::PrefixCompletion is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:57: warning: Member Automata(const std::string &filename, loading_strategy_types loading_strategy=loading_strategy_types::lazy) (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:113: warning: Member operator=(Automata const &)=delete (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:114: warning: Member Automata(const Automata &that)=delete (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:125: warning: Member GetNumberOfKeys() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:129: warning: Member SparseArraySize() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:133: warning: Member GetValueStoreType() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:137: warning: Member TryWalkTransition(uint64_t starting_state, unsigned char c) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:239: warning: Member GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:349: warning: Member IsFinalState(uint64_t state_to_check) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:357: warning: Member GetStateValue(uint64_t state) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:361: warning: Member GetWeightValue(uint64_t state) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:369: warning: Member GetValueAsAttributeVector(uint64_t state_value) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:374: warning: Member GetValueAsString(uint64_t state_value) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:379: warning: Member GetRawValueAsString(uint64_t state_value) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:384: warning: Member GetStatistics() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:397: warning: Member GetManifest() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:401: warning: Member GetManifestAsString() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:145: warning: argument 'outgoing_states' of command @param is not found in the argument list of keyvi::dictionary::fsa::Automata::GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:145: warning: argument 'outgoing_symbols' of command @param is not found in the argument list of keyvi::dictionary::fsa::Automata::GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:145: warning: The following parameters of keyvi::dictionary::fsa::Automata::GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const are not documented:
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:114: warning: Member operator=(Automata const &)=delete (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:115: warning: Member Automata(const Automata &that)=delete (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:126: warning: Member GetNumberOfKeys() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:130: warning: Member SparseArraySize() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:134: warning: Member GetValueStoreType() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:138: warning: Member TryWalkTransition(uint64_t starting_state, unsigned char c) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:252: warning: Member GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:377: warning: Member IsFinalState(uint64_t state_to_check) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:385: warning: Member GetStateValue(uint64_t state) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:394: warning: Member GetWeightValue(uint64_t state) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:410: warning: Member GetValueAsAttributeVector(uint64_t state_value) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:415: warning: Member GetValueAsString(uint64_t state_value) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:420: warning: Member GetRawValueAsString(uint64_t state_value) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:425: warning: Member GetStatistics() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:438: warning: Member GetManifest() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:442: warning: Member GetManifestAsString() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:146: warning: argument 'outgoing_states' of command @param is not found in the argument list of keyvi::dictionary::fsa::Automata::GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:146: warning: argument 'outgoing_symbols' of command @param is not found in the argument list of keyvi::dictionary::fsa::Automata::GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:146: warning: The following parameters of keyvi::dictionary::fsa::Automata::GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const are not documented:
   parameter 'traversal_state'
   parameter 'payload'
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:41: warning: Member BoundedWeightedStateTraverser(automata_t f, size_t top_number_of_results) (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
@@ -524,21 +523,19 @@ Generating docs for compound keyvi::dictiona/home/travis/build/cliqz-oss/keyvi/k
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:61: warning: Member operator=(BoundedWeightedStateTraverser const &)=delete (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:63: warning: Member BoundedWeightedStateTraverser(const BoundedWeightedStateTraverser &that)=delete (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:65: warning: Member BoundedWeightedStateTraverser(BoundedWeightedStateTraverser &&other) (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:81: warning: Member GetFsa() const  (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:85: warning: Member IsFinalState() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:89: warning: Member GetDepth() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:93: warning: Member GetStateValue() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:97: warning: Member GetInnerWeight() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:101: warning: Member GetStateId() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:105: warning: Member GetValueAsAttributeVector() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:109: warning: Member Prune() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:116: warning: Member TryReduceResultQueue() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:123: warning: Member operator++(int) (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:197: warning: Member operator==(const BoundedWeightedStateTraverser &other) const  (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:203: warning: Member operator!=(const BoundedWeightedStateTraverser &other) const  (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:207: warning: Member GetStateLabel() const  (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:211: warning: Member operator bool() const  (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:215: warning: Member AtEnd() const  (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:79: warning: Member GetFsa() const  (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:83: warning: Member IsFinalState() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:87: warning: Member GetDepth() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:91: warning: Member GetStateValue() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:95: warning: Member GetInnerWeight() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:99: warning: Member GetStateId() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:103: warning: Member GetValueAsAttributeVector() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:107: warning: Member Prune() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:114: warning: Member TryReduceResultQueue() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:121: warning: Member operator++(int) (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:194: warning: Member operator==(const BoundedWeightedStateTraverser &other) const  (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:200: warning: Member operator!=(const BoundedWeightedStateTraverser &other) const  (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:204: warning: Member GetStateLabel() (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/codepoint_state_traverser.h:42: warning: Member CodePointStateTraverser(automata_t f) (function) of class keyvi::dictionary::fsa::CodePointStateTraverser is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/codepoint_state_traverser.h:47: warning: Member CodePointStateTraverser(automata_t f, uint64_t state) (function) of class keyvi::dictionary::fsa::CodePointStateTraverser is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/codepoint_state_traverser.h:53: warning: Member operator=(CodePointStateTraverser const &)=delete (function) of class keyvi::dictionary::fsa::CodePointStateTraverser is not documented.
@@ -553,7 +550,6 @@ Generating docs for compound keyvi::dictiona/home/travis/build/cliqz-oss/keyvi/k
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/codepoint_state_traverser.h:127: warning: Member GetValueAsAttributeVector() (function) of class keyvi::dictionary::fsa::CodePointStateTraverser is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/codepoint_state_traverser.h:131: warning: Member Prune() (function) of class keyvi::dictionary::fsa::CodePointStateTraverser is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/codepoint_state_traverser.h:136: warning: Member GetStateLabel() (function) of class keyvi::dictionary::fsa::CodePointStateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/codepoint_state_traverser.h:140: warning: Member operator bool() const  (function) of class keyvi::dictionary::fsa::CodePointStateTraverser is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/entry_iterator.h:48: warning: Member EntryIterator(automata_t f) (function) of class keyvi::dictionary::fsa::EntryIterator is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/entry_iterator.h:50: warning: Member EntryIterator(automata_t f, uint64_t start_state) (function) of class keyvi::dictionary::fsa::EntryIterator is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/entry_iterator.h:63: warning: Member GetKey() const  (function) of class keyvi::dictionary::fsa::EntryIterator is not documented.
@@ -581,11 +577,11 @@ Generating docs for compound keyvi::dictiona/home/travis/build/cliqz-oss/keyvi/k
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:160: warning: Member Generator(size_t memory_limit=1073741824, const generator_param_t &params=generator_param_t(), ValueStoreT *value_store=NULL) (function) of class keyvi::dictionary::fsa::Generator is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:206: warning: Member operator=(Generator const &)=delete (function) of class keyvi::dictionary::fsa::Generator is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:207: warning: Member Generator(const Generator &that)=delete (function) of class keyvi::dictionary::fsa::Generator is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:289: warning: Member CloseFeeding() (function) of class keyvi::dictionary::fsa::Generator is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:339: warning: Member WriteToFile(StringType filename) (function) of class keyvi::dictionary::fsa::Generator is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:345: warning: Member GetFsaSize() const  (function) of class keyvi::dictionary::fsa::Generator is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:253: warning: argument 'ValueHandle' of command @param is not found in the argument list of keyvi::dictionary::fsa::Generator< PersistenceT, ValueStoreT, OffsetTypeT, HashCodeTypeT >::Add(const std::string &input_key, const ValueHandle &handle)
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:253: warning: The following parameters of keyvi::dictionary::fsa::Generator::Add(const std::string &input_key, const ValueHandle &handle) are not documented:
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:290: warning: Member CloseFeeding() (function) of class keyvi::dictionary::fsa::Generator is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:340: warning: Member WriteToFile(StringType filename) (function) of class keyvi::dictionary::fsa::Generator is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:346: warning: Member GetFsaSize() const  (function) of class keyvi::dictionary::fsa::Generator is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:254: warning: argument 'ValueHandle' of command @param is not found in the argument list of keyvi::dictionary::fsa::Generator< PersistenceT, ValueStoreT, OffsetTypeT, HashCodeTypeT >::Add(const std::string &input_key, const ValueHandle &handle)
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator.h:254: warning: The following parameters of keyvi::dictionary::fsa::Generator::Add(const std::string &input_key, const ValueHandle &handle) are not documented:
   parameter 'handle'
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator_adapter.h:39: warning: Member AdapterPtr (typedef) of class keyvi::dictionary::fsa::GeneratorAdapterInterface is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator_adapter.h:47: warning: Member Add(const std::string &input_key, typename ValueStoreT::value_t value=ValueStoreT::no_value) (function) of class keyvi::dictionary::fsa::GeneratorAdapterInterface is not documented.
@@ -610,23 +606,21 @@ Generating docs for compound keyvi::dictiona/home/travis/build/cliqz-oss/keyvi/k
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/generator_adapter.h:41: warning: Member CreateGenerator(size_t size_of_keys, size_t memory_limit, const generator_param_t &params, ValueStoreT *value_store) (function) of class keyvi::dictionary::fsa::GeneratorAdapterInterface is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:42: warning: Member StateTraverser(automata_t f) (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:45: warning: Member StateTraverser(automata_t f, uint64_t start_state, traversal::TraversalPayload< TransitionT > &payload, bool advance=true) (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:61: warning: Member StateTraverser(automata_t f, uint64_t start_state, bool advance=true) (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:78: warning: Member operator=(StateTraverser const &)=delete (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:79: warning: Member StateTraverser(const StateTraverser &that)=delete (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:81: warning: Member StateTraverser(StateTraverser &&other) (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:95: warning: Member GetFsa() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:99: warning: Member IsFinalState() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:103: warning: Member GetDepth() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:107: warning: Member GetStateValue() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:111: warning: Member GetInnerWeight() (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:115: warning: Member GetStateId() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:119: warning: Member GetValueAsAttributeVector() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:123: warning: Member Prune() (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:129: warning: Member operator++(int) (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:163: warning: Member GetStateLabel() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:167: warning: Member GetTraversalPayload() (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:171: warning: Member operator bool() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:175: warning: Member AtEnd() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:60: warning: Member StateTraverser(automata_t f, uint64_t start_state, bool advance=true) (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:76: warning: Member operator=(StateTraverser const &)=delete (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:77: warning: Member StateTraverser(const StateTraverser &that)=delete (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:79: warning: Member StateTraverser(StateTraverser &&other) (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:91: warning: Member GetFsa() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:95: warning: Member IsFinalState() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:99: warning: Member GetDepth() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:103: warning: Member GetStateValue() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:107: warning: Member GetInnerWeight() (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:111: warning: Member GetStateId() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:115: warning: Member GetValueAsAttributeVector() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:119: warning: Member Prune() (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:125: warning: Member operator++(int) (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:158: warning: Member GetStateLabel() const  (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/state_traverser.h:162: warning: Member GetTraversalPayload() (function) of class keyvi::dictionary::fsa::StateTraverser is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/bit_vector.h:65: warning: Member operator=(const BitVector &&other) (function) of class keyvi::dictionary::fsa::internal::BitVector is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/bit_vector.h:257: warning: Member Clear() (function) of class keyvi::dictionary::fsa::internal::BitVector is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/bit_vector.h:264: warning: Member Size() const  (function) of class keyvi::dictionary::fsa::internal::BitVector is not documented.
@@ -685,6 +679,10 @@ Generating docs for compound keyvi::dictiona/home/travis/build/cliqz-oss/keyvi/k
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/ivalue_store.h:111: warning: Member parameters_ (variable) of class keyvi::dictionary::fsa::internal::IValueStoreWriter is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/json_value_store.h:320: warning: Member JsonValueStoreReader(std::istream &stream, boost::interprocess::file_mapping *file_mapping, loading_strategy_types loading_strategy=loading_strategy_types::lazy) (function) of class keyvi::dictionary::fsa::internal::JsonValueStoreReader is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/json_value_store.h:348: warning: Member GetValueStoreType() const override (function) of class keyvi::dictionary::fsa::internal::JsonValueStoreReader is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/ivalue_store.h:123: warning: Member attributes_raw_t (typedef) of class keyvi::dictionary::fsa::internal::IValueStoreReader is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/ivalue_store.h:124: warning: Member attributes_t (typedef) of class keyvi::dictionary::fsa::internal::IValueStoreReader is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/json_value_store_deprecated.h:68: warning: Member JsonValueStoreDeprecatedReader(std::istream &stream, boost::interprocess::file_mapping *file_mapping, bool load_lazy=false) (function) of class keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/json_value_store_deprecated.h:112: warning: Member GetValueStoreType() const override (function) of class keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/ivalue_store.h:123: warning: Member attributes_raw_t (typedef) of class keyvi::dictionary::fsa::internal::IValueStoreReader is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/ivalue_store.h:124: warning: Member attributes_t (typedef) of class keyvi::dictionary::fsa::internal::IValueStoreReader is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/lru_generation_cache.h:83: warning: Member operator=(LeastRecentlyUsedGenerationsCache const &)=delete (function) of class keyvi::dictionary::fsa::internal::LeastRecentlyUsedGenerationsCache is not documented.
@@ -751,6 +749,11 @@ Generating docs for compound keyvi::dictiona/home/travis/build/cliqz-oss/keyvi/k
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_builder.h:74: warning: Member SparseArrayBuilder(const SparseArrayBuilder &that)=delete (function) of class keyvi::dictionary::fsa::internal::SparseArrayBuilder< SparseArrayPersistence< uint16_t >, OffsetTypeT, HashCodeTypeT > is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_builder.h:76: warning: Member PersistState(UnpackedState< SparseArrayPersistence< uint16_t >> &unpacked_state) (function) of class keyvi::dictionary::fsa::internal::SparseArrayBuilder< SparseArrayPersistence< uint16_t >, OffsetTypeT, HashCodeTypeT > is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_builder.h:113: warning: Member GetSize() const  (function) of class keyvi::dictionary::fsa::internal::SparseArrayBuilder< SparseArrayPersistence< uint16_t >, OffsetTypeT, HashCodeTypeT > is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_builder.h:554: warning: Member SparseArrayBuilder(size_t memory_limit, SparseArrayPersistence< uint32_t > *persistence, bool inner_weight, bool minimize=true) (function) of class keyvi::dictionary::fsa::internal::SparseArrayBuilder< SparseArrayPersistence< uint32_t >, OffsetTypeT, HashCodeTypeT > is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_builder.h:570: warning: Member operator=(SparseArrayBuilder const &)=delete (function) of class keyvi::dictionary::fsa::internal::SparseArrayBuilder< SparseArrayPersistence< uint32_t >, OffsetTypeT, HashCodeTypeT > is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_builder.h:571: warning: Member SparseArrayBuilder(const SparseArrayBuilder &that)=delete (function) of class keyvi::dictionary::fsa::internal::SparseArrayBuilder< SparseArrayPersistence< uint32_t >, OffsetTypeT, HashCodeTypeT > is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_builder.h:573: warning: Member PersistState(UnpackedState< SparseArrayPersistence< uint32_t >> &unpacked_state) (function) of class keyvi::dictionary::fsa::internal::SparseArrayBuilder< SparseArrayPersistence< uint32_t >, OffsetTypeT, HashCodeTypeT > is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_builder.h:610: warning: Member GetSize() const  (function) of class keyvi::dictionary::fsa::internal::SparseArrayBuilder< SparseArrayPersistence< uint32_t >, OffsetTypeT, HashCodeTypeT > is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:60: warning: Member SparseArrayPersistence(size_t memory_limit, boost::filesystem::path temporary_path) (function) of class keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:110: warning: Member operator=(SparseArrayPersistence const &)=delete (function) of class keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:111: warning: Member SparseArrayPersistence(const SparseArrayPersistence &that)=delete (function) of class keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
@@ -761,8 +764,10 @@ Generating docs for compound keyvi::dictiona/home/travis/build/cliqz-oss/keyvi/k
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:171: warning: Member ResolveTransitionValue(size_t offset, BucketT value) const  (function) of class keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:173: warning: Member ReadFinalValue(size_t offset) const  (function) of class keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:200: warning: Member Write(std::ostream &stream) (function) of class keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:293: warning: Member ResolveTransitionValue(size_t offset, uint16_t value) const (function) of class keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:339: warning: Member ReadFinalValue(size_t offset) const (function) of class keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:316: warning: Member ResolveTransitionValue(size_t offset, uint32_t value) const (function) of class keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:321: warning: Member ResolveTransitionValue(size_t offset, uint16_t value) const (function) of class keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:367: warning: Member ReadFinalValue(size_t offset) const (function) of class keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:372: warning: Member ReadFinalValue(size_t offset) const (function) of class keyvi::dictionary::fsa::internal::SparseArrayPersistence is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/sparse_array_persistence.h:176: warning: argument 'position' of command @param is not found in the argument list of keyvi::dictionary::fsa::internal::SparseArrayPersistence< BucketT >::Flush()
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/string_value_store.h:159: warning: Member value_t (typedef) of class keyvi::dictionary::fsa::internal::StringValueStore is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/string_value_store.h:168: warning: Member operator=(StringValueStore const &)=delete (function) of class keyvi::dictionary::fsa::internal::StringValueStore is not documented.
@@ -790,58 +795,12 @@ Generating docs for compound keyvi::dictiona/home/travis/build/cliqz-oss/keyvi/k
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/string_value_store.h:277: warning: Member GetValueStoreType() const override (function) of class keyvi::dictionary::fsa::internal::StringValueStoreReader is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/ivalue_store.h:123: warning: Member attributes_raw_t (typedef) of class keyvi::dictionary::fsa::internal::IValueStoreReader is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/ivalue_store.h:124: warning: Member attributes_t (typedef) of class keyvi::dictionary::fsa::internal::IValueStoreReader is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:59: warning: Member UnpackedState(PersistenceT *persistence) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:63: warning: Member UnpackedState(UnpackedState &&other) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:85: warning: Member operator=(UnpackedState &&other) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:112: warning: Member IsFinal() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:116: warning: Member Add(int transition_label, uint64_t transition_value) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:123: warning: Member HasLabel(int transition_label) const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:127: warning: Member AddFinalState(uint64_t transition_value) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:129: warning: Member SetTransitionValue(uint64_t transition_value) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:133: warning: Member Clear() (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:144: warning: Member get_BitVector() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:148: warning: Member size() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:152: warning: Member IncrementNoMinimizationCounter(int counter=1) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:156: warning: Member GetNoMinimizationCounter() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:160: warning: Member UpdateWeightIfHigher(uint32_t weight) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:162: warning: Member GetWeight() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:166: warning: Member SetZerobyteState(size_t position) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:170: warning: Member GetZerobyteState() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:174: warning: Member SetZerobyteLabel(unsigned char label) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:178: warning: Member GetZerobyteLabel() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:182: warning: Member GetHashcode() (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:236: warning: Member operator==(const PackedState< OffsetTypeT, HashCodeTypeT > &l) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:283: warning: Member operator[](int position) const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:302: warning: Member AddFinalState(uint64_t transition_value) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:316: warning: Member UpdateWeightIfHigher(uint32_t weight) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:49: warning: Member set(int label, uint64_t value) (function) of class keyvi::dictionary::fsa::internal::UnpackedState::Transition is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:55: warning: Member label (variable) of class keyvi::dictionary::fsa::internal::UnpackedState::Transition is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:56: warning: Member value (variable) of class keyvi::dictionary::fsa::internal::UnpackedState::Transition is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:43: warning: Member UnpackedStateStack(PersistenceT *persistence, size_t initial_size, int weight_cut_off=30) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:54: warning: Member Get(size_t position) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:62: warning: Member Insert(size_t pos, int transition_label, uint64_t transition_value) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:67: warning: Member InsertFinalState(size_t pos, uint64_t transition_value, bool no_minimization) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:79: warning: Member UpdateWeights(int start, int end, uint32_t weight) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:94: warning: Member PushTransitionPointer(size_t pos, uint64_t transition_value, int minimization_counter) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:103: warning: Member Erase(size_t pos) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_factory.h:41: warning: Member MakeReader(value_store_t type, std::istream &stream, boost::interprocess::file_mapping *file_mapping, loading_strategy_types loading_strategy=loading_strategy_types::lazy) (function) of class keyvi::dictionary::fsa::internal::ValueStoreFactory is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:46: warning: Member RawPointer(uint64_t offset, HashCodeTypeT hashcode, size_t length) (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:53: warning: Member GetHashcode() const  (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:57: warning: Member GetOffset() const  (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:61: warning: Member GetLength() const  (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:65: warning: Member GetCookie() const  (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:69: warning: Member SetCookie(int value) (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:73: warning: Member IsEmpty() const  (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:77: warning: Member operator==(const RawPointer &l) (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:81: warning: Member GetMaxCookieSize() (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:98: warning: Member RawPointerForCompare(const char *value, size_t value_size, PersistenceT *persistence) (function) of class keyvi::dictionary::fsa::internal::RawPointerForCompare is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:113: warning: Member GetHashcode() const  (function) of class keyvi::dictionary::fsa::internal::RawPointerForCompare is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:117: warning: Member operator==(const RawPointer< HashCodeTypeT > &l) const  (function) of class keyvi::dictionary::fsa::internal::RawPointerForCompare is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/weighted_traversal.h:40: warning: Member WeightedTransition(uint64_t s, uint32_t w, unsigned char l) (function) of class keyvi::dictionary::fsa::traversal::WeightedTransition is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/weighted_traversal.h:42: warning: Member state (variable) of class keyvi::dictionary::fsa::traversal::WeightedTransition is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/weighted_traversal.h:43: warning: Member weight (variable) of class keyvi::dictionary::fsa::traversal::WeightedTransition is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/weighted_traversal.h:44: warning: Member label (variable) of class keyvi::dictionary::fsa::traversal::WeightedTransition is not documented.
-ry::MatchIterator...
+:dictionary::compiler_exception...
+Generating docs for compound keyvi::dictionary::DictionaryCompiler...
+Generating docs for compound keyvi::dictionary::DictionaryMerger...
+Generating docs for compound keyvi::dictionary::KeyViFile...
+Generating docs for compound keyvi::dictionary::Match...
+Generating docs for compound keyvi::dictionary::MatchIterator...
 Generating docs for compound keyvi::dictionary::compilation::CompilationUtils...
 Generating docs for compound keyvi::dictionary::completion::ForwardBackwardCompletion...
 Generating docs for nested compound keyvi::dictionary::completion::ForwardBackwardCompletion::result_compare...
@@ -865,6 +824,7 @@ Generating docs for compound keyvi::dictionary::fsa::internal::IValueStoreWriter
 Generating docs for compound keyvi::dictionary::fsa::internal::IValueStoreReader...
 Generating docs for compound keyvi::dictionary::fsa::internal::JsonValueStore...
 Generating docs for compound keyvi::dictionary::fsa::internal::JsonValueStoreReader...
+Generating docs for compound keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader...
 Generating docs for compound keyvi::dictionary::fsa::internal::LeastRecentlyUsedGenerationsCache...
 Generating docs for compound keyvi::dictionary::fsa::internal::MemoryMapFlags...
 Generating docs for compound keyvi::dictionary::fsa::internal::MemoryMapManager...
@@ -877,18 +837,65 @@ Generating docs for compound keyvi::dictionary::fsa::internal::SerializationUtil
 Generating docs for compound keyvi::dictionary::fsa::internal::SlidingWindowBitArrayPositionTracker...
 Generating docs for compound keyvi::dictionary::fsa::internal::SparseArrayBuilder...
 Generating docs for compound keyvi::dictionary::fsa::internal::SparseArrayBuilder< SparseArrayPersistence< uint16_t >, OffsetTypeT, HashCodeTypeT >...
+Generating docs for compound keyvi::dictionary::fsa::internal::SparseArrayBuilder< SparseArrayPersistence< uint32_t >, OffsetTypeT, HashCodeTypeT >...
 Generating docs for compound keyvi::dictionary::fsa::internal::SparseArrayPersistence...
 Generating docs for compound keyvi::dictionary::fsa::internal::StringValueStore...
 Generating docs for nested compound keyvi::dictionary::fsa::internal::StringValueStore::StringPointer...
 Generating docs for nested compound keyvi::dictionary::fsa::internal::StringValueStore::StringPointerForCompare...
 Generating docs for compound keyvi::dictionary::fsa::internal::StringValueStoreReader...
-Generating docs for compound keyvi::dictionary::fsa::internal::UnpackedState...
-Generating docs for nested compound keyvi::dictionary::fsa::internal::UnpackedState::Transition...
-Generating docs for compound keyvi::dictionary::fsa::internal::UnpackedStateStack...
-Generating docs for compound keyvi::dictionary::fsa::internal::ValueStoreFactory...
-Generating docs for compound keyvi::dictionary::fsa::internal::RawPointer...
-Generating docs for compound keyvi::dictionary::fsa::internal::RawPointerForCompare...
-Generating docs for compound keyvi::dictionary::fsa::traversal::BoundedWeightedTransition...
+Generating docs for co/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:59: warning: Member UnpackedState(PersistenceT *persistence) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:63: warning: Member UnpackedState(UnpackedState &&other) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:85: warning: Member operator=(UnpackedState &&other) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:112: warning: Member IsFinal() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:116: warning: Member Add(int transition_label, uint64_t transition_value) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:123: warning: Member HasLabel(int transition_label) const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:127: warning: Member AddFinalState(uint64_t transition_value) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:129: warning: Member SetTransitionValue(uint64_t transition_value) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:133: warning: Member Clear() (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:144: warning: Member get_BitVector() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:148: warning: Member size() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:152: warning: Member IncrementNoMinimizationCounter(int counter=1) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:156: warning: Member GetNoMinimizationCounter() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:160: warning: Member UpdateWeightIfHigher(uint32_t weight) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:162: warning: Member GetWeight() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:166: warning: Member SetZerobyteState(size_t position) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:170: warning: Member GetZerobyteState() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:174: warning: Member SetZerobyteLabel(unsigned char label) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:178: warning: Member GetZerobyteLabel() const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:182: warning: Member GetHashcode() (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:236: warning: Member operator==(const PackedState< OffsetTypeT, HashCodeTypeT > &l) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:283: warning: Member operator[](int position) const  (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:303: warning: Member AddFinalState(uint64_t transition_value) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:312: warning: Member AddFinalState(uint64_t transition_value) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:326: warning: Member UpdateWeightIfHigher(uint32_t weight) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:335: warning: Member UpdateWeightIfHigher(uint32_t weight) (function) of class keyvi::dictionary::fsa::internal::UnpackedState is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:49: warning: Member set(int label, uint64_t value) (function) of class keyvi::dictionary::fsa::internal::UnpackedState::Transition is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:55: warning: Member label (variable) of class keyvi::dictionary::fsa::internal::UnpackedState::Transition is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state.h:56: warning: Member value (variable) of class keyvi::dictionary::fsa::internal::UnpackedState::Transition is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:43: warning: Member UnpackedStateStack(PersistenceT *persistence, size_t initial_size, int weight_cut_off=30) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:54: warning: Member Get(size_t position) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:62: warning: Member Insert(size_t pos, int transition_label, uint64_t transition_value) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:67: warning: Member InsertFinalState(size_t pos, uint64_t transition_value, bool no_minimization) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:79: warning: Member UpdateWeights(int start, int end, uint32_t weight) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:94: warning: Member PushTransitionPointer(size_t pos, uint64_t transition_value, int minimization_counter) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h:103: warning: Member Erase(size_t pos) (function) of class keyvi::dictionary::fsa::internal::UnpackedStateStack is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_factory.h:42: warning: Member MakeReader(value_store_t type, std::istream &stream, boost::interprocess::file_mapping *file_mapping, loading_strategy_types loading_strategy=loading_strategy_types::lazy) (function) of class keyvi::dictionary::fsa::internal::ValueStoreFactory is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:46: warning: Member RawPointer(uint64_t offset, HashCodeTypeT hashcode, size_t length) (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:53: warning: Member GetHashcode() const  (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:57: warning: Member GetOffset() const  (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:61: warning: Member GetLength() const  (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:65: warning: Member GetCookie() const  (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:69: warning: Member SetCookie(int value) (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:73: warning: Member IsEmpty() const  (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:77: warning: Member operator==(const RawPointer &l) (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:81: warning: Member GetMaxCookieSize() (function) of class keyvi::dictionary::fsa::internal::RawPointer is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:98: warning: Member RawPointerForCompare(const char *value, size_t value_size, PersistenceT *persistence) (function) of class keyvi::dictionary::fsa::internal::RawPointerForCompare is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:113: warning: Member GetHashcode() const  (function) of class keyvi::dictionary::fsa::internal::RawPointerForCompare is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/internal/value_store_persistence.h:117: warning: Member operator==(const RawPointer< HashCodeTypeT > &l) const  (function) of class keyvi::dictionary::fsa::internal::RawPointerForCompare is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/weighted_traversal.h:40: warning: Member WeightedTransition(uint64_t s, uint32_t w, unsigned char l) (function) of class keyvi::dictionary::fsa::traversal::WeightedTransition is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/weighted_traversal.h:42: warning: Member state (variable) of class keyvi::dictionary::fsa::traversal::WeightedTransition is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/weighted_traversal.h:43: warning: Member weight (variable) of class keyvi::dictionary::fsa::traversal::WeightedTransition is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/weighted_traversal.h:44: warning: Member label (variable) of class keyvi::dictionary::fsa::traversal::WeightedTransition is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/bounded_weighted_traversal.h:48: warning: Member current_depth (variable) of class keyvi::dictionary::fsa::traversal::TraversalPayload< BoundedWeightedTransition > is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/bounded_weighted_traversal.h:49: warning: Member priority_queue (variable) of class keyvi::dictionary::fsa::traversal::TraversalPayload< BoundedWeightedTransition > is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/traversal/traversal_base.h:38: warning: Member Transition(uint64_t s, unsigned char l) (function) of class keyvi::dictionary::fsa::traversal::Transition is not documented.
@@ -1027,6 +1034,13 @@ Generating docs for compound keyvi::dictionary::fsa::traversal::BoundedWeightedT
 /home/travis/build/cliqz-oss/keyvi/README.md:57: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:58: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:59: warning: unexpected token TK_EOF as the argument of ref
+mpound keyvi::dictionary::fsa::internal::UnpackedState...
+Generating docs for nested compound keyvi::dictionary::fsa::internal::UnpackedState::Transition...
+Generating docs for compound keyvi::dictionary::fsa::internal::UnpackedStateStack...
+Generating docs for compound keyvi::dictionary::fsa::internal::ValueStoreFactory...
+Generating docs for compound keyvi::dictionary::fsa::internal::RawPointer...
+Generating docs for compound keyvi::dictionary::fsa::internal::RawPointerForCompare...
+Generating docs for compound keyvi::dictionary::fsa::traversal::BoundedWeightedTransition...
 Generating docs for compound keyvi::dictionary::fsa::traversal::TraversalPayload< BoundedWeightedTransition >...
 Generating docs for compound keyvi::dictionary::fsa::traversal::NearTransition...
 Generating docs for compound keyvi::dictionary::fsa::traversal::TraversalPayload< NearTransition >...
@@ -1069,5 +1083,5 @@ Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
-lookup cache used 2753/65536 hits=18133 misses=3164
+lookup cache used 2842/65536 hits=19161 misses=3273
 finished...

@@ -7,6 +7,7 @@ var dir_4f593fa07bcc006705199afaee94c880 =
     [ "intrinsics.h", "intrinsics_8h_source.html", null ],
     [ "ivalue_store.h", "ivalue__store_8h_source.html", null ],
     [ "json_value_store.h", "json__value__store_8h_source.html", null ],
+    [ "json_value_store_deprecated.h", "json__value__store__deprecated_8h_source.html", null ],
     [ "lru_generation_cache.h", "lru__generation__cache_8h_source.html", null ],
     [ "memory_map_flags.h", "memory__map__flags_8h_source.html", null ],
     [ "memory_map_manager.h", "memory__map__manager_8h_source.html", null ],

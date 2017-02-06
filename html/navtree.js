@@ -33,9 +33,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html",
-"dictionary__compiler_8h_source.html",
-"structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_state.html#a1de38680afb4b6a741d39c6f26f4c15f"
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#a3ff732599e4e33b333b86b975389bd9a",
+"classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html",
+"structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_stack.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

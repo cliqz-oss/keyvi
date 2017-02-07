@@ -113,8 +113,10 @@ $(document).ready(function(){initNavTree('classkeyvi_1_1dictionary_1_1_dictionar
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac28f9a0f67dd067556dd57a0a6c6abea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac28f9a0f67dd067556dd57a0a6c6abea">DictionaryCompiler</a> (size_t memory_limit=1073741824, const compiler_param_t &amp;params=compiler_param_t())</td></tr>
-<tr class="separator:ac28f9a0f67dd067556dd57a0a6c6abea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82ccb446d6c33a00930028c5c8d7cbed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a82ccb446d6c33a00930028c5c8d7cbed">DictionaryCompiler</a> (const compiler_param_t &amp;params=compiler_param_t())</td></tr>
+<tr class="separator:a82ccb446d6c33a00930028c5c8d7cbed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a088e0ffd252ddd8970530ec3716649d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a088e0ffd252ddd8970530ec3716649d9">DictionaryCompiler</a> (size_t memory_limit, const compiler_param_t &amp;params=compiler_param_t())</td></tr>
+<tr class="separator:a088e0ffd252ddd8970530ec3716649d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2c12029deb1be7937df6161d92f3b85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2c12029deb1be7937df6161d92f3b85"></a>
 <a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">DictionaryCompiler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">DictionaryCompiler</a> const &amp;)=delete</td></tr>
 <tr class="separator:aa2c12029deb1be7937df6161d92f3b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,7 +149,41 @@ class keyvi::dictionary::DictionaryCompiler&lt; PersistenceT, ValueStoreT, Sorte
 
 <p><a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary.html">Dictionary</a> Compiler </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac28f9a0f67dd067556dd57a0a6c6abea"></a>
+<a class="anchor" id="a82ccb446d6c33a00930028c5c8d7cbed"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class PersistenceT , class ValueStoreT  = fsa::internal::NullValueStore, class SorterT  = sort::TpieSorter&lt;key_value_t&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">keyvi::dictionary::DictionaryCompiler</a>&lt; PersistenceT, ValueStoreT, SorterT &gt;::<a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">DictionaryCompiler</a> </td>
+          <td>(</td>
+          <td class="paramtype">const compiler_param_t &amp;&#160;</td>
+          <td class="paramname"><em>params</em> = <code>compiler_param_t()</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Instantiate a dictionary compiler.</p>
+<p>Note the memory limit only limits the memory used for internal buffers, memory usage for small short-lived objects and the library itself is not part of the limit.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>compiler parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a088e0ffd252ddd8970530ec3716649d9"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -160,7 +196,7 @@ template&lt;class PersistenceT , class ValueStoreT  = fsa::internal::NullValueSt
           <td class="memname"><a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">keyvi::dictionary::DictionaryCompiler</a>&lt; PersistenceT, ValueStoreT, SorterT &gt;::<a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">DictionaryCompiler</a> </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>memory_limit</em> = <code>1073741824</code>, </td>
+          <td class="paramname"><em>memory_limit</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -180,7 +216,7 @@ template&lt;class PersistenceT , class ValueStoreT  = fsa::internal::NullValueSt
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Instantiate a dictionary compiler.</p>
+<p>DEPRECATED Instantiate a dictionary compiler.</p>
 <p>Note the memory limit only limits the memory used for internal buffers, memory usage for small short-lived objects and the library itself is part of the limit.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -304,7 +340,7 @@ template&lt;class PersistenceT , class ValueStoreT  = fsa::internal::NullValueSt
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacekeyvi.html">keyvi</a></li><li class="navelem"><b>dictionary</b></li><li class="navelem"><a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">DictionaryCompiler</a></li>
-    <li class="footer">Generated on Mon Feb 6 2017 11:25:22 by
+    <li class="footer">Generated on Tue Feb 7 2017 16:39:40 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

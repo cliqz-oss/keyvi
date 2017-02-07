@@ -126,8 +126,10 @@ tpie::serialization_sorter<br class="typebreak"/>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5f352fb55b5ac69fd779878652046c91"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html#a5f352fb55b5ac69fd779878652046c91">TpieSorter</a> (size_t memory_limit=1073741824, const sorter_param_t &amp;params=sorter_param_t())</td></tr>
-<tr class="separator:a5f352fb55b5ac69fd779878652046c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5102d8c6454edb29087d661895a5400"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html#aa5102d8c6454edb29087d661895a5400">TpieSorter</a> (const sorter_param_t &amp;params=sorter_param_t())</td></tr>
+<tr class="separator:aa5102d8c6454edb29087d661895a5400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fc40244e950038fe694888c8884e02a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html#a9fc40244e950038fe694888c8884e02a">TpieSorter</a> (size_t memory_limit, const sorter_param_t &amp;params=sorter_param_t())</td></tr>
+<tr class="separator:a9fc40244e950038fe694888c8884e02a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a706f4627fd844009a7c6d505ff66d920"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a706f4627fd844009a7c6d505ff66d920"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>push_back</b> (const KeyValueT &amp;kv)</td></tr>
 <tr class="separator:a706f4627fd844009a7c6d505ff66d920"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,7 +150,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr
 <tr class="separator:a4d35559fea42bcd2e96416900e56874b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5f352fb55b5ac69fd779878652046c91"></a>
+<a class="anchor" id="aa5102d8c6454edb29087d661895a5400"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename KeyValueT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html">keyvi::dictionary::sort::TpieSorter</a>&lt; KeyValueT &gt;::<a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html">TpieSorter</a> </td>
+          <td>(</td>
+          <td class="paramtype">const sorter_param_t &amp;&#160;</td>
+          <td class="paramname"><em>params</em> = <code>sorter_param_t()</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Instantiate a TPIE sorter (external memory sort).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">memory_limit</td><td>memory limit for internal memory usage </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9fc40244e950038fe694888c8884e02a"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -161,7 +196,7 @@ template&lt;typename KeyValueT &gt; </div>
           <td class="memname"><a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html">keyvi::dictionary::sort::TpieSorter</a>&lt; KeyValueT &gt;::<a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html">TpieSorter</a> </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>memory_limit</em> = <code>1073741824</code>, </td>
+          <td class="paramname"><em>memory_limit</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -181,7 +216,7 @@ template&lt;typename KeyValueT &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Instantiate a TPIE sorter (external memory sort).</p>
+<p>DEPRECATED Instantiate a TPIE sorter (external memory sort).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">memory_limit</td><td>memory limit for internal memory usage </td></tr>
@@ -200,7 +235,7 @@ template&lt;typename KeyValueT &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacekeyvi.html">keyvi</a></li><li class="navelem"><b>dictionary</b></li><li class="navelem"><b>sort</b></li><li class="navelem"><a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html">TpieSorter</a></li>
-    <li class="footer">Generated on Tue Feb 7 2017 18:40:59 by
+    <li class="footer">Generated on Tue Feb 7 2017 20:58:37 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

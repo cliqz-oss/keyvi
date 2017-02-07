@@ -43,15 +43,15 @@ var hierarchy =
     ] ],
     [ "keyvi::dictionary::util::iterator_pair< Iterator >", "classkeyvi_1_1dictionary_1_1util_1_1iterator__pair.html", null ],
     [ "keyvi::dictionary::fsa::internal::IValueStoreReader", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html", [
+      [ "keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html", null ],
       [ "keyvi::dictionary::fsa::internal::IntValueStoreReader", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html", null ],
-      [ "keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader.html", null ],
       [ "keyvi::dictionary::fsa::internal::JsonValueStoreReader", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_reader.html", null ],
       [ "keyvi::dictionary::fsa::internal::NullValueStoreReader", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_null_value_store_reader.html", null ],
       [ "keyvi::dictionary::fsa::internal::StringValueStoreReader", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_string_value_store_reader.html", null ]
     ] ],
     [ "keyvi::dictionary::fsa::internal::IValueStoreWriter", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html", [
+      [ "keyvi::dictionary::fsa::internal::IntInnerWeightsValueStore", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html", null ],
       [ "keyvi::dictionary::fsa::internal::IntValueStore", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html", null ],
-      [ "keyvi::dictionary::fsa::internal::IntValueStoreWithInnerWeights", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html", null ],
       [ "keyvi::dictionary::fsa::internal::JsonValueStore", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store.html", null ],
       [ "keyvi::dictionary::fsa::internal::NullValueStore", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_null_value_store.html", null ],
       [ "keyvi::dictionary::fsa::internal::StringValueStore", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_string_value_store.html", null ]
@@ -86,10 +86,8 @@ var hierarchy =
     [ "keyvi::dictionary::fsa::internal::SlidingWindowBitArrayPositionTracker", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sliding_window_bit_array_position_tracker.html", null ],
     [ "keyvi::dictionary::fsa::internal::SparseArrayBuilder< PersistenceT, OffsetTypeT, HashCodeTypeT >", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_builder.html", null ],
     [ "keyvi::dictionary::fsa::internal::SparseArrayBuilder< SparseArrayPersistence< uint16_t >, OffsetTypeT, HashCodeTypeT >", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_builder_3_01_sparse_array_persisten537e626400f625b73982364b2e1bca5b.html", null ],
-    [ "keyvi::dictionary::fsa::internal::SparseArrayBuilder< SparseArrayPersistence< uint32_t >, OffsetTypeT, HashCodeTypeT >", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_builder_3_01_sparse_array_persisten9a3a74a4e41034f143ed0f04ba9d15c1.html", null ],
     [ "keyvi::dictionary::fsa::internal::SparseArrayPersistence< BucketT >", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html", null ],
     [ "keyvi::dictionary::fsa::internal::SparseArrayPersistence< uint16_t >", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html", null ],
-    [ "keyvi::dictionary::fsa::internal::SparseArrayPersistence< uint32_t >", "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html", null ],
     [ "keyvi::dictionary::fsa::StateTraverser< TransitionT >", "classkeyvi_1_1dictionary_1_1fsa_1_1_state_traverser.html", null ],
     [ "keyvi::dictionary::fsa::internal::StringValueStore::StringPointer", "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_string_value_store_1_1_string_pointer.html", null ],
     [ "keyvi::dictionary::fsa::internal::StringValueStore::StringPointerForCompare< PersistenceT >", "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_string_value_store_1_1_string_pointer_for_compare.html", null ],
@@ -98,10 +96,10 @@ var hierarchy =
     [ "keyvi::dictionary::sort::TpieSorter< KeyValueT >", "classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html", null ],
     [ "keyvi::dictionary::util::trace", "classkeyvi_1_1dictionary_1_1util_1_1trace.html", null ],
     [ "keyvi::dictionary::util::Transform", "classkeyvi_1_1dictionary_1_1util_1_1_transform.html", null ],
-    [ "keyvi::dictionary::fsa::internal::UnpackedState< PersistenceT >::Transition", "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state_1_1_transition.html", null ],
     [ "keyvi::dictionary::fsa::traversal::Transition", "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_transition.html", [
       [ "keyvi::dictionary::fsa::traversal::NearTransition", "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_near_transition.html", null ]
     ] ],
+    [ "keyvi::dictionary::fsa::internal::UnpackedState< PersistenceT >::Transition", "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state_1_1_transition.html", null ],
     [ "keyvi::dictionary::fsa::traversal::TraversalPayload< TransitionT >", "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_payload.html", null ],
     [ "keyvi::dictionary::fsa::traversal::TraversalPayload< BoundedWeightedTransition >", "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_payload_3_01_bounded_weighted_transition_01_4.html", null ],
     [ "keyvi::dictionary::fsa::traversal::TraversalPayload< NearTransition >", "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_payload_3_01_near_transition_01_4.html", null ],

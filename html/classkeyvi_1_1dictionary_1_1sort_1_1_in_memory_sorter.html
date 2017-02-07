@@ -119,8 +119,10 @@ typedef std::vector&lt; KeyValueT &gt;<br class="typebreak"/>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a49792651896487fe29dba8a5071118ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html#a49792651896487fe29dba8a5071118ec">InMemorySorter</a> (size_t memory_limit=1073741824, const sorter_param_t &amp;params=sorter_param_t())</td></tr>
-<tr class="separator:a49792651896487fe29dba8a5071118ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c290fc67d213985130a99042576d55d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html#a3c290fc67d213985130a99042576d55d">InMemorySorter</a> (const sorter_param_t &amp;params=sorter_param_t())</td></tr>
+<tr class="separator:a3c290fc67d213985130a99042576d55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4edb471cfc2443176a4bcf66bcd87d87"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html#a4edb471cfc2443176a4bcf66bcd87d87">InMemorySorter</a> (size_t memory_limit, const sorter_param_t &amp;params=sorter_param_t())</td></tr>
+<tr class="separator:a4edb471cfc2443176a4bcf66bcd87d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaaa7801ee0f8345c7ee2af8152879ca1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaaa7801ee0f8345c7ee2af8152879ca1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>push_back</b> (const KeyValueT &amp;kv)</td></tr>
 <tr class="separator:aaaa7801ee0f8345c7ee2af8152879ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,7 +143,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr
 <tr class="separator:a78549ce48c840a02d761bc248fabc128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a49792651896487fe29dba8a5071118ec"></a>
+<a class="anchor" id="a3c290fc67d213985130a99042576d55d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename KeyValueT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html">keyvi::dictionary::sort::InMemorySorter</a>&lt; KeyValueT &gt;::<a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html">InMemorySorter</a> </td>
+          <td>(</td>
+          <td class="paramtype">const sorter_param_t &amp;&#160;</td>
+          <td class="paramname"><em>params</em> = <code>sorter_param_t()</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Instantiate a in memory sorter. This is a simple heap based sorter, everything must fit in memory.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">memory_limit</td><td>ignored, everything is in memory, client has to ensure it fits in memory. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4edb471cfc2443176a4bcf66bcd87d87"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -154,7 +189,7 @@ template&lt;typename KeyValueT &gt; </div>
           <td class="memname"><a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html">keyvi::dictionary::sort::InMemorySorter</a>&lt; KeyValueT &gt;::<a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html">InMemorySorter</a> </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>memory_limit</em> = <code>1073741824</code>, </td>
+          <td class="paramname"><em>memory_limit</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -174,7 +209,7 @@ template&lt;typename KeyValueT &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Instantiate a in memory sorter. This is a simple heap based sorter, everything must fit in memory.</p>
+<p>DEPRECATED Instantiate a in memory sorter. This is a simple heap based sorter, everything must fit in memory.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">memory_limit</td><td>ignored, everything is in memory, client has to ensure it fits in memory. </td></tr>
@@ -193,7 +228,7 @@ template&lt;typename KeyValueT &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacekeyvi.html">keyvi</a></li><li class="navelem"><b>dictionary</b></li><li class="navelem"><b>sort</b></li><li class="navelem"><a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html">InMemorySorter</a></li>
-    <li class="footer">Generated on Tue Feb 7 2017 18:40:59 by
+    <li class="footer">Generated on Tue Feb 7 2017 20:58:37 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

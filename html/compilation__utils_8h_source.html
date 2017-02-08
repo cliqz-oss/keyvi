@@ -152,7 +152,7 @@ $(document).ready(function(){initNavTree('compilation__utils_8h_source.html','')
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html">fsa::internal::SparseArrayPersistence&lt;&gt;</a> p(2048,</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                         boost::filesystem::temp_directory_path());</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html">fsa::Generator&lt;fsa::internal::SparseArrayPersistence&lt;&gt;</a>&gt; g;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html">fsa::Generator&lt;fsa::internal::SparseArrayPersistence&lt;&gt;</a>&gt; g(fsa::generator_param_t({{<span class="stringliteral">&quot;memory_limit_mb&quot;</span>,<span class="stringliteral">&quot;10&quot;</span>}}));</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> key : input){</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      g.<a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html#ae307dea2d23eb3dfb311fffb6af57748">Add</a>(key);</div>
@@ -173,7 +173,7 @@ $(document).ready(function(){initNavTree('compilation__utils_8h_source.html','')
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html">fsa::internal::SparseArrayPersistence&lt;&gt;</a> p(2048,</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                           boost::filesystem::temp_directory_path());</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html">fsa::Generator&lt;fsa::internal::SparseArrayPersistence&lt;&gt;</a>, <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_string_value_store.html">fsa::internal::StringValueStore</a>&gt; g;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html">fsa::Generator&lt;fsa::internal::SparseArrayPersistence&lt;&gt;</a>, <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_string_value_store.html">fsa::internal::StringValueStore</a>&gt; g(fsa::generator_param_t({{<span class="stringliteral">&quot;memory_limit_mb&quot;</span>,<span class="stringliteral">&quot;10&quot;</span>}}));</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="keywordflow">for</span>(<span class="keyword">auto</span> pair : input){</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        g.<a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html#ae307dea2d23eb3dfb311fffb6af57748">Add</a>(pair.first, pair.second);</div>
@@ -194,7 +194,7 @@ $(document).ready(function(){initNavTree('compilation__utils_8h_source.html','')
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html">fsa::internal::SparseArrayPersistence&lt;&gt;</a> p(2048,</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                             boost::filesystem::temp_directory_path());</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html">fsa::Generator&lt;fsa::internal::SparseArrayPersistence&lt;&gt;</a>, <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store.html">fsa::internal::JsonValueStore</a>&gt; g;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html">fsa::Generator&lt;fsa::internal::SparseArrayPersistence&lt;&gt;</a>, <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store.html">fsa::internal::JsonValueStore</a>&gt; g(fsa::generator_param_t({{<span class="stringliteral">&quot;memory_limit_mb&quot;</span>,<span class="stringliteral">&quot;10&quot;</span>}}));</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> pair : input){</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;          g.<a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html#ae307dea2d23eb3dfb311fffb6af57748">Add</a>(pair.first, pair.second);</div>
@@ -215,7 +215,7 @@ $(document).ready(function(){initNavTree('compilation__utils_8h_source.html','')
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html">fsa::internal::SparseArrayPersistence&lt;&gt;</a> p(2048,</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                                           boost::filesystem::temp_directory_path());</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html">fsa::Generator&lt;fsa::internal::SparseArrayPersistence&lt;&gt;</a>, <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html">fsa::internal::IntInnerWeightsValueStore</a>&gt; g;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html">fsa::Generator&lt;fsa::internal::SparseArrayPersistence&lt;&gt;</a>, <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html">fsa::internal::IntInnerWeightsValueStore</a>&gt; g(fsa::generator_param_t({{<span class="stringliteral">&quot;memory_limit_mb&quot;</span>,<span class="stringliteral">&quot;10&quot;</span>}}));</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keywordflow">for</span>(<span class="keyword">auto</span> pair : input){</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        g.<a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html#ae307dea2d23eb3dfb311fffb6af57748">Add</a>(pair.first, pair.second);</div>
@@ -236,7 +236,7 @@ $(document).ready(function(){initNavTree('compilation__utils_8h_source.html','')
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html">fsa::internal::SparseArrayPersistence&lt;&gt;</a> p(2048,</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                                           boost::filesystem::temp_directory_path());</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html">fsa::Generator&lt;fsa::internal::SparseArrayPersistence&lt;&gt;</a>, <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html">fsa::internal::IntValueStore</a>&gt; g;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html">fsa::Generator&lt;fsa::internal::SparseArrayPersistence&lt;&gt;</a>, <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html">fsa::internal::IntValueStore</a>&gt; g(fsa::generator_param_t({{<span class="stringliteral">&quot;memory_limit_mb&quot;</span>,<span class="stringliteral">&quot;10&quot;</span>}}));</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      <span class="keywordflow">for</span>(<span class="keyword">auto</span> pair : input){</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        g.<a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator.html#ae307dea2d23eb3dfb311fffb6af57748">Add</a>(pair.first, pair.second);</div>
@@ -275,7 +275,7 @@ $(document).ready(function(){initNavTree('compilation__utils_8h_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_48579a6f32b4d7e41740ba924adbede6.html">compilation</a></li><li class="navelem"><b>compilation_utils.h</b></li>
-    <li class="footer">Generated on Tue Feb 7 2017 20:58:36 by
+    <li class="footer">Generated on Wed Feb 8 2017 20:58:07 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

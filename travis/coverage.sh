@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -ev
 
-cd pykeyvi/
-ln -s ../keyvi keyvi
-cd ..
-
 coveralls   -r . -b build/ -i keyvi \
             --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp' \
             -e build/keyvi/3rdparty -e keyvi/3rdparty -e pykeyvi \
@@ -13,6 +9,10 @@ coveralls   -r . -b build/ -i keyvi \
             -E '.*/src/cpp/keyviinspector/keyviinspector.cpp' \
             -E '.*/src/cpp/keyvimerger/keyvimerger.cpp' \
             --dump keyvi.cov_report > /dev/null
+
+cd pykeyvi/
+ln -s ../keyvi keyvi
+cd ..
 
 coveralls   -r . -b pykeyvi/ -i pykeyvi \
             --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp' \

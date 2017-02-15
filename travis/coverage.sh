@@ -5,7 +5,8 @@ cd pykeyvi/
 ln -s ../keyvi keyvi
 cd ..
 
-coveralls   -r . -b build/ -i keyvi --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp' \
+coveralls   -r . -b build/ -i keyvi \
+            --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp' \
             -e build/keyvi/3rdparty -e keyvi/3rdparty -e pykeyvi \
             -E '.*/tests/*.cpp' \
             -E '.*/src/cpp/keyvicompiler/keyvicompiler.cpp' \
@@ -13,7 +14,8 @@ coveralls   -r . -b build/ -i keyvi --gcov /usr/bin/gcov-4.8 --gcov-options '\-l
             -E '.*/src/cpp/keyvimerger/keyvimerger.cpp' \
             --dump keyvi.cov_report > /dev/null
 
-coveralls   -r . -b pykeyvi/ -i pykeyvi --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp' \
+coveralls   -r . -b pykeyvi/ -i pykeyvi \
+            --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp' \
             -e pykeyvi/keyvi/3rdparty -e build \
             -E '.*/autowrap_includes/autowrap_tools.hpp' \
             -E '.*/src/extra/attributes_converter.h' \

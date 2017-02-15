@@ -6,22 +6,22 @@ ln -s ../keyvi keyvi
 cd ..
 
 coveralls   -r . -b build/ -i keyvi --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp' \
-            -e build/keyvi/3rdparty -e keyvi/3rdparty \
+            -e build/keyvi/3rdparty -e keyvi/3rdparty -e pykeyvi \
             -E '.*/tests/*.cpp' \
             -E '.*/src/cpp/keyvicompiler/keyvicompiler.cpp' \
             -E '.*/src/cpp/keyviinspector/keyviinspector.cpp' \
             -E '.*/src/cpp/keyvimerger/keyvimerger.cpp' \
             --dump keyvi.cov_report > /dev/null
 
-# workaround for coverage measurement: symlink cpp source:
-#cd pykeyvi/src
-#ln -s ../../keyvi/src/cpp/ .
-#cd ../..
-#
-#coveralls   -r pykeyvi -b pykeyvi --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp \-s '"$PWD"'/pykeyvi/keyvi' \
-#            -E '.*3rdparty' -E '.*/pykeyvi.cpp' -E '.*autowrap.*' \
-#            --dump pykeyvi.cov_report --follow-symlinks > /dev/null
+coveralls   -r . -b pykeyvi/ -i pykeyvi --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp' \
+            -e pykeyvi/keyvi/3rdparty -e build \
+            -E '.*/autowrap_includes/autowrap_tools.hpp' \
+            -E '.*/src/extra/attributes_converter.h' \
+            -E '.*/pykeyvi.cpp' \
+            --dump pykeyvi.cov_report_tmp > /dev/null
+
+sed s/"pykeyvi\/keyvi"/"keyvi"/g pykeyvi.cov_report_tmp > pykeyvi.cov_report
 
 export COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN}
 
-coveralls-merge  keyvi.cov_report
+coveralls-merge keyvi.cov_report pykeyvi.cov_report

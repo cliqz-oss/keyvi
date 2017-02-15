@@ -10,5 +10,5 @@ make -j 4
 cd ../pykeyvi
 python setup.py build --mode $CONF
 python setup.py install --user
-#py.test tests
+py.test tests
 cd ..

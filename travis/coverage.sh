@@ -3,7 +3,8 @@ set -ev
 
 
 coveralls   -r . -b build/ -i keyvi --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp' \
-            -e build/keyvi/3rdparty -e keyvi/3rdparty -e keyvi/tests -e pykeyvi \
+            -e build/keyvi/3rdparty -e keyvi/3rdparty -e pykeyvi \
+            -E '.*/tests/*.cpp' \
             --dump keyvi.cov_report > /dev/null
 
 # workaround for coverage measurement: symlink cpp source:

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['creating_20debian_20packages',['Creating Debian packages',['../md_doc_development__packaging_keyvi.html',1,'']]]
+  ['extensibility',['Extensibility',['../md_doc_algorithm__extensibility.html',1,'']]]
 ];

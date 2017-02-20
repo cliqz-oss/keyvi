@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scaling',['Scaling',['../md_doc_algorithm__scaling.html',1,'']]]
+  ['the_20pykeyvi_20compilers',['The pykeyvi compilers',['../md_doc_usage__building_keyvi_dictionaries_with_python.html',1,'']]]
 ];

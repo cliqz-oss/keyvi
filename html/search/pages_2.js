@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['introduction',['Introduction',['../md_doc_algorithm__construction-_basics.html',1,'']]]
+  ['keyvi_20crashcourse',['keyvi Crashcourse',['../md_doc_usage__crashcourse.html',1,'']]]
 ];

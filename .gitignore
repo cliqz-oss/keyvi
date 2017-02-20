@@ -26,3 +26,20 @@
 *.exe
 *.out
 *.app
+
+# files from broken merges
+*.orig
+
+# cmake build dir
+build/*
+*/cmake-build-debug/*
+
+# IDE project files
+.idea
+.cproject
+.pydevproject
+.project
+.settings
+
+# whitelist anything in contrib
+!contrib/ide/**

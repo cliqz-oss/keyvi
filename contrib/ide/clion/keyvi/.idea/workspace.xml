@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="keyvi" targetName="units_test_all" />
+      <config projectName="keyvi" targetName="tpie" />
+      <config projectName="keyvi" targetName="keyviinspector" />
+      <config projectName="keyvi" targetName="doccode" />
+      <config projectName="keyvi" targetName="keyvicompiler" />
+      <config projectName="keyvi" targetName="keyvimerger" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="RunManager" selected="units_test_all">
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="keyvicompiler" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="keyvi" TARGET_NAME="keyvicompiler" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="keyvi" RUN_TARGET_NAME="keyvicompiler">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="keyviinspector" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="keyvi" TARGET_NAME="keyviinspector" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="keyvi" RUN_TARGET_NAME="keyviinspector">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="keyvimerger" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="keyvi" TARGET_NAME="keyvimerger" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="keyvi" RUN_TARGET_NAME="keyvimerger">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="units_test_all" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="keyvi" TARGET_NAME="units_test_all" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="keyvi" RUN_TARGET_NAME="units_test_all">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="pykeyvi" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../pykeyvi" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="keyvi" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../pykeyvi/setup.py" />
+      <option name="PARAMETERS" value="build" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />    
+    </configuration>
+    <configuration default="false" name="pykeyvi tests (python 2.7)" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="/usr/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" /> 
+      <module name="keyvi" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="$PROJECT_DIR$/../pykeyvi/tests/" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />  
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+  </component>
+</project>

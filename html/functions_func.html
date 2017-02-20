@@ -157,8 +157,8 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_minimization_hash.html#abef1e876b55797c94b37660ea5a53c8d">keyvi::dictionary::fsa::internal::MinimizationHash&lt; T &gt;</a>
 </li>
 <li>CloseFeeding()
-: <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#aa6d4ded8b81508b0528423f63022f13a">keyvi::dictionary::fsa::internal::IntValueStore</a>
-, <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#af15286c9e7e0028ac523843977e00544">keyvi::dictionary::fsa::internal::IntValueStoreWithInnerWeights</a>
+: <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#ab9d08d55b4024c8e80972efd864b038f">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStore</a>
+, <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#aa6d4ded8b81508b0528423f63022f13a">keyvi::dictionary::fsa::internal::IntValueStore</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store.html#aef5c6a4bd5d7500e3ba71d1ea21e52fd">keyvi::dictionary::fsa::internal::JsonValueStore</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_null_value_store.html#ad735bc8ae4e9bc11a9a026f47d2b3d15">keyvi::dictionary::fsa::internal::NullValueStore</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_string_value_store.html#a67e29d4978ce878c41f5370a2e0cd129">keyvi::dictionary::fsa::internal::StringValueStore</a>
@@ -183,7 +183,10 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary.html#ab7debcaa19e6808f4e5ada2ae72917db">keyvi::dictionary::Dictionary</a>
 </li>
 <li>DictionaryCompiler()
-: <a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac28f9a0f67dd067556dd57a0a6c6abea">keyvi::dictionary::DictionaryCompiler&lt; PersistenceT, ValueStoreT, SorterT &gt;</a>
+: <a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a82ccb446d6c33a00930028c5c8d7cbed">keyvi::dictionary::DictionaryCompiler&lt; PersistenceT, ValueStoreT, SorterT &gt;</a>
+</li>
+<li>DictionaryMerger()
+: <a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_merger.html#ae06c210bc7dcac784d6581e7977ae29c">keyvi::dictionary::DictionaryMerger&lt; PersistenceT, ValueStoreT &gt;</a>
 </li>
 <li>Disjoint()
 : <a class="el" href="structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a123288d0aebcbfec70576038b9c16c5a">keyvi::dictionary::fsa::internal::BitVector&lt; Tsize &gt;</a>
@@ -240,14 +243,12 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>GetNumberOfStates()
 : <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_builder_3_01_sparse_array_persisten537e626400f625b73982364b2e1bca5b.html#aaab16a92770b60bbf7dbca5706f1f016">keyvi::dictionary::fsa::internal::SparseArrayBuilder&lt; SparseArrayPersistence&lt; uint16_t &gt;, OffsetTypeT, HashCodeTypeT &gt;</a>
-, <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_builder_3_01_sparse_array_persisten9a3a74a4e41034f143ed0f04ba9d15c1.html#a66bccb2055c7965d974038e7864cc81a">keyvi::dictionary::fsa::internal::SparseArrayBuilder&lt; SparseArrayPersistence&lt; uint32_t &gt;, OffsetTypeT, HashCodeTypeT &gt;</a>
 </li>
 <li>GetOutGoingTransitions()
 : <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a1e237bd288491f352dbeaf47c6949806">keyvi::dictionary::fsa::Automata</a>
 </li>
 <li>GetRawValueAsString()
 : <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#aee0c768ba79eeacbca09bb6467bfa7ee">keyvi::dictionary::fsa::internal::IValueStoreReader</a>
-, <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader.html#ace106651c86ad0e37779acbcce265794">keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_reader.html#afe9b4af744c556b56831e198e9b2e903">keyvi::dictionary::fsa::internal::JsonValueStoreReader</a>
 </li>
 <li>GetStartState()
@@ -255,7 +256,6 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>GetStatistics()
 : <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#a281c593a159be56c73e066ecc5da0b67">keyvi::dictionary::fsa::internal::IValueStoreReader</a>
-, <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader.html#afdf53cdb62cb91b0ccdaa5342ddd2946">keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_reader.html#a49837296b5468af1e57a61333ba41e7e">keyvi::dictionary::fsa::internal::JsonValueStoreReader</a>
 </li>
 <li>GetValue()
@@ -263,17 +263,17 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_string_value_store.html#aadaa6aa5911eab4d2ae240fc2f06a60d">keyvi::dictionary::fsa::internal::StringValueStore</a>
 </li>
 <li>GetValueAsAttributeVector()
-: <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html#a73af403b79699dcd8b75c7ffb749e758">keyvi::dictionary::fsa::internal::IntValueStoreReader</a>
+: <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a0ddd155aa47816c1a8e7857cf96ec9cc">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader</a>
+, <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html#a73af403b79699dcd8b75c7ffb749e758">keyvi::dictionary::fsa::internal::IntValueStoreReader</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#afe9cf86cb03a6f00ec034307d6d075ec">keyvi::dictionary::fsa::internal::IValueStoreReader</a>
-, <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader.html#a44e86441d60e13fb66dd8393114a4012">keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_reader.html#a31f84dd54b6a0a4fc4c3787eea115a2b">keyvi::dictionary::fsa::internal::JsonValueStoreReader</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_null_value_store_reader.html#a50efe25e63ba48b5fccc6cb905fcba40">keyvi::dictionary::fsa::internal::NullValueStoreReader</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_string_value_store_reader.html#afe20b7c4f7a73934c866d4bd3677578c">keyvi::dictionary::fsa::internal::StringValueStoreReader</a>
 </li>
 <li>GetValueAsString()
-: <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html#a7d6028216f9d83bdd03ce602f66c8a85">keyvi::dictionary::fsa::internal::IntValueStoreReader</a>
+: <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a8aa996ce1c23ed4850eabe49ae91847a">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader</a>
+, <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html#a7d6028216f9d83bdd03ce602f66c8a85">keyvi::dictionary::fsa::internal::IntValueStoreReader</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#a9de43c000559260fb8932ed90a2376c3">keyvi::dictionary::fsa::internal::IValueStoreReader</a>
-, <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader.html#a7a50cb7976f5ad5918b932e62e380b4f">keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_reader.html#acd8bd928368a9418db461929d6b0c200">keyvi::dictionary::fsa::internal::JsonValueStoreReader</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_null_value_store_reader.html#a8cf64560eeb18947300d30c954698bbe">keyvi::dictionary::fsa::internal::NullValueStoreReader</a>
 , <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_string_value_store_reader.html#afd2284e6d38d77c834fced9c52e083f2">keyvi::dictionary::fsa::internal::StringValueStoreReader</a>
@@ -283,7 +283,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
 <li>InMemorySorter()
-: <a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html#a49792651896487fe29dba8a5071118ec">keyvi::dictionary::sort::InMemorySorter&lt; KeyValueT &gt;</a>
+: <a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html#a3c290fc67d213985130a99042576d55d">keyvi::dictionary::sort::InMemorySorter&lt; KeyValueT &gt;</a>
 </li>
 <li>IValueStoreReader()
 : <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#a8394f70c5af62074722075141cda3953">keyvi::dictionary::fsa::internal::IValueStoreReader</a>
@@ -364,7 +364,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
 <li>TpieSorter()
-: <a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html#a5f352fb55b5ac69fd779878652046c91">keyvi::dictionary::sort::TpieSorter&lt; KeyValueT &gt;</a>
+: <a class="el" href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html#aa5102d8c6454edb29087d661895a5400">keyvi::dictionary::sort::TpieSorter&lt; KeyValueT &gt;</a>
 </li>
 </ul>
 
@@ -389,7 +389,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Feb 20 2017 09:48:53 by
+    <li class="footer">Generated on Mon Feb 20 2017 11:22:35 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

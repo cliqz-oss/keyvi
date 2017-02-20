@@ -23,6 +23,15 @@ Now you should be able to compile as explained above.
 
 ## Build
 
-Use `cmake` to build keyvi executables along with unit tests. 
+Use `cmake` to build keyvi executables along with unit tests.
+
+Example:
+
+    mkdir build_dir_<BUILD_TYPE>
+    cd build_dir_<BUILD_TYPE>
+    cmake -DCMAKE_BUILD_TYPE=<BUILD_TYPE> ..
+    make
+
+`<BUILD_TYPE>` can be `release`, `debug`, `coverage` or any other available by default in `cmake`
 
 To run cpp unit tests just execute `units_test_all` executable.

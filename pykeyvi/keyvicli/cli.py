@@ -25,7 +25,7 @@ def dump(args):
 
 
 def compile(args):
-    params = {key: value for key, value in args.compiler_options}
+    params = {key: value for key, value in args.compiler_params}
 
     dict_type = args.dict_type
     if dict_type == 'json':
@@ -69,9 +69,9 @@ def main():
     compile_parser.add_argument('output_file', type=str, metavar='OUT_FILE')
     compile_parser.add_argument('dict_type', type=str, choices=['json', 'key-only'],
                                 help='dictionary type')
-    compile_parser.add_argument('--option', action='append', default=[], dest='compiler_options',
+    compile_parser.add_argument('--param', action='append', default=[], dest='compiler_params',
                                 type=lambda kv: kv.split("="),
-                                help='options for keyvi compiler in format option=value')
+                                help='parameters for keyvi compiler in format param=value')
 
     args = argument_parser.parse_args()
 

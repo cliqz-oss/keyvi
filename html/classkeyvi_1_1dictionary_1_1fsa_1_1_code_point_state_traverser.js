@@ -12,7 +12,6 @@ var classkeyvi_1_1dictionary_1_1fsa_1_1_code_point_state_traverser =
     [ "GetStateValue", "classkeyvi_1_1dictionary_1_1fsa_1_1_code_point_state_traverser.html#a253a3545905b8c39fc33233f72b6b391", null ],
     [ "GetValueAsAttributeVector", "classkeyvi_1_1dictionary_1_1fsa_1_1_code_point_state_traverser.html#a9bb9649f401c15370038c895fca55c81", null ],
     [ "IsFinalState", "classkeyvi_1_1dictionary_1_1fsa_1_1_code_point_state_traverser.html#afd2cd2a1737282149ad246c9d2118f87", null ],
-    [ "operator bool", "classkeyvi_1_1dictionary_1_1fsa_1_1_code_point_state_traverser.html#a43259406983fd7ba53183d44dab06671", null ],
     [ "operator++", "classkeyvi_1_1dictionary_1_1fsa_1_1_code_point_state_traverser.html#acb40c7f73d631fbb87f984fd7656ae85", null ],
     [ "operator=", "classkeyvi_1_1dictionary_1_1fsa_1_1_code_point_state_traverser.html#a6a3bd97a3acd93c888ecb56c3c6cb2a7", null ],
     [ "Prune", "classkeyvi_1_1dictionary_1_1fsa_1_1_code_point_state_traverser.html#a9a7c898ecf9b238b19bf20dd770f3ad4", null ]

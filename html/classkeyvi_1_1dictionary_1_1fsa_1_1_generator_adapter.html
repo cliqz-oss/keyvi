@@ -120,9 +120,9 @@ Inheritance diagram for keyvi::dictionary::fsa::GeneratorAdapter&lt; Persistence
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3ae325d48868c4b5ec11f888f0921db5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ae325d48868c4b5ec11f888f0921db5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GeneratorAdapter</b> (const generator_param_t &amp;value_store_params=generator_param_t(), ValueStoreT *value_store=NULL)</td></tr>
-<tr class="separator:a3ae325d48868c4b5ec11f888f0921db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9480c5a48acd2fdea358980b0f88df67"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9480c5a48acd2fdea358980b0f88df67"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GeneratorAdapter</b> (size_t memory_limit=1073741824, const generator_param_t &amp;value_store_params=generator_param_t(), ValueStoreT *value_store=NULL)</td></tr>
+<tr class="separator:a9480c5a48acd2fdea358980b0f88df67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adeb631fc296c0a502f7e68010c02dc20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adeb631fc296c0a502f7e68010c02dc20"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Add</b> (const std::string &amp;input_key, typename ValueStoreT::value_t value=ValueStoreT::no_value)</td></tr>
 <tr class="separator:adeb631fc296c0a502f7e68010c02dc20"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,9 +155,9 @@ Additional Inherited Members</h2></td></tr>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>AdapterPtr</b> = std::unique_ptr&lt; <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html">GeneratorAdapterInterface</a> &gt;</td></tr>
 <tr class="separator:a94cc858ad56084d8ac89609a1e5cbfce inherit pub_types_classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html">keyvi::dictionary::fsa::GeneratorAdapterInterface&lt; PersistenceT, ValueStoreT &gt;</a></td></tr>
-<tr class="memitem:af5acf593b442b9fc95e6096622c27f48 inherit pub_static_methods_classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5acf593b442b9fc95e6096622c27f48"></a>
-static AdapterPtr&#160;</td><td class="memItemRight" valign="bottom"><b>CreateGenerator</b> (size_t size_of_keys, const generator_param_t &amp;params, ValueStoreT *value_store)</td></tr>
-<tr class="separator:af5acf593b442b9fc95e6096622c27f48 inherit pub_static_methods_classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb1792faa92133562e17897f0b71d740 inherit pub_static_methods_classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb1792faa92133562e17897f0b71d740"></a>
+static AdapterPtr&#160;</td><td class="memItemRight" valign="bottom"><b>CreateGenerator</b> (size_t size_of_keys, size_t memory_limit, const generator_param_t &amp;params, ValueStoreT *value_store)</td></tr>
+<tr class="separator:aeb1792faa92133562e17897f0b71d740 inherit pub_static_methods_classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>keyvi/src/cpp/dictionary/fsa/<a class="el" href="generator__adapter_8h_source.html">generator_adapter.h</a></li>
@@ -168,7 +168,7 @@ static AdapterPtr&#160;</td><td class="memItemRight" valign="bottom"><b>CreateGe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacekeyvi.html">keyvi</a></li><li class="navelem"><b>dictionary</b></li><li class="navelem"><b>fsa</b></li><li class="navelem"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter.html">GeneratorAdapter</a></li>
-    <li class="footer">Generated on Wed Feb 8 2017 20:58:07 by
+    <li class="footer">Generated on Mon Feb 20 2017 09:48:53 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

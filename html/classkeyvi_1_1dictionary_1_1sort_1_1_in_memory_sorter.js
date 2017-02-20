@@ -1,8 +1,7 @@
 var classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter =
 [
     [ "iterator", "classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html#ae9af4a12e11790eefdf15c8e22fc828c", null ],
-    [ "InMemorySorter", "classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html#a3c290fc67d213985130a99042576d55d", null ],
-    [ "InMemorySorter", "classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html#a4edb471cfc2443176a4bcf66bcd87d87", null ],
+    [ "InMemorySorter", "classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html#a49792651896487fe29dba8a5071118ec", null ],
     [ "begin", "classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html#a01c1b375f2d692db851f0d4616ddac1b", null ],
     [ "clear", "classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html#a78549ce48c840a02d761bc248fabc128", null ],
     [ "end", "classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html#ae7846929e182cf249ab28b917027af09", null ],

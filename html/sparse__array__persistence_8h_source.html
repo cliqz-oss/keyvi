@@ -366,100 +366,133 @@ $(document).ready(function(){initNavTree('sparse__array__persistence_8h_source.h
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  };</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <span class="keyword">inline</span> uint32_t SparseArrayPersistence&lt;uint16_t&gt;::GetVersion()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">return</span> 2;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <span class="keyword">inline</span> uint32_t SparseArrayPersistence&lt;uint32_t&gt;::GetVersion()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  }</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="keyword">inline</span> uint16_t SparseArrayPersistence&lt;uint16_t&gt;::PersistenceOrderToHostOrder(uint16_t value)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">return</span> le16toh(value);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="keyword">inline</span> uint32_t SparseArrayPersistence&lt;uint16_t&gt;::GetVersion()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">return</span> 2;</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  }</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keyword">inline</span> uint16_t SparseArrayPersistence&lt;uint16_t&gt;::HostOrderToPesistenceOrder(uint16_t value)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordflow">return</span> htole16(value);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keyword">inline</span> uint32_t SparseArrayPersistence&lt;uint32_t&gt;::PersistenceOrderToHostOrder(uint32_t value)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordflow">return</span> be32toh(value);</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  }</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> SparseArrayPersistence&lt;uint16_t&gt;::HostOrderToPersistenceOrder(uint16_t* values, <span class="keywordtype">size_t</span> length)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="preprocessor">#ifdef CLQ_BIG_ENDIAN</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; flush_size_; ++i) {</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            values[i] = htole16(values[i]);</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    }</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="preprocessor"></span>  }</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <span class="keyword">inline</span> uint64_t SparseArrayPersistence&lt;uint16_t&gt;::ResolveTransitionValue(<span class="keywordtype">size_t</span> offset, uint16_t value)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    uint16_t pt = value;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    uint64_t resolved_ptr;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordflow">if</span> ((pt &amp; 0xC000) == 0xC000) {</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      <span class="comment">//TRACE(&quot;Compact Transition uint16 absolute&quot;);</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      resolved_ptr = pt &amp; 0x3FFF;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      <span class="comment">//TRACE(&quot;Compact Transition after resolve %d&quot;, resolved_ptr);</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      <span class="keywordflow">return</span> resolved_ptr;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    }</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  <span class="keyword">inline</span> uint16_t SparseArrayPersistence&lt;uint16_t&gt;::PersistenceOrderToHostOrder(uint16_t value)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">return</span> le16toh(value);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="keyword">inline</span> uint32_t SparseArrayPersistence&lt;uint32_t&gt;::HostOrderToPesistenceOrder(uint32_t value)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordflow">return</span> htobe32(value);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  }</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <span class="keyword">inline</span> uint16_t SparseArrayPersistence&lt;uint16_t&gt;::HostOrderToPesistenceOrder(uint16_t value)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordflow">return</span> htole16(value);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  }</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> SparseArrayPersistence&lt;uint32_t&gt;::HostOrderToPersistenceOrder(uint32_t* values, <span class="keywordtype">size_t</span> length)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; flush_size_; ++i) {</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            values[i] = htobe32(values[i]);</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    }</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  }</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordflow">if</span> (pt &amp; 0x8000){</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      <span class="comment">// clear the first bit</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      pt &amp;= 0x7FFF;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      <span class="keywordtype">size_t</span> overflow_bucket = (pt &gt;&gt; 4) + offset - 512;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      <span class="keywordflow">if</span> (overflow_bucket &gt;= in_memory_buffer_offset_) {</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        resolved_ptr = util::decodeVarshort(transitions_ -in_memory_buffer_offset_ + overflow_bucket);</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keywordflow">if</span> (transitions_extern_-&gt;GetAddressQuickTestOk(overflow_bucket * <span class="keyword">sizeof</span>(uint16_t), 5)) {</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;          resolved_ptr = util::decodeVarshort((uint16_t*) transitions_extern_-&gt;GetAddress(overflow_bucket * <span class="keyword">sizeof</span>(uint16_t)));</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;          <span class="comment">// value might be on the chunk border, take a secure approach</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;          uint16_t buffer[10];</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;          transitions_extern_-&gt;GetBuffer((offset + FINAL_OFFSET_TRANSITION) * <span class="keyword">sizeof</span>(uint16_t), buffer, 10 * <span class="keyword">sizeof</span>(uint16_t));</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> SparseArrayPersistence&lt;uint16_t&gt;::HostOrderToPersistenceOrder(uint16_t* values, <span class="keywordtype">size_t</span> length)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="preprocessor">#ifdef CLQ_BIG_ENDIAN</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; flush_size_; ++i) {</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            values[i] = htole16(values[i]);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    }</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="preprocessor"></span>  }</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  <span class="keyword">inline</span> uint64_t SparseArrayPersistence&lt;uint32_t&gt;::ResolveTransitionValue(<span class="keywordtype">size_t</span> offset, uint32_t value)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  }</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;          resolved_ptr = util::decodeVarshort(buffer);</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        }</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      }</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      resolved_ptr = (resolved_ptr &lt;&lt; 3) + (pt &amp; 0x7);</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;      <span class="keywordflow">if</span> (pt &amp; 0x8){</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="comment">// relative coding</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        resolved_ptr = offset - resolved_ptr + 512;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      }</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      resolved_ptr = offset -pt + 512;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    }</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordflow">return</span> resolved_ptr;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  }</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  <span class="keyword">inline</span> uint64_t SparseArrayPersistence&lt;uint16_t&gt;::ResolveTransitionValue(<span class="keywordtype">size_t</span> offset, uint16_t value)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    uint16_t pt = value;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    uint64_t resolved_ptr;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">if</span> ((pt &amp; 0xC000) == 0xC000) {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;      <span class="comment">//TRACE(&quot;Compact Transition uint16 absolute&quot;);</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      resolved_ptr = pt &amp; 0x3FFF;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      <span class="comment">//TRACE(&quot;Compact Transition after resolve %d&quot;, resolved_ptr);</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      <span class="keywordflow">return</span> resolved_ptr;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordflow">if</span> (pt &amp; 0x8000){</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      <span class="comment">// clear the first bit</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      pt &amp;= 0x7FFF;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;      <span class="keywordtype">size_t</span> overflow_bucket = (pt &gt;&gt; 4) + offset - 512;</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  <span class="keyword">inline</span> uint64_t SparseArrayPersistence&lt;uint16_t&gt;::ReadFinalValue(<span class="keywordtype">size_t</span> offset)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">if</span> (offset + FINAL_OFFSET_TRANSITION &gt;= in_memory_buffer_offset_) {</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;      <span class="keywordflow">return</span> util::decodeVarshort(transitions_ + offset - in_memory_buffer_offset_ + FINAL_OFFSET_TRANSITION);</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    }</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keywordflow">if</span> (transitions_extern_-&gt;GetAddressQuickTestOk((offset + FINAL_OFFSET_TRANSITION) * <span class="keyword">sizeof</span>(uint16_t), 5)) {</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      uint16_t* ptr = (uint16_t*) transitions_extern_-&gt;GetAddress((offset + FINAL_OFFSET_TRANSITION) * <span class="keyword">sizeof</span>(uint16_t));</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      <span class="keywordflow">return</span> util::decodeVarshort(ptr);</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    }</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="comment">// value might be on the chunk border, take a secure approach</span></div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    uint16_t buffer[10];</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    transitions_extern_-&gt;GetBuffer((offset + FINAL_OFFSET_TRANSITION) * <span class="keyword">sizeof</span>(uint16_t), buffer, 10 * <span class="keyword">sizeof</span>(uint16_t));</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;      <span class="keywordflow">if</span> (overflow_bucket &gt;= in_memory_buffer_offset_) {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        resolved_ptr = util::decodeVarshort(transitions_ -in_memory_buffer_offset_ + overflow_bucket);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keywordflow">if</span> (transitions_extern_-&gt;GetAddressQuickTestOk(overflow_bucket * <span class="keyword">sizeof</span>(uint16_t), 5)) {</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;          resolved_ptr = util::decodeVarshort((uint16_t*) transitions_extern_-&gt;GetAddress(overflow_bucket * <span class="keyword">sizeof</span>(uint16_t)));</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;          <span class="comment">// value might be on the chunk border, take a secure approach</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;          uint16_t buffer[10];</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;          transitions_extern_-&gt;GetBuffer((offset + FINAL_OFFSET_TRANSITION) * <span class="keyword">sizeof</span>(uint16_t), buffer, 10 * <span class="keyword">sizeof</span>(uint16_t));</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;          resolved_ptr = util::decodeVarshort(buffer);</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        }</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;      }</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;      resolved_ptr = (resolved_ptr &lt;&lt; 3) + (pt &amp; 0x7);</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="keywordflow">return</span> util::decodeVarshort(buffer);</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  }</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;  } <span class="comment">/* namespace internal */</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;  } <span class="comment">/* namespace fsa */</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;  } <span class="comment">/* namespace dictionary */</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;  } <span class="comment">/* namespace keyvi */</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SPARSE_ARRAY_PERSISTENCE_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      <span class="keywordflow">if</span> (pt &amp; 0x8){</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="comment">// relative coding</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        resolved_ptr = offset - resolved_ptr + 512;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;      }</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;      resolved_ptr = offset -pt + 512;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    }</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keywordflow">return</span> resolved_ptr;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;  }</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  <span class="keyword">inline</span> uint64_t SparseArrayPersistence&lt;uint32_t&gt;::ReadFinalValue(<span class="keywordtype">size_t</span> offset)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keywordflow">return</span> ReadTransitionValue(offset + FINAL_OFFSET_TRANSITION);</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;  }</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  <span class="keyword">inline</span> uint64_t SparseArrayPersistence&lt;uint16_t&gt;::ReadFinalValue(<span class="keywordtype">size_t</span> offset)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keywordflow">if</span> (offset + FINAL_OFFSET_TRANSITION &gt;= in_memory_buffer_offset_) {</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      <span class="keywordflow">return</span> util::decodeVarshort(transitions_ + offset - in_memory_buffer_offset_ + FINAL_OFFSET_TRANSITION);</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    }</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keywordflow">if</span> (transitions_extern_-&gt;GetAddressQuickTestOk((offset + FINAL_OFFSET_TRANSITION) * <span class="keyword">sizeof</span>(uint16_t), 5)) {</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      uint16_t* ptr = (uint16_t*) transitions_extern_-&gt;GetAddress((offset + FINAL_OFFSET_TRANSITION) * <span class="keyword">sizeof</span>(uint16_t));</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;      <span class="keywordflow">return</span> util::decodeVarshort(ptr);</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    }</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="comment">// value might be on the chunk border, take a secure approach</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    uint16_t buffer[10];</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    transitions_extern_-&gt;GetBuffer((offset + FINAL_OFFSET_TRANSITION) * <span class="keyword">sizeof</span>(uint16_t), buffer, 10 * <span class="keyword">sizeof</span>(uint16_t));</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keywordflow">return</span> util::decodeVarshort(buffer);</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  }</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  } <span class="comment">/* namespace internal */</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;  } <span class="comment">/* namespace fsa */</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  } <span class="comment">/* namespace dictionary */</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  } <span class="comment">/* namespace keyvi */</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SPARSE_ARRAY_PERSISTENCE_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html">keyvi::dictionary::fsa::internal::SparseArrayPersistence</a></div><div class="ttdef"><b>Definition:</b> sparse_array_persistence.h:57</div></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence_html_adbc28a1f137ce0f0fcc76d6a45e9610a"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html#adbc28a1f137ce0f0fcc76d6a45e9610a">keyvi::dictionary::fsa::internal::SparseArrayPersistence::Flush</a></div><div class="ttdeci">void Flush()</div><div class="ttdef"><b>Definition:</b> sparse_array_persistence.h:179</div></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_memory_map_manager_html_a2296610d65f28571ac3fa6f751598131"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_memory_map_manager.html#a2296610d65f28571ac3fa6f751598131">keyvi::dictionary::fsa::internal::MemoryMapManager::Append</a></div><div class="ttdeci">void Append(const void *buffer, const size_t buffer_length)</div><div class="ttdef"><b>Definition:</b> memory_map_manager.h:108</div></div>
@@ -470,7 +503,7 @@ $(document).ready(function(){initNavTree('sparse__array__persistence_8h_source.h
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_18cd2892d2d1b27191c8f365213984f7.html">fsa</a></li><li class="navelem"><a class="el" href="dir_4f593fa07bcc006705199afaee94c880.html">internal</a></li><li class="navelem"><b>sparse_array_persistence.h</b></li>
-    <li class="footer">Generated on Wed Feb 8 2017 20:58:07 by
+    <li class="footer">Generated on Mon Feb 20 2017 09:48:53 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

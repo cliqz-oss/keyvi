@@ -1,15 +1,4 @@
-# C++ keyvi library
-
-## Compile
-
-You need scons, simple compile by typing
-
-    scons
-
-That compiles the library in debug mode, to compile in release mode (required for the python extension):
-
-    scons mode=release
-
+# keyvi: C++
 
 ### Pre-Requisites
 
@@ -23,7 +12,7 @@ For example on Ubuntu (14.04 to 16.04) should install all the dependencies you n
 
 #### MAC
 
-In addtion to a working build setup (Xcode) install the following libraries using homebrew:
+In addition to a working build setup (Xcode) install the following libraries using Homebrew:
 
     brew install boost --c++11
     brew install snappy
@@ -31,3 +20,9 @@ In addtion to a working build setup (Xcode) install the following libraries usin
     brew install cmake
 
 Now you should be able to compile as explained above.
+
+## Build
+
+Use `cmake` to build keyvi executables along with unit tests. 
+
+To run cpp unit tests just execute `units_test_all` executable.

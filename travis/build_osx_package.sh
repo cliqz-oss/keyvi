@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -ev
 
+#mkdir  $HOME/tmp
+#TMPDIR="$HOME/tmp"
+#export TMPDIR
+
 cd keyvi
 scons -j 4 mode=release
 cd ..
@@ -14,5 +18,5 @@ export TMPDIR=/Volumes/ram-disk
 cd pykeyvi
 python setup.py bdist_wheel -d wheelhouse
 sudo -H pip install wheelhouse/*.whl
-py.test tests
+py.test -s tests
 cd ..

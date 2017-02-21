@@ -17,9 +17,9 @@ pykeyvi_cpp = 'pykeyvi.cpp'
 
 
 def generate_pykeyvi_source():
-    addons = glob.glob('src/addons/*')
-    pxds = glob.glob('src/pxds/*')
-    converters = 'src/converters'
+    addons = glob.glob('pykeyvi/src/addons/*')
+    pxds = glob.glob('pykeyvi/src/pxds/*')
+    converters = 'pykeyvi/src/converters'
     converter_files = glob.glob(path.join(converters, '*'))
     max_modification_time = max([path.getmtime(fn) for fn in addons + pxds + converter_files])
 
@@ -31,16 +31,16 @@ def generate_pykeyvi_source():
 @contextmanager
 def symlink_keyvi():
     if not path.exists('keyvi'):
-        os.symlink('../keyvi', 'keyvi')
+        # os.symlink('../keyvi', 'keyvi')
         yield
-        os.unlink('keyvi')
+        # os.unlink('keyvi')
     else:
         yield
 
 
 with symlink_keyvi():
     # workaround for autowrap bug (includes incompatible boost)
-    autowrap_data_dir = "autowrap_includes"
+    autowrap_data_dir = "pykeyvi/autowrap_includes"
 
     dictionary_sources = path.abspath('keyvi')
     tpie_build_dir = path.join(dictionary_sources, '3rdparty/tpie/build')
@@ -226,8 +226,8 @@ with symlink_keyvi():
         author_email='hendrik.muhs@gmail.com',
         license="ASL 2.0",
         cmdclass={'build_ext': build_ext, 'sdist': sdist, 'build': build},
-        scripts=['bin/keyvi'],
-        packages=['keyvicli'],
+        scripts=['pykeyvi/bin/keyvi'],
+        packages=['pykeyvi/keyvicli'],
         ext_modules=ext_modules,
         zip_safe=False,
         url='https://github.com/cliqz/keyvi',

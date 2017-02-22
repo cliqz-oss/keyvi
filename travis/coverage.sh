@@ -21,7 +21,10 @@ coveralls   -r . -b pykeyvi/ -i pykeyvi \
             -E '.*/autowrap_includes/autowrap_tools.hpp' \
             -E '.*/src/extra/attributes_converter.h' \
             -E '.*/pykeyvi.cpp' \
-            --dump pykeyvi.cov_report > /dev/null
+            --dump pykeyvi.cov_report_tmp > /dev/null
+
+# workaround: remove 'pykeyvi' from source path before merge
+sed s/"pykeyvi\/keyvi"/"keyvi"/g pykeyvi.cov_report_tmp > pykeyvi.cov_report
 
 export COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN}
 

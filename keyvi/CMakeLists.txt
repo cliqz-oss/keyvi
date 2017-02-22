@@ -9,7 +9,7 @@ set(CMAKE_CXX_FLAGS_COVERAGE "${CMAKE_CXX_FLAGS_DEBUG} -O0 --coverage")
 
 set(COMPILE_TEST OFF CACHE BOOL "")
 set(TPIE_PARALLEL_SORT 1 CACHE BOOL "")
-add_subdirectory(keyvi/3rdparty/tpie)
+add_subdirectory(3rdparty/tpie)
 
 
 set(Boost_USE_STATIC_LIBS OFF)
@@ -36,21 +36,21 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 endif ()
 
 
-include_directories(keyvi/src/cpp)
-include_directories(keyvi/3rdparty/tpie)
-include_directories(keyvi/3rdparty/utf8)
-include_directories(keyvi/3rdparty/misc)
-include_directories(keyvi/3rdparty/rapidjson/include)
-include_directories(keyvi/3rdparty/msgpack-c/include)
-include_directories(keyvi/3rdparty/xchange/src)
-include_directories(${CMAKE_BINARY_DIR}/keyvi/3rdparty/tpie)
+include_directories(src/cpp)
+include_directories(3rdparty/tpie)
+include_directories(3rdparty/utf8)
+include_directories(3rdparty/misc)
+include_directories(3rdparty/rapidjson/include)
+include_directories(3rdparty/msgpack-c/include)
+include_directories(3rdparty/xchange/src)
+include_directories(${CMAKE_BINARY_DIR}/3rdparty/tpie)
 
 
-FILE(GLOB_RECURSE UNIT_TEST_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} keyvi/tests/cpp/*.cpp)
+FILE(GLOB_RECURSE UNIT_TEST_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} tests/cpp/*.cpp)
 
-add_executable(keyvicompiler keyvi/src/cpp/keyvicompiler/keyvicompiler.cpp)
-add_executable(keyviinspector keyvi/src/cpp/keyviinspector/keyviinspector.cpp)
-add_executable(keyvimerger keyvi/src/cpp/keyvimerger/keyvimerger.cpp)
+add_executable(keyvicompiler src/cpp/keyvicompiler/keyvicompiler.cpp)
+add_executable(keyviinspector src/cpp/keyviinspector/keyviinspector.cpp)
+add_executable(keyvimerger src/cpp/keyvimerger/keyvimerger.cpp)
 add_executable(units_test_all ${UNIT_TEST_SOURCES})
 
 target_link_libraries(keyvicompiler tpie ${Boost_LIBRARIES} ${ZLIB_LIBRARIES})

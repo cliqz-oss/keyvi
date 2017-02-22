@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ev
 
-coveralls   -r . -b build/ -i keyvi \
+coveralls   -r . -b keyvi/build/ -i keyvi \
             --gcov /usr/bin/gcov-4.8 --gcov-options '\-lp' \
             -e build/keyvi/3rdparty -e keyvi/3rdparty -e pykeyvi \
             -E '.*/tests/*.cpp' \

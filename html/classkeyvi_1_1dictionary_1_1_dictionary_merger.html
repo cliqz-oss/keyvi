@@ -112,9 +112,10 @@ $(document).ready(function(){initNavTree('classkeyvi_1_1dictionary_1_1_dictionar
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab504148d98992c28fd4763deec616a68"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab504148d98992c28fd4763deec616a68"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DictionaryMerger</b> (size_t memory_limit=1073741824, const merger_param_t &amp;params=merger_param_t())</td></tr>
-<tr class="separator:ab504148d98992c28fd4763deec616a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae06c210bc7dcac784d6581e7977ae29c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_merger.html#ae06c210bc7dcac784d6581e7977ae29c">DictionaryMerger</a> (const merger_param_t &amp;params=merger_param_t())</td></tr>
+<tr class="separator:ae06c210bc7dcac784d6581e7977ae29c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c86a621908913762a58c057f7a52f88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_merger.html#a5c86a621908913762a58c057f7a52f88">DictionaryMerger</a> (size_t memory_limit, const merger_param_t &amp;params=merger_param_t())</td></tr>
+<tr class="separator:a5c86a621908913762a58c057f7a52f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae57ce124af126cccdd35b599d6af271d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae57ce124af126cccdd35b599d6af271d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Add</b> (const std::string &amp;filename)</td></tr>
 <tr class="separator:ae57ce124af126cccdd35b599d6af271d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,6 +125,72 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Add</b> (const std::s
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Merge</b> (const std::string &amp;filename)</td></tr>
 <tr class="separator:a93fb617cb4d569549d2328f513bcee75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ae06c210bc7dcac784d6581e7977ae29c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class PersistenceT , class ValueStoreT  = fsa::internal::NullValueStore&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_merger.html">keyvi::dictionary::DictionaryMerger</a>&lt; PersistenceT, ValueStoreT &gt;::<a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_merger.html">DictionaryMerger</a> </td>
+          <td>(</td>
+          <td class="paramtype">const merger_param_t &amp;&#160;</td>
+          <td class="paramname"><em>params</em> = <code>merger_param_t()</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Instantiate a dictionary merger.</p>
+<p>params merger parameters </p>
+
+</div>
+</div>
+<a class="anchor" id="a5c86a621908913762a58c057f7a52f88"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class PersistenceT , class ValueStoreT  = fsa::internal::NullValueStore&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_merger.html">keyvi::dictionary::DictionaryMerger</a>&lt; PersistenceT, ValueStoreT &gt;::<a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_merger.html">DictionaryMerger</a> </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>memory_limit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const merger_param_t &amp;&#160;</td>
+          <td class="paramname"><em>params</em> = <code>merger_param_t()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>DEPRECATED </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a736613410595ab6452218361479f246c"></a>
 <div class="memitem">
@@ -167,7 +234,7 @@ template&lt;class PersistenceT , class ValueStoreT  = fsa::internal::NullValueSt
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacekeyvi.html">keyvi</a></li><li class="navelem"><b>dictionary</b></li><li class="navelem"><a class="el" href="classkeyvi_1_1dictionary_1_1_dictionary_merger.html">DictionaryMerger</a></li>
-    <li class="footer">Generated on Tue Feb 21 2017 10:03:41 by
+    <li class="footer">Generated on Thu Feb 23 2017 22:02:35 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

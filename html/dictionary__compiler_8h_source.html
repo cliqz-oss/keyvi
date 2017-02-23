@@ -131,266 +131,282 @@ $(document).ready(function(){initNavTree('dictionary__compiler_8h_source.html','
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;dictionary/sort/sorter_common.h&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;dictionary/sort/in_memory_sorter.h&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;dictionary/fsa/internal/null_value_store.h&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;dictionary/fsa/internal/serialization_utils.h&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;dictionary/fsa/generator_adapter.h&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;dictionary/fsa/internal/constants.h&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#if !defined(KEYVI_DISABLE_TPIE)</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;dictionary/sort/tpie_sorter.h&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">//#define ENABLE_TRACING</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;dictionary/util/trace.h&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">namespace </span>keyvi {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">namespace </span>dictionary {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">typedef</span> <span class="keyword">const</span> <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#a56e2c0109f0165be2081b6c2e8a3bbad">fsa::internal::IValueStoreWriter::vs_param_t</a> compiler_param_t;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">typedef</span> sort::key_value_pair&lt;std::string, fsa::ValueHandle&gt; key_value_t;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structkeyvi_1_1dictionary_1_1compiler__exception.html">   55</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structkeyvi_1_1dictionary_1_1compiler__exception.html">compiler_exception</a>: <span class="keyword">public</span> std::runtime_error {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">using</span> std::runtime_error::runtime_error;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class </span>PersistenceT,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">class </span>ValueStoreT = <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_null_value_store.html">fsa::internal::NullValueStore</a>,</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#if !defined(KEYVI_DISABLE_TPIE)</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor"></span><span class="keyword">class </span>SorterT = <a class="code" href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html">sort::TpieSorter&lt;key_value_t&gt;</a>&gt;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span><span class="keyword">class </span>SorterT = <a class="code" href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html">sort::InMemorySorter&lt;key_value_t&gt;</a>&gt;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">   69</a></span>&#160;<span class="preprocessor"></span><span class="keyword">class </span><a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">DictionaryCompiler</a></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  final {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;   <span class="keyword">typedef</span> std::function&lt;void (size_t , size_t, void*)&gt; callback_t;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">using</span> <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html">GeneratorAdapter</a> = <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html">fsa::GeneratorAdapterInterface&lt;PersistenceT, ValueStoreT&gt;</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac28f9a0f67dd067556dd57a0a6c6abea">   84</a></span>&#160;    <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac28f9a0f67dd067556dd57a0a6c6abea">DictionaryCompiler</a>(<span class="keywordtype">size_t</span> memory_limit = 1073741824,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                       <span class="keyword">const</span> compiler_param_t&amp; params = compiler_param_t())</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        : sorter_(memory_limit, params),</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;          memory_limit_(memory_limit),</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;          params_(params) {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keywordflow">if</span> (params_.count(TEMPORARY_PATH_KEY) == 0) {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        params_[TEMPORARY_PATH_KEY] =</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            boost::filesystem::temp_directory_path().string();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;dictionary/fsa/generator_adapter.h&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;dictionary/fsa/internal/constants.h&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;dictionary/fsa/internal/null_value_store.h&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;dictionary/fsa/internal/serialization_utils.h&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;dictionary/sort/in_memory_sorter.h&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;dictionary/sort/sorter_common.h&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;dictionary/util/configuration.h&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#if !defined(KEYVI_DISABLE_TPIE)</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;dictionary/sort/tpie_sorter.h&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// #define ENABLE_TRACING</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;dictionary/util/trace.h&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">namespace </span>keyvi {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">namespace </span>dictionary {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">typedef</span> <span class="keyword">const</span> <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#a56e2c0109f0165be2081b6c2e8a3bbad">fsa::internal::IValueStoreWriter::vs_param_t</a> compiler_param_t;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">typedef</span> sort::key_value_pair&lt;std::string, fsa::ValueHandle&gt; key_value_t;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="structkeyvi_1_1dictionary_1_1compiler__exception.html">   60</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structkeyvi_1_1dictionary_1_1compiler__exception.html">compiler_exception</a> : <span class="keyword">public</span> std::runtime_error {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">using</span> std::runtime_error::runtime_error;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class </span>PersistenceT, <span class="keyword">class </span>ValueStoreT = <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_null_value_store.html">fsa::internal::NullValueStore</a>,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#if !defined(KEYVI_DISABLE_TPIE)</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span>          <span class="keyword">class </span>SorterT = <a class="code" href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html">sort::TpieSorter&lt;key_value_t&gt;</a>&gt;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span>          <span class="keyword">class </span>SorterT = <a class="code" href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html">sort::InMemorySorter&lt;key_value_t&gt;</a>&gt;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">   73</a></span>&#160;<span class="preprocessor"></span><span class="keyword">class </span><a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">DictionaryCompiler</a> final {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keyword">typedef</span> std::function&lt;void(size_t, size_t, void*)&gt; callback_t;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keyword">using</span> <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html">GeneratorAdapter</a> =</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html">fsa::GeneratorAdapterInterface&lt;PersistenceT, ValueStoreT&gt;</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a82ccb446d6c33a00930028c5c8d7cbed">   88</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a82ccb446d6c33a00930028c5c8d7cbed">DictionaryCompiler</a>(</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keyword">const</span> compiler_param_t&amp; params = compiler_param_t())</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      : sorter_(params), params_(params) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    params_[TEMPORARY_PATH_KEY] = util::mapGetTemporaryPath(params);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    TRACE(<span class="stringliteral">&quot;tmp path set to %s&quot;</span>, params_[TEMPORARY_PATH_KEY].c_str());</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      TRACE(<span class="stringliteral">&quot;tmp path set to %s&quot;</span>, params_[TEMPORARY_PATH_KEY].c_str());</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    stable_insert_ = util::mapGetBool(params_, STABLE_INSERTS, <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="keywordflow">if</span> (params_.count(STABLE_INSERTS) &gt; 0 &amp;&amp; params_[STABLE_INSERTS] == <span class="stringliteral">&quot;true&quot;</span>) {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        stable_insert_ = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      value_store_= <span class="keyword">new</span> ValueStoreT(params_);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    ~<a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">DictionaryCompiler</a>(){</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="keywordflow">if</span> (!generator_) {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="comment">// if generator was not created we have to delete the value store ourselves</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keyword">delete</span> value_store_;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac28f9a0f67dd067556dd57a0a6c6abea">DictionaryCompiler</a>&amp; operator=(<a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac28f9a0f67dd067556dd57a0a6c6abea">DictionaryCompiler</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac28f9a0f67dd067556dd57a0a6c6abea">DictionaryCompiler</a>(<span class="keyword">const</span> <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac28f9a0f67dd067556dd57a0a6c6abea">DictionaryCompiler</a>&amp; that) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> Add(<span class="keyword">const</span> std::string&amp; input_key, <span class="keyword">typename</span> ValueStoreT::value_t value =</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                 ValueStoreT::no_value) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    value_store_ = <span class="keyword">new</span> ValueStoreT(params_);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#ifndef KEYVI_DEPRECATED</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a088e0ffd252ddd8970530ec3716649d9">  110</a></span>&#160;  <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a088e0ffd252ddd8970530ec3716649d9">DictionaryCompiler</a>(<span class="keywordtype">size_t</span> memory_limit,</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                     <span class="keyword">const</span> compiler_param_t&amp; params = compiler_param_t())</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      : sorter_(memory_limit, params), params_(params) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">// Note: I can not use delegate constructors as the other would need to call</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">// this one</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">// as this one is the deprecated one I do some code duplication for now</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      size_of_keys_ += input_key.size();</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      sorter_.push_back(key_value_t(std::move(input_key), RegisterValue(value)));</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    params_[TEMPORARY_PATH_KEY] = util::mapGetTemporaryPath(params);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    TRACE(<span class="stringliteral">&quot;tmp path set to %s&quot;</span>, params_[TEMPORARY_PATH_KEY].c_str());</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#ifdef Py_PYTHON_H</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> StringType&gt;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> __setitem__ (StringType input_key, <span class="keyword">typename</span> ValueStoreT::value_t value =</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        ValueStoreT::no_value) {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="keywordflow">return</span> Add(input_key, value);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> Delete(<span class="keyword">const</span> std::string&amp; input_key) {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      <span class="keywordflow">if</span> (!stable_insert_) {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">throw</span> compiler_exception(<span class="stringliteral">&quot;delete only available when using stable_inserts option&quot;</span>);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      fsa::ValueHandle handle = {</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;          0,                                    <span class="comment">// offset of value</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;          count_++,                             <span class="comment">// counter(order)</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;          0,                                    <span class="comment">// weight</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;          <span class="keyword">false</span>,                                <span class="comment">// minimization</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;          <span class="keyword">true</span>                                  <span class="comment">// deleted flag</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      };</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      sorter_.push_back(key_value_t(std::move(input_key), handle));</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    }</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac816b9ce7e9be6961673b62f2ed8a820">  148</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac816b9ce7e9be6961673b62f2ed8a820">Compile</a>(callback_t progress_callback = <span class="keyword">nullptr</span>, <span class="keywordtype">void</span>* user_data = <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      <span class="keywordtype">size_t</span> added_key_values = 0;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      <span class="keywordtype">size_t</span> callback_trigger = 0;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      value_store_-&gt;CloseFeeding();</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      sorter_.sort();</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      generator_ = GeneratorAdapter::CreateGenerator(size_of_keys_, memory_limit_, params_, value_store_);</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      generator_-&gt;SetManifest(manifest_);</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="keywordflow">if</span> (sorter_.size() &gt; 0)</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      {</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordtype">size_t</span> number_of_items = sorter_.size();</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        callback_trigger = 1+(number_of_items-1)/100;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">if</span> (callback_trigger &gt; 100000) {</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;          callback_trigger = 100000;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        }</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">if</span> (!stable_insert_) {</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;          <span class="keywordflow">for</span> (<span class="keyword">auto</span> key_value: sorter_) {</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            TRACE(<span class="stringliteral">&quot;adding to generator: %s&quot;</span>, key_value.key.c_str());</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            generator_-&gt;Add(std::move(key_value.key), key_value.value);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            ++added_key_values;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <span class="keywordflow">if</span> (progress_callback &amp;&amp; (added_key_values % callback_trigger == 0)){</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;              progress_callback(added_key_values, number_of_items, user_data);</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            }</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;          }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    stable_insert_ = util::mapGetBool(params_, STABLE_INSERTS, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">// ensure backwards compatibility: put memory limit into parameters</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    params_[MEMORY_LIMIT_KEY] = std::to_string(memory_limit);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    value_store_ = <span class="keyword">new</span> ValueStoreT(params_);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  ~<a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">DictionaryCompiler</a>() {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">if</span> (!generator_) {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      <span class="comment">// if generator was not created we have to delete the value store</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      <span class="comment">// ourselves</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      <span class="keyword">delete</span> value_store_;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a82ccb446d6c33a00930028c5c8d7cbed">DictionaryCompiler</a>&amp; operator=(<a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a82ccb446d6c33a00930028c5c8d7cbed">DictionaryCompiler</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a82ccb446d6c33a00930028c5c8d7cbed">DictionaryCompiler</a>(<span class="keyword">const</span> <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a82ccb446d6c33a00930028c5c8d7cbed">DictionaryCompiler</a>&amp; that) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keywordtype">void</span> Add(<span class="keyword">const</span> std::string&amp; input_key,</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;           <span class="keyword">typename</span> ValueStoreT::value_t value = ValueStoreT::no_value) {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    size_of_keys_ += input_key.size();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    sorter_.push_back(key_value_t(std::move(input_key), RegisterValue(value)));</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor">#ifdef Py_PYTHON_H</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor"></span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> StringType&gt;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordtype">void</span> __setitem__(StringType input_key, <span class="keyword">typename</span> ValueStoreT::value_t value =</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                                             ValueStoreT::no_value) {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">return</span> Add(input_key, value);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  <span class="keywordtype">void</span> Delete(<span class="keyword">const</span> std::string&amp; input_key) {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">if</span> (!stable_insert_) {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      <span class="keywordflow">throw</span> compiler_exception(</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;          <span class="stringliteral">&quot;delete only available when using stable_inserts option&quot;</span>);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    fsa::ValueHandle handle = {</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        0,         <span class="comment">// offset of value</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        count_++,  <span class="comment">// counter(order)</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        0,         <span class="comment">// weight</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keyword">false</span>,     <span class="comment">// minimization</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keyword">true</span>       <span class="comment">// deleted flag</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    };</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    sorter_.push_back(key_value_t(std::move(input_key), handle));</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac816b9ce7e9be6961673b62f2ed8a820">  175</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac816b9ce7e9be6961673b62f2ed8a820">Compile</a>(callback_t progress_callback = <span class="keyword">nullptr</span>,</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;               <span class="keywordtype">void</span>* user_data = <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">size_t</span> added_key_values = 0;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">size_t</span> callback_trigger = 0;</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;          <span class="comment">// special mode for stable (incremental) inserts, in this case we have to respect the order and take</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;          <span class="comment">// the last value if keys are equal</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;          <span class="keyword">auto</span> key_values_it = sorter_.begin();</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;          <a class="code" href="structkeyvi_1_1dictionary_1_1sort_1_1key__value__pair.html">key_value_t</a> last_key_value = *key_values_it++;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;          <span class="keywordflow">while</span> (key_values_it != sorter_.end())</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;          {</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            <a class="code" href="structkeyvi_1_1dictionary_1_1sort_1_1key__value__pair.html">key_value_t</a> key_value = *key_values_it++;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="comment">// dedup with last one wins</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keywordflow">if</span> (last_key_value.key == key_value.key) {</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;              TRACE(<span class="stringliteral">&quot;Detected duplicated keys, dedup them, last one wins.&quot;</span>);</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;              <span class="comment">// check the counter to determine which key_value has been added last</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;              <span class="keywordflow">if</span> (last_key_value.value.count &lt; key_value.value.count) {</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                last_key_value = key_value;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;              }</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;              <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            }</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordflow">if</span> (!last_key_value.value.deleted) {</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;              TRACE(<span class="stringliteral">&quot;adding to generator: %s&quot;</span>, last_key_value.key.c_str());</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;              generator_-&gt;Add(std::move(last_key_value.key), last_key_value.value);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;              ++added_key_values;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;              <span class="keywordflow">if</span> (progress_callback &amp;&amp; (added_key_values % callback_trigger == 0)){</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                progress_callback(added_key_values, number_of_items, user_data);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;              }</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;              TRACE(<span class="stringliteral">&quot;skipping deleted key: %s&quot;</span>, last_key_value.key.c_str());</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    value_store_-&gt;CloseFeeding();</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    sorter_.sort();</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    generator_ =</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        GeneratorAdapter::CreateGenerator(size_of_keys_, params_, value_store_);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    generator_-&gt;SetManifest(manifest_);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">if</span> (sorter_.size() &gt; 0) {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      <span class="keywordtype">size_t</span> number_of_items = sorter_.size();</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      callback_trigger = 1 + (number_of_items - 1) / 100;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      <span class="keywordflow">if</span> (callback_trigger &gt; 100000) {</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        callback_trigger = 100000;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      <span class="keywordflow">if</span> (!stable_insert_) {</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> key_value : sorter_) {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;          TRACE(<span class="stringliteral">&quot;adding to generator: %s&quot;</span>, key_value.key.c_str());</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;          generator_-&gt;Add(std::move(key_value.key), key_value.value);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;          ++added_key_values;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;          <span class="keywordflow">if</span> (progress_callback &amp;&amp; (added_key_values % callback_trigger == 0)) {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            progress_callback(added_key_values, number_of_items, user_data);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;          }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        }</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="comment">// special mode for stable (incremental) inserts, in this case we have</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="comment">// to respect the order and take</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="comment">// the last value if keys are equal</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keyword">auto</span> key_values_it = sorter_.begin();</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <a class="code" href="structkeyvi_1_1dictionary_1_1sort_1_1key__value__pair.html">key_value_t</a> last_key_value = *key_values_it++;</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            last_key_value = key_value;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;          }</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">while</span> (key_values_it != sorter_.end()) {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;          <a class="code" href="structkeyvi_1_1dictionary_1_1sort_1_1key__value__pair.html">key_value_t</a> key_value = *key_values_it++;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;          <span class="comment">// add the last one</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;          TRACE(<span class="stringliteral">&quot;adding to generator: %s&quot;</span>, last_key_value.key.c_str());</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;          <span class="keywordflow">if</span> (!last_key_value.value.deleted) {</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            generator_-&gt;Add(std::move(last_key_value.key), last_key_value.value);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;          }</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;          ++added_key_values;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        }</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      }</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      sorter_.clear();</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      generator_-&gt;CloseFeeding();</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    }</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
-<div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a2e03f5bca6fb40013817453989a5e0fa">  236</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a2e03f5bca6fb40013817453989a5e0fa">SetManifestFromString</a>(<span class="keyword">const</span> std::string&amp; manifest){</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a1cfbd08c7426b5f6af6c93bccd21e5a6">SetManifest</a>(fsa::internal::SerializationUtils::ReadJsonRecord(manifest));</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a1cfbd08c7426b5f6af6c93bccd21e5a6">  245</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a1cfbd08c7426b5f6af6c93bccd21e5a6">SetManifest</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; manifest){</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;      manifest_ = manifest;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="comment">// if generator object is already there, set it otherwise cache it until it is created</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keywordflow">if</span> (generator_) {</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        generator_-&gt;SetManifest(manifest);</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      }</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    }</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordtype">void</span> Write(std::ostream&amp; stream) {</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;       generator_-&gt;Write(stream);</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> StringType&gt;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordtype">void</span> WriteToFile(StringType filename) {</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      std::ofstream out_stream(filename, std::ios::binary);</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      generator_-&gt;Write(out_stream);</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;      out_stream.close();</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    }</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    SorterT sorter_;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordtype">size_t</span> memory_limit_;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#a56e2c0109f0165be2081b6c2e8a3bbad">fsa::internal::IValueStoreWriter::vs_param_t</a> params_;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    ValueStoreT* value_store_;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keyword">typename</span> GeneratorAdapter::AdapterPtr generator_;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    boost::property_tree::ptree manifest_ = boost::property_tree::ptree();</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordtype">size_t</span> count_ = 0;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordtype">size_t</span> size_of_keys_ = 0;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordtype">bool</span> sort_finalized_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordtype">bool</span> stable_insert_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    fsa::ValueHandle RegisterValue(<span class="keyword">typename</span> ValueStoreT::value_t value =</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                 ValueStoreT::no_value){</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      <span class="keywordtype">bool</span> no_minimization = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      uint64_t value_idx = value_store_-&gt;GetValue(value, no_minimization);</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      fsa::ValueHandle handle = {</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;          value_idx,                            <span class="comment">// offset of value</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;          count_++,                             <span class="comment">// counter(order)</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;          value_store_-&gt;GetWeightValue(value),  <span class="comment">// weight</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;          no_minimization,                      <span class="comment">// minimization</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;          <span class="keyword">false</span>                                 <span class="comment">// deleted flag</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      };</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      <span class="keywordflow">return</span> handle;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    }</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;};</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;} <span class="comment">/* namespace dictionary */</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;} <span class="comment">/* namespace keyvi */</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* DICTIONARY_COMPILER_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;          <span class="comment">// dedup with last one wins</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;          <span class="keywordflow">if</span> (last_key_value.key == key_value.key) {</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            TRACE(<span class="stringliteral">&quot;Detected duplicated keys, dedup them, last one wins.&quot;</span>);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            <span class="comment">// check the counter to determine which key_value has been added</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            <span class="comment">// last</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            <span class="keywordflow">if</span> (last_key_value.value.count &lt; key_value.value.count) {</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;              last_key_value = key_value;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;          }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;          <span class="keywordflow">if</span> (!last_key_value.value.deleted) {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            TRACE(<span class="stringliteral">&quot;adding to generator: %s&quot;</span>, last_key_value.key.c_str());</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            generator_-&gt;Add(std::move(last_key_value.key),</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                            last_key_value.value);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            ++added_key_values;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            <span class="keywordflow">if</span> (progress_callback &amp;&amp;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                (added_key_values % callback_trigger == 0)) {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;              progress_callback(added_key_values, number_of_items, user_data);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;          } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            TRACE(<span class="stringliteral">&quot;skipping deleted key: %s&quot;</span>, last_key_value.key.c_str());</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;          }</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;          last_key_value = key_value;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="comment">// add the last one</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        TRACE(<span class="stringliteral">&quot;adding to generator: %s&quot;</span>, last_key_value.key.c_str());</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <span class="keywordflow">if</span> (!last_key_value.value.deleted) {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;          generator_-&gt;Add(std::move(last_key_value.key), last_key_value.value);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        ++added_key_values;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      }</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    }</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    sorter_.clear();</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    generator_-&gt;CloseFeeding();</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  }</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a2e03f5bca6fb40013817453989a5e0fa">  264</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a2e03f5bca6fb40013817453989a5e0fa">SetManifestFromString</a>(<span class="keyword">const</span> std::string&amp; manifest) {</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a1cfbd08c7426b5f6af6c93bccd21e5a6">SetManifest</a>(fsa::internal::SerializationUtils::ReadJsonRecord(manifest));</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  }</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a1cfbd08c7426b5f6af6c93bccd21e5a6">  273</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a1cfbd08c7426b5f6af6c93bccd21e5a6">SetManifest</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; manifest) {</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    manifest_ = manifest;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="comment">// if generator object is already there, set it otherwise cache it until it</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="comment">// is created</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordflow">if</span> (generator_) {</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      generator_-&gt;SetManifest(manifest);</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    }</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  }</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  <span class="keywordtype">void</span> Write(std::ostream&amp; stream) { generator_-&gt;Write(stream); }</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> StringType&gt;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  <span class="keywordtype">void</span> WriteToFile(StringType filename) {</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    std::ofstream out_stream(filename, std::ios::binary);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    generator_-&gt;Write(out_stream);</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    out_stream.close();</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  }</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  SorterT sorter_;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#a56e2c0109f0165be2081b6c2e8a3bbad">fsa::internal::IValueStoreWriter::vs_param_t</a> params_;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  ValueStoreT* value_store_;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <span class="keyword">typename</span> GeneratorAdapter::AdapterPtr generator_;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  boost::property_tree::ptree manifest_ = boost::property_tree::ptree();</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  <span class="keywordtype">size_t</span> count_ = 0;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  <span class="keywordtype">size_t</span> size_of_keys_ = 0;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  <span class="keywordtype">bool</span> sort_finalized_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="keywordtype">bool</span> stable_insert_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  fsa::ValueHandle RegisterValue(</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      <span class="keyword">typename</span> ValueStoreT::value_t value = ValueStoreT::no_value) {</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keywordtype">bool</span> no_minimization = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    uint64_t value_idx = value_store_-&gt;GetValue(value, no_minimization);</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    fsa::ValueHandle handle = {</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        value_idx,                            <span class="comment">// offset of value</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        count_++,                             <span class="comment">// counter(order)</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        value_store_-&gt;GetWeightValue(value),  <span class="comment">// weight</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        no_minimization,                      <span class="comment">// minimization</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        <span class="keyword">false</span>                                 <span class="comment">// deleted flag</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    };</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordflow">return</span> handle;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  }</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;};</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;} <span class="comment">/* namespace dictionary */</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;} <span class="comment">/* namespace keyvi */</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* DICTIONARY_COMPILER_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="structkeyvi_1_1dictionary_1_1sort_1_1key__value__pair_html"><div class="ttname"><a href="structkeyvi_1_1dictionary_1_1sort_1_1key__value__pair.html">keyvi::dictionary::sort::key_value_pair</a></div><div class="ttdef"><b>Definition:</b> sorter_common.h:40</div></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1_dictionary_compiler_html_a2e03f5bca6fb40013817453989a5e0fa"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a2e03f5bca6fb40013817453989a5e0fa">keyvi::dictionary::DictionaryCompiler::SetManifestFromString</a></div><div class="ttdeci">void SetManifestFromString(const std::string &amp;manifest)</div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:236</div></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html">keyvi::dictionary::fsa::GeneratorAdapterInterface</a></div><div class="ttdef"><b>Definition:</b> generator_adapter.h:36</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1_dictionary_compiler_html_a2e03f5bca6fb40013817453989a5e0fa"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a2e03f5bca6fb40013817453989a5e0fa">keyvi::dictionary::DictionaryCompiler::SetManifestFromString</a></div><div class="ttdeci">void SetManifestFromString(const std::string &amp;manifest)</div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:264</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1_generator_adapter_interface.html">keyvi::dictionary::fsa::GeneratorAdapterInterface</a></div><div class="ttdef"><b>Definition:</b> generator_adapter.h:39</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1_dictionary_compiler_html_a82ccb446d6c33a00930028c5c8d7cbed"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a82ccb446d6c33a00930028c5c8d7cbed">keyvi::dictionary::DictionaryCompiler::DictionaryCompiler</a></div><div class="ttdeci">DictionaryCompiler(const compiler_param_t &amp;params=compiler_param_t())</div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:88</div></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_null_value_store_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_null_value_store.html">keyvi::dictionary::fsa::internal::NullValueStore</a></div><div class="ttdef"><b>Definition:</b> null_value_store.h:40</div></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html">keyvi::dictionary::sort::TpieSorter</a></div><div class="ttdef"><b>Definition:</b> tpie_sorter.h:58</div></div>
-<div class="ttc" id="structkeyvi_1_1dictionary_1_1compiler__exception_html"><div class="ttname"><a href="structkeyvi_1_1dictionary_1_1compiler__exception.html">keyvi::dictionary::compiler_exception</a></div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:55</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html">keyvi::dictionary::sort::TpieSorter</a></div><div class="ttdef"><b>Definition:</b> tpie_sorter.h:64</div></div>
+<div class="ttc" id="structkeyvi_1_1dictionary_1_1compiler__exception_html"><div class="ttname"><a href="structkeyvi_1_1dictionary_1_1compiler__exception.html">keyvi::dictionary::compiler_exception</a></div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:60</div></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1sort_1_1_in_memory_sorter.html">keyvi::dictionary::sort::InMemorySorter</a></div><div class="ttdef"><b>Definition:</b> in_memory_sorter.h:38</div></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1_dictionary_compiler_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">keyvi::dictionary::DictionaryCompiler</a></div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:69</div></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1_dictionary_compiler_html_ac816b9ce7e9be6961673b62f2ed8a820"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac816b9ce7e9be6961673b62f2ed8a820">keyvi::dictionary::DictionaryCompiler::Compile</a></div><div class="ttdeci">void Compile(callback_t progress_callback=nullptr, void *user_data=nullptr)</div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:148</div></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1_dictionary_compiler_html_a1cfbd08c7426b5f6af6c93bccd21e5a6"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a1cfbd08c7426b5f6af6c93bccd21e5a6">keyvi::dictionary::DictionaryCompiler::SetManifest</a></div><div class="ttdeci">void SetManifest(const boost::property_tree::ptree &amp;manifest)</div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:245</div></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1_dictionary_compiler_html_ac28f9a0f67dd067556dd57a0a6c6abea"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac28f9a0f67dd067556dd57a0a6c6abea">keyvi::dictionary::DictionaryCompiler::DictionaryCompiler</a></div><div class="ttdeci">DictionaryCompiler(size_t memory_limit=1073741824, const compiler_param_t &amp;params=compiler_param_t())</div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:84</div></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer_html_a56e2c0109f0165be2081b6c2e8a3bbad"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#a56e2c0109f0165be2081b6c2e8a3bbad">keyvi::dictionary::fsa::internal::IValueStoreWriter::vs_param_t</a></div><div class="ttdeci">std::map&lt; std::string, std::string &gt; vs_param_t</div><div class="ttdef"><b>Definition:</b> ivalue_store.h:75</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1_dictionary_compiler_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html">keyvi::dictionary::DictionaryCompiler</a></div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:73</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1_dictionary_compiler_html_ac816b9ce7e9be6961673b62f2ed8a820"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#ac816b9ce7e9be6961673b62f2ed8a820">keyvi::dictionary::DictionaryCompiler::Compile</a></div><div class="ttdeci">void Compile(callback_t progress_callback=nullptr, void *user_data=nullptr)</div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:175</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1_dictionary_compiler_html_a088e0ffd252ddd8970530ec3716649d9"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a088e0ffd252ddd8970530ec3716649d9">keyvi::dictionary::DictionaryCompiler::DictionaryCompiler</a></div><div class="ttdeci">DictionaryCompiler(size_t memory_limit, const compiler_param_t &amp;params=compiler_param_t())</div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:110</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1_dictionary_compiler_html_a1cfbd08c7426b5f6af6c93bccd21e5a6"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1_dictionary_compiler.html#a1cfbd08c7426b5f6af6c93bccd21e5a6">keyvi::dictionary::DictionaryCompiler::SetManifest</a></div><div class="ttdeci">void SetManifest(const boost::property_tree::ptree &amp;manifest)</div><div class="ttdef"><b>Definition:</b> dictionary_compiler.h:273</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer_html_a56e2c0109f0165be2081b6c2e8a3bbad"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#a56e2c0109f0165be2081b6c2e8a3bbad">keyvi::dictionary::fsa::internal::IValueStoreWriter::vs_param_t</a></div><div class="ttdeci">std::map&lt; std::string, std::string &gt; vs_param_t</div><div class="ttdef"><b>Definition:</b> ivalue_store.h:76</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><b>dictionary_compiler.h</b></li>
-    <li class="footer">Generated on Tue Feb 21 2017 10:03:41 by
+    <li class="footer">Generated on Thu Feb 23 2017 22:02:35 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

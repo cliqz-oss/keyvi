@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader Class Reference</title>
+<title>keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html','');});
+$(document).ready(function(){initNavTree('classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -103,37 +103,40 @@ $(document).ready(function(){initNavTree('classkeyvi_1_1dictionary_1_1fsa_1_1int
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader-members.html">List of all members</a>  </div>
+<a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
+<div class="title">keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
-Inheritance diagram for keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader:</div>
+Inheritance diagram for keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.png" usemap="#keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader_map" alt=""/>
-  <map id="keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader_map" name="keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader_map">
-<area href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html" alt="keyvi::dictionary::fsa::internal::IValueStoreReader" shape="rect" coords="0,0,371,24"/>
+  <img src="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader.png" usemap="#keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader_map" alt=""/>
+  <map id="keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader_map" name="keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader_map">
+<area href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html" alt="keyvi::dictionary::fsa::internal::IValueStoreReader" shape="rect" coords="0,0,378,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aba4a1433e151728e5b64511d357c7391"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba4a1433e151728e5b64511d357c7391"></a>
+<tr class="memitem:a28c9ec0477faa6b3ef3d050d029100a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28c9ec0477faa6b3ef3d050d029100a2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>JsonValueStoreDeprecatedReader</b> (std::istream &amp;stream, boost::interprocess::file_mapping *file_mapping, bool load_lazy=false)</td></tr>
+<tr class="separator:a28c9ec0477faa6b3ef3d050d029100a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a195e1db61b3b9d4c8469867cbf3279df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a195e1db61b3b9d4c8469867cbf3279df"></a>
 virtual value_store_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetValueStoreType</b> () const override</td></tr>
-<tr class="separator:aba4a1433e151728e5b64511d357c7391"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ddd155aa47816c1a8e7857cf96ec9cc"><td class="memItemLeft" align="right" valign="top">virtual attributes_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a0ddd155aa47816c1a8e7857cf96ec9cc">GetValueAsAttributeVector</a> (uint64_t fsa_value) const override</td></tr>
-<tr class="separator:a0ddd155aa47816c1a8e7857cf96ec9cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8aa996ce1c23ed4850eabe49ae91847a"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a8aa996ce1c23ed4850eabe49ae91847a">GetValueAsString</a> (uint64_t fsa_value) const override</td></tr>
-<tr class="separator:a8aa996ce1c23ed4850eabe49ae91847a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a195e1db61b3b9d4c8469867cbf3279df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44e86441d60e13fb66dd8393114a4012"><td class="memItemLeft" align="right" valign="top">virtual attributes_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader.html#a44e86441d60e13fb66dd8393114a4012">GetValueAsAttributeVector</a> (uint64_t fsa_value) const override</td></tr>
+<tr class="separator:a44e86441d60e13fb66dd8393114a4012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace106651c86ad0e37779acbcce265794"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader.html#ace106651c86ad0e37779acbcce265794">GetRawValueAsString</a> (uint64_t fsa_value) const override</td></tr>
+<tr class="separator:ace106651c86ad0e37779acbcce265794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a50cb7976f5ad5918b932e62e380b4f"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader.html#a7a50cb7976f5ad5918b932e62e380b4f">GetValueAsString</a> (uint64_t fsa_value) const override</td></tr>
+<tr class="separator:a7a50cb7976f5ad5918b932e62e380b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdf53cdb62cb91b0ccdaa5342ddd2946"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader.html#afdf53cdb62cb91b0ccdaa5342ddd2946">GetStatistics</a> () const override</td></tr>
+<tr class="separator:afdf53cdb62cb91b0ccdaa5342ddd2946"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html">keyvi::dictionary::fsa::internal::IValueStoreReader</a></td></tr>
 <tr class="memitem:a8394f70c5af62074722075141cda3953 inherit pub_methods_classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#a8394f70c5af62074722075141cda3953">IValueStoreReader</a> (std::istream &amp;stream, boost::interprocess::file_mapping *file_mapping)</td></tr>
 <tr class="separator:a8394f70c5af62074722075141cda3953 inherit pub_methods_classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee0c768ba79eeacbca09bb6467bfa7ee inherit pub_methods_classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#aee0c768ba79eeacbca09bb6467bfa7ee">GetRawValueAsString</a> (uint64_t fsa_value) const </td></tr>
-<tr class="separator:aee0c768ba79eeacbca09bb6467bfa7ee inherit pub_methods_classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a281c593a159be56c73e066ecc5da0b67 inherit pub_methods_classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#a281c593a159be56c73e066ecc5da0b67">GetStatistics</a> () const </td></tr>
-<tr class="separator:a281c593a159be56c73e066ecc5da0b67 inherit pub_methods_classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -151,7 +154,7 @@ typedef std::shared_ptr<br class="typebreak"/>
 <tr class="separator:ab8a83b9d34aeab6dc8ea7962ca9212e5 inherit pub_types_classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a0ddd155aa47816c1a8e7857cf96ec9cc"></a>
+<a class="anchor" id="ace106651c86ad0e37779acbcce265794"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -159,7 +162,68 @@ typedef std::shared_ptr<br class="typebreak"/>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual attributes_t keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader::GetValueAsAttributeVector </td>
+          <td class="memname">virtual std::string keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader::GetRawValueAsString </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>fsa_value</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get Value as string in raw format</p>
+<p>Note: The raw format is an implementation detail of keyvi, not an official binary interface. Value store implementers can override this method for performance reasons.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fsa_value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the value as string without any decompression </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#aee0c768ba79eeacbca09bb6467bfa7ee">keyvi::dictionary::fsa::internal::IValueStoreReader</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afdf53cdb62cb91b0ccdaa5342ddd2946"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader::GetStatistics </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get statistical information about the storage. </p>
+
+<p>Reimplemented from <a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#a281c593a159be56c73e066ecc5da0b67">keyvi::dictionary::fsa::internal::IValueStoreReader</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a44e86441d60e13fb66dd8393114a4012"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual attributes_t keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader::GetValueAsAttributeVector </td>
           <td>(</td>
           <td class="paramtype">uint64_t&#160;</td>
           <td class="paramname"><em>fsa_value</em></td><td>)</td>
@@ -185,7 +249,7 @@ typedef std::shared_ptr<br class="typebreak"/>
 
 </div>
 </div>
-<a class="anchor" id="a8aa996ce1c23ed4850eabe49ae91847a"></a>
+<a class="anchor" id="a7a50cb7976f5ad5918b932e62e380b4f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -193,7 +257,7 @@ typedef std::shared_ptr<br class="typebreak"/>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::string keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader::GetValueAsString </td>
+          <td class="memname">virtual std::string keyvi::dictionary::fsa::internal::JsonValueStoreDeprecatedReader::GetValueAsString </td>
           <td>(</td>
           <td class="paramtype">uint64_t&#160;</td>
           <td class="paramname"><em>fsa_value</em></td><td>)</td>
@@ -220,15 +284,15 @@ typedef std::shared_ptr<br class="typebreak"/>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>keyvi/src/cpp/dictionary/fsa/internal/<a class="el" href="int__inner__weights__value__store_8h_source.html">int_inner_weights_value_store.h</a></li>
+<li>keyvi/src/cpp/dictionary/fsa/internal/<a class="el" href="json__value__store__deprecated_8h_source.html">json_value_store_deprecated.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacekeyvi.html">keyvi</a></li><li class="navelem"><b>dictionary</b></li><li class="navelem"><b>fsa</b></li><li class="navelem"><b>internal</b></li><li class="navelem"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html">IntInnerWeightsValueStoreReader</a></li>
-    <li class="footer">Generated on Thu Feb 23 2017 22:02:35 by
+    <li class="navelem"><a class="el" href="namespacekeyvi.html">keyvi</a></li><li class="navelem"><b>dictionary</b></li><li class="navelem"><b>fsa</b></li><li class="navelem"><b>internal</b></li><li class="navelem"><a class="el" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_deprecated_reader.html">JsonValueStoreDeprecatedReader</a></li>
+    <li class="footer">Generated on Fri Feb 24 2017 00:22:31 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -129,52 +129,53 @@ $(document).ready(function(){initNavTree('tpie__initializer_8h_source.html','');
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifndef TPIE_INITIALIZER_H_</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TPIE_INITIALIZER_H_</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;tpie/tpie.h&quot;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;tpie/tempname.h&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;tpie/tpie.h&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span>keyvi {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>dictionary {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a> final {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">static</span> <a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a>&amp; getInstance() {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">static</span> <a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a> instance;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> instance;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  ~<a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a>() { tpie::tpie_finish(); }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">void</span> SetTempDirectory(<span class="keyword">const</span> std::string&amp; temp_path)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    tpie::tempname::set_default_path(temp_path);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="comment">// todo: only init whats needed tpie::flags&lt;subsystem&gt; tpie_systems_ =</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="comment">// tpie::subsystem::ALL; // crashes, probably miss a service?:</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="comment">// tpie::subsystem::MEMORY_MANAGER | tpie::subsystem::DEFAULT_LOGGING;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a>() { tpie::tpie_init(); }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a>(<a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">void</span> operator=(<a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;} <span class="comment">/* namespace util */</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;} <span class="comment">/* namespace dictionary */</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;} <span class="comment">/* namespace keyvi */</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TPIE_INITIALIZER_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">keyvi::dictionary::util::TpieIntializer</a></div><div class="ttdef"><b>Definition:</b> tpie_initializer.h:40</div></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>keyvi {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>dictionary {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;final</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span> <a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a>&amp; getInstance() {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">static</span> <a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a> instance;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    ~<a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a>() {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      tpie::tpie_finish();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> SetTempDirectory(<span class="keyword">const</span> std::string&amp; temp_path)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      tpie::tempname::set_default_path(temp_path);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// todo: only init whats needed tpie::flags&lt;subsystem&gt; tpie_systems_ = tpie::subsystem::ALL; // crashes, probably miss a service?: tpie::subsystem::MEMORY_MANAGER | tpie::subsystem::DEFAULT_LOGGING;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a>() {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      tpie::tpie_init();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a>(<a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> operator=(<a class="code" href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">TpieIntializer</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  };</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  } <span class="comment">/* namespace util */</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  } <span class="comment">/* namespace dictionary */</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  } <span class="comment">/* namespace keyvi */</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TPIE_INITIALIZER_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1util_1_1_tpie_intializer.html">keyvi::dictionary::util::TpieIntializer</a></div><div class="ttdef"><b>Definition:</b> tpie_initializer.h:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_1b0bf5491ba04ff8991ed2439fa5af98.html">util</a></li><li class="navelem"><b>tpie_initializer.h</b></li>
-    <li class="footer">Generated on Thu Feb 23 2017 22:02:35 by
+    <li class="footer">Generated on Fri Feb 24 2017 00:22:30 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,7 +1,6 @@
 var dir_1b0bf5491ba04ff8991ed2439fa5af98 =
 [
     [ "bounded_priority_queue.h", "bounded__priority__queue_8h_source.html", null ],
-    [ "configuration.h", "configuration_8h_source.html", null ],
     [ "endian.h", "endian_8h_source.html", null ],
     [ "iterator_utils.h", "iterator__utils_8h_source.html", null ],
     [ "json_value.h", "json__value_8h_source.html", null ],

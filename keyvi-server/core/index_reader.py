@@ -63,7 +63,7 @@ class IndexReader(RPCServer):
             new_toc = json.loads(toc)
             self.toc = new_toc
             self.log.info("loaded toc")
-        except Exception, e:
+        except Exception as e:
             self.log.exception("failed to load toc")
 
     def check_toc(self, force=False):

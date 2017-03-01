@@ -170,7 +170,7 @@ class IndexWriter(RPCServer):
             self.segments = toc.get('files', [])
             self.log.info("loaded index")
 
-        except Exception, e:
+        except Exception as e:
             self.log.exception("failed to load index")
             raise
 

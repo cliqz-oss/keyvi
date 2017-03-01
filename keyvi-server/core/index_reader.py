@@ -66,14 +66,14 @@ class IndexReader(RPCServer):
         except Exception, e:
             self.log.exception("failed to load toc")
 
-    def check_toc(self):
+    def check_toc(self, force=False):
         try:
             stat_rs = os.stat(self.index_file)
         except:
             self.log.exception("could not load toc")
             return
 
-        if stat_rs.st_mtime != self.last_stat_rs_mtime:
+        if stat_rs.st_mtime != self.last_stat_rs_mtime or force:
             self.log.info("reload toc")
             self.last_stat_rs_mtime = stat_rs.st_mtime
             self._load_index_file()
@@ -108,4 +108,4 @@ class IndexReader(RPCServer):
         return False
 
     def reload(self):
-        self.check_toc()
+        self.check_toc(True)

@@ -3,3 +3,5 @@ autowrap
 pytest
 twine
 wheel
+mprpc
+gunicorn

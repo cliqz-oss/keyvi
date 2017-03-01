@@ -18,3 +18,4 @@ python setup.py bdist_wheel -d wheelhouse
 sudo -H pip install wheelhouse/*.whl
 py.test tests
 cd ..
+py.test keyvi-server/tests/

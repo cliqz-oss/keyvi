@@ -12,3 +12,4 @@ python setup.py build --mode $CONF
 python setup.py install --user
 py.test tests
 cd ..
+py.test keyvi-server/tests/

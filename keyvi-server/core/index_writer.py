@@ -72,8 +72,6 @@ def _merge(list_to_merge, index_dir):
 
 def _get_segment_name(index_dir, prefix='master'):
     filename = os.path.join(index_dir, "{}-{}-{}.kv".format(prefix, int(time.time() * 1000000), os.getpid()))
-    if type(filename) == unicode:
-        filename = filename.encode("utf-8")
     return filename
 
 class IndexWriter(RPCServer):

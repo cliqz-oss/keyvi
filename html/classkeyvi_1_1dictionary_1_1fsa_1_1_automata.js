@@ -2,6 +2,7 @@ var classkeyvi_1_1dictionary_1_1fsa_1_1_automata =
 [
     [ "Automata", "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#ae56ab6a247abfe4073c3f60fc23d2a22", null ],
     [ "Automata", "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#ab07961eaaf34bba58e7980355d67bc2b", null ],
+    [ "Empty", "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a7e73b65d4ae528f1954719e0f5a3d552", null ],
     [ "GetManifest", "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a76b5d958a5fa03e1324b37f192858b9e", null ],
     [ "GetManifestAsString", "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a93623275e2f6b0ef6eb31a77057510b4", null ],
     [ "GetNumberOfKeys", "classkeyvi_1_1dictionary_1_1fsa_1_1_automata.html#a1e1f9db583dbe784109f0c48346e6dbd", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"classkeyvi_1_1stringdistance_1_1_needleman_wunsch.html#af35801490cabba04c866ff5fe039276a":[10,0,0,2,2,3],
 "classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html":[10,0,0,2,0,0],
 "classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html#a23c92b821f26364ef63b43ee8fd091d2":[10,0,0,2,0,0,3],
 "classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html#a3e969ff73850d9b8d8de7cdc6b7cd874":[10,0,0,2,0,0,2],
@@ -157,23 +158,23 @@ var NAVTREEINDEX2 =
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a123288d0aebcbfec70576038b9c16c5a":[10,0,0,1,2,0,0,6],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a123288d0aebcbfec70576038b9c16c5a":[10,0,0,1,2,0,0,7],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a35ca12bd5c4487ce8ed840a88b3cdd78":[10,0,0,1,2,0,0,29],
-"structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a65b19da4a5e5b718ebd1353c0dd9408b":[10,0,0,1,2,0,0,27],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a65b19da4a5e5b718ebd1353c0dd9408b":[10,0,0,1,2,0,0,26],
+"structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a65b19da4a5e5b718ebd1353c0dd9408b":[10,0,0,1,2,0,0,27],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a6985049923f338ed2af6c24f884c6e31":[10,0,0,1,2,0,0,17],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a6985049923f338ed2af6c24f884c6e31":[10,0,0,1,2,0,0,16],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a6fff9edbe1d7513754be74864dec055e":[10,0,0,1,2,0,0,10],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a6fff9edbe1d7513754be74864dec055e":[10,0,0,1,2,0,0,11],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a7711a4b37797357eddf8c414f7fb51b7":[10,0,0,1,2,0,0,28],
-"structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a8414ad31ba4d56465d106e720bba5e96":[10,0,0,1,2,0,0,12],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a8414ad31ba4d56465d106e720bba5e96":[10,0,0,1,2,0,0,13],
+"structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a8414ad31ba4d56465d106e720bba5e96":[10,0,0,1,2,0,0,12],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a9a737626d281ca61cb5d75168c446394":[10,0,0,1,2,0,0,8],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a9a737626d281ca61cb5d75168c446394":[10,0,0,1,2,0,0,9],
-"structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a9c1b46f039a419d90a16524f13e256f7":[10,0,0,1,2,0,0,23],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a9c1b46f039a419d90a16524f13e256f7":[10,0,0,1,2,0,0,22],
-"structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#ab11655f1cc25d0016d3fcee8fbbce2a9":[10,0,0,1,2,0,0,14],
+"structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#a9c1b46f039a419d90a16524f13e256f7":[10,0,0,1,2,0,0,23],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#ab11655f1cc25d0016d3fcee8fbbce2a9":[10,0,0,1,2,0,0,15],
-"structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#ab69487a93c16fa9c8c70583ecc7cc5a3":[10,0,0,1,2,0,0,2],
+"structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#ab11655f1cc25d0016d3fcee8fbbce2a9":[10,0,0,1,2,0,0,14],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#ab69487a93c16fa9c8c70583ecc7cc5a3":[10,0,0,1,2,0,0,0],
+"structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#ab69487a93c16fa9c8c70583ecc7cc5a3":[10,0,0,1,2,0,0,2],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#acff21defb9985aaaeb1879322c6cbd02":[10,0,0,1,2,0,0,3],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#acff21defb9985aaaeb1879322c6cbd02":[10,0,0,1,2,0,0,1],
 "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_bit_vector.html#aef316330162b074b8d5be27902ffec86":[10,0,0,1,2,0,0,18],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_payload_3_01_near_transition_01_4.html#a7a510c067198d4761cee182bab37ced6":[10,0,0,1,2,1,3,2],
 "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_payload_3_01_near_transition_01_4.html#a8c89bcd6a290673f2c2ab59d027eb8d5":[10,0,0,1,2,1,3,1],
 "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_payload_3_01_near_transition_01_4.html#a9e798344633bba2ebaefe5daafdf032e":[10,0,0,1,2,1,3,4],
-"structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_payload_3_01_near_transition_01_4.html#adcfff82ed962fa1543c44f67d3769f78":[10,0,0,1,2,1,3,3],
-"structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_stack.html":[10,0,0,1,2,1,9]
+"structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_payload_3_01_near_transition_01_4.html#adcfff82ed962fa1543c44f67d3769f78":[10,0,0,1,2,1,3,3]
 };

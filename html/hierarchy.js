@@ -98,10 +98,10 @@ var hierarchy =
     [ "keyvi::dictionary::sort::TpieSorter< KeyValueT >", "classkeyvi_1_1dictionary_1_1sort_1_1_tpie_sorter.html", null ],
     [ "keyvi::dictionary::util::trace", "classkeyvi_1_1dictionary_1_1util_1_1trace.html", null ],
     [ "keyvi::dictionary::util::Transform", "classkeyvi_1_1dictionary_1_1util_1_1_transform.html", null ],
-    [ "keyvi::dictionary::fsa::internal::UnpackedState< PersistenceT >::Transition", "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state_1_1_transition.html", null ],
     [ "keyvi::dictionary::fsa::traversal::Transition", "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_transition.html", [
       [ "keyvi::dictionary::fsa::traversal::NearTransition", "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_near_transition.html", null ]
     ] ],
+    [ "keyvi::dictionary::fsa::internal::UnpackedState< PersistenceT >::Transition", "structkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_unpacked_state_1_1_transition.html", null ],
     [ "keyvi::dictionary::fsa::traversal::TraversalPayload< TransitionT >", "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_payload.html", null ],
     [ "keyvi::dictionary::fsa::traversal::TraversalPayload< BoundedWeightedTransition >", "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_payload_3_01_bounded_weighted_transition_01_4.html", null ],
     [ "keyvi::dictionary::fsa::traversal::TraversalPayload< NearTransition >", "structkeyvi_1_1dictionary_1_1fsa_1_1traversal_1_1_traversal_payload_3_01_near_transition_01_4.html", null ],

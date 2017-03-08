@@ -399,7 +399,7 @@ Generating code for file keyvi/src/cpp/dictionary/fsa/internal/unpacked_stat/hom
   parameter 'params'
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_merger.h:103: warning: Member DictionaryMerger(size_t memory_limit=1073741824, const merger_param_t &params=merger_param_t()) (function) of class keyvi::dictionary::DictionaryMerger is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_merger.h:116: warning: Member Add(const std::string &filename) (function) of class keyvi::dictionary::DictionaryMerger is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_merger.h:143: warning: Member Merge(const std::string &filename) (function) of class keyvi::dictionary::DictionaryMerger is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/dictionary_merger.h:152: warning: Member Merge(const std::string &filename) (function) of class keyvi::dictionary::DictionaryMerger is not documented.
 e.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/unpacked_state_stack.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/value_store_factory.h...
@@ -500,22 +500,23 @@ Generating docs for compound keyvi::dictionary::KeyViFi/home/travis/build/cliqz-
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:114: warning: Member operator=(Automata const &)=delete (function) of class keyvi::dictionary::fsa::Automata is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:115: warning: Member Automata(const Automata &that)=delete (function) of class keyvi::dictionary::fsa::Automata is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:126: warning: Member GetNumberOfKeys() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:130: warning: Member SparseArraySize() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:134: warning: Member GetValueStoreType() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:138: warning: Member TryWalkTransition(uint64_t starting_state, unsigned char c) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:252: warning: Member GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:377: warning: Member IsFinalState(uint64_t state_to_check) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:385: warning: Member GetStateValue(uint64_t state) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:394: warning: Member GetWeightValue(uint64_t state) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:410: warning: Member GetValueAsAttributeVector(uint64_t state_value) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:415: warning: Member GetValueAsString(uint64_t state_value) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:420: warning: Member GetRawValueAsString(uint64_t state_value) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:425: warning: Member GetStatistics() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:438: warning: Member GetManifest() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:442: warning: Member GetManifestAsString() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:146: warning: argument 'outgoing_states' of command @param is not found in the argument list of keyvi::dictionary::fsa::Automata::GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:146: warning: argument 'outgoing_symbols' of command @param is not found in the argument list of keyvi::dictionary::fsa::Automata::GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const
-/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:146: warning: The following parameters of keyvi::dictionary::fsa::Automata::GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const are not documented:
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:130: warning: Member Empty() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:134: warning: Member SparseArraySize() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:138: warning: Member GetValueStoreType() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:142: warning: Member TryWalkTransition(uint64_t starting_state, unsigned char c) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:256: warning: Member GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:381: warning: Member IsFinalState(uint64_t state_to_check) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:389: warning: Member GetStateValue(uint64_t state) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:398: warning: Member GetWeightValue(uint64_t state) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:414: warning: Member GetValueAsAttributeVector(uint64_t state_value) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:419: warning: Member GetValueAsString(uint64_t state_value) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:424: warning: Member GetRawValueAsString(uint64_t state_value) const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:429: warning: Member GetStatistics() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:442: warning: Member GetManifest() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:446: warning: Member GetManifestAsString() const  (function) of class keyvi::dictionary::fsa::Automata is not documented.
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:150: warning: argument 'outgoing_states' of command @param is not found in the argument list of keyvi::dictionary::fsa::Automata::GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:150: warning: argument 'outgoing_symbols' of command @param is not found in the argument list of keyvi::dictionary::fsa::Automata::GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const
+/home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/automata.h:150: warning: The following parameters of keyvi::dictionary::fsa::Automata::GetOutGoingTransitions(uint64_t starting_state, traversal::TraversalState< TransitionT > &traversal_state, traversal::TraversalPayload< TransitionT > &payload) const are not documented:
   parameter 'traversal_state'
   parameter 'payload'
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/dictionary/fsa/bounded_weighted_state_traverser.h:41: warning: Member BoundedWeightedStateTraverser(automata_t f, size_t top_number_of_results) (function) of class keyvi::dictionary::fsa::BoundedWeightedStateTraverser is not documented.
@@ -1079,5 +1080,5 @@ Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
-lookup cache used 2842/65536 hits=19161 misses=3273
+lookup cache used 2852/65536 hits=19262 misses=3288
 finished...

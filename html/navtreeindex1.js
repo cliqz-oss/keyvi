@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html":[10,0,0,1,2,0,2],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#a3ff732599e4e33b333b86b975389bd9a":[10,0,0,1,2,0,2,2],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#a4064824d667768e2fe9130cf2aa53f17":[10,0,0,1,2,0,2,0],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_with_inner_weights.html#a641460866b584477b0efdcd6c950f4b5":[10,0,0,1,2,0,2,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "classkeyvi_1_1stringdistance_1_1_needleman_wunsch.html#aa3d67af5119fd608fce97c4e74dc1219":[10,0,0,2,2,7],
 "classkeyvi_1_1stringdistance_1_1_needleman_wunsch.html#aa8adb2c0bf393d0fc0cec414b87f4cb8":[10,0,0,2,2,6],
 "classkeyvi_1_1stringdistance_1_1_needleman_wunsch.html#ac4152207a4085c1e6102d3e8bf38c8f5":[10,0,0,2,2,5],
-"classkeyvi_1_1stringdistance_1_1_needleman_wunsch.html#af0db45e09f2be2d93e83d509dcbe7a21":[10,0,0,2,2,2],
-"classkeyvi_1_1stringdistance_1_1_needleman_wunsch.html#af35801490cabba04c866ff5fe039276a":[10,0,0,2,2,3]
+"classkeyvi_1_1stringdistance_1_1_needleman_wunsch.html#af0db45e09f2be2d93e83d509dcbe7a21":[10,0,0,2,2,2]
 };

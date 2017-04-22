@@ -1025,17 +1025,18 @@ Generating docs for nested compound keyvi::dictio/home/travis/build/cliqz-oss/ke
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/transform/fsa_transform.h:41: warning: Member FsaTransform(dictionary::fsa::automata_t fsa) (function) of class keyvi::transform::FsaTransform is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/transform/fsa_transform.h:44: warning: Member FsaTransform(dictionary::dictionary_t d) (function) of class keyvi::transform::FsaTransform is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/transform/fsa_transform.h:48: warning: Member Normalize(const std::string &input) const  (function) of class keyvi::transform::FsaTransform is not documented.
-/home/travis/build/cliqz-oss/keyvi/README.md:31: warning: unexpected token TK_EOF as the argument of ref
-/home/travis/build/cliqz-oss/keyvi/README.md:33: warning: unexpected token TK_EOF as the argument of ref
-/home/travis/build/cliqz-oss/keyvi/README.md:41: warning: unexpected token TK_EOF as the argument of ref
-/home/travis/build/cliqz-oss/keyvi/README.md:43: warning: unexpected token TK_EOF as the argument of ref
+/home/travis/build/cliqz-oss/keyvi/README.md:3: warning: unexpected token TK_EOF as the argument of ref
+/home/travis/build/cliqz-oss/keyvi/README.md:32: warning: unexpected token TK_EOF as the argument of ref
+/home/travis/build/cliqz-oss/keyvi/README.md:34: warning: unexpected token TK_EOF as the argument of ref
+/home/travis/build/cliqz-oss/keyvi/README.md:42: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:44: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:45: warning: unexpected token TK_EOF as the argument of ref
-/home/travis/build/cliqz-oss/keyvi/README.md:51: warning: unexpected token TK_EOF as the argument of ref
+/home/travis/build/cliqz-oss/keyvi/README.md:46: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:52: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:53: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:54: warning: unexpected token TK_EOF as the argument of ref
 /home/travis/build/cliqz-oss/keyvi/README.md:55: warning: unexpected token TK_EOF as the argument of ref
+/home/travis/build/cliqz-oss/keyvi/README.md:56: warning: unexpected token TK_EOF as the argument of ref
 nary::fsa::internal::UnpackedState::Transition...
 Generating docs for compound keyvi::dictionary::fsa::internal::UnpackedStateStack...
 Generating docs for compound keyvi::dictionary::fsa::internal::ValueStoreFactory...

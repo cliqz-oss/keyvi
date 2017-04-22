@@ -5,3 +5,4 @@ docker run -e "PYTHON_VERSION=$PYTHON_VERSION" --rm -v `pwd`:/keyvi $DOCKER_IMAG
 
 pip install pykeyvi/wheelhouse/pykeyvi*.whl
 py.test pykeyvi/tests/
+py.test keyvi-server/tests/

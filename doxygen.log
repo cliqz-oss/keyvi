@@ -350,6 +350,7 @@ Generating code for file keyvi/src/cpp/dictionary/fsa/internal/serialization_uti
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/sliding_window_bit_vector_position_tracker.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/internal/sparse_array_builder.h...
 Generating code for file keyvi/src/cpp/dictionary/fsa/i/home/travis/build/cliqz-oss/keyvi/doc/usage/Crashcourse.md:130: warning: Found unknown command `\t'
+/home/travis/build/cliqz-oss/keyvi/doc/usage/Using pykeyvi in EMR.md:73: warning: Found unknown command `\staticmethod'
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/compression/compression_strategy.h:53: warning: Member Compress(buffer_t &buffer, const char *raw, size_t raw_size)=0 (function) of class keyvi::compression::CompressionStrategy is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/compression/compression_strategy.h:55: warning: Member Compress(const std::string &raw) (function) of class keyvi::compression::CompressionStrategy is not documented.
 /home/travis/build/cliqz-oss/keyvi/keyvi/src/cpp/compression/compression_strategy.h:59: warning: Member Compress(const char *raw, size_t raw_size) (function) of class keyvi::compression::CompressionStrategy is not documented.

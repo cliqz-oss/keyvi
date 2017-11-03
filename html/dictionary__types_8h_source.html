@@ -181,11 +181,18 @@ $(document).ready(function(){initNavTree('dictionary__types_8h_source.html','');
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html">keyvi::dictionary::fsa::internal::IntValueStore</a>&gt; IntDictionaryMerger;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;} <span class="comment">/* namespace dictionary */</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;} <span class="comment">/* namespace keyvi */</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">typedef</span> <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_merger.html">keyvi::dictionary::DictionaryMerger</a>&lt;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html">keyvi::dictionary::fsa::internal::SparseArrayPersistence&lt;uint16_t&gt;</a>,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_string_value_store.html">keyvi::dictionary::fsa::internal::StringValueStore</a>&gt; StringDictionaryMerger;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* DICTIONARY_TYPES_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">typedef</span> <a class="code" href="classkeyvi_1_1dictionary_1_1_dictionary_merger.html">keyvi::dictionary::DictionaryMerger</a>&lt;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html">keyvi::dictionary::fsa::internal::SparseArrayPersistence&lt;uint16_t&gt;</a>&gt; KeyOnlyDictionaryMerger;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;} <span class="comment">/* namespace dictionary */</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;} <span class="comment">/* namespace keyvi */</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* DICTIONARY_TYPES_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStore</a></div><div class="ttdef"><b>Definition:</b> int_inner_weights_value_store.h:42</div></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_json_value_store.html">keyvi::dictionary::fsa::internal::JsonValueStore</a></div><div class="ttdoc">TODO: move merge logic into dedicated JsonValueStoreMerger class. </div><div class="ttdef"><b>Definition:</b> json_value_store.h:72</div></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_sparse_array_persistence.html">keyvi::dictionary::fsa::internal::SparseArrayPersistence</a></div><div class="ttdef"><b>Definition:</b> sparse_array_persistence.h:57</div></div>
@@ -200,8 +207,8 @@ $(document).ready(function(){initNavTree('dictionary__types_8h_source.html','');
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><b>dictionary_types.h</b></li>
-    <li class="footer">Generated on Wed Jun 7 2017 13:38:37 by
+    <li class="navelem"><a class="el" href="dir_ebf5415b9b620d7b58c3ba20039052d5.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_c898f0c2518c14a274affc8d3d77ab98.html">src</a></li><li class="navelem"><a class="el" href="dir_b102e8841048aa1faf55c9e49742dcbe.html">cpp</a></li><li class="navelem"><a class="el" href="dir_33685baaf6c6092bd6bf7fe7305f622b.html">dictionary</a></li><li class="navelem"><b>dictionary_types.h</b></li>
+    <li class="footer">Generated on Fri Nov 3 2017 15:07:05 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

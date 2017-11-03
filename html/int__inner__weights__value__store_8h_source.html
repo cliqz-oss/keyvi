@@ -164,64 +164,68 @@ $(document).ready(function(){initNavTree('int__inner__weights__value__store_8h_s
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> value;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  }</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  uint32_t GetMergeWeight(uint64_t fsa_value){</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> fsa_value;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  uint64_t GetMergeValueId(<span class="keywordtype">size_t</span> fileIndex, uint64_t oldIndex) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> oldIndex;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  }</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keyword">static</span> value_store_t GetValueStoreType() {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> INT_INNER_WEIGHTS_VALUE_STORE;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  uint32_t GetMergeWeight(uint64_t fsa_value){</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> fsa_value;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keywordtype">void</span> Write(std::ostream&amp; stream)<span class="keyword"> const </span>{}</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#ab9d08d55b4024c8e80972efd864b038f">   79</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#ab9d08d55b4024c8e80972efd864b038f">CloseFeeding</a>() {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> , <span class="keyword">typename</span>&gt;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keyword">friend</span> class ::keyvi::dictionary::DictionaryMerger;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  uint64_t GetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>*p, uint64_t v, <span class="keywordtype">bool</span>&amp; no_minimization){</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> v;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html">   92</a></span>&#160;<span class="keyword">class </span><a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html">IntInnerWeightsValueStoreReader</a> final: <span class="keyword">public</span> <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html">IValueStoreReader</a>{</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">using</span> <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#a8394f70c5af62074722075141cda3953">IValueStoreReader::IValueStoreReader</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keyword">static</span> value_store_t GetValueStoreType() {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span> INT_INNER_WEIGHTS_VALUE_STORE;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">void</span> Write(std::ostream&amp; stream)<span class="keyword"> const </span>{}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#ab9d08d55b4024c8e80972efd864b038f">   83</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#ab9d08d55b4024c8e80972efd864b038f">CloseFeeding</a>() {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> , <span class="keyword">typename</span>&gt;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keyword">friend</span> class ::keyvi::dictionary::DictionaryMerger;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  uint64_t GetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>*p, uint64_t v, <span class="keywordtype">bool</span>&amp; no_minimization){</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> v;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keyword">virtual</span> value_store_t GetValueStoreType()<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> INT_INNER_WEIGHTS_VALUE_STORE;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  }</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html">   96</a></span>&#160;<span class="keyword">class </span><a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html">IntInnerWeightsValueStoreReader</a> final: <span class="keyword">public</span> <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html">IValueStoreReader</a>{</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keyword">using</span> <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#a8394f70c5af62074722075141cda3953">IValueStoreReader::IValueStoreReader</a>;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a0ddd155aa47816c1a8e7857cf96ec9cc">  100</a></span>&#160;  <span class="keyword">virtual</span> attributes_t <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a0ddd155aa47816c1a8e7857cf96ec9cc">GetValueAsAttributeVector</a>(uint64_t fsa_value)<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    attributes_t attributes(<span class="keyword">new</span> attributes_raw_t());</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    (*attributes)[<span class="stringliteral">&quot;weight&quot;</span>] = std::to_string(fsa_value);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">return</span> attributes;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keyword">virtual</span> value_store_t GetValueStoreType()<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> INT_INNER_WEIGHTS_VALUE_STORE;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a0ddd155aa47816c1a8e7857cf96ec9cc">  104</a></span>&#160;  <span class="keyword">virtual</span> attributes_t <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a0ddd155aa47816c1a8e7857cf96ec9cc">GetValueAsAttributeVector</a>(uint64_t fsa_value)<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    attributes_t attributes(<span class="keyword">new</span> attributes_raw_t());</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a8aa996ce1c23ed4850eabe49ae91847a">  107</a></span>&#160;  <span class="keyword">virtual</span> std::string <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a8aa996ce1c23ed4850eabe49ae91847a">GetValueAsString</a>(uint64_t fsa_value)<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> std::to_string(fsa_value);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    (*attributes)[<span class="stringliteral">&quot;weight&quot;</span>] = std::to_string(fsa_value);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> attributes;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;};</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;} <span class="comment">/* namespace internal */</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;} <span class="comment">/* namespace fsa */</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;} <span class="comment">/* namespace dictionary */</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;} <span class="comment">/* namespace keyvi */</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INT_INNER_WEIGHTS_VALUE_STORE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader_html_a0ddd155aa47816c1a8e7857cf96ec9cc"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a0ddd155aa47816c1a8e7857cf96ec9cc">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader::GetValueAsAttributeVector</a></div><div class="ttdeci">virtual attributes_t GetValueAsAttributeVector(uint64_t fsa_value) const override</div><div class="ttdef"><b>Definition:</b> int_inner_weights_value_store.h:100</div></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a8aa996ce1c23ed4850eabe49ae91847a">  111</a></span>&#160;  <span class="keyword">virtual</span> std::string <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a8aa996ce1c23ed4850eabe49ae91847a">GetValueAsString</a>(uint64_t fsa_value)<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> std::to_string(fsa_value);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;} <span class="comment">/* namespace internal */</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;} <span class="comment">/* namespace fsa */</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;} <span class="comment">/* namespace dictionary */</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;} <span class="comment">/* namespace keyvi */</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INT_INNER_WEIGHTS_VALUE_STORE_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader_html_a0ddd155aa47816c1a8e7857cf96ec9cc"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a0ddd155aa47816c1a8e7857cf96ec9cc">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader::GetValueAsAttributeVector</a></div><div class="ttdeci">virtual attributes_t GetValueAsAttributeVector(uint64_t fsa_value) const override</div><div class="ttdef"><b>Definition:</b> int_inner_weights_value_store.h:104</div></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStore</a></div><div class="ttdef"><b>Definition:</b> int_inner_weights_value_store.h:42</div></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader_html_a8aa996ce1c23ed4850eabe49ae91847a"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a8aa996ce1c23ed4850eabe49ae91847a">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader::GetValueAsString</a></div><div class="ttdeci">virtual std::string GetValueAsString(uint64_t fsa_value) const override</div><div class="ttdef"><b>Definition:</b> int_inner_weights_value_store.h:107</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader_html_a8aa996ce1c23ed4850eabe49ae91847a"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a8aa996ce1c23ed4850eabe49ae91847a">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader::GetValueAsString</a></div><div class="ttdeci">virtual std::string GetValueAsString(uint64_t fsa_value) const override</div><div class="ttdef"><b>Definition:</b> int_inner_weights_value_store.h:111</div></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader_html_a8394f70c5af62074722075141cda3953"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html#a8394f70c5af62074722075141cda3953">keyvi::dictionary::fsa::internal::IValueStoreReader::IValueStoreReader</a></div><div class="ttdeci">IValueStoreReader(std::istream &amp;stream, boost::interprocess::file_mapping *file_mapping)</div><div class="ttdef"><b>Definition:</b> ivalue_store.h:133</div></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader</a></div><div class="ttdef"><b>Definition:</b> int_inner_weights_value_store.h:92</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStoreReader</a></div><div class="ttdef"><b>Definition:</b> int_inner_weights_value_store.h:96</div></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_reader.html">keyvi::dictionary::fsa::internal::IValueStoreReader</a></div><div class="ttdef"><b>Definition:</b> ivalue_store.h:122</div></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_html_ab9d08d55b4024c8e80972efd864b038f"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#ab9d08d55b4024c8e80972efd864b038f">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStore::CloseFeeding</a></div><div class="ttdeci">void CloseFeeding()</div><div class="ttdef"><b>Definition:</b> int_inner_weights_value_store.h:79</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_html_ab9d08d55b4024c8e80972efd864b038f"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#ab9d08d55b4024c8e80972efd864b038f">keyvi::dictionary::fsa::internal::IntInnerWeightsValueStore::CloseFeeding</a></div><div class="ttdeci">void CloseFeeding()</div><div class="ttdef"><b>Definition:</b> int_inner_weights_value_store.h:83</div></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html">keyvi::dictionary::fsa::internal::IValueStoreWriter</a></div><div class="ttdef"><b>Definition:</b> ivalue_store.h:73</div></div>
 <div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer_html_a08e32f4f07d06b8e1dd51c11b77a4ff8"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_i_value_store_writer.html#a08e32f4f07d06b8e1dd51c11b77a4ff8">keyvi::dictionary::fsa::internal::IValueStoreWriter::IValueStoreWriter</a></div><div class="ttdeci">IValueStoreWriter(const vs_param_t &amp;parameters=vs_param_t())</div><div class="ttdef"><b>Definition:</b> ivalue_store.h:85</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -229,8 +233,8 @@ $(document).ready(function(){initNavTree('int__inner__weights__value__store_8h_s
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_18cd2892d2d1b27191c8f365213984f7.html">fsa</a></li><li class="navelem"><a class="el" href="dir_4f593fa07bcc006705199afaee94c880.html">internal</a></li><li class="navelem"><b>int_inner_weights_value_store.h</b></li>
-    <li class="footer">Generated on Wed Jun 7 2017 13:38:37 by
+    <li class="navelem"><a class="el" href="dir_ebf5415b9b620d7b58c3ba20039052d5.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_c898f0c2518c14a274affc8d3d77ab98.html">src</a></li><li class="navelem"><a class="el" href="dir_b102e8841048aa1faf55c9e49742dcbe.html">cpp</a></li><li class="navelem"><a class="el" href="dir_33685baaf6c6092bd6bf7fe7305f622b.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_1cb25ba1824a8759536187f5af89d015.html">fsa</a></li><li class="navelem"><a class="el" href="dir_f8dd052306249b39aa0ee62b0360b1dd.html">internal</a></li><li class="navelem"><b>int_inner_weights_value_store.h</b></li>
+    <li class="footer">Generated on Fri Nov 3 2017 15:07:05 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

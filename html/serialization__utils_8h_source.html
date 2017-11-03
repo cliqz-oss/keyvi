@@ -130,90 +130,92 @@ $(document).ready(function(){initNavTree('serialization__utils_8h_source.html','
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SERIALIZATION_UTILS_H_</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;arpa/inet.h&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/json_parser.hpp&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;boost/lexical_cast.hpp&gt;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span>keyvi {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>dictionary {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>fsa {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span>internal {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html">   38</a></span>&#160;<span class="keyword">class </span><a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html">SerializationUtils</a> {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> WriteJsonRecord(std::ostream&amp; stream,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                       boost::property_tree::ptree&amp; properties) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::stringstream string_buffer;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    boost::property_tree::write_json(string_buffer, properties, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::string header = string_buffer.str();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    uint32_t size = ntohl(header.size());</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// boost json parser depends on boost::spirit, and spirit is not thread-safe by default. so need to enable thread-safety</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define BOOST_SPIRIT_THREADSAFE</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/json_parser.hpp&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;boost/lexical_cast.hpp&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>keyvi {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span>dictionary {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span>fsa {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span>internal {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html">SerializationUtils</a> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> WriteJsonRecord(std::ostream&amp; stream,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                       boost::property_tree::ptree&amp; properties) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::stringstream string_buffer;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    boost::property_tree::write_json(string_buffer, properties, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::string header = string_buffer.str();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    stream.write(reinterpret_cast&lt;const char*&gt;(&amp;size), <span class="keyword">sizeof</span>(uint32_t));</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    stream &lt;&lt; header;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">static</span> boost::property_tree::ptree ReadJsonRecord(std::istream&amp; stream) {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    uint32_t header_size;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    stream.read(reinterpret_cast&lt;char*&gt;(&amp;header_size), <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    header_size = htonl(header_size);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">char</span> * buffer = <span class="keyword">new</span> <span class="keywordtype">char</span>[header_size];</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    stream.read(buffer, header_size);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::string buffer_as_string(buffer, header_size);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">delete</span>[] buffer;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::istringstream string_stream(buffer_as_string);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    boost::property_tree::ptree properties;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    boost::property_tree::read_json(string_stream, properties);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> properties;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">static</span> boost::property_tree::ptree ReadValueStoreProperties(std::istream &amp;stream) {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> properties = ReadJsonRecord(stream);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> offset = stream.tellg();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">// check for file truncation</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> vsSize = boost::lexical_cast&lt;<span class="keywordtype">size_t</span>&gt;(properties.get&lt;std::string&gt;(<span class="stringliteral">&quot;size&quot;</span>));</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">if</span> (vsSize &gt; 0) {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            stream.seekg(vsSize - 1, stream.cur);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">if</span> (stream.peek() == EOF) {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;file is corrupt(truncated)&quot;</span>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        stream.seekg(offset);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span> properties;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html#afcef12f3b0daa6e71c0b6b6b8def74b9">   90</a></span>&#160;  <span class="keyword">static</span> boost::property_tree::ptree <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html#afcef12f3b0daa6e71c0b6b6b8def74b9">ReadJsonRecord</a>(<span class="keyword">const</span> std::string&amp; record){</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    boost::property_tree::ptree properties;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// sending an empty string clears the manifest</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">if</span> (!record.empty()) {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      std::istringstream string_stream(record);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      boost::property_tree::read_json(string_stream, properties);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> properties;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;} <span class="comment">/* namespace internal */</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;} <span class="comment">/* namespace fsa */</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;} <span class="comment">/* namespace dictionary */</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;} <span class="comment">/* namespace keyvi */</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SERIALIZATION_UTILS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html">keyvi::dictionary::fsa::internal::SerializationUtils</a></div><div class="ttdef"><b>Definition:</b> serialization_utils.h:38</div></div>
-<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils_html_afcef12f3b0daa6e71c0b6b6b8def74b9"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html#afcef12f3b0daa6e71c0b6b6b8def74b9">keyvi::dictionary::fsa::internal::SerializationUtils::ReadJsonRecord</a></div><div class="ttdeci">static boost::property_tree::ptree ReadJsonRecord(const std::string &amp;record)</div><div class="ttdef"><b>Definition:</b> serialization_utils.h:90</div></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    uint32_t size = ntohl(header.size());</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    stream.write(reinterpret_cast&lt;const char*&gt;(&amp;size), <span class="keyword">sizeof</span>(uint32_t));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    stream &lt;&lt; header;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">static</span> boost::property_tree::ptree ReadJsonRecord(std::istream&amp; stream) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    uint32_t header_size;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    stream.read(reinterpret_cast&lt;char*&gt;(&amp;header_size), <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    header_size = htonl(header_size);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">char</span> * buffer = <span class="keyword">new</span> <span class="keywordtype">char</span>[header_size];</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    stream.read(buffer, header_size);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::string buffer_as_string(buffer, header_size);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">delete</span>[] buffer;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    std::istringstream string_stream(buffer_as_string);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    boost::property_tree::ptree properties;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    boost::property_tree::read_json(string_stream, properties);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> properties;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">static</span> boost::property_tree::ptree ReadValueStoreProperties(std::istream &amp;stream) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> properties = ReadJsonRecord(stream);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> offset = stream.tellg();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">// check for file truncation</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> vsSize = boost::lexical_cast&lt;<span class="keywordtype">size_t</span>&gt;(properties.get&lt;std::string&gt;(<span class="stringliteral">&quot;size&quot;</span>));</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> (vsSize &gt; 0) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            stream.seekg(vsSize - 1, stream.cur);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">if</span> (stream.peek() == EOF) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;file is corrupt(truncated)&quot;</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        stream.seekg(offset);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">return</span> properties;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html#afcef12f3b0daa6e71c0b6b6b8def74b9">   92</a></span>&#160;  <span class="keyword">static</span> boost::property_tree::ptree <a class="code" href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html#afcef12f3b0daa6e71c0b6b6b8def74b9">ReadJsonRecord</a>(<span class="keyword">const</span> std::string&amp; record){</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    boost::property_tree::ptree properties;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">// sending an empty string clears the manifest</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span> (!record.empty()) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      std::istringstream string_stream(record);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      boost::property_tree::read_json(string_stream, properties);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> properties;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;} <span class="comment">/* namespace internal */</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;} <span class="comment">/* namespace fsa */</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;} <span class="comment">/* namespace dictionary */</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;} <span class="comment">/* namespace keyvi */</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SERIALIZATION_UTILS_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils_html"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html">keyvi::dictionary::fsa::internal::SerializationUtils</a></div><div class="ttdef"><b>Definition:</b> serialization_utils.h:40</div></div>
+<div class="ttc" id="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils_html_afcef12f3b0daa6e71c0b6b6b8def74b9"><div class="ttname"><a href="classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_serialization_utils.html#afcef12f3b0daa6e71c0b6b6b8def74b9">keyvi::dictionary::fsa::internal::SerializationUtils::ReadJsonRecord</a></div><div class="ttdeci">static boost::property_tree::ptree ReadJsonRecord(const std::string &amp;record)</div><div class="ttdef"><b>Definition:</b> serialization_utils.h:92</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_73f784083400b10614043d3d7986293d.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_98d0684d69a50370b055551471a81e5a.html">src</a></li><li class="navelem"><a class="el" href="dir_4c1f8f0a3911de202de69c8350d7a667.html">cpp</a></li><li class="navelem"><a class="el" href="dir_8e87f18019e771eda7729d406b63a250.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_18cd2892d2d1b27191c8f365213984f7.html">fsa</a></li><li class="navelem"><a class="el" href="dir_4f593fa07bcc006705199afaee94c880.html">internal</a></li><li class="navelem"><b>serialization_utils.h</b></li>
-    <li class="footer">Generated on Wed Jun 7 2017 13:38:37 by
+    <li class="navelem"><a class="el" href="dir_ebf5415b9b620d7b58c3ba20039052d5.html">keyvi</a></li><li class="navelem"><a class="el" href="dir_c898f0c2518c14a274affc8d3d77ab98.html">src</a></li><li class="navelem"><a class="el" href="dir_b102e8841048aa1faf55c9e49742dcbe.html">cpp</a></li><li class="navelem"><a class="el" href="dir_33685baaf6c6092bd6bf7fe7305f622b.html">dictionary</a></li><li class="navelem"><a class="el" href="dir_1cb25ba1824a8759536187f5af89d015.html">fsa</a></li><li class="navelem"><a class="el" href="dir_f8dd052306249b39aa0ee62b0360b1dd.html">internal</a></li><li class="navelem"><b>serialization_utils.h</b></li>
+    <li class="footer">Generated on Fri Nov 3 2017 15:07:05 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

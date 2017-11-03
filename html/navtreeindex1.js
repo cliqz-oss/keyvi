@@ -1,6 +1,7 @@
 var NAVTREEINDEX1 =
 {
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#aa3bc204424efaa8bce7a9366340977ed":[10,0,0,1,2,0,1,6],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#aa030fa59145b9d5cbbbeee4e3c491a6a":[10,0,0,1,2,0,1,10],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#aa3bc204424efaa8bce7a9366340977ed":[10,0,0,1,2,0,1,7],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#ab9d08d55b4024c8e80972efd864b038f":[10,0,0,1,2,0,1,3],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#abf3381016dccb049fdc654352d3b723d":[10,0,0,1,2,0,1,2],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store.html#ade21de445706076345bff1c7ee41c8dd":[10,0,0,1,2,0,1,1],
@@ -9,15 +10,16 @@ var NAVTREEINDEX1 =
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#a8aa996ce1c23ed4850eabe49ae91847a":[10,0,0,1,2,0,2,1],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_inner_weights_value_store_reader.html#aba4a1433e151728e5b64511d357c7391":[10,0,0,1,2,0,2,2],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html":[10,0,0,1,2,0,3],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#a12019c7b84e442291696a70ecfe51281":[10,0,0,1,2,0,3,4],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#a4a83b8c7be572d3510393163904525a9":[10,0,0,1,2,0,3,7],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#a12019c7b84e442291696a70ecfe51281":[10,0,0,1,2,0,3,5],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#a4a83b8c7be572d3510393163904525a9":[10,0,0,1,2,0,3,8],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#a522c2f0085071cb5cbb913a5c69ec071":[10,0,0,1,2,0,3,4],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#a5c3ff398bc835d0f2a97b8210c8d82cb":[10,0,0,1,2,0,3,0],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#a6c54448a59a1b3aa3708f9390fcc2ba2":[10,0,0,1,2,0,3,2],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#a9a4fa429770e2fbf2c41d144b57e62ef":[10,0,0,1,2,0,3,1],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#aa030fa59145b9d5cbbbeee4e3c491a6a":[10,0,0,1,2,0,3,8],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#aa030fa59145b9d5cbbbeee4e3c491a6a":[10,0,0,1,2,0,3,9],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#aa6d4ded8b81508b0528423f63022f13a":[10,0,0,1,2,0,3,3],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#ad470a653b329a939972ef766d6f1b898":[10,0,0,1,2,0,3,5],
-"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#ad90ed5c5ba9e6fe2d54a81c1b0f499f9":[10,0,0,1,2,0,3,6],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#ad470a653b329a939972ef766d6f1b898":[10,0,0,1,2,0,3,6],
+"classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store.html#ad90ed5c5ba9e6fe2d54a81c1b0f499f9":[10,0,0,1,2,0,3,7],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html":[10,0,0,1,2,0,4],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html#a73af403b79699dcd8b75c7ffb749e758":[10,0,0,1,2,0,4,0],
 "classkeyvi_1_1dictionary_1_1fsa_1_1internal_1_1_int_value_store_reader.html#a7d6028216f9d83bdd03ce602f66c8a85":[10,0,0,1,2,0,4,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html#a23c92b821f26364ef63b43ee8fd091d2":[10,0,0,2,0,0,3],
 "classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html#a3e969ff73850d9b8d8de7cdc6b7cd874":[10,0,0,2,0,0,2],
 "classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html#a77c5b9761226afe457a3b64793b7e02b":[10,0,0,2,0,0,1],
-"classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html#acebaa374e0209819ff0fd4c3498119e6":[10,0,0,2,0,0,0],
-"classkeyvi_1_1transform_1_1_fsa_transform.html":[10,0,0,3,0],
-"classkeyvi_1_1transform_1_1_fsa_transform.html#a7c707afc5f6c047c25d6a16df246dad7":[10,0,0,3,0,2]
+"classkeyvi_1_1stringdistance_1_1costfunctions_1_1_damerau___levenshtein.html#acebaa374e0209819ff0fd4c3498119e6":[10,0,0,2,0,0,0]
 };

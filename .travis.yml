@@ -64,7 +64,7 @@ matrix:
 
 before_install:
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then ./travis/setup_osx.sh ; fi
-  - ./travis/setup_pyenv.sh
+  - source ./travis/setup_pyenv.sh
 
 install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi

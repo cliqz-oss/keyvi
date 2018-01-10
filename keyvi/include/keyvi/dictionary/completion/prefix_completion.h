@@ -212,6 +212,13 @@ final {
                     continue;
                   }
 
+                  if (data->traverser.GetDepth() >= query_length  + max_edit_distance) {
+                    data->traverser.Prune();
+                    data->traverser++;
+                    continue;
+                  }
+
+
                   if (data->traverser.IsFinalState()) {
                     if (query_length < data->traverser.GetDepth() || data->metric.GetScore() <= max_edit_distance) {
 

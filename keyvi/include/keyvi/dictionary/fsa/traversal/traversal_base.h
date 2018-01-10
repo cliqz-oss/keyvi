@@ -117,7 +117,7 @@ struct TraversalStack {
     traversal_states.resize(20);
   }
 
-  TraversalStack(TraversalPayload<TransitionT>& payload):traversal_states(), traversal_stack_payload(payload) {
+  TraversalStack(const TraversalPayload<TransitionT>& payload):traversal_states(), traversal_stack_payload(payload) {
     traversal_states.resize(20);
   }
 

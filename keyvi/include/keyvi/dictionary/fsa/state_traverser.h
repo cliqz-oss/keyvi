@@ -42,37 +42,27 @@ final {
     StateTraverser(automata_t f) :StateTraverser (f, f->GetStartState()) {
     }
 
-    StateTraverser(automata_t f, uint64_t start_state, traversal::TraversalPayload<TransitionT>& payload, bool advance = true)
-    : fsa_(f),
-          current_weight_(0),
-          current_label_(0),
-          at_end_(false),
-          stack_(payload) {
-      current_state_ = start_state;
+    StateTraverser(automata_t f, uint64_t start_state, const traversal::TraversalPayload<TransitionT>& payload,
+                   bool advance = true)
+            : fsa_(f),
+              current_state_(start_state),
+              current_weight_(0),
+              current_label_(0),
+              at_end_(false),
+              stack_(payload) {
+        if (0 == current_state_) {
+            at_end_ = true;
+        }
+        TRACE("StateTraverser starting with Start state %d", current_state_);
+        f->GetOutGoingTransitions(start_state, stack_.GetStates(), stack_.traversal_stack_payload);
 
-      TRACE("StateTraverser starting with Start state %d", current_state_);
-      f->GetOutGoingTransitions(start_state, stack_.GetStates(), stack_.traversal_stack_payload);
-
-      if (advance){
-        this->operator ++(0);
-      }
+        if (advance) {
+            this->operator++(0);
+        }
     }
 
     StateTraverser(automata_t f, uint64_t start_state, bool advance = true)
-        : fsa_(f),
-          current_weight_(0),
-          current_label_(0),
-          at_end_(false),
-          stack_() {
-      current_state_ = start_state;
-
-      TRACE("StateTraverser starting with Start state %d", current_state_);
-      f->GetOutGoingTransitions(start_state, stack_.GetStates(), stack_.traversal_stack_payload);
-
-      if (advance){
-        this->operator ++(0);
-      }
-    }
+            : StateTraverser(f, start_state, traversal::TraversalPayload<TransitionT>(), advance) {}
 
     StateTraverser() = delete;
     StateTraverser& operator=(StateTraverser const&) = delete;
@@ -129,7 +119,7 @@ final {
     void operator++(int) {
       TRACE("statetraverser++");
       // ignore cases where we are already at the end
-      if (current_state_ == 0) {
+      if (at_end_) {
         TRACE("at the end");
         return;
       }

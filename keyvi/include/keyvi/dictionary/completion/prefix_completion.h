@@ -33,6 +33,7 @@
 #include "dictionary/fsa/traverser_types.h"
 #include "dictionary/fsa/bounded_weighted_state_traverser.h"
 #include "dictionary/fsa/codepoint_state_traverser.h"
+#include "dictionary/util/utf8_utils.h"
 #include "dictionary/util/trace.h"
 
 namespace keyvi {
@@ -139,9 +140,15 @@ final {
 
       uint64_t state = fsa_->GetStartState();
       const size_t query_length = query.size();
-      size_t depth = 0;
-      const size_t minimum_exact_prefix = 2;
-      size_t exact_prefix = std::min(query_length, minimum_exact_prefix);
+      const size_t minimum_exact_prefix_in_chars = 2;
+
+      size_t exact_prefix_in_bytes = 0;
+      size_t char_index = 0;
+      while (char_index < minimum_exact_prefix_in_chars && exact_prefix_in_bytes < query_length) {
+          exact_prefix_in_bytes += util::Utf8Utils::GetCharLength(query[exact_prefix_in_bytes]);
+          ++char_index;
+      }
+
       std::vector<int> codepoints;
 
       utf8::unchecked::utf8to32(query.c_str(), query.c_str() + query_length,
@@ -150,7 +157,8 @@ final {
       stringdistance::Levenshtein metric(codepoints, 20, 3);
 
       // match exact
-      while (state != 0 && depth != exact_prefix) {
+      size_t depth = 0;
+      while (state != 0 && depth != exact_prefix_in_bytes) {
         state = fsa_->TryWalkTransition(state, query[depth]);
         metric.Put(codepoints[depth], depth);
         ++depth;
@@ -187,14 +195,14 @@ final {
         }
 
         auto tfunc =
-            [data, query_length, max_edit_distance, exact_prefix] () {
+            [data, query_length, max_edit_distance, exact_prefix_in_bytes] () {
               TRACE("prefix completion callback called");
               for (;;) {
                 if (data->traverser) {
 
-                  TRACE("Current depth %d", exact_prefix + data->traverser.GetDepth() -1);
+                  TRACE("Current depth %d", exact_prefix_in_bytes + data->traverser.GetDepth() -1);
 
-                  int score = data->metric.Put(data->traverser.GetStateLabel(), exact_prefix + data->traverser.GetDepth() - 1);
+                  int score = data->metric.Put(data->traverser.GetStateLabel(), exact_prefix_in_bytes + data->traverser.GetDepth() - 1);
 
                   TRACE("Intermediate score %d", score);
 
@@ -207,7 +215,7 @@ final {
                   if (data->traverser.IsFinalState()) {
                     if (query_length < data->traverser.GetDepth() || data->metric.GetScore() <= max_edit_distance) {
 
-                      TRACE("found final state at depth %d %s", exact_prefix + data->traverser.GetDepth(), data->metric.GetCandidate().c_str());
+                      TRACE("found final state at depth %d %s", exact_prefix_in_bytes + data->traverser.GetDepth(), data->metric.GetCandidate().c_str());
                       Match m(0,
                           data->traverser.GetDepth() + query_length,
                           data->metric.GetCandidate(),

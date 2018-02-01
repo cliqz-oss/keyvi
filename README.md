@@ -9,6 +9,11 @@
 [![PyPIVersion](https://img.shields.io/pypi/v/pykeyvi.svg)](https://pypi.python.org/pypi/pykeyvi/)
 [![Coveralls](https://coveralls.io/repos/cliqz-oss/keyvi/badge.svg?branch=master&service=github)](https://coveralls.io/github/cliqz-oss/keyvi?branch=master)
 
+## DEPRECATED
+Hey there, fellow Keyvi lovers! This is to inform you that Keyvi has found a new home, and will continue to be developed under the fork at https://github.com/KeyviDev/keyvi. Please go there to get the latest and greatest keyvi packed with new, exciting features and bugfixes.
+
+This repo is kept for historical reasons, and will not be actively maintained.
+
 ##
 ![Keyvi](/doc/images/keyvi-small.png)
 
